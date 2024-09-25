@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignupUserPage extends StatelessWidget {
+  const SignupUserPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +14,20 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const AppTextFieldWidget(hintText: 'First Name'),
+            const AppTextFieldWidget(hintText: 'last Name'),
             const AppTextFieldWidget(hintText: 'Email'),
-            const AppTextFieldWidget(hintText: 'Password'),
+            const AppTextFieldWidget(
+              hintText: 'Password',
+              obscureText: true,
+            ),
+            const AppTextFieldWidget(
+                hintText: 'Confirm Password', obscureText: true),
             const SizedBox(height: 32),
             SizedBox(
                 width: double.infinity,
-                child: AppOutlineButton(buttonText: 'Login', onPressed: () {})),
-            const SizedBox(height: 8),
-            SizedBox(
-                width: double.infinity,
                 child:
-                    AppOutlineButton(buttonText: 'Sign Up', onPressed: () {})),
+                    AppOutlineButton(buttonText: 'Continue', onPressed: () {})),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
+import 'package:malawi_ride_share_app/pages/signup_user_page/signup_user_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: const SignupUserPage(),
     );
   }
 }

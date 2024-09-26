@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapViewExample extends StatefulWidget {
+  const MapViewExample({super.key});
+
   @override
   _MapViewExampleState createState() => _MapViewExampleState();
 }
@@ -9,7 +11,7 @@ class MapViewExample extends StatefulWidget {
 class _MapViewExampleState extends State<MapViewExample> {
   GoogleMapController? _controller;
 
-  final CameraPosition _initialPosition = CameraPosition(
+  final CameraPosition _initialPosition = const CameraPosition(
     target: LatLng(37.7749, -122.4194), // Coordinates for San Francisco
     zoom: 12,
   );
@@ -18,7 +20,7 @@ class _MapViewExampleState extends State<MapViewExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google Map View'),
+        title: const Text('Google Map View'),
       ),
       body: GoogleMap(
         initialCameraPosition: _initialPosition,

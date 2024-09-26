@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/pages/home_page/home_page.dart';
 import 'package:malawi_ride_share_app/pages/signup_driver_page/signup_driver_page.dart';
 import 'package:malawi_ride_share_app/pages/signup_user_driver_page.dart/signup_user_driver_page.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignupDriverPage(),
+      home: const HomePage(),
     );
   }
 }

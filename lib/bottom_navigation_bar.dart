@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/pages/HomePage.dart';
 import 'package:malawi_ride_share_app/pages/account_page/account_page.dart';
 import 'package:malawi_ride_share_app/pages/activity_page/activity_page.dart';
+import 'package:malawi_ride_share_app/pages/home_page/home_page.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   const AppBottomNavigationBar({super.key});

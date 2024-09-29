@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:location/location.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -11,34 +13,132 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: MapViewExample(),
+      body: const MapViewExample(),
     );
   }
 }
 
 class MapViewExample extends StatefulWidget {
+  const MapViewExample({super.key});
+
   @override
   _MapViewExampleState createState() => _MapViewExampleState();
 }
 
 class _MapViewExampleState extends State<MapViewExample> {
-  GoogleMapController? _controller;
+  final Location locationController = Location();
+  LatLng? _currentLocation;
+  static const _googlePlex = LatLng(37.4223, -122.0848);
+  static const _mountainViewLocation = LatLng(37.3861, -122.0839);
+  final Map<PolylineId, Polyline> _polylines = {};
 
-  final CameraPosition _initialPosition = CameraPosition(
-    target: LatLng(37.7749, -122.4194), // Coordinates for San Francisco
-    zoom: 12,
-  );
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) async => await initializeMap());
+  }
+
+  Future<void> initializeMap() async {
+    await fetchLocationUpdates();
+    final coordinates = await fetchPolylinePoints();
+    generatePolyLineFormPoints(coordinates);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-      initialCameraPosition: _initialPosition,
-      onMapCreated: (GoogleMapController controller) {
-        _controller = controller;
-      },
-      mapType: MapType.normal,
-      myLocationEnabled: true, // Enable to show user's current location
-      zoomControlsEnabled: false,
+    return _currentLocation == null
+        ? const Center(
+            child: CircularProgressIndicator(),
+          )
+        : GoogleMap(
+            initialCameraPosition: const CameraPosition(
+              target:
+                  LatLng(37.4223, -122.0848), // Coordinates for San Francisco
+              zoom: 13,
+            ),
+            markers: {
+              Marker(
+                  markerId: const MarkerId('currentLcoation'),
+                  position: _currentLocation!,
+                  icon: BitmapDescriptor.defaultMarker),
+              const Marker(
+                  markerId: MarkerId('sourceLocation'),
+                  position: _googlePlex,
+                  icon: BitmapDescriptor.defaultMarker),
+              const Marker(
+                  markerId: MarkerId('destinationLocation'),
+                  position: _mountainViewLocation,
+                  icon: BitmapDescriptor.defaultMarker),
+            },
+            polylines: Set<Polyline>.of(_polylines.values),
+          );
+  }
+
+  Future<void> fetchLocationUpdates() async {
+    // Fetch location updates from the server
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
+
+    serviceEnabled = await locationController.serviceEnabled();
+
+    // Check if GPS is enabled
+    if (serviceEnabled) {
+      serviceEnabled = await locationController.requestService();
+    } else {
+      return;
+    }
+
+    permissionGranted = await locationController.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await locationController.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    locationController.onLocationChanged.listen((LocationData currentLocation) {
+      // Use the location data
+      if (currentLocation.latitude != null &&
+          currentLocation.longitude != null) {
+        setState(() {
+          _currentLocation =
+              LatLng(currentLocation.latitude!, currentLocation.longitude!);
+        });
+      }
+    });
+  }
+
+  Future<List<LatLng>> fetchPolylinePoints() async {
+    final polyLinePoints = PolylinePoints();
+    PolylineRequest request = PolylineRequest(
+        origin: PointLatLng(_googlePlex.latitude, _googlePlex.longitude),
+        destination: PointLatLng(
+            _mountainViewLocation.latitude, _mountainViewLocation.longitude),
+        mode: TravelMode.driving);
+    final result = await polyLinePoints.getRouteBetweenCoordinates(
+        request: request, googleApiKey: "");
+    if (result.points.isNotEmpty) {
+      return result.points.map((e) => LatLng(e.latitude, e.longitude)).toList();
+    } else {
+      debugPrint(result.errorMessage);
+      print("Failed---p");
+      return [];
+    }
+  }
+
+  Future<void> generatePolyLineFormPoints(
+      List<LatLng> polylineCoordinates) async {
+    const id = PolylineId('polyline');
+    final polyline = Polyline(
+      polylineId: id,
+      color: Colors.red,
+      points: polylineCoordinates,
+      width: 5,
     );
+
+    setState(() {
+      _polylines[id] = polyline;
+    });
   }
 }

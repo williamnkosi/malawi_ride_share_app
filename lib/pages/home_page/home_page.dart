@@ -3,6 +3,7 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -117,7 +118,7 @@ class _MapViewExampleState extends State<MapViewExample> {
             _mountainViewLocation.latitude, _mountainViewLocation.longitude),
         mode: TravelMode.driving);
     final result = await polyLinePoints.getRouteBetweenCoordinates(
-        request: request, googleApiKey: "");
+        request: request, googleApiKey: dotenv.env['google_maps_apikey']);
     if (result.points.isNotEmpty) {
       return result.points.map((e) => LatLng(e.latitude, e.longitude)).toList();
     } else {

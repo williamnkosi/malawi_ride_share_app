@@ -1,10 +1,8 @@
 part of 'app_bloc.dart';
 
-sealed class AppState extends Equatable {
-  const AppState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class AppState with _$AppState {
+  const factory AppState(
+      {@Default(false) bool isLocationPremissionEnabled,
+      @Default(false) bool isLoggedIn}) = _AppState;
 }
-
-final class AppInitial extends AppState {}

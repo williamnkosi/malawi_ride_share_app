@@ -122,7 +122,7 @@ class _MapViewExampleState extends State<MapViewExample> {
       return result.points.map((e) => LatLng(e.latitude, e.longitude)).toList();
     } else {
       debugPrint(result.errorMessage);
-      print("Failed---p");
+
       return [];
     }
   }

@@ -44,6 +44,7 @@ dependencies:
   hydrated_bloc: ^9.1.5
   freezed: ^2.5.7
   equatable: ^2.0.5
+  bloc: ^8.1.4
 
 dev_dependencies:
   flutter_test:

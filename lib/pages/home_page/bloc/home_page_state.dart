@@ -1,10 +1,8 @@
 part of 'home_page_bloc.dart';
 
-sealed class HomePageState extends Equatable {
-  const HomePageState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class HomePageState with _$HomePageState {
+  const factory HomePageState(
+      {Location? currentLocation,
+      @Default(false) bool isPermissionEnabled}) = _HomePageState;
 }
-
-final class HomePageInitial extends HomePageState {}

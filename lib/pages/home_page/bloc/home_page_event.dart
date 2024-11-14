@@ -6,3 +6,10 @@ sealed class HomePageEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class Initial extends HomePageEvent {
+  const Initial();
+
+  @override
+  List<Object> get props => [];
+}

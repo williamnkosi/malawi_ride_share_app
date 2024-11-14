@@ -45,6 +45,7 @@ dependencies:
   freezed: ^2.5.7
   equatable: ^2.0.5
   bloc: ^8.1.4
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:

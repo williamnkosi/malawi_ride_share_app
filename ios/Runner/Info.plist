@@ -2,9 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>	
-	<string>We need your location to show it on the map.</string>	
-	<key>NSLocationWhenInUseUsageDescription</key>	
+	<key>API_KEY</key>
+	<string>$(API_KEY)</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to show it on the map.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to show it on the map.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -49,6 +51,5 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	
 </dict>
 </plist>

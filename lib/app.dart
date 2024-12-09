@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/bloc/app_bloc.dart';
+import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
+import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/bottom_navigation_bar.dart';
 
@@ -14,7 +15,11 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LocationBloc()),
-        BlocProvider(create: (context) => AppBloc()..add(const StartUp()))
+        BlocProvider(create: (context) => AppBloc()),
+        BlocProvider(
+          create: (context) => AuthBloc()..add(const AuthBlocStartUp()),
+          lazy: false,
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

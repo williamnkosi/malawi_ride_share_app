@@ -7,16 +7,4 @@ sealed class AppEvent extends Equatable {
   List<Object> get props => [];
 }
 
-final class StartUp extends AppEvent {
-  const StartUp();
-}
-
-final class Login extends AppEvent {
-  const Login();
-}
-
-final class SignOut extends AppEvent {
-  const SignOut();
-}
-
 final class RequestLocationPermission extends AppEvent {}

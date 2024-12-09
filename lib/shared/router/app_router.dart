@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:malawi_ride_share_app/bottom_navigation_bar.dart';
-import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
+import 'package:malawi_ride_share_app/shared/router/router.dart';
 
 class AppRouter extends StatelessWidget {
   final UserCredential? userCredential;
@@ -25,16 +24,7 @@ class AppRouter extends StatelessWidget {
         }
         return null;
       },
-      routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const AppBottomNavigationBar(),
-        ),
-        GoRoute(
-          path: '/login',
-          builder: (context, state) => const LoginPage(),
-        ),
-      ],
+      routes: appRoutes,
     );
 
     return MaterialApp.router(

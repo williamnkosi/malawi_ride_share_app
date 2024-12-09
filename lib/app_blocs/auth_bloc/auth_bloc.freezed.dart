@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthState {
-  bool get isLoggedIn => throw _privateConstructorUsedError;
+  UserCredential? get user => throw _privateConstructorUsedError;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -30,7 +30,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool isLoggedIn});
+  $Res call({UserCredential? user});
 }
 
 /// @nodoc
@@ -48,13 +48,13 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoggedIn = null,
+    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoggedIn: null == isLoggedIn
-          ? _value.isLoggedIn
-          : isLoggedIn // ignore: cast_nullable_to_non_nullable
-              as bool,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserCredential?,
     ) as $Val);
   }
 }
@@ -67,7 +67,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoggedIn});
+  $Res call({UserCredential? user});
 }
 
 /// @nodoc
@@ -83,13 +83,13 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoggedIn = null,
+    Object? user = freezed,
   }) {
     return _then(_$AuthStateImpl(
-      isLoggedIn: null == isLoggedIn
-          ? _value.isLoggedIn
-          : isLoggedIn // ignore: cast_nullable_to_non_nullable
-              as bool,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserCredential?,
     ));
   }
 }
@@ -97,15 +97,14 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthStateImpl implements _AuthState {
-  const _$AuthStateImpl({this.isLoggedIn = false});
+  const _$AuthStateImpl({this.user});
 
   @override
-  @JsonKey()
-  final bool isLoggedIn;
+  final UserCredential? user;
 
   @override
   String toString() {
-    return 'AuthState(isLoggedIn: $isLoggedIn)';
+    return 'AuthState(user: $user)';
   }
 
   @override
@@ -113,12 +112,11 @@ class _$AuthStateImpl implements _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
-            (identical(other.isLoggedIn, isLoggedIn) ||
-                other.isLoggedIn == isLoggedIn));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoggedIn);
+  int get hashCode => Object.hash(runtimeType, user);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -130,10 +128,10 @@ class _$AuthStateImpl implements _AuthState {
 }
 
 abstract class _AuthState implements AuthState {
-  const factory _AuthState({final bool isLoggedIn}) = _$AuthStateImpl;
+  const factory _AuthState({final UserCredential? user}) = _$AuthStateImpl;
 
   @override
-  bool get isLoggedIn;
+  UserCredential? get user;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.

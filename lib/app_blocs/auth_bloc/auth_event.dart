@@ -15,6 +15,10 @@ final class AuthBlocLogin extends AuthEvent {
   const AuthBlocLogin();
 }
 
+final class AuthBlocSignUp extends AuthEvent {
+  const AuthBlocSignUp();
+}
+
 final class AuthBlocSignOut extends AuthEvent {
   const AuthBlocSignOut();
 }

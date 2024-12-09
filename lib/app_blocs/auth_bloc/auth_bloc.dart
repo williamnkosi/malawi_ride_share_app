@@ -15,6 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthState()) {
     on<AuthBlocStartUp>(_onStartUp);
     on<AuthBlocLogin>(_onLogin);
+    on<AuthBlocSignUp>(_onsignUp);
     on<AuthBlocSignOut>(_onSignOut);
   }
 

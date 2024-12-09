@@ -4,6 +4,7 @@ import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/bottom_navigation_bar.dart';
+import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
 
 class App extends StatelessWidget {
   final String flavor;
@@ -27,7 +28,15 @@ class App extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const AppBottomNavigationBar(),
+        home: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            if (state.user != null) {
+              return const AppBottomNavigationBar();
+            } else {
+              return const LoginPage();
+            }
+          },
+        ),
       ),
     );
   }

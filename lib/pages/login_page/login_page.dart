@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
@@ -23,8 +24,11 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 8),
             SizedBox(
                 width: double.infinity,
-                child:
-                    AppOutlineButton(buttonText: 'Sign Up', onPressed: () {})),
+                child: AppOutlineButton(
+                    buttonText: 'Sign Up',
+                    onPressed: () {
+                      context.push('/signUp');
+                    })),
           ],
         ),
       ),

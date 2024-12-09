@@ -5,22 +5,28 @@ import 'package:malawi_ride_share_app/shared/router/router.dart';
 
 class AppRouter extends StatelessWidget {
   final UserCredential? userCredential;
-  const AppRouter({
+  AppRouter({
     super.key,
     this.userCredential,
   });
 
+  final List<String> publicRoutes = [
+    '/login',
+    '/signUp',
+  ];
+
   @override
   Widget build(BuildContext context) {
     final appRouter = GoRouter(
-      initialLocation: '/',
+      initialLocation: '/login',
       redirect: (context, state) {
         // Redirect based on authentication state
-        if (userCredential == null && state.matchedLocation != '/login') {
+        if (userCredential == null &&
+            !publicRoutes.contains(state.matchedLocation)) {
           return '/login';
         } else if (userCredential != null &&
             state.matchedLocation == '/login') {
-          return '/';
+          return '/home';
         }
         return null;
       },

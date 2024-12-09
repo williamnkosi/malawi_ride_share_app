@@ -20,9 +20,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   _onStartUp(event, emit) async {
-    await Firebase.initializeApp(
+    app = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+
+    auth = FirebaseAuth.instanceFor(app: app);
   }
 
   _onLogin(event, emit) {}

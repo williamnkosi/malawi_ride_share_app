@@ -12,8 +12,14 @@ import FirebaseCore
   ) -> Bool {
       
       FirebaseApp.configure()
-    GMSServices.provideAPIKey("")
     GeneratedPluginRegistrant.register(with: self)
+      if let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
+        GMSServices.provideAPIKey(apiKey)
+        GeneratedPluginRegistrant.register(with: self)
+          
+      } else {
+          print("API Key not found in Info.plist")
+      }
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

@@ -45,3 +45,6 @@ app.*.map.json
 
 google-services.json
 
+*.xcconfig
+
+GoogleService-Info.plist

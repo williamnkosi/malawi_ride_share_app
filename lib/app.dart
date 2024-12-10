@@ -18,15 +18,14 @@ class App extends StatelessWidget {
         BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(create: (context) => AppBloc()),
         BlocProvider(
-          create: (context) => AuthBloc()..add(const AuthEvent.initial()),
+          create: (context) =>
+              AuthBloc()..add(const AuthEvent.authEventInitial()),
           lazy: false,
         )
       ],
       child: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
-          return AppRouter(
-            userCredential: state.user,
-          );
+          return AppRouter();
         },
       ),
     );

@@ -27,6 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
 
     auth = FirebaseAuth.instanceFor(app: app);
+    emit(const AuthState.unauthenticated());
   }
 
   _onLogin(event, emit) {}

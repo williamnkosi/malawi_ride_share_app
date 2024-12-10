@@ -23,9 +23,9 @@ class AuthSignupPage extends StatelessWidget {
                 FormBuilderTextField(
                   name: 'Email',
                   decoration: const InputDecoration(labelText: 'Email'),
-                  obscureText: true,
                   validator: FormBuilderValidators.compose([
                     FormBuilderValidators.required(),
+                    FormBuilderValidators.email(),
                   ]),
                 ),
                 FormBuilderTextField(
@@ -34,12 +34,24 @@ class AuthSignupPage extends StatelessWidget {
                   obscureText: true,
                   validator: FormBuilderValidators.compose([
                     FormBuilderValidators.required(),
+                    FormBuilderValidators.minLength(4),
                   ]),
                 ),
                 SizedBox(
                     width: double.infinity,
                     child: AppOutlineButton(
-                        buttonText: 'Sign Up', onPressed: () {})),
+                        buttonText: 'Sign Up',
+                        onPressed: () {
+                          // Validate the form
+                          if (_formKey.currentState?.validate() ?? false) {
+                            // If valid, save the form state and access the values
+                            _formKey.currentState?.save();
+                            final formData = _formKey.currentState?.value;
+                            print("Form is valid! Data: $formData");
+                          } else {
+                            print("Form is invalid!");
+                          }
+                        })),
               ],
             ),
           ),

@@ -18,7 +18,7 @@ class App extends StatelessWidget {
         BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(create: (context) => AppBloc()),
         BlocProvider(
-          create: (context) => AuthBloc()..add(const AuthBlocStartUp()),
+          create: (context) => AuthBloc()..add(const AuthEvent.initial()),
           lazy: false,
         )
       ],

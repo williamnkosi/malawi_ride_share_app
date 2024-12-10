@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/bottom_navigation_bar.dart';
 import 'package:malawi_ride_share_app/pages/auth_signup_page/auth_signup_page.dart';
 import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
 import 'package:malawi_ride_share_app/shared/router/router.dart';
@@ -35,7 +36,7 @@ class AppRouter extends StatelessWidget {
                 if (publicRoutes.contains(routerState.matchedLocation)) {
                   return null;
                 }
-                return AppRoutes.loginPage;
+                return AppRoutes.homePage;
               },
               error: (_) {}, // Navigate to the login page
             );
@@ -44,7 +45,7 @@ class AppRouter extends StatelessWidget {
             GoRoute(
               path: AppRoutes.homePage,
               builder: (context, state) =>
-                  const BottomAppBar(), // Shown during the initial state
+                  const AppBottomNavigationBar(), // Shown during the initial state
             ),
             GoRoute(
               path: AppRoutes.loginPage,

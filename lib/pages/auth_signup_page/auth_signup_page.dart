@@ -50,7 +50,7 @@ class AuthSignupPage extends StatelessWidget {
                             _formKey.currentState?.save();
                             final formData = _formKey.currentState?.value;
                             context.read<AuthBloc>().add(AuthEventSignUp(
-                                email: formData!['email'],
+                                email: formData!['Email'],
                                 password: formData['password']));
                             print("Form is valid! Data: $formData");
                           } else {

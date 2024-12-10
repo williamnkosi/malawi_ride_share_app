@@ -1,28 +1,47 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
-import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
 class AuthSignupPage extends StatelessWidget {
-  const AuthSignupPage({super.key});
+  AuthSignupPage({super.key});
+
+  final _formKey = GlobalKey<FormBuilderState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const AppTextFieldWidget(hintText: 'Email'),
-              const AppTextFieldWidget(hintText: 'Password'),
-              SizedBox(
-                  width: double.infinity,
-                  child: AppOutlineButton(
-                      buttonText: 'Continue', onPressed: () {})),
-            ],
+      body: FormBuilder(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FormBuilderTextField(
+                  name: 'Email',
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  obscureText: true,
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                  ]),
+                ),
+                FormBuilderTextField(
+                  name: 'password',
+                  decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                  ]),
+                ),
+                SizedBox(
+                    width: double.infinity,
+                    child: AppOutlineButton(
+                        buttonText: 'Sign Up', onPressed: () {})),
+              ],
+            ),
           ),
         ),
       ),

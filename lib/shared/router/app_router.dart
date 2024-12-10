@@ -11,14 +11,14 @@ class AppRouter extends StatelessWidget {
   });
 
   final List<String> publicRoutes = [
-    '/login',
-    '/signUp',
+    AppRoutes.loginPage,
+    AppRoutes.authSignUpPage,
   ];
 
   @override
   Widget build(BuildContext context) {
     final appRouter = GoRouter(
-      initialLocation: '/login',
+      initialLocation: AppRoutes.loginPage,
       redirect: (context, state) {
         // Redirect based on authentication state
         if (userCredential == null &&

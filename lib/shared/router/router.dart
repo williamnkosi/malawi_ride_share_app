@@ -5,25 +5,21 @@ import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
 
 List<RouteBase> appRoutes = [
   GoRoute(
-    path: Routes.loginPage.route,
+    path: AppRoutes.loginPage,
     builder: (context, state) => const LoginPage(),
   ),
   GoRoute(
-    path: Routes.authSignUp.route,
-    builder: (context, state) => const AuthSignupPage(),
+    path: AppRoutes.authSignUpPage,
+    builder: (context, state) => AuthSignupPage(),
   ),
   GoRoute(
-    path: Routes.home.route,
+    path: AppRoutes.homePage,
     builder: (context, state) => const AppBottomNavigationBar(),
   ),
 ];
 
-enum Routes {
-  loginPage('/LoginPage'),
-  authSignUp('/AuthSignUpPage'),
-  home('/Home'),
-  ;
-
-  final String route;
-  const Routes(this.route);
+class AppRoutes {
+  static const String loginPage = '/LoginPage';
+  static const String authSignUpPage = '/AuthSignUpPage';
+  static const String homePage = '/homePage';
 }

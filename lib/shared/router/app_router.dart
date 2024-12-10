@@ -50,7 +50,7 @@ class AppRouter extends StatelessWidget {
             GoRoute(
               path: AppRoutes.loginPage,
               builder: (context, state) =>
-                  const LoginPage(), // Authenticated experience
+                  LoginPage(), // Authenticated experience
             ),
             GoRoute(
               path: AppRoutes.authSignUpPage,

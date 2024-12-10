@@ -30,7 +30,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthState.unauthenticated());
   }
 
-  _onLogin(event, emit) {}
+  _onLogin(AuthEventLogin event, emit) async {
+    final email = event.email;
+    final password = event.password;
+    try {
+      emit(const AuthState.loading());
+      UserCredential userCredential = await _authRepository
+          .loginInUserWithEmailAndPassword(email: email, password: password);
+      emit(AuthState.authenticated(userCredential));
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
+
   _onsignUp(AuthEventSignUp event, emit) async {
     final email = event.email;
     final password = event.password;
@@ -44,5 +56,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  _onSignOut(event, emit) {}
+  _onSignOut(event, emit) {
+    try {
+      emit(const AuthState.loading());
+      _authRepository.signOutUser();
+      emit(const AuthState.unauthenticated());
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
 }

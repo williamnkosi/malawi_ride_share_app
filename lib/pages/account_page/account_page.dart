@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 class AccountPage extends StatelessWidget {
@@ -31,19 +33,22 @@ class AccountPage extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView(children: [
-            ListTile(
-              title: const Text('Settings'),
+            const ListTile(
+              title: Text('Settings'),
             ),
-            ListTile(
-              title: const Text('Account Information'),
+            const ListTile(
+              title: Text('Account Information'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             SizedBox(
                 width: double.infinity,
-                child:
-                    AppOutlineButton(buttonText: "Sign Out", onPressed: () {})),
+                child: AppOutlineButton(
+                    buttonText: "Sign Out",
+                    onPressed: () {
+                      context.read<AuthBloc>().add(const AuthEventSignOut());
+                    })),
           ]),
         ));
   }

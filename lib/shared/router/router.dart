@@ -6,7 +6,7 @@ import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
 List<RouteBase> appRoutes = [
   GoRoute(
     path: AppRoutes.loginPage,
-    builder: (context, state) => const LoginPage(),
+    builder: (context, state) => LoginPage(),
   ),
   GoRoute(
     path: AppRoutes.authSignUpPage,

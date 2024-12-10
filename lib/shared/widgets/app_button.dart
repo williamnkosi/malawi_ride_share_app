@@ -13,9 +13,7 @@ class AppOutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () {
-        // Your onPressed action
-      },
+      onPressed: () => onPressed(),
       style: OutlinedButton.styleFrom(
         foregroundColor: Colors.black,
         side: const BorderSide(color: Colors.black), // Black text color

@@ -43,6 +43,8 @@ app.*.map.json
 /android/app/release
 .env*
 
+google-services.json
+
 *.xcconfig
 
 GoogleService-Info.plist

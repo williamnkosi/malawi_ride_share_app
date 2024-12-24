@@ -53,6 +53,8 @@ dependencies:
   form_builder_validators: ^11.0.0
   get_it: ^8.0.2
   web_socket_client: ^0.1.5
+  http: ^1.2.2
+  web_socket: ^0.1.6
 
 dev_dependencies:
   flutter_test:

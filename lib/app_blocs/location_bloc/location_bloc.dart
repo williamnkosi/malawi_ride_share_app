@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/rendering.dart';
@@ -7,6 +8,7 @@ import 'package:location/location.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:equatable/equatable.dart';
+import 'package:web_socket_client/web_socket_client.dart';
 
 part 'location_event.dart';
 part 'location_state.dart';
@@ -42,37 +44,45 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         }
       }
       LocationData _locationData = await location.getLocation();
- var locationStream =location.onLocationChanged.listen((LocationData currentLocation) {
-        add(LocationEvent.locationEventTrackLocation(
-            location:
-                LatLng(currentLocation.latitude!, currentLocation.longitude!)));
-      });
+
       emit(state.copyWith(
-        locationStream: locationStream,
           isLocationPremissionEnabled: true,
           currentLcoation: _locationData,
           coordinates:
               LatLng(_locationData.latitude!, _locationData.longitude!)));
-
-     
-      
     } catch (e) {}
   }
 
   _onTrackLocation(LocationEventTrackLocation event, emit) {
+    print(event.location);
     emit(state.copyWith(coordinates: event.location));
   }
 
-
   _onStartTracking(LocationEventStartTracking event, emit) {
-     Location location = Location();
-     var locationStream =location.onLocationChanged.listen((LocationData currentLocation) {
+    try {
+      final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
+      final timeout = Duration(seconds: 10);
+      final header = {"Authorization": "testing", "DriverId": "1"};
+      var _socket = WebSocket(uri, headers: header, timeout: timeout);
+      Location location = Location();
+      var locationStream =
+          location.onLocationChanged.listen((LocationData currentLocation) {
+        Map<String, dynamic> locationData = {
+          'Latitude': currentLocation.latitude,
+          'Longitude': currentLocation.longitude,
+        };
+
+        var data = jsonEncode(locationData);
+        _socket.send(data);
         add(LocationEvent.locationEventTrackLocation(
             location:
                 LatLng(currentLocation.latitude!, currentLocation.longitude!)));
       });
-    emit(state.copyWith(locationStream: locationStream));
 
+      emit(state.copyWith(locationStream: locationStream));
+    } catch (e) {
+      print(e);
+    }
   }
 
   _onStopTracking(LocationEventStopTracking event, emit) {

@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(
-          create: (context) => AppBloc()..add(const AppEvent.appEventInitial()),
+          create: (context) => AppBloc(),
           lazy: false,
         ),
         BlocProvider(

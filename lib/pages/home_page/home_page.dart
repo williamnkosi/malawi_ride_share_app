@@ -15,8 +15,7 @@ class HomePage extends StatelessWidget {
           create: (context) => HomePageBloc(),
         ),
         BlocProvider(
-          create: (context) => LocationBloc()..add( const LocationEvent.locationEventInitial()),
-          lazy: false,
+          create: (context) => LocationBloc()..add(const LocationEventInitial()),
         ),
       ],
       child: Scaffold(
@@ -24,6 +23,15 @@ class HomePage extends StatelessWidget {
           title: const Text('Home Page'),
         ),
         body: const View(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            // ignore: close_sinks
+            final locationBloc = context.read<LocationBloc>();
+            locationBloc.add(const LocationEventStartTracking());
+          }, 
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }

@@ -20,7 +20,7 @@ mixin _$LocationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() locationEventInitial,
     required TResult Function(LatLng location) locationEventTrackLocation,
-    required TResult Function(LatLng location) locationEventStartTracking,
+    required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LocationEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? locationEventInitial,
     TResult? Function(LatLng location)? locationEventTrackLocation,
-    TResult? Function(LatLng location)? locationEventStartTracking,
+    TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LocationEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? locationEventInitial,
     TResult Function(LatLng location)? locationEventTrackLocation,
-    TResult Function(LatLng location)? locationEventStartTracking,
+    TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
     required TResult orElse(),
   }) =>
@@ -142,7 +142,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() locationEventInitial,
     required TResult Function(LatLng location) locationEventTrackLocation,
-    required TResult Function(LatLng location) locationEventStartTracking,
+    required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
   }) {
     return locationEventInitial();
@@ -153,7 +153,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? locationEventInitial,
     TResult? Function(LatLng location)? locationEventTrackLocation,
-    TResult? Function(LatLng location)? locationEventStartTracking,
+    TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
   }) {
     return locationEventInitial?.call();
@@ -164,7 +164,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? locationEventInitial,
     TResult Function(LatLng location)? locationEventTrackLocation,
-    TResult Function(LatLng location)? locationEventStartTracking,
+    TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
     required TResult orElse(),
   }) {
@@ -299,7 +299,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
   TResult when<TResult extends Object?>({
     required TResult Function() locationEventInitial,
     required TResult Function(LatLng location) locationEventTrackLocation,
-    required TResult Function(LatLng location) locationEventStartTracking,
+    required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
   }) {
     return locationEventTrackLocation(location);
@@ -310,7 +310,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? locationEventInitial,
     TResult? Function(LatLng location)? locationEventTrackLocation,
-    TResult? Function(LatLng location)? locationEventStartTracking,
+    TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
   }) {
     return locationEventTrackLocation?.call(location);
@@ -321,7 +321,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? locationEventInitial,
     TResult Function(LatLng location)? locationEventTrackLocation,
-    TResult Function(LatLng location)? locationEventStartTracking,
+    TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
     required TResult orElse(),
   }) {
@@ -397,8 +397,6 @@ abstract class _$$LocationEventStartTrackingImplCopyWith<$Res> {
           _$LocationEventStartTrackingImpl value,
           $Res Function(_$LocationEventStartTrackingImpl) then) =
       __$$LocationEventStartTrackingImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LatLng location});
 }
 
 /// @nodoc
@@ -412,63 +410,37 @@ class __$$LocationEventStartTrackingImplCopyWithImpl<$Res>
 
   /// Create a copy of LocationEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_$LocationEventStartTrackingImpl(
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LatLng,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
-  const _$LocationEventStartTrackingImpl({required this.location});
-
-  @override
-  final LatLng location;
+  const _$LocationEventStartTrackingImpl();
 
   @override
   String toString() {
-    return 'LocationEvent.locationEventStartTracking(location: $location)';
+    return 'LocationEvent.locationEventStartTracking()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LocationEventStartTrackingImpl &&
-            (identical(other.location, location) ||
-                other.location == location));
+            other is _$LocationEventStartTrackingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, location);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationEventStartTrackingImplCopyWith<_$LocationEventStartTrackingImpl>
-      get copyWith => __$$LocationEventStartTrackingImplCopyWithImpl<
-          _$LocationEventStartTrackingImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() locationEventInitial,
     required TResult Function(LatLng location) locationEventTrackLocation,
-    required TResult Function(LatLng location) locationEventStartTracking,
+    required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
   }) {
-    return locationEventStartTracking(location);
+    return locationEventStartTracking();
   }
 
   @override
@@ -476,10 +448,10 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? locationEventInitial,
     TResult? Function(LatLng location)? locationEventTrackLocation,
-    TResult? Function(LatLng location)? locationEventStartTracking,
+    TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
   }) {
-    return locationEventStartTracking?.call(location);
+    return locationEventStartTracking?.call();
   }
 
   @override
@@ -487,12 +459,12 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? locationEventInitial,
     TResult Function(LatLng location)? locationEventTrackLocation,
-    TResult Function(LatLng location)? locationEventStartTracking,
+    TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
     required TResult orElse(),
   }) {
     if (locationEventStartTracking != null) {
-      return locationEventStartTracking(location);
+      return locationEventStartTracking();
     }
     return orElse();
   }
@@ -545,16 +517,7 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
 }
 
 abstract class LocationEventStartTracking implements LocationEvent {
-  const factory LocationEventStartTracking({required final LatLng location}) =
-      _$LocationEventStartTrackingImpl;
-
-  LatLng get location;
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocationEventStartTrackingImplCopyWith<_$LocationEventStartTrackingImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory LocationEventStartTracking() = _$LocationEventStartTrackingImpl;
 }
 
 /// @nodoc
@@ -603,7 +566,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
   TResult when<TResult extends Object?>({
     required TResult Function() locationEventInitial,
     required TResult Function(LatLng location) locationEventTrackLocation,
-    required TResult Function(LatLng location) locationEventStartTracking,
+    required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
   }) {
     return locationEventStopTracking();
@@ -614,7 +577,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? locationEventInitial,
     TResult? Function(LatLng location)? locationEventTrackLocation,
-    TResult? Function(LatLng location)? locationEventStartTracking,
+    TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
   }) {
     return locationEventStopTracking?.call();
@@ -625,7 +588,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? locationEventInitial,
     TResult Function(LatLng location)? locationEventTrackLocation,
-    TResult Function(LatLng location)? locationEventStartTracking,
+    TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
     required TResult orElse(),
   }) {

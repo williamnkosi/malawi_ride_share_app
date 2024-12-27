@@ -14,22 +14,39 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   _onIntial<AppEventInitial>(event, emit) async {
-    final uri = Uri.parse('ws://192.168.1.1:8081/ws/drivers');
+    final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
+    final timeout = Duration(seconds: 10);
     print('uri: "$uri"');
-    const backoff = ConstantBackoff(Duration(seconds: 1));
-    var _socket = WebSocket(uri, backoff: backoff);
+
+    const backoff = ConstantBackoff(Duration(seconds: 5));
+    final header = { "Authorization": "testing", "DriverId": "1" };
+      
+    var _socket = WebSocket(uri,headers: header, timeout: timeout);
 
     _socket = WebSocket(uri);
-
+_socket.send('ping');
     // Listen for connection state changes
     _socket.connection.listen((state) {
+    print("RUNNING");
       if (state is Connected) {
         print(state);
       } else if (state is Disconnected) {
         print(state);
       } else {
         print(state);
+       _socket.send('ping');
       }
+    }, onError: (error) {
+      print('error: "$error"');
+    }, onDone: () {
+      print('done');
+    });
+
+    _socket.messages.listen((message) {
+      print('message: "$message"');
+
+      // Send a message to the server.
+      _socket.send('ping');
     });
 
     // socket.messages.listen((message) {
@@ -42,6 +59,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
     // // Close the connection.
     // socket.close();
+    print("RAN");
 
     emit(const AppState());
   }

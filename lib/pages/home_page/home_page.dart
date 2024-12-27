@@ -72,7 +72,7 @@ class _WebSocketExampleState extends State<WebSocketExample> {
   // Connect to the WebSocket server
   void _connectToWebSocket() async {
     webSocket = await WebSocket.connect(Uri.parse(
-        'ws://0.0.0.0:8080/ws/drivers')); // Replace with your WebSocket server URL
+        'ws://172.0.0.2:8080/ws/drivers')); // Replace with your WebSocket server URL
     webSocket.events.listen((e) {
       if (e is TextDataReceived) {
         setState(() {

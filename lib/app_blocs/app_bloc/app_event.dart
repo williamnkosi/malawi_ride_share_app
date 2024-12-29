@@ -1,10 +1,6 @@
 part of 'app_bloc.dart';
 
-sealed class AppEvent extends Equatable {
-  const AppEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+class AppEvent with _$AppEvent {
+  const factory AppEvent.appEventInitial() = AppEventInitial;
 }
-
-final class RequestLocationPermission extends AppEvent {}

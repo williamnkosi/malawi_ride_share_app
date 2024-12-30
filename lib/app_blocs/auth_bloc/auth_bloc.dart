@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
 part 'auth_event.dart';
@@ -12,6 +13,7 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final _authRepository = getIt<AuthRepository>();
+  final _fireBaseRepository = getIt<FirebaseRepository>();
   late final FirebaseApp app;
   late final FirebaseAuth auth;
   AuthBloc() : super(const AuthState.start()) {
@@ -22,11 +24,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   _onIntial(event, emit) async {
-    app = await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-
-    auth = FirebaseAuth.instanceFor(app: app);
+    app = await _fireBaseRepository.initializeApp();
+    auth = await _fireBaseRepository.initializeAuth(app);
     emit(const AuthState.unauthenticated());
   }
 

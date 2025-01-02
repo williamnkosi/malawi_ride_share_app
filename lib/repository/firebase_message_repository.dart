@@ -4,10 +4,15 @@ class FirebaseMessageRepository {
   late FirebaseMessaging _firebaseMessaging;
 
   Future<void> initNotifications() async {
-    _firebaseMessaging = FirebaseMessaging.instance;
-    await _firebaseMessaging.requestPermission();
-    _firebaseMessaging.getToken().then((token) {
-      print('Token: $token');
-    });
+    try {
+      _firebaseMessaging = FirebaseMessaging.instance;
+      await _firebaseMessaging.requestPermission();
+      _firebaseMessaging.getToken().then((token) {
+        print('Token: $token');
+      });
+    } catch (e) {
+      print("-----");
+      print(e);
+    }
   }
 }

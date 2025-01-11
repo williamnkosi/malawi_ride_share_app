@@ -14,8 +14,7 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final _authRepository = getIt<AuthRepository>();
   final _fireBaseRepository = getIt<FirebaseRepository>();
-  final _firebaseMessagingRepository = getIt<FirebaseMessageRepository>();
-  late final FirebaseApp app;
+
   late final FirebaseAuth auth;
   AuthBloc() : super(const AuthState.start()) {
     on<AuthEventInitial>(_onIntial);
@@ -26,9 +25,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   _onIntial(event, emit) async {
     try {
-      app = await _fireBaseRepository.initializeApp();
-      auth = await _fireBaseRepository.initializeAuth(app);
-      await _firebaseMessagingRepository.initNotifications();
+      auth = await _fireBaseRepository.initializeAuth();
       emit(const AuthState.unauthenticated());
     } catch (e) {
       emit(AuthState.error(e.toString()));

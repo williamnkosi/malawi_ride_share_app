@@ -1,6 +1,13 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
-void showCustomBottomSheet(BuildContext context) {
+void showAppBottomSheet({
+  required BuildContext context,
+  required RemoteMessage message,
+}) {
+  var title = message.data['title'] ?? 'Title';
+  var messageBody = message.data['message'] ?? 'Body';
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(
@@ -12,26 +19,34 @@ void showCustomBottomSheet(BuildContext context) {
     builder: (BuildContext context) {
       return Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Custom Bottom Sheet',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'This is a reusable bottom sheet function. You can add any content here.',
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the bottom sheet
-              },
-              child: const Text('Close'),
-            ),
-          ],
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                messageBody,
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                  width: double.infinity,
+                  child:
+                      AppOutlineButton(buttonText: "Accept", onPressed: () {})),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child:
+                    AppOutlineButton(buttonText: "Decline", onPressed: () {}),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       );
     },

@@ -41,7 +41,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           .loginInUserWithEmailAndPassword(email: email, password: password);
       emit(AuthState.authenticated(userCredential));
     } catch (e) {
-      print(e);
       emit(AuthState.error(e.toString()));
     }
   }

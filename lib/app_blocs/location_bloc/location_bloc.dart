@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:malawi_ride_share_app/models/drivers_location.dart';
 import 'package:meta/meta.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 

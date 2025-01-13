@@ -22,6 +22,7 @@ mixin _$LocationEvent {
     required TResult Function(LatLng location) locationEventTrackLocation,
     required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$LocationEvent {
     TResult? Function(LatLng location)? locationEventTrackLocation,
     TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$LocationEvent {
     TResult Function(LatLng location)? locationEventTrackLocation,
     TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,8 @@ mixin _$LocationEvent {
         locationEventStartTracking,
     required TResult Function(LocationEventStopTracking value)
         locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +66,8 @@ mixin _$LocationEvent {
         locationEventStartTracking,
     TResult? Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +79,8 @@ mixin _$LocationEvent {
         locationEventStartTracking,
     TResult Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,6 +153,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
     required TResult Function(LatLng location) locationEventTrackLocation,
     required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
   }) {
     return locationEventInitial();
   }
@@ -155,6 +165,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
     TResult? Function(LatLng location)? locationEventTrackLocation,
     TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
   }) {
     return locationEventInitial?.call();
   }
@@ -166,6 +177,7 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
     TResult Function(LatLng location)? locationEventTrackLocation,
     TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventInitial != null) {
@@ -184,6 +196,8 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
         locationEventStartTracking,
     required TResult Function(LocationEventStopTracking value)
         locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
   }) {
     return locationEventInitial(this);
   }
@@ -198,6 +212,8 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
         locationEventStartTracking,
     TResult? Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
   }) {
     return locationEventInitial?.call(this);
   }
@@ -212,6 +228,8 @@ class _$LocationEventInitialImpl implements LocationEventInitial {
         locationEventStartTracking,
     TResult Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventInitial != null) {
@@ -301,6 +319,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
     required TResult Function(LatLng location) locationEventTrackLocation,
     required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
   }) {
     return locationEventTrackLocation(location);
   }
@@ -312,6 +331,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
     TResult? Function(LatLng location)? locationEventTrackLocation,
     TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
   }) {
     return locationEventTrackLocation?.call(location);
   }
@@ -323,6 +343,7 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
     TResult Function(LatLng location)? locationEventTrackLocation,
     TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventTrackLocation != null) {
@@ -341,6 +362,8 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
         locationEventStartTracking,
     required TResult Function(LocationEventStopTracking value)
         locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
   }) {
     return locationEventTrackLocation(this);
   }
@@ -355,6 +378,8 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
         locationEventStartTracking,
     TResult? Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
   }) {
     return locationEventTrackLocation?.call(this);
   }
@@ -369,6 +394,8 @@ class _$LocationEventTrackLocationImpl implements LocationEventTrackLocation {
         locationEventStartTracking,
     TResult Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventTrackLocation != null) {
@@ -439,6 +466,7 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
     required TResult Function(LatLng location) locationEventTrackLocation,
     required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
   }) {
     return locationEventStartTracking();
   }
@@ -450,6 +478,7 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
     TResult? Function(LatLng location)? locationEventTrackLocation,
     TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
   }) {
     return locationEventStartTracking?.call();
   }
@@ -461,6 +490,7 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
     TResult Function(LatLng location)? locationEventTrackLocation,
     TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventStartTracking != null) {
@@ -479,6 +509,8 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
         locationEventStartTracking,
     required TResult Function(LocationEventStopTracking value)
         locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
   }) {
     return locationEventStartTracking(this);
   }
@@ -493,6 +525,8 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
         locationEventStartTracking,
     TResult? Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
   }) {
     return locationEventStartTracking?.call(this);
   }
@@ -507,6 +541,8 @@ class _$LocationEventStartTrackingImpl implements LocationEventStartTracking {
         locationEventStartTracking,
     TResult Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventStartTracking != null) {
@@ -568,6 +604,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
     required TResult Function(LatLng location) locationEventTrackLocation,
     required TResult Function() locationEventStartTracking,
     required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
   }) {
     return locationEventStopTracking();
   }
@@ -579,6 +616,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
     TResult? Function(LatLng location)? locationEventTrackLocation,
     TResult? Function()? locationEventStartTracking,
     TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
   }) {
     return locationEventStopTracking?.call();
   }
@@ -590,6 +628,7 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
     TResult Function(LatLng location)? locationEventTrackLocation,
     TResult Function()? locationEventStartTracking,
     TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventStopTracking != null) {
@@ -608,6 +647,8 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
         locationEventStartTracking,
     required TResult Function(LocationEventStopTracking value)
         locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
   }) {
     return locationEventStopTracking(this);
   }
@@ -622,6 +663,8 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
         locationEventStartTracking,
     TResult? Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
   }) {
     return locationEventStopTracking?.call(this);
   }
@@ -636,6 +679,8 @@ class _$LocationEventStopTrackingImpl implements LocationEventStopTracking {
         locationEventStartTracking,
     TResult Function(LocationEventStopTracking value)?
         locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
     required TResult orElse(),
   }) {
     if (locationEventStopTracking != null) {
@@ -650,10 +695,153 @@ abstract class LocationEventStopTracking implements LocationEvent {
 }
 
 /// @nodoc
+abstract class _$$LocationEventGetDriversLocationImplCopyWith<$Res> {
+  factory _$$LocationEventGetDriversLocationImplCopyWith(
+          _$LocationEventGetDriversLocationImpl value,
+          $Res Function(_$LocationEventGetDriversLocationImpl) then) =
+      __$$LocationEventGetDriversLocationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LocationEventGetDriversLocationImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res,
+        _$LocationEventGetDriversLocationImpl>
+    implements _$$LocationEventGetDriversLocationImplCopyWith<$Res> {
+  __$$LocationEventGetDriversLocationImplCopyWithImpl(
+      _$LocationEventGetDriversLocationImpl _value,
+      $Res Function(_$LocationEventGetDriversLocationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LocationEventGetDriversLocationImpl
+    implements LocationEventGetDriversLocation {
+  const _$LocationEventGetDriversLocationImpl();
+
+  @override
+  String toString() {
+    return 'LocationEvent.locationEventGetDriversLocation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LocationEventGetDriversLocationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() locationEventInitial,
+    required TResult Function(LatLng location) locationEventTrackLocation,
+    required TResult Function() locationEventStartTracking,
+    required TResult Function() locationEventStopTracking,
+    required TResult Function() locationEventGetDriversLocation,
+  }) {
+    return locationEventGetDriversLocation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? locationEventInitial,
+    TResult? Function(LatLng location)? locationEventTrackLocation,
+    TResult? Function()? locationEventStartTracking,
+    TResult? Function()? locationEventStopTracking,
+    TResult? Function()? locationEventGetDriversLocation,
+  }) {
+    return locationEventGetDriversLocation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? locationEventInitial,
+    TResult Function(LatLng location)? locationEventTrackLocation,
+    TResult Function()? locationEventStartTracking,
+    TResult Function()? locationEventStopTracking,
+    TResult Function()? locationEventGetDriversLocation,
+    required TResult orElse(),
+  }) {
+    if (locationEventGetDriversLocation != null) {
+      return locationEventGetDriversLocation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocationEventInitial value) locationEventInitial,
+    required TResult Function(LocationEventTrackLocation value)
+        locationEventTrackLocation,
+    required TResult Function(LocationEventStartTracking value)
+        locationEventStartTracking,
+    required TResult Function(LocationEventStopTracking value)
+        locationEventStopTracking,
+    required TResult Function(LocationEventGetDriversLocation value)
+        locationEventGetDriversLocation,
+  }) {
+    return locationEventGetDriversLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationEventInitial value)? locationEventInitial,
+    TResult? Function(LocationEventTrackLocation value)?
+        locationEventTrackLocation,
+    TResult? Function(LocationEventStartTracking value)?
+        locationEventStartTracking,
+    TResult? Function(LocationEventStopTracking value)?
+        locationEventStopTracking,
+    TResult? Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
+  }) {
+    return locationEventGetDriversLocation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationEventInitial value)? locationEventInitial,
+    TResult Function(LocationEventTrackLocation value)?
+        locationEventTrackLocation,
+    TResult Function(LocationEventStartTracking value)?
+        locationEventStartTracking,
+    TResult Function(LocationEventStopTracking value)?
+        locationEventStopTracking,
+    TResult Function(LocationEventGetDriversLocation value)?
+        locationEventGetDriversLocation,
+    required TResult orElse(),
+  }) {
+    if (locationEventGetDriversLocation != null) {
+      return locationEventGetDriversLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationEventGetDriversLocation implements LocationEvent {
+  const factory LocationEventGetDriversLocation() =
+      _$LocationEventGetDriversLocationImpl;
+}
+
+/// @nodoc
 mixin _$LocationState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
   LocationData? get currentLcoation => throw _privateConstructorUsedError;
   LatLng? get coordinates => throw _privateConstructorUsedError;
+  List<DriversLocation>? get driversLocation =>
+      throw _privateConstructorUsedError;
   StreamSubscription<LocationData>? get locationStream =>
       throw _privateConstructorUsedError;
 
@@ -674,6 +862,7 @@ abstract class $LocationStateCopyWith<$Res> {
       {bool isLocationPremissionEnabled,
       LocationData? currentLcoation,
       LatLng? coordinates,
+      List<DriversLocation>? driversLocation,
       StreamSubscription<LocationData>? locationStream});
 }
 
@@ -695,6 +884,7 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? isLocationPremissionEnabled = null,
     Object? currentLcoation = freezed,
     Object? coordinates = freezed,
+    Object? driversLocation = freezed,
     Object? locationStream = freezed,
   }) {
     return _then(_value.copyWith(
@@ -710,6 +900,10 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      driversLocation: freezed == driversLocation
+          ? _value.driversLocation
+          : driversLocation // ignore: cast_nullable_to_non_nullable
+              as List<DriversLocation>?,
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
@@ -730,6 +924,7 @@ abstract class _$$LocationStateImplCopyWith<$Res>
       {bool isLocationPremissionEnabled,
       LocationData? currentLcoation,
       LatLng? coordinates,
+      List<DriversLocation>? driversLocation,
       StreamSubscription<LocationData>? locationStream});
 }
 
@@ -749,6 +944,7 @@ class __$$LocationStateImplCopyWithImpl<$Res>
     Object? isLocationPremissionEnabled = null,
     Object? currentLcoation = freezed,
     Object? coordinates = freezed,
+    Object? driversLocation = freezed,
     Object? locationStream = freezed,
   }) {
     return _then(_$LocationStateImpl(
@@ -764,6 +960,10 @@ class __$$LocationStateImplCopyWithImpl<$Res>
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      driversLocation: freezed == driversLocation
+          ? _value._driversLocation
+          : driversLocation // ignore: cast_nullable_to_non_nullable
+              as List<DriversLocation>?,
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
@@ -779,7 +979,9 @@ class _$LocationStateImpl implements _LocationState {
       {this.isLocationPremissionEnabled = false,
       this.currentLcoation,
       this.coordinates,
-      this.locationStream});
+      final List<DriversLocation>? driversLocation,
+      this.locationStream})
+      : _driversLocation = driversLocation;
 
   @override
   @JsonKey()
@@ -788,12 +990,22 @@ class _$LocationStateImpl implements _LocationState {
   final LocationData? currentLcoation;
   @override
   final LatLng? coordinates;
+  final List<DriversLocation>? _driversLocation;
+  @override
+  List<DriversLocation>? get driversLocation {
+    final value = _driversLocation;
+    if (value == null) return null;
+    if (_driversLocation is EqualUnmodifiableListView) return _driversLocation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final StreamSubscription<LocationData>? locationStream;
 
   @override
   String toString() {
-    return 'LocationState(isLocationPremissionEnabled: $isLocationPremissionEnabled, currentLcoation: $currentLcoation, coordinates: $coordinates, locationStream: $locationStream)';
+    return 'LocationState(isLocationPremissionEnabled: $isLocationPremissionEnabled, currentLcoation: $currentLcoation, coordinates: $coordinates, driversLocation: $driversLocation, locationStream: $locationStream)';
   }
 
   @override
@@ -809,13 +1021,20 @@ class _$LocationStateImpl implements _LocationState {
                 other.currentLcoation == currentLcoation) &&
             (identical(other.coordinates, coordinates) ||
                 other.coordinates == coordinates) &&
+            const DeepCollectionEquality()
+                .equals(other._driversLocation, _driversLocation) &&
             (identical(other.locationStream, locationStream) ||
                 other.locationStream == locationStream));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLocationPremissionEnabled,
-      currentLcoation, coordinates, locationStream);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLocationPremissionEnabled,
+      currentLcoation,
+      coordinates,
+      const DeepCollectionEquality().hash(_driversLocation),
+      locationStream);
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
@@ -831,6 +1050,7 @@ abstract class _LocationState implements LocationState {
           {final bool isLocationPremissionEnabled,
           final LocationData? currentLcoation,
           final LatLng? coordinates,
+          final List<DriversLocation>? driversLocation,
           final StreamSubscription<LocationData>? locationStream}) =
       _$LocationStateImpl;
 
@@ -840,6 +1060,8 @@ abstract class _LocationState implements LocationState {
   LocationData? get currentLcoation;
   @override
   LatLng? get coordinates;
+  @override
+  List<DriversLocation>? get driversLocation;
   @override
   StreamSubscription<LocationData>? get locationStream;
 

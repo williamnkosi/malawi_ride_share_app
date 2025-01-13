@@ -1,5 +1,14 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
+import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
+import 'package:malawi_ride_share_app/shared/widgets/app_bottom_sheet.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart' as http;
@@ -9,58 +18,38 @@ part 'app_state.dart';
 part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
+  final _fireBaseRepository = getIt<FirebaseRepository>();
+  final _firebaseMessagingRepository = getIt<FirebaseMessageRepository>();
+  late final FirebaseApp app;
   AppBloc() : super(const AppState()) {
-    on<AppEventInitial>(_onIntial);
+    on<AppEventInitial>(_onAppEventIntial);
+    on<AppEventStartListening>(_onAppEventStartListening);
+    on<AppEventShowMessage>(_onAppEventShowMessage);
+    on<AppEventHideMessage>(_onAppEventHideMessage);
   }
 
-  _onIntial<AppEventInitial>(event, emit) async {
-    final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
-    final timeout = Duration(seconds: 10);
-    print('uri: "$uri"');
+  _onAppEventIntial(AppEventInitial event, emit) async {
+    try {
+      app = await _fireBaseRepository.initializeApp();
+    } catch (e) {
+      emit();
+    }
+  }
 
-    const backoff = ConstantBackoff(Duration(seconds: 5));
-    final header = { "Authorization": "testing", "DriverId": "1" };
-      
-    var _socket = WebSocket(uri,headers: header, timeout: timeout);
-
-    _socket = WebSocket(uri);
-_socket.send('ping');
-    // Listen for connection state changes
-    _socket.connection.listen((state) {
-    print("RUNNING");
-      if (state is Connected) {
-        print(state);
-      } else if (state is Disconnected) {
-        print(state);
-      } else {
-        print(state);
-       _socket.send('ping');
+  _onAppEventStartListening(event, emit) async {
+    var messageSub = await _firebaseMessagingRepository.initNotifications();
+    messageSub.listen((message) {
+      if (message.data.isNotEmpty) {
+        add(AppEventShowMessage(message: message));
       }
-    }, onError: (error) {
-      print('error: "$error"');
-    }, onDone: () {
-      print('done');
     });
+  }
 
-    _socket.messages.listen((message) {
-      print('message: "$message"');
+  _onAppEventShowMessage(AppEventShowMessage event, emit) async {
+    emit(state.copyWith(message: event.message));
+  }
 
-      // Send a message to the server.
-      _socket.send('ping');
-    });
-
-    // socket.messages.listen((message) {
-    //   print('message: "$message"');
-
-    //   // Send a message to the server.
-    //   socket.send('ping');
-    // });
-    // await Future<void>.delayed(const Duration(seconds: 3));
-
-    // // Close the connection.
-    // socket.close();
-    print("RAN");
-
-    emit(const AppState());
+  _onAppEventHideMessage(AppEventHideMessage event, emit) async {
+    emit(state.copyWith(message: null));
   }
 }

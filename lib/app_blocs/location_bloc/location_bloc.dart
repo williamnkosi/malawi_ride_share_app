@@ -2,22 +2,24 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/rendering.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:meta/meta.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:equatable/equatable.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
+import 'package:malawi_ride_share_app/repository/location_repository.dart';
+
+part 'location_bloc.freezed.dart';
 part 'location_event.dart';
 part 'location_state.dart';
-part 'location_bloc.freezed.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  final LocationRepository locationRepository = GetIt.instance<LocationRepository>();
+  final LocationRepository locationRepository =
+      GetIt.instance<LocationRepository>();
   LocationBloc() : super(const LocationState()) {
     on<LocationEventInitial>(_onLocationEventInitial);
     on<LocationEventTrackLocation>(_onTrackLocation);
@@ -62,11 +64,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   _onStartTracking(LocationEventStartTracking event, emit) {
     try {
-
       Location location = Location();
       var locationStream =
           location.onLocationChanged.listen((LocationData currentLocation) {
-
         locationRepository.sendLocation(locationData: currentLocation);
         add(LocationEvent.locationEventTrackLocation(
             location:

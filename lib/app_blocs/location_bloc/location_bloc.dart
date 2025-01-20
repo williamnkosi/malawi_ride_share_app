@@ -26,6 +26,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<LocationEventTrackLocation>(_onTrackLocation);
     on<LocationEventStartTracking>(_onStartTracking);
     on<LocationEventStopTracking>(_onStopTracking);
+    on<LocationEventGetDriversLocation>(_onGetDriversLocation);
   }
 
   _onLocationEventInitial(LocationEvent event, emit) async {
@@ -50,6 +51,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         }
       }
       LocationData _locationData = await location.getLocation();
+      add(LocationEvent.locationEventGetDriversLocation());
 
       emit(state.copyWith(
           isLocationPremissionEnabled: true,
@@ -83,5 +85,12 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   _onStopTracking(LocationEventStopTracking event, emit) {
     state.locationStream!.cancel();
     emit(state.copyWith(locationStream: null));
+  }
+
+  _onGetDriversLocation(event, emit) {
+    try {
+      print("worked");
+      locationRepository.getDriversLocation();
+    } catch (e) {}
   }
 }

@@ -41,8 +41,11 @@ void showAppBottomSheet({
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
-                child:
-                    AppOutlineButton(buttonText: "Decline", onPressed: () {}),
+                child: AppOutlineButton(
+                    buttonText: "Decline",
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
               ),
               const SizedBox(height: 16),
             ],

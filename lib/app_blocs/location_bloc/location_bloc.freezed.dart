@@ -840,7 +840,7 @@ mixin _$LocationState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
   LocationData? get currentLcoation => throw _privateConstructorUsedError;
   LatLng? get coordinates => throw _privateConstructorUsedError;
-  List<DriversLocation>? get driversLocation =>
+  List<DriversLocation> get driversLocation =>
       throw _privateConstructorUsedError;
   StreamSubscription<LocationData>? get locationStream =>
       throw _privateConstructorUsedError;
@@ -862,7 +862,7 @@ abstract class $LocationStateCopyWith<$Res> {
       {bool isLocationPremissionEnabled,
       LocationData? currentLcoation,
       LatLng? coordinates,
-      List<DriversLocation>? driversLocation,
+      List<DriversLocation> driversLocation,
       StreamSubscription<LocationData>? locationStream});
 }
 
@@ -884,7 +884,7 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? isLocationPremissionEnabled = null,
     Object? currentLcoation = freezed,
     Object? coordinates = freezed,
-    Object? driversLocation = freezed,
+    Object? driversLocation = null,
     Object? locationStream = freezed,
   }) {
     return _then(_value.copyWith(
@@ -900,10 +900,10 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as LatLng?,
-      driversLocation: freezed == driversLocation
+      driversLocation: null == driversLocation
           ? _value.driversLocation
           : driversLocation // ignore: cast_nullable_to_non_nullable
-              as List<DriversLocation>?,
+              as List<DriversLocation>,
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
@@ -924,7 +924,7 @@ abstract class _$$LocationStateImplCopyWith<$Res>
       {bool isLocationPremissionEnabled,
       LocationData? currentLcoation,
       LatLng? coordinates,
-      List<DriversLocation>? driversLocation,
+      List<DriversLocation> driversLocation,
       StreamSubscription<LocationData>? locationStream});
 }
 
@@ -944,7 +944,7 @@ class __$$LocationStateImplCopyWithImpl<$Res>
     Object? isLocationPremissionEnabled = null,
     Object? currentLcoation = freezed,
     Object? coordinates = freezed,
-    Object? driversLocation = freezed,
+    Object? driversLocation = null,
     Object? locationStream = freezed,
   }) {
     return _then(_$LocationStateImpl(
@@ -960,10 +960,10 @@ class __$$LocationStateImplCopyWithImpl<$Res>
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as LatLng?,
-      driversLocation: freezed == driversLocation
+      driversLocation: null == driversLocation
           ? _value._driversLocation
           : driversLocation // ignore: cast_nullable_to_non_nullable
-              as List<DriversLocation>?,
+              as List<DriversLocation>,
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
@@ -979,7 +979,7 @@ class _$LocationStateImpl implements _LocationState {
       {this.isLocationPremissionEnabled = false,
       this.currentLcoation,
       this.coordinates,
-      final List<DriversLocation>? driversLocation,
+      final List<DriversLocation> driversLocation = const [],
       this.locationStream})
       : _driversLocation = driversLocation;
 
@@ -990,14 +990,13 @@ class _$LocationStateImpl implements _LocationState {
   final LocationData? currentLcoation;
   @override
   final LatLng? coordinates;
-  final List<DriversLocation>? _driversLocation;
+  final List<DriversLocation> _driversLocation;
   @override
-  List<DriversLocation>? get driversLocation {
-    final value = _driversLocation;
-    if (value == null) return null;
+  @JsonKey()
+  List<DriversLocation> get driversLocation {
     if (_driversLocation is EqualUnmodifiableListView) return _driversLocation;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_driversLocation);
   }
 
   @override
@@ -1050,7 +1049,7 @@ abstract class _LocationState implements LocationState {
           {final bool isLocationPremissionEnabled,
           final LocationData? currentLcoation,
           final LatLng? coordinates,
-          final List<DriversLocation>? driversLocation,
+          final List<DriversLocation> driversLocation,
           final StreamSubscription<LocationData>? locationStream}) =
       _$LocationStateImpl;
 
@@ -1061,7 +1060,7 @@ abstract class _LocationState implements LocationState {
   @override
   LatLng? get coordinates;
   @override
-  List<DriversLocation>? get driversLocation;
+  List<DriversLocation> get driversLocation;
   @override
   StreamSubscription<LocationData>? get locationStream;
 

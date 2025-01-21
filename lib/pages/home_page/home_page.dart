@@ -45,6 +45,8 @@ class View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LocationBloc, LocationState>(
+      buildWhen: (previous, current) =>
+          previous.driversLocation != current.driversLocation,
       builder: (context, state) {
         if (state.coordinates == null) {
           return const Center(
@@ -62,6 +64,12 @@ class View extends StatelessWidget {
               markerId: MarkerId('currentLocation'),
               position: state.coordinates!,
             ),
+            for (int i = 0; i < state.driversLocation.length; i++)
+              Marker(
+                markerId: MarkerId(state.driversLocation[i].driverId),
+                position: LatLng(state.driversLocation[i].location.latitude,
+                    state.driversLocation[i].location.longitude),
+              ),
           },
         );
       },

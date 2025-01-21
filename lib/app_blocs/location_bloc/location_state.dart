@@ -6,6 +6,6 @@ class LocationState with _$LocationState {
       {@Default(false) bool isLocationPremissionEnabled,
       LocationData? currentLcoation,
       LatLng? coordinates,
-      List<DriversLocation>? driversLocation,
+      @Default([]) List<DriversLocation> driversLocation,
       StreamSubscription<LocationData>? locationStream}) = _LocationState;
 }

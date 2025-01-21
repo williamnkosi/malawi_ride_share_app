@@ -1,17 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:malawi_ride_share_app/models/location.dart';
 
 part 'drivers_location.g.dart';
 
 @JsonSerializable()
 class DriversLocation {
   String driverId;
-  double latitude;
-  double longitude;
+  Location1 location;
 
   DriversLocation({
     required this.driverId,
-    required this.latitude,
-    required this.longitude,
+    required this.location,
   });
 
   factory DriversLocation.fromJson(Map<String, dynamic> json) =>

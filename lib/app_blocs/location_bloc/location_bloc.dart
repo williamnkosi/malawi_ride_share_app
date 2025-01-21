@@ -50,15 +50,21 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           return;
         }
       }
-      LocationData _locationData = await location.getLocation();
-      add(LocationEvent.locationEventGetDriversLocation());
+      LocationData locationData = await location.getLocation();
+      List<DriversLocation> drivers =
+          await locationRepository.getDriversLocation();
+      print("drivers");
+      print(drivers.length);
 
       emit(state.copyWith(
+          driversLocation: drivers,
           isLocationPremissionEnabled: true,
-          currentLcoation: _locationData,
+          currentLcoation: locationData,
           coordinates:
-              LatLng(_locationData.latitude!, _locationData.longitude!)));
-    } catch (e) {}
+              LatLng(locationData.latitude!, locationData.longitude!)));
+    } catch (e) {
+      print("Lcoatin error");
+    }
   }
 
   _onTrackLocation(LocationEventTrackLocation event, emit) {
@@ -87,10 +93,11 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     emit(state.copyWith(locationStream: null));
   }
 
-  _onGetDriversLocation(event, emit) {
+  _onGetDriversLocation(event, emit) async {
     try {
-      print("worked");
-      locationRepository.getDriversLocation();
+      List<DriversLocation> drivers =
+          await locationRepository.getDriversLocation();
+      emit(state.copyWith(driversLocation: drivers));
     } catch (e) {}
   }
 }

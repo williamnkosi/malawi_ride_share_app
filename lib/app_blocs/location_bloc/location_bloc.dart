@@ -68,15 +68,21 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   }
 
   _onTrackLocation(LocationEventTrackLocation event, emit) {
-    emit(state.copyWith(coordinates: event.location));
+    try {
+      emit(state.copyWith(coordinates: event.location));
+    } catch (e) {
+      print(e);
+    }
   }
 
   _onStartTracking(LocationEventStartTracking event, emit) {
     try {
       Location location = Location();
+      locationRepository.connectToServerWebsocket();
       var locationStream =
           location.onLocationChanged.listen((LocationData currentLocation) {
         locationRepository.sendLocation(locationData: currentLocation);
+        print("Changing");
         add(LocationEvent.locationEventTrackLocation(
             location:
                 LatLng(currentLocation.latitude!, currentLocation.longitude!)));

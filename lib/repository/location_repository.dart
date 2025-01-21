@@ -11,9 +11,13 @@ class LocationRepository {
   final dio = Dio(); // Create a Dio instance
   late final WebSocket socket;
   LocationRepository() {
-    final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
+    final uri = Uri.parse('ws://192.168.1.211:8080/ws/drivers');
     final timeout = Duration(seconds: 10);
-    final header = {"Authorization": "testing", "DriverId": "1"};
+    final header = {
+      "Authorization": "testing",
+      "DriverId": "1",
+      "FcmToken": "testd",
+    };
     socket = WebSocket(uri, headers: header, timeout: timeout);
   }
   Future<void> connectToServerWebsocket() async {
@@ -24,14 +28,16 @@ class LocationRepository {
 
   Future<void> sendLocation({required LocationData locationData}) async {
     try {
-      connectToServerWebsocket();
       Map<String, dynamic> location = {
         'Latitude': locationData.latitude,
         'Longitude': locationData.longitude,
       };
       var data = jsonEncode(location);
       socket.send(data);
-    } catch (e) {}
+    } catch (e) {
+      print("------");
+      print(e);
+    }
   }
 
   Future<void> disconnectFromServerWebsocket() async {

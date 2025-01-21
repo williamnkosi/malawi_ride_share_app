@@ -29,7 +29,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<LocationEventGetDriversLocation>(_onGetDriversLocation);
   }
 
-  _onLocationEventInitial(LocationEvent event, emit) async {
+  _onLocationEventInitial(LocationEventInitial event, emit) async {
     Location location = Location();
 
     bool _serviceEnabled;
@@ -81,7 +81,13 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       locationRepository.connectToServerWebsocket();
       var locationStream =
           location.onLocationChanged.listen((LocationData currentLocation) {
-        locationRepository.sendLocation(locationData: currentLocation);
+        locationRepository
+            .sendLocation(locationData: currentLocation)
+            .then((value) => print("Location sent"))
+            .onError((error, stackTrace) {
+          print("Error");
+          print(error);
+        });
         print("Changing");
         add(LocationEvent.locationEventTrackLocation(
             location:

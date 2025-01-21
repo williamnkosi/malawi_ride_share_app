@@ -31,7 +31,15 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   _onAppEventIntial(AppEventInitial event, emit) async {
     try {
       app = await _fireBaseRepository.initializeApp();
+      var messageSub = await _firebaseMessagingRepository.initNotifications();
+      messageSub.listen((message) {
+        if (message.data.isNotEmpty) {
+          add(AppEventShowMessage(message: message));
+        }
+      });
     } catch (e) {
+      print("------");
+      print("failed to intialize app");
       emit();
     }
   }

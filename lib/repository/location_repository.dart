@@ -3,27 +3,35 @@ import 'package:dio/dio.dart';
 
 import 'package:malawi_ride_share_app/models/drivers_location.dart';
 import 'package:malawi_ride_share_app/models/location.dart';
+import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
+import 'package:malawi_ride_share_app/repository/user_repository.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 
 class LocationRepository {
+  final _userRepository = getIt<UserRepository>();
+  final _fireBaseMessagingRepository = getIt<FirebaseMessageRepository>();
   final dio = Dio(); // Create a Dio instance
   late final WebSocket socket;
-  LocationRepository() {
-    final uri = Uri.parse('ws://192.168.1.211:8080/ws/drivers');
-    final timeout = Duration(seconds: 10);
-    final header = {
-      "Authorization": "testing",
-      "DriverId": "1",
-      "FcmToken": "testd",
-    };
-    socket = WebSocket(uri, headers: header, timeout: timeout);
-  }
+
   Future<void> connectToServerWebsocket() async {
     try {
+      final uri = Uri.parse('ws://192.168.1.211:8080/ws/drivers');
+      final timeout = Duration(seconds: 10);
+      final token = await _userRepository.getUserToken() ?? "";
+      final header = {
+        "Authorization": "Bearer $token",
+        "DriverId": await _userRepository.getUserId(),
+        "FcmToken": await _fireBaseMessagingRepository.getFCMToken(),
+      };
+      socket = WebSocket(uri, headers: header, timeout: timeout);
       socket.connection;
-    } catch (e) {}
+    } catch (e) {
+      print("------");
+      print(e);
+    }
   }
 
   Future<void> sendLocation({required LocationData locationData}) async {

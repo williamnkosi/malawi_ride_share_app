@@ -20,4 +20,13 @@ class FirebaseMessageRepository {
       throw Exception('Failed to initialize notifications');
     }
   }
+
+  Future<String> getFCMToken() async {
+    try {
+      return await _firebaseMessaging.getToken() ?? '';
+    } catch (e) {
+      print(e);
+      throw Exception('Failed to get FCM token');
+    }
+  }
 }

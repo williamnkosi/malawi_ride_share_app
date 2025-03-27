@@ -28,8 +28,8 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // ignore: close_sinks
-            //final locationBloc = context.read<LocationBloc>();
-            //locationBloc.add(const LocationEventStartTracking());
+            final locationBloc = context.read<LocationBloc>();
+            locationBloc.add(const LocationEventStartTracking());
           },
           tooltip: 'Increment',
           child: Icon(Icons.add),

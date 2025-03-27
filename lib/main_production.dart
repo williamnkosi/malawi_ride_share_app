@@ -10,10 +10,11 @@ final Logger logger = Logger("Malawi Ride Share App");
 void main() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((LogRecord rec) {
-    log(rec.message,
+    log(
+        name: rec.loggerName,
+        rec.message,
         time: rec.time,
         level: rec.level.value,
-        name: rec.loggerName,
         error: rec.error,
         stackTrace: rec.stackTrace);
   });

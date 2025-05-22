@@ -1,37 +1,44 @@
 import 'dart:convert';
 
-import 'package:web_socket_client/web_socket_client.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+
 import 'package:location/location.dart';
 
 class LocationRepository {
-  late final WebSocket socket;
-  LocationRepository() {
-    final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
-    final timeout = Duration(seconds: 10);
-    final header = {"Authorization": "testing", "DriverId": "1"};
-    socket = WebSocket(uri, headers: header, timeout: timeout);
-  }
-  Future<void> connectToServerWebsocket() async {
+  //late final WebSocket socket;
+  late IO.Socket socket;
+  LocationRepository();
+
+  void connetToSocketIO() {
     try {
-      socket.connection;
-    } catch (e) {}
+      print("Connecting to socket");
+      socket = IO.io(
+        "ws://10.0.2.2:3000",
+        IO.OptionBuilder()
+            .setTransports(['websocket']) // for Flutter or Dart VM
+            .enableAutoConnect()
+            .build(),
+      );
+      socket.onConnect((_) {});
+    } catch (e) {
+      print("Failed to connect to socket: $e");
+    }
   }
 
-  Future<void> sendLocation({required LocationData locationData}) async {
+  void sendLocation({required LocationData locationData}) {
     try {
-      connectToServerWebsocket();
-      Map<String, dynamic> location = {
-        'Latitude': locationData.latitude,
-        'Longitude': locationData.longitude,
-      };
-      var data = jsonEncode(location);
-      socket.send(data);
-    } catch (e) {}
-  }
-
-  Future<void> disconnectFromServerWebsocket() async {
-    try {
-      socket.close();
-    } catch (e) {}
+      socket.emit(
+          'driver-location-update',
+          jsonEncode({
+            "firebaseId": "xUxZHxtfgwdP3ErtaNzwCoko96C3",
+            "driverLocation": {
+              "latitude": locationData.latitude,
+              "longitude": locationData.longitude
+            },
+            "status": "looking"
+          }));
+    } catch (e) {
+      print("Failed to send location: $e");
+    }
   }
 }

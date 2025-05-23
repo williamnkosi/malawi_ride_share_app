@@ -20,4 +20,8 @@ class FirebaseMessageRepository {
       throw Exception('Failed to initialize notifications');
     }
   }
+
+  Future<void> registerDevice() async {
+    try {} catch (e) {}
+  }
 }

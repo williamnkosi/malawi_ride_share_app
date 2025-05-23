@@ -25,14 +25,28 @@ class HomePage extends StatelessWidget {
           title: const Text('Home Page'),
         ),
         body: const View(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // ignore: close_sinks
-            final locationBloc = context.read<LocationBloc>();
-            locationBloc.add(const LocationEventStartTracking());
-          },
-          tooltip: 'Increment',
-          child: Icon(Icons.add),
+        floatingActionButton: Row(
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                // ignore: close_sinks
+                final locationBloc = context.read<LocationBloc>();
+                locationBloc.add(const LocationEventStartTracking());
+              },
+              tooltip: 'Increment',
+              child: Icon(Icons.add),
+            ),
+            SizedBox(width: 10),
+            FloatingActionButton(
+              onPressed: () {
+                // ignore: close_sinks
+                final locationBloc = context.read<LocationBloc>();
+                locationBloc.add(const LocationEventStopTracking());
+              },
+              tooltip: 'Increment',
+              child: Icon(Icons.remove_done),
+            ),
+          ],
         ),
       ),
     );

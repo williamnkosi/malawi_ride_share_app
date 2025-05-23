@@ -82,7 +82,12 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   }
 
   _onStopTracking(LocationEventStopTracking event, emit) {
-    state.locationStream!.cancel();
-    emit(state.copyWith(locationStream: null));
+    try {
+      state.locationStream!.cancel();
+      locationRepository.disconnect();
+      emit(state.copyWith(locationStream: null));
+    } catch (e) {
+      print('test: $e');
+    }
   }
 }

@@ -9,6 +9,6 @@ class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.tripRejected() = TripRejected;
   const factory DriverTripEvent.tripCancelled() = TripCancelled;
   const factory DriverTripEvent.tripCompleted() = TripCompleted;
-  const factory DriverTripEvent.driverLocationStatusUpdate() =
-      DriverLocationStatusUpdate;
+  const factory DriverTripEvent.tripStartTrackingDriver() =
+      TripStartTrackingDriver;
 }

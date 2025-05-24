@@ -1,15 +1,28 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:get_it/get_it.dart';
+import 'package:location/location.dart';
+import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
 
 part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
 part 'driver_trip_bloc.freezed.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
-  DriverTripBloc() : super(DriverTripInitial()) {
-    on<DriverLocationStatusUpdate>(_onLocationUpdated);
+  final DriverTripRepository driverTripRepository =
+      GetIt.instance<DriverTripRepository>();
+  final logger = Logger('DriverTripBloc');
+  final user = FirebaseAuth.instance.currentUser;
+  DriverTripBloc() : super(const DriverTripState()) {
+    on<TripStartTrackingDriver>(_onTripStartTrackingDriver);
     on<TripRequestReceived>(_onTripRequestReceived);
     on<TripAccepted>(_onTripAccepted);
     on<TripRejected>(_onTripRejected);
@@ -17,10 +30,23 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<TripCompleted>(_onTripCompleted);
   }
 
-  void _onLocationUpdated(
-      DriverLocationStatusUpdate event, Emitter<DriverTripState> emit) {
-    // Handle location update logic here
-    emit(DriverTripLocationUpdated(event.location));
+  void _onTripStartTrackingDriver(
+      TripStartTrackingDriver event, Emitter<DriverTripState> emit) {
+    try {
+      logger.info('Starting location tracking...');
+      Location location = Location();
+      driverTripRepository.connetToSocketIO();
+      var locationStream =
+          location.onLocationChanged.listen((LocationData currentLocation) {
+        driverTripRepository.sendLocation(
+            locationData: currentLocation, firebaseUserId: user!.uid);
+        emit(state.copyWith(currentLcoation: currentLocation));
+      });
+
+      emit(state.copyWith(locationStream: locationStream));
+    } catch (e) {
+      logger.severe('Failed to start location tracking: $e');
+    }
   }
 
   void _onTripRequestReceived(

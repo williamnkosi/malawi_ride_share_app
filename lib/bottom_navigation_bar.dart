@@ -39,7 +39,8 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
     return BlocListener<AppBloc, AppState>(
       listener: (context, state) {
         if (state.message != null) {
-          showAppBottomSheet(context: context, message: state.message!);
+          showAppBottomSheet(
+              context: context, message: state.message!, onAccept: () {});
         }
       },
       child: Scaffold(

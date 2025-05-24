@@ -11,6 +11,7 @@ import 'package:get_it/get_it.dart';
 import 'package:location/location.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
+import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
 
 part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
@@ -19,25 +20,47 @@ part 'driver_trip_bloc.freezed.dart';
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final DriverTripRepository driverTripRepository =
       GetIt.instance<DriverTripRepository>();
+  final FirebaseMessageRepository _firebaseMessagingRepository =
+      GetIt.instance<FirebaseMessageRepository>();
   final logger = Logger('DriverTripBloc');
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
-    on<TripStartTrackingDriver>(_onTripStartTrackingDriver);
-    on<TripRequestReceived>(_onTripRequestReceived);
-    on<TripAccepted>(_onTripAccepted);
-    on<TripRejected>(_onTripRejected);
-    on<TripStarted>(_onTripStarted);
-    on<TripCompleted>(_onTripCompleted);
+    on<DriverTripIntial>(_onTripIntial);
+    on<DriverTripStartTrackingDriver>(_onTripStartTrackingDriver);
+    on<DriverTripRequestReceived>(_onTripRequestReceived);
+    // on<DriverTripAccepted>(_onTripAccepted);
+    // on<DriverTripRejected>(_onTripRejected);
+
+    // on<DriverTripCompleted>(_onTripCompleted);
+  }
+
+  void _onTripIntial(
+      DriverTripIntial event, Emitter<DriverTripState> emit) async {
+    try {
+      logger.info('Initializing trip...');
+      var user = FirebaseAuth.instance.currentUser;
+      await _firebaseMessagingRepository.registerDevice(
+          firebaseUserId: user!.uid);
+      FirebaseMessaging.onMessage.listen((message) {
+        if (message.data.isNotEmpty) {
+          add(DriverTripRequestReceived(message: message));
+        }
+      });
+    } catch (e) {
+      logger.severe('Failed to initialize trip: $e');
+      //emit(DriverTripState.error(e.toString()));
+    }
   }
 
   void _onTripStartTrackingDriver(
-      TripStartTrackingDriver event, Emitter<DriverTripState> emit) {
+      DriverTripStartTrackingDriver event, Emitter<DriverTripState> emit) {
     try {
       logger.info('Starting location tracking...');
       Location location = Location();
       driverTripRepository.connetToSocketIO();
       var locationStream =
           location.onLocationChanged.listen((LocationData currentLocation) {
+        print(currentLocation);
         driverTripRepository.sendLocation(
             locationData: currentLocation, firebaseUserId: user!.uid);
         emit(state.copyWith(currentLcoation: currentLocation));
@@ -50,33 +73,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   }
 
   void _onTripRequestReceived(
-      TripRequestReceived event, Emitter<DriverTripState> emit) {
-    // Handle trip request received logic here
-    emit(DriverTripRequestReceived(event.tripDetails));
-  }
-
-  void _onTripAccepted(TripAccepted event, Emitter<DriverTripState> emit) {
-    // Handle trip accepted logic here
-    emit(DriverTripAccepted(event.tripDetails));
-  }
-
-  void _onTripRejected(TripRejected event, Emitter<DriverTripState> emit) {
-    // Handle trip rejected logic here
-    emit(DriverTripRejected(event.tripDetails));
-  }
-
-  void _onTripStarted(TripStarted event, Emitter<DriverTripState> emit) {
-    // Handle trip started logic here
-    emit(DriverTripStarted(event.tripDetails));
-  }
-
-  void _onTripCompleted(TripCompleted event, Emitter<DriverTripState> emit) {
-    // Handle trip completed logic here
-    emit(DriverTripCompleted(event.tripDetails));
-  }
-
-  void _onTripCancelled(TripCancelled event, Emitter<DriverTripState> emit) {
-    // Handle trip cancelled logic here
-    emit(DriverTripCancelled(event.tripDetails));
+      DriverTripRequestReceived event, Emitter<DriverTripState> emit) {
+    emit(state.copyWith(message: event.message));
   }
 }

@@ -13,7 +13,7 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final _authRepository = getIt<AuthRepository>();
-  final _fireBaseRepository = getIt<FirebaseRepository>();
+  //final _fireBaseRepository = getIt<FirebaseRepository>();
 
   late final FirebaseAuth auth;
   AuthBloc() : super(const AuthState.start()) {
@@ -25,7 +25,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   _onIntial(event, emit) async {
     try {
-      auth = await _fireBaseRepository.initializeAuth();
+      //auth = await _fireBaseRepository.initializeAuth();
       emit(const AuthState.unauthenticated());
     } catch (e) {
       emit(AuthState.error(e.toString()));

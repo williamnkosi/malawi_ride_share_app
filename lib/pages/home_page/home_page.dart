@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/pages/home_page/bloc/home_page_bloc.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_bottom_sheet.dart';
@@ -19,6 +20,9 @@ class HomePage extends StatelessWidget {
           create: (context) =>
               LocationBloc()..add(const LocationEventInitial()),
         ),
+        BlocProvider(
+          create: (context) => DriverTripBloc()..add(const DriverTripIntial()),
+        ),
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -29,9 +33,10 @@ class HomePage extends StatelessWidget {
           children: [
             FloatingActionButton(
               onPressed: () {
+                print("pressed =====");
                 // ignore: close_sinks
-                final locationBloc = context.read<LocationBloc>();
-                locationBloc.add(const LocationEventStartTracking());
+                final driverTripBloc = context.read<DriverTripBloc>();
+                driverTripBloc.add(const DriverTripStartTrackingDriver());
               },
               tooltip: 'Increment',
               child: Icon(Icons.add),
@@ -40,8 +45,8 @@ class HomePage extends StatelessWidget {
             FloatingActionButton(
               onPressed: () {
                 // ignore: close_sinks
-                final locationBloc = context.read<LocationBloc>();
-                locationBloc.add(const LocationEventStopTracking());
+                final driverTripBloc = context.read<DriverTripBloc>();
+                driverTripBloc.add(const DriverTripStartTrackingDriver());
               },
               tooltip: 'Increment',
               child: Icon(Icons.remove_done),

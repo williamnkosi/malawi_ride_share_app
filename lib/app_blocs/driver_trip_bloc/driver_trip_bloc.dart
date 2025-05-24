@@ -52,19 +52,28 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     }
   }
 
-  void _onTripStartTrackingDriver(
-      DriverTripStartTrackingDriver event, Emitter<DriverTripState> emit) {
+  void _onTripStartTrackingDriver(DriverTripStartTrackingDriver event,
+      Emitter<DriverTripState> emit) async {
     try {
       logger.info('Starting location tracking...');
       Location location = Location();
       driverTripRepository.connetToSocketIO();
-      var locationStream =
-          location.onLocationChanged.listen((LocationData currentLocation) {
-        print(currentLocation);
-        driverTripRepository.sendLocation(
-            locationData: currentLocation, firebaseUserId: user!.uid);
-        emit(state.copyWith(currentLcoation: currentLocation));
-      });
+      var locationStream = location.onLocationChanged;
+
+      await emit.forEach<LocationData>(
+        locationStream,
+        onData: (currentLocation) {
+          driverTripRepository.sendLocation(
+            locationData: currentLocation,
+            firebaseUserId: user!.uid,
+          );
+          return state.copyWith(currentLcoation: currentLocation);
+        },
+        onError: (error, stackTrace) {
+          logger.severe('Location stream error: $error');
+          return state;
+        },
+      );
 
       emit(state.copyWith(locationStream: locationStream));
     } catch (e) {

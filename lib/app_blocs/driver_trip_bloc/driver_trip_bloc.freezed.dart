@@ -20,6 +20,7 @@ mixin _$DriverTripEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -31,6 +32,7 @@ mixin _$DriverTripEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -42,6 +44,7 @@ mixin _$DriverTripEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -54,6 +57,7 @@ mixin _$DriverTripEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -66,6 +70,7 @@ mixin _$DriverTripEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -78,6 +83,7 @@ mixin _$DriverTripEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -153,6 +159,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -167,6 +174,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -181,6 +189,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -199,6 +208,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -214,6 +224,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -229,6 +240,7 @@ class _$TripStartedImpl implements TripStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -291,6 +303,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -305,6 +318,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -319,6 +333,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -337,6 +352,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -352,6 +368,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -367,6 +384,7 @@ class _$TripEndedImpl implements TripEnded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -384,6 +402,151 @@ class _$TripEndedImpl implements TripEnded {
 
 abstract class TripEnded implements DriverTripEvent {
   const factory TripEnded() = _$TripEndedImpl;
+}
+
+/// @nodoc
+abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
+  factory _$$TripRequestReceivedImplCopyWith(_$TripRequestReceivedImpl value,
+          $Res Function(_$TripRequestReceivedImpl) then) =
+      __$$TripRequestReceivedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TripRequestReceivedImplCopyWithImpl<$Res>
+    extends _$DriverTripEventCopyWithImpl<$Res, _$TripRequestReceivedImpl>
+    implements _$$TripRequestReceivedImplCopyWith<$Res> {
+  __$$TripRequestReceivedImplCopyWithImpl(_$TripRequestReceivedImpl _value,
+      $Res Function(_$TripRequestReceivedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$TripRequestReceivedImpl implements TripRequestReceived {
+  const _$TripRequestReceivedImpl();
+
+  @override
+  String toString() {
+    return 'DriverTripEvent.tripRequestReceived()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TripRequestReceivedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() tripStarted,
+    required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
+    required TResult Function() tripAccepted,
+    required TResult Function() tripRejected,
+    required TResult Function() tripCancelled,
+    required TResult Function() tripCompleted,
+    required TResult Function() driverLocationStatusUpdate,
+  }) {
+    return tripRequestReceived();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? tripStarted,
+    TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
+    TResult? Function()? tripAccepted,
+    TResult? Function()? tripRejected,
+    TResult? Function()? tripCancelled,
+    TResult? Function()? tripCompleted,
+    TResult? Function()? driverLocationStatusUpdate,
+  }) {
+    return tripRequestReceived?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? tripStarted,
+    TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
+    TResult Function()? tripAccepted,
+    TResult Function()? tripRejected,
+    TResult Function()? tripCancelled,
+    TResult Function()? tripCompleted,
+    TResult Function()? driverLocationStatusUpdate,
+    required TResult orElse(),
+  }) {
+    if (tripRequestReceived != null) {
+      return tripRequestReceived();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TripStarted value) tripStarted,
+    required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
+    required TResult Function(TripAccepted value) tripAccepted,
+    required TResult Function(TripRejected value) tripRejected,
+    required TResult Function(TripCancelled value) tripCancelled,
+    required TResult Function(TripCompleted value) tripCompleted,
+    required TResult Function(DriverLocationStatusUpdate value)
+        driverLocationStatusUpdate,
+  }) {
+    return tripRequestReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TripStarted value)? tripStarted,
+    TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
+    TResult? Function(TripAccepted value)? tripAccepted,
+    TResult? Function(TripRejected value)? tripRejected,
+    TResult? Function(TripCancelled value)? tripCancelled,
+    TResult? Function(TripCompleted value)? tripCompleted,
+    TResult? Function(DriverLocationStatusUpdate value)?
+        driverLocationStatusUpdate,
+  }) {
+    return tripRequestReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TripStarted value)? tripStarted,
+    TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
+    TResult Function(TripAccepted value)? tripAccepted,
+    TResult Function(TripRejected value)? tripRejected,
+    TResult Function(TripCancelled value)? tripCancelled,
+    TResult Function(TripCompleted value)? tripCompleted,
+    TResult Function(DriverLocationStatusUpdate value)?
+        driverLocationStatusUpdate,
+    required TResult orElse(),
+  }) {
+    if (tripRequestReceived != null) {
+      return tripRequestReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TripRequestReceived implements DriverTripEvent {
+  const factory TripRequestReceived() = _$TripRequestReceivedImpl;
 }
 
 /// @nodoc
@@ -429,6 +592,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -443,6 +607,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -457,6 +622,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -475,6 +641,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -490,6 +657,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -505,6 +673,7 @@ class _$TripAcceptedImpl implements TripAccepted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -567,6 +736,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -581,6 +751,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -595,6 +766,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -613,6 +785,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -628,6 +801,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -643,6 +817,7 @@ class _$TripRejectedImpl implements TripRejected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -705,6 +880,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -719,6 +895,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -733,6 +910,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -751,6 +929,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -766,6 +945,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -781,6 +961,7 @@ class _$TripCancelledImpl implements TripCancelled {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -843,6 +1024,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -857,6 +1039,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -871,6 +1054,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -889,6 +1073,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -904,6 +1089,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -919,6 +1105,7 @@ class _$TripCompletedImpl implements TripCompleted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -985,6 +1172,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult when<TResult extends Object?>({
     required TResult Function() tripStarted,
     required TResult Function() tripEnded,
+    required TResult Function() tripRequestReceived,
     required TResult Function() tripAccepted,
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
@@ -999,6 +1187,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? tripStarted,
     TResult? Function()? tripEnded,
+    TResult? Function()? tripRequestReceived,
     TResult? Function()? tripAccepted,
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
@@ -1013,6 +1202,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tripStarted,
     TResult Function()? tripEnded,
+    TResult Function()? tripRequestReceived,
     TResult Function()? tripAccepted,
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
@@ -1031,6 +1221,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult map<TResult extends Object?>({
     required TResult Function(TripStarted value) tripStarted,
     required TResult Function(TripEnded value) tripEnded,
+    required TResult Function(TripRequestReceived value) tripRequestReceived,
     required TResult Function(TripAccepted value) tripAccepted,
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
@@ -1046,6 +1237,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TripStarted value)? tripStarted,
     TResult? Function(TripEnded value)? tripEnded,
+    TResult? Function(TripRequestReceived value)? tripRequestReceived,
     TResult? Function(TripAccepted value)? tripAccepted,
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
@@ -1061,6 +1253,7 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TripStarted value)? tripStarted,
     TResult Function(TripEnded value)? tripEnded,
+    TResult Function(TripRequestReceived value)? tripRequestReceived,
     TResult Function(TripAccepted value)? tripAccepted,
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
@@ -1078,4 +1271,206 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
 
 abstract class DriverLocationStatusUpdate implements DriverTripEvent {
   const factory DriverLocationStatusUpdate() = _$DriverLocationStatusUpdateImpl;
+}
+
+/// @nodoc
+mixin _$DriverTripState {
+  bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
+  RemoteMessage? get message => throw _privateConstructorUsedError;
+  LocationData? get currentLcoation => throw _privateConstructorUsedError;
+  dynamic get locationStream => throw _privateConstructorUsedError;
+
+  /// Create a copy of DriverTripState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DriverTripStateCopyWith<DriverTripState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DriverTripStateCopyWith<$Res> {
+  factory $DriverTripStateCopyWith(
+          DriverTripState value, $Res Function(DriverTripState) then) =
+      _$DriverTripStateCopyWithImpl<$Res, DriverTripState>;
+  @useResult
+  $Res call(
+      {bool isLocationPremissionEnabled,
+      RemoteMessage? message,
+      LocationData? currentLcoation,
+      dynamic locationStream});
+}
+
+/// @nodoc
+class _$DriverTripStateCopyWithImpl<$Res, $Val extends DriverTripState>
+    implements $DriverTripStateCopyWith<$Res> {
+  _$DriverTripStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DriverTripState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLocationPremissionEnabled = null,
+    Object? message = freezed,
+    Object? currentLcoation = freezed,
+    Object? locationStream = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLocationPremissionEnabled: null == isLocationPremissionEnabled
+          ? _value.isLocationPremissionEnabled
+          : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as RemoteMessage?,
+      currentLcoation: freezed == currentLcoation
+          ? _value.currentLcoation
+          : currentLcoation // ignore: cast_nullable_to_non_nullable
+              as LocationData?,
+      locationStream: freezed == locationStream
+          ? _value.locationStream
+          : locationStream // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DriverTripStateImplCopyWith<$Res>
+    implements $DriverTripStateCopyWith<$Res> {
+  factory _$$DriverTripStateImplCopyWith(_$DriverTripStateImpl value,
+          $Res Function(_$DriverTripStateImpl) then) =
+      __$$DriverTripStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {bool isLocationPremissionEnabled,
+      RemoteMessage? message,
+      LocationData? currentLcoation,
+      dynamic locationStream});
+}
+
+/// @nodoc
+class __$$DriverTripStateImplCopyWithImpl<$Res>
+    extends _$DriverTripStateCopyWithImpl<$Res, _$DriverTripStateImpl>
+    implements _$$DriverTripStateImplCopyWith<$Res> {
+  __$$DriverTripStateImplCopyWithImpl(
+      _$DriverTripStateImpl _value, $Res Function(_$DriverTripStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverTripState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLocationPremissionEnabled = null,
+    Object? message = freezed,
+    Object? currentLcoation = freezed,
+    Object? locationStream = freezed,
+  }) {
+    return _then(_$DriverTripStateImpl(
+      isLocationPremissionEnabled: null == isLocationPremissionEnabled
+          ? _value.isLocationPremissionEnabled
+          : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as RemoteMessage?,
+      currentLcoation: freezed == currentLcoation
+          ? _value.currentLcoation
+          : currentLcoation // ignore: cast_nullable_to_non_nullable
+              as LocationData?,
+      locationStream:
+          freezed == locationStream ? _value.locationStream! : locationStream,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DriverTripStateImpl implements _DriverTripState {
+  const _$DriverTripStateImpl(
+      {this.isLocationPremissionEnabled = false,
+      this.message,
+      this.currentLcoation,
+      this.locationStream});
+
+  @override
+  @JsonKey()
+  final bool isLocationPremissionEnabled;
+  @override
+  final RemoteMessage? message;
+  @override
+  final LocationData? currentLcoation;
+  @override
+  final dynamic locationStream;
+
+  @override
+  String toString() {
+    return 'DriverTripState(isLocationPremissionEnabled: $isLocationPremissionEnabled, message: $message, currentLcoation: $currentLcoation, locationStream: $locationStream)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverTripStateImpl &&
+            (identical(other.isLocationPremissionEnabled,
+                    isLocationPremissionEnabled) ||
+                other.isLocationPremissionEnabled ==
+                    isLocationPremissionEnabled) &&
+            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality()
+                .equals(other.currentLcoation, currentLcoation) &&
+            const DeepCollectionEquality()
+                .equals(other.locationStream, locationStream));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLocationPremissionEnabled,
+      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(currentLcoation),
+      const DeepCollectionEquality().hash(locationStream));
+
+  /// Create a copy of DriverTripState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverTripStateImplCopyWith<_$DriverTripStateImpl> get copyWith =>
+      __$$DriverTripStateImplCopyWithImpl<_$DriverTripStateImpl>(
+          this, _$identity);
+}
+
+abstract class _DriverTripState implements DriverTripState {
+  const factory _DriverTripState(
+      {final bool isLocationPremissionEnabled,
+      final RemoteMessage? message,
+      final LocationData? currentLcoation,
+      final dynamic locationStream}) = _$DriverTripStateImpl;
+
+  @override
+  bool get isLocationPremissionEnabled;
+  @override
+  RemoteMessage? get message;
+  @override
+  LocationData? get currentLcoation;
+  @override
+  dynamic get locationStream;
+
+  /// Create a copy of DriverTripState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DriverTripStateImplCopyWith<_$DriverTripStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

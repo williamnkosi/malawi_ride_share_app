@@ -64,7 +64,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   _onStartTracking(LocationEventStartTracking event, emit) {
     try {
+      print("Starting location tracking");
       Location location = Location();
+      locationRepository.connetToSocketIO();
       var locationStream =
           location.onLocationChanged.listen((LocationData currentLocation) {
         locationRepository.sendLocation(locationData: currentLocation);
@@ -80,7 +82,12 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   }
 
   _onStopTracking(LocationEventStopTracking event, emit) {
-    state.locationStream!.cancel();
-    emit(state.copyWith(locationStream: null));
+    try {
+      state.locationStream!.cancel();
+      locationRepository.disconnect();
+      emit(state.copyWith(locationStream: null));
+    } catch (e) {
+      print('test: $e');
+    }
   }
 }

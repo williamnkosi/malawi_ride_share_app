@@ -1,59 +1,68 @@
 import 'dart:convert';
 
-import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/repository/custom_exception.dart';
-import 'package:web_socket_client/web_socket_client.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+
 import 'package:location/location.dart';
 
 final _name = 'LocationRepository';
 
 class LocationRepository {
-  WebSocket? _socket;
-  final Logger logger = Logger(_name);
+  //late final WebSocket socket;
+  late IO.Socket socket;
+  LocationRepository();
 
-  Future<void> connectToServerWebsocket() async {
-    if (_socket == null) {
-      final uri = Uri.parse('ws://10.0.2.2:8080/ws/drivers');
-      final timeout = Duration(seconds: 10);
-      final header = {"Authorization": "testing", "DriverId": "1"};
-
-      _socket = WebSocket(uri, headers: header, timeout: timeout);
-      _socket!.connection;
-    } else {
-      throw SocketAlreadyEstablishedException();
+  void connetToSocketIO() {
+    try {
+      print("Connecting to socket");
+      socket = IO.io(
+        "http://192.168.1.211:3000",
+        IO.OptionBuilder()
+            .setTransports(['websocket']) // for Flutter or Dart VM
+            .enableAutoConnect()
+            .build(),
+      );
+      socket.onConnect((_) {
+        print("test: Connected to socket");
+      });
+      socket.onError((error) {
+        print("test: Socket error: $error");
+      });
+      socket.onDisconnect((_) {
+        print("test: Disconnected from socket");
+      });
+      socket.onConnectError((error) {
+        print("test: Socket connection error: $error");
+        throw Exception("test: Socket connection error: $error");
+      });
+    } catch (e) {
+      print("test: Failed to connect to socket: $e");
     }
   }
 
-  Future<void> sendLocation({required LocationData locationData}) async {
+  void sendLocation({required LocationData locationData}) {
     try {
-      if (_socket != null) {
-        connectToServerWebsocket();
-        Map<String, dynamic> location = {
-          'Latitude': locationData.latitude,
-          'Longitude': locationData.longitude,
-        };
-        var data = jsonEncode(location);
-        _socket!.send(data);
-      } else {
-        throw Exception("$_name - Connection already established");
-      }
-    } on SocketAlreadyEstablishedException catch (e) {
-      logger.severe(
-          "$_name - Connection already established", e, StackTrace.current);
-      rethrow;
+      print('test: ---------');
+      print('test: ${locationData.latitude}');
+      print('test: ${locationData.longitude}');
+      print('test: ---------');
+      socket.emit('driver-location-update', {
+        "firebaseId": "xUxZHxtfgwdP3ErtaNzwCoko96C3",
+        "driverLocation": {
+          "latitude": locationData.latitude,
+          "longitude": locationData.longitude
+        },
+        "status": "looking"
+      });
     } catch (e) {
-      logger.severe("$_name - Error sending location", e, StackTrace.current);
-      throw Exception("$_name - Error sending location");
+      print("test: Failed to send location: $e");
     }
   }
 
-  Future<void> disconnectFromServerWebsocket() async {
+  void disconnect() {
     try {
-      _socket!.close();
+      socket.disconnect();
     } catch (e) {
-      logger.severe(
-          "$_name - Error disconnecting from server", e, StackTrace.current);
-      throw Exception("$_name - Error disconnecting from server");
+      print("Failed to disconnect from socket: $e");
     }
   }
 }

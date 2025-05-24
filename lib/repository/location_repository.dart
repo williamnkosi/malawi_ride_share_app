@@ -4,6 +4,8 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 import 'package:location/location.dart';
 
+final _name = 'LocationRepository';
+
 class LocationRepository {
   //late final WebSocket socket;
   late IO.Socket socket;

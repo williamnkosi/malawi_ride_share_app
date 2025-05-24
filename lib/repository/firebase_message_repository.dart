@@ -15,12 +15,13 @@ class FirebaseMessageRepository {
       _firebaseMessaging = FirebaseMessaging.instance;
       await _firebaseMessaging.requestPermission();
       _firebaseMessaging.getToken().then((value) {
-        print('Token: $value');
+        logger.info(' $_name - Firebase token: $value /n');
       });
+
       return FirebaseMessaging.onMessage;
     } catch (e) {
-      print("-----");
-      print(e);
+      logger.severe('$_name - Error initializing Firebase notifications', e,
+          StackTrace.current);
       throw Exception('Failed to initialize notifications');
     }
   }

@@ -1327,9 +1327,9 @@ abstract class DriverTripStartTrackingDriver implements DriverTripEvent {
 /// @nodoc
 mixin _$DriverTripState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
-  RemoteMessage? get message => throw _privateConstructorUsedError;
+  DriverTripRequest? get request => throw _privateConstructorUsedError;
   LocationData? get currentLcoation => throw _privateConstructorUsedError;
-  StreamSubscription<LocationData>? get locationStream =>
+  Stream<LocationData>? get locationStream =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of DriverTripState
@@ -1347,9 +1347,9 @@ abstract class $DriverTripStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLocationPremissionEnabled,
-      RemoteMessage? message,
+      DriverTripRequest? request,
       LocationData? currentLcoation,
-      StreamSubscription<LocationData>? locationStream});
+      Stream<LocationData>? locationStream});
 }
 
 /// @nodoc
@@ -1368,7 +1368,7 @@ class _$DriverTripStateCopyWithImpl<$Res, $Val extends DriverTripState>
   @override
   $Res call({
     Object? isLocationPremissionEnabled = null,
-    Object? message = freezed,
+    Object? request = freezed,
     Object? currentLcoation = freezed,
     Object? locationStream = freezed,
   }) {
@@ -1377,10 +1377,10 @@ class _$DriverTripStateCopyWithImpl<$Res, $Val extends DriverTripState>
           ? _value.isLocationPremissionEnabled
           : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as RemoteMessage?,
+      request: freezed == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as DriverTripRequest?,
       currentLcoation: freezed == currentLcoation
           ? _value.currentLcoation
           : currentLcoation // ignore: cast_nullable_to_non_nullable
@@ -1388,7 +1388,7 @@ class _$DriverTripStateCopyWithImpl<$Res, $Val extends DriverTripState>
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
-              as StreamSubscription<LocationData>?,
+              as Stream<LocationData>?,
     ) as $Val);
   }
 }
@@ -1403,9 +1403,9 @@ abstract class _$$DriverTripStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLocationPremissionEnabled,
-      RemoteMessage? message,
+      DriverTripRequest? request,
       LocationData? currentLcoation,
-      StreamSubscription<LocationData>? locationStream});
+      Stream<LocationData>? locationStream});
 }
 
 /// @nodoc
@@ -1422,7 +1422,7 @@ class __$$DriverTripStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLocationPremissionEnabled = null,
-    Object? message = freezed,
+    Object? request = freezed,
     Object? currentLcoation = freezed,
     Object? locationStream = freezed,
   }) {
@@ -1431,10 +1431,10 @@ class __$$DriverTripStateImplCopyWithImpl<$Res>
           ? _value.isLocationPremissionEnabled
           : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as RemoteMessage?,
+      request: freezed == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as DriverTripRequest?,
       currentLcoation: freezed == currentLcoation
           ? _value.currentLcoation
           : currentLcoation // ignore: cast_nullable_to_non_nullable
@@ -1442,7 +1442,7 @@ class __$$DriverTripStateImplCopyWithImpl<$Res>
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
-              as StreamSubscription<LocationData>?,
+              as Stream<LocationData>?,
     ));
   }
 }
@@ -1452,7 +1452,7 @@ class __$$DriverTripStateImplCopyWithImpl<$Res>
 class _$DriverTripStateImpl implements _DriverTripState {
   const _$DriverTripStateImpl(
       {this.isLocationPremissionEnabled = false,
-      this.message,
+      this.request,
       this.currentLcoation,
       this.locationStream});
 
@@ -1460,15 +1460,15 @@ class _$DriverTripStateImpl implements _DriverTripState {
   @JsonKey()
   final bool isLocationPremissionEnabled;
   @override
-  final RemoteMessage? message;
+  final DriverTripRequest? request;
   @override
   final LocationData? currentLcoation;
   @override
-  final StreamSubscription<LocationData>? locationStream;
+  final Stream<LocationData>? locationStream;
 
   @override
   String toString() {
-    return 'DriverTripState(isLocationPremissionEnabled: $isLocationPremissionEnabled, message: $message, currentLcoation: $currentLcoation, locationStream: $locationStream)';
+    return 'DriverTripState(isLocationPremissionEnabled: $isLocationPremissionEnabled, request: $request, currentLcoation: $currentLcoation, locationStream: $locationStream)';
   }
 
   @override
@@ -1480,7 +1480,7 @@ class _$DriverTripStateImpl implements _DriverTripState {
                     isLocationPremissionEnabled) ||
                 other.isLocationPremissionEnabled ==
                     isLocationPremissionEnabled) &&
-            (identical(other.message, message) || other.message == message) &&
+            (identical(other.request, request) || other.request == request) &&
             (identical(other.currentLcoation, currentLcoation) ||
                 other.currentLcoation == currentLcoation) &&
             (identical(other.locationStream, locationStream) ||
@@ -1489,7 +1489,7 @@ class _$DriverTripStateImpl implements _DriverTripState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isLocationPremissionEnabled,
-      message, currentLcoation, locationStream);
+      request, currentLcoation, locationStream);
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -1503,20 +1503,19 @@ class _$DriverTripStateImpl implements _DriverTripState {
 
 abstract class _DriverTripState implements DriverTripState {
   const factory _DriverTripState(
-          {final bool isLocationPremissionEnabled,
-          final RemoteMessage? message,
-          final LocationData? currentLcoation,
-          final StreamSubscription<LocationData>? locationStream}) =
-      _$DriverTripStateImpl;
+      {final bool isLocationPremissionEnabled,
+      final DriverTripRequest? request,
+      final LocationData? currentLcoation,
+      final Stream<LocationData>? locationStream}) = _$DriverTripStateImpl;
 
   @override
   bool get isLocationPremissionEnabled;
   @override
-  RemoteMessage? get message;
+  DriverTripRequest? get request;
   @override
   LocationData? get currentLcoation;
   @override
-  StreamSubscription<LocationData>? get locationStream;
+  Stream<LocationData>? get locationStream;
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -30,16 +31,15 @@ class FirebaseMessageRepository {
       final device = UserDevice(
         firebaseUserId: firebaseUserId,
         fcmToken: phoneFcmToken!,
-        platform: DevicePlatform.android,
+        platform:
+            Platform.isAndroid ? DevicePlatform.android : DevicePlatform.ios,
         deviceVersion: "1.0.0",
       );
-      final response = await dio.get(
-          'http://192.168.1.211:3000/notifications/register-device',
-          queryParameters: {
-            'deviceId': '1234567890',
-            'deviceType': 'android',
-            'token': await _firebaseMessaging.getToken(),
-          });
+      final response = await dio.post(
+        'http://192.168.1.211:3000/notifications/register-device',
+        data: device.toJson(),
+      );
+      print('test: Device registered: ${response.statusCode}');
     } catch (e) {}
   }
 }

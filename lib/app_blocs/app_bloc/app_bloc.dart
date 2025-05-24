@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   _onAppEventStartListening(event, emit) async {
+    var user = FirebaseAuth.instance.currentUser;
+    await _firebaseMessagingRepository.registerDevice(
+        firebaseUserId: user!.uid);
     var messageSub = await _firebaseMessagingRepository.initNotifications();
     messageSub.listen((message) {
       if (message.data.isNotEmpty) {

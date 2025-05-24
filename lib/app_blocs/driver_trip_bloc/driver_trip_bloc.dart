@@ -1,22 +1,21 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:location/location.dart';
 import 'package:logging/logging.dart';
+
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
 
+part 'driver_trip_bloc.freezed.dart';
 part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
-part 'driver_trip_bloc.freezed.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final DriverTripRepository driverTripRepository =
@@ -84,11 +83,15 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
 
   void _onTripRequestReceived(
       DriverTripRequestReceived event, Emitter<DriverTripState> emit) {
-    var title = event.message.data['title'];
-    var body = event.message.data['body'];
-    Map<String, dynamic> data = event.message.data['data'];
-    var tripRequestMessage =
-        DriverTripRequest(title: title, body: body, data: data);
-    emit(state.copyWith(request: tripRequestMessage));
+    try {
+      var title = event.message.notification?.title ?? '';
+      var body = event.message.notification?.body ?? '';
+      Map<String, dynamic> data = event.message.data['data'];
+      var tripRequestMessage =
+          DriverTripRequest.fromMap(title: title, body: body, data: data);
+      emit(state.copyWith(request: tripRequestMessage));
+    } catch (e) {
+      logger.severe('Failed to process trip request: $e');
+    }
   }
 }

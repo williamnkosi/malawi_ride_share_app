@@ -1,3 +1,4 @@
+import 'package:logging/logging.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 import 'package:location/location.dart';
@@ -6,11 +7,11 @@ class DriverTripRepository {
   //late final WebSocket socket;
   late IO.Socket socket;
   final subscribeMessage = 'driver-location-update';
+  final logger = Logger('DriverTripRepository');
   DriverTripRepository();
 
   void connetToSocketIO() {
     try {
-      print("Connecting to socket");
       socket = IO.io(
         "http://192.168.1.211:3000",
         IO.OptionBuilder()
@@ -18,21 +19,12 @@ class DriverTripRepository {
             .enableAutoConnect()
             .build(),
       );
-      socket.onConnect((_) {
-        print("test: Connected to socket");
-      });
-      socket.onError((error) {
-        print("test: Socket error: $error");
-      });
-      socket.onDisconnect((_) {
-        print("test: Disconnected from socket");
-      });
-      socket.onConnectError((error) {
-        print("test: Socket connection error: $error");
-        throw Exception("test: Socket connection error: $error");
-      });
+      socket.onConnect((_) {});
+      socket.onError((error) {});
+      socket.onDisconnect((_) {});
+      socket.onConnectError((error) {});
     } catch (e) {
-      print("test: Failed to connect to socket: $e");
+      logger.severe("Failed to connect to socket: $e");
     }
   }
 
@@ -48,7 +40,7 @@ class DriverTripRepository {
         "status": "looking"
       });
     } catch (e) {
-      print("test: Failed to send location: $e");
+      logger.severe("Failed to send location: $e");
     }
   }
 
@@ -56,7 +48,7 @@ class DriverTripRepository {
     try {
       socket.disconnect();
     } catch (e) {
-      print("Failed to disconnect from socket: $e");
+      logger.severe("Failed to disconnect socket: $e");
     }
   }
 }

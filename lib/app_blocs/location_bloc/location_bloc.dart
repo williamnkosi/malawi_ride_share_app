@@ -11,20 +11,13 @@ import 'package:location/location.dart';
 import 'package:meta/meta.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
-import 'package:malawi_ride_share_app/repository/location_repository.dart';
-
 part 'location_bloc.freezed.dart';
 part 'location_event.dart';
 part 'location_state.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  final LocationRepository locationRepository =
-      GetIt.instance<LocationRepository>();
   LocationBloc() : super(const LocationState()) {
     on<LocationEventInitial>(_onLocationEventInitial);
-    on<LocationEventTrackLocation>(_onTrackLocation);
-    on<LocationEventStartTracking>(_onStartTracking);
-    on<LocationEventStopTracking>(_onStopTracking);
   }
 
   _onLocationEventInitial(LocationEvent event, emit) async {
@@ -56,38 +49,5 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           coordinates:
               LatLng(_locationData.latitude!, _locationData.longitude!)));
     } catch (e) {}
-  }
-
-  _onTrackLocation(LocationEventTrackLocation event, emit) {
-    emit(state.copyWith(coordinates: event.location));
-  }
-
-  _onStartTracking(LocationEventStartTracking event, emit) {
-    try {
-      print("Starting location tracking");
-      Location location = Location();
-      locationRepository.connetToSocketIO();
-      var locationStream =
-          location.onLocationChanged.listen((LocationData currentLocation) {
-        locationRepository.sendLocation(locationData: currentLocation);
-        add(LocationEvent.locationEventTrackLocation(
-            location:
-                LatLng(currentLocation.latitude!, currentLocation.longitude!)));
-      });
-
-      emit(state.copyWith(locationStream: locationStream));
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  _onStopTracking(LocationEventStopTracking event, emit) {
-    try {
-      state.locationStream!.cancel();
-      locationRepository.disconnect();
-      emit(state.copyWith(locationStream: null));
-    } catch (e) {
-      print('test: $e');
-    }
   }
 }

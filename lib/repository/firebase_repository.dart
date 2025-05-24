@@ -12,9 +12,10 @@ class FirebaseRepository {
   final Logger logger = Logger(_name);
   Future<FirebaseApp> initializeApp() async {
     try {
-      return await Firebase.initializeApp(
+      app = await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
+      return app;
     } catch (e) {
       logger.severe(
           "$_name - Error initializing Firebase", e, StackTrace.current);

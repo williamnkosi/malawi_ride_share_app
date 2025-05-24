@@ -3,25 +3,27 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/models/user_device.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_bottom_sheet.dart';
 
 class FirebaseMessageRepository {
   late FirebaseMessaging _firebaseMessaging;
   final dio = Dio();
+  final logger = Logger('FirebaseMessageRepository');
 
   Future<Stream<RemoteMessage>> initNotifications() async {
     try {
       _firebaseMessaging = FirebaseMessaging.instance;
       await _firebaseMessaging.requestPermission();
       _firebaseMessaging.getToken().then((value) {
-        logger.info(' $_name - Firebase token: $value /n');
+        logger.info('Firebase token: $value /n');
       });
 
       return FirebaseMessaging.onMessage;
     } catch (e) {
-      logger.severe('$_name - Error initializing Firebase notifications', e,
-          StackTrace.current);
+      logger.severe(
+          'Error initializing Firebase notifications', e, StackTrace.current);
       throw Exception('Failed to initialize notifications');
     }
   }

@@ -31,7 +31,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   _onAppEventIntial(AppEventInitial event, emit) async {
     try {
-      app = await _fireBaseRepository.initializeApp();
+      await _fireBaseRepository.initializeApp().then((value) async {
+        await _fireBaseRepository.initializeAuth();
+      });
     } catch (e) {
       emit();
     }

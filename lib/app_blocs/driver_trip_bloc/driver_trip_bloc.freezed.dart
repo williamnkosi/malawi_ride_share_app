@@ -25,7 +25,7 @@ mixin _$DriverTripEvent {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DriverTripEvent {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,7 +49,7 @@ mixin _$DriverTripEvent {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,8 +62,8 @@ mixin _$DriverTripEvent {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,8 +75,7 @@ mixin _$DriverTripEvent {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,8 +87,7 @@ mixin _$DriverTripEvent {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,7 +162,7 @@ class _$TripStartedImpl implements TripStarted {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripStarted();
   }
@@ -179,7 +177,7 @@ class _$TripStartedImpl implements TripStarted {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripStarted?.call();
   }
@@ -194,7 +192,7 @@ class _$TripStartedImpl implements TripStarted {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripStarted != null) {
@@ -213,8 +211,8 @@ class _$TripStartedImpl implements TripStarted {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripStarted(this);
   }
@@ -229,8 +227,7 @@ class _$TripStartedImpl implements TripStarted {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripStarted?.call(this);
   }
@@ -245,8 +242,7 @@ class _$TripStartedImpl implements TripStarted {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripStarted != null) {
@@ -308,7 +304,7 @@ class _$TripEndedImpl implements TripEnded {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripEnded();
   }
@@ -323,7 +319,7 @@ class _$TripEndedImpl implements TripEnded {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripEnded?.call();
   }
@@ -338,7 +334,7 @@ class _$TripEndedImpl implements TripEnded {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripEnded != null) {
@@ -357,8 +353,8 @@ class _$TripEndedImpl implements TripEnded {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripEnded(this);
   }
@@ -373,8 +369,7 @@ class _$TripEndedImpl implements TripEnded {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripEnded?.call(this);
   }
@@ -389,8 +384,7 @@ class _$TripEndedImpl implements TripEnded {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripEnded != null) {
@@ -453,7 +447,7 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripRequestReceived();
   }
@@ -468,7 +462,7 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripRequestReceived?.call();
   }
@@ -483,7 +477,7 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripRequestReceived != null) {
@@ -502,8 +496,8 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripRequestReceived(this);
   }
@@ -518,8 +512,7 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripRequestReceived?.call(this);
   }
@@ -534,8 +527,7 @@ class _$TripRequestReceivedImpl implements TripRequestReceived {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripRequestReceived != null) {
@@ -597,7 +589,7 @@ class _$TripAcceptedImpl implements TripAccepted {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripAccepted();
   }
@@ -612,7 +604,7 @@ class _$TripAcceptedImpl implements TripAccepted {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripAccepted?.call();
   }
@@ -627,7 +619,7 @@ class _$TripAcceptedImpl implements TripAccepted {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripAccepted != null) {
@@ -646,8 +638,8 @@ class _$TripAcceptedImpl implements TripAccepted {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripAccepted(this);
   }
@@ -662,8 +654,7 @@ class _$TripAcceptedImpl implements TripAccepted {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripAccepted?.call(this);
   }
@@ -678,8 +669,7 @@ class _$TripAcceptedImpl implements TripAccepted {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripAccepted != null) {
@@ -741,7 +731,7 @@ class _$TripRejectedImpl implements TripRejected {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripRejected();
   }
@@ -756,7 +746,7 @@ class _$TripRejectedImpl implements TripRejected {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripRejected?.call();
   }
@@ -771,7 +761,7 @@ class _$TripRejectedImpl implements TripRejected {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripRejected != null) {
@@ -790,8 +780,8 @@ class _$TripRejectedImpl implements TripRejected {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripRejected(this);
   }
@@ -806,8 +796,7 @@ class _$TripRejectedImpl implements TripRejected {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripRejected?.call(this);
   }
@@ -822,8 +811,7 @@ class _$TripRejectedImpl implements TripRejected {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripRejected != null) {
@@ -885,7 +873,7 @@ class _$TripCancelledImpl implements TripCancelled {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripCancelled();
   }
@@ -900,7 +888,7 @@ class _$TripCancelledImpl implements TripCancelled {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripCancelled?.call();
   }
@@ -915,7 +903,7 @@ class _$TripCancelledImpl implements TripCancelled {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripCancelled != null) {
@@ -934,8 +922,8 @@ class _$TripCancelledImpl implements TripCancelled {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripCancelled(this);
   }
@@ -950,8 +938,7 @@ class _$TripCancelledImpl implements TripCancelled {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripCancelled?.call(this);
   }
@@ -966,8 +953,7 @@ class _$TripCancelledImpl implements TripCancelled {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripCancelled != null) {
@@ -1029,7 +1015,7 @@ class _$TripCompletedImpl implements TripCompleted {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
     return tripCompleted();
   }
@@ -1044,7 +1030,7 @@ class _$TripCompletedImpl implements TripCompleted {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
     return tripCompleted?.call();
   }
@@ -1059,7 +1045,7 @@ class _$TripCompletedImpl implements TripCompleted {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripCompleted != null) {
@@ -1078,8 +1064,8 @@ class _$TripCompletedImpl implements TripCompleted {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
     return tripCompleted(this);
   }
@@ -1094,8 +1080,7 @@ class _$TripCompletedImpl implements TripCompleted {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
     return tripCompleted?.call(this);
   }
@@ -1110,8 +1095,7 @@ class _$TripCompletedImpl implements TripCompleted {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
     if (tripCompleted != null) {
@@ -1126,21 +1110,20 @@ abstract class TripCompleted implements DriverTripEvent {
 }
 
 /// @nodoc
-abstract class _$$DriverLocationStatusUpdateImplCopyWith<$Res> {
-  factory _$$DriverLocationStatusUpdateImplCopyWith(
-          _$DriverLocationStatusUpdateImpl value,
-          $Res Function(_$DriverLocationStatusUpdateImpl) then) =
-      __$$DriverLocationStatusUpdateImplCopyWithImpl<$Res>;
+abstract class _$$TripStartTrackingDriverImplCopyWith<$Res> {
+  factory _$$TripStartTrackingDriverImplCopyWith(
+          _$TripStartTrackingDriverImpl value,
+          $Res Function(_$TripStartTrackingDriverImpl) then) =
+      __$$TripStartTrackingDriverImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DriverLocationStatusUpdateImplCopyWithImpl<$Res>
-    extends _$DriverTripEventCopyWithImpl<$Res,
-        _$DriverLocationStatusUpdateImpl>
-    implements _$$DriverLocationStatusUpdateImplCopyWith<$Res> {
-  __$$DriverLocationStatusUpdateImplCopyWithImpl(
-      _$DriverLocationStatusUpdateImpl _value,
-      $Res Function(_$DriverLocationStatusUpdateImpl) _then)
+class __$$TripStartTrackingDriverImplCopyWithImpl<$Res>
+    extends _$DriverTripEventCopyWithImpl<$Res, _$TripStartTrackingDriverImpl>
+    implements _$$TripStartTrackingDriverImplCopyWith<$Res> {
+  __$$TripStartTrackingDriverImplCopyWithImpl(
+      _$TripStartTrackingDriverImpl _value,
+      $Res Function(_$TripStartTrackingDriverImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DriverTripEvent
@@ -1149,19 +1132,19 @@ class __$$DriverLocationStatusUpdateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
-  const _$DriverLocationStatusUpdateImpl();
+class _$TripStartTrackingDriverImpl implements TripStartTrackingDriver {
+  const _$TripStartTrackingDriverImpl();
 
   @override
   String toString() {
-    return 'DriverTripEvent.driverLocationStatusUpdate()';
+    return 'DriverTripEvent.tripStartTrackingDriver()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DriverLocationStatusUpdateImpl);
+            other is _$TripStartTrackingDriverImpl);
   }
 
   @override
@@ -1177,9 +1160,9 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     required TResult Function() tripRejected,
     required TResult Function() tripCancelled,
     required TResult Function() tripCompleted,
-    required TResult Function() driverLocationStatusUpdate,
+    required TResult Function() tripStartTrackingDriver,
   }) {
-    return driverLocationStatusUpdate();
+    return tripStartTrackingDriver();
   }
 
   @override
@@ -1192,9 +1175,9 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     TResult? Function()? tripRejected,
     TResult? Function()? tripCancelled,
     TResult? Function()? tripCompleted,
-    TResult? Function()? driverLocationStatusUpdate,
+    TResult? Function()? tripStartTrackingDriver,
   }) {
-    return driverLocationStatusUpdate?.call();
+    return tripStartTrackingDriver?.call();
   }
 
   @override
@@ -1207,11 +1190,11 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     TResult Function()? tripRejected,
     TResult Function()? tripCancelled,
     TResult Function()? tripCompleted,
-    TResult Function()? driverLocationStatusUpdate,
+    TResult Function()? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
-    if (driverLocationStatusUpdate != null) {
-      return driverLocationStatusUpdate();
+    if (tripStartTrackingDriver != null) {
+      return tripStartTrackingDriver();
     }
     return orElse();
   }
@@ -1226,10 +1209,10 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     required TResult Function(TripRejected value) tripRejected,
     required TResult Function(TripCancelled value) tripCancelled,
     required TResult Function(TripCompleted value) tripCompleted,
-    required TResult Function(DriverLocationStatusUpdate value)
-        driverLocationStatusUpdate,
+    required TResult Function(TripStartTrackingDriver value)
+        tripStartTrackingDriver,
   }) {
-    return driverLocationStatusUpdate(this);
+    return tripStartTrackingDriver(this);
   }
 
   @override
@@ -1242,10 +1225,9 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     TResult? Function(TripRejected value)? tripRejected,
     TResult? Function(TripCancelled value)? tripCancelled,
     TResult? Function(TripCompleted value)? tripCompleted,
-    TResult? Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult? Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
   }) {
-    return driverLocationStatusUpdate?.call(this);
+    return tripStartTrackingDriver?.call(this);
   }
 
   @override
@@ -1258,19 +1240,18 @@ class _$DriverLocationStatusUpdateImpl implements DriverLocationStatusUpdate {
     TResult Function(TripRejected value)? tripRejected,
     TResult Function(TripCancelled value)? tripCancelled,
     TResult Function(TripCompleted value)? tripCompleted,
-    TResult Function(DriverLocationStatusUpdate value)?
-        driverLocationStatusUpdate,
+    TResult Function(TripStartTrackingDriver value)? tripStartTrackingDriver,
     required TResult orElse(),
   }) {
-    if (driverLocationStatusUpdate != null) {
-      return driverLocationStatusUpdate(this);
+    if (tripStartTrackingDriver != null) {
+      return tripStartTrackingDriver(this);
     }
     return orElse();
   }
 }
 
-abstract class DriverLocationStatusUpdate implements DriverTripEvent {
-  const factory DriverLocationStatusUpdate() = _$DriverLocationStatusUpdateImpl;
+abstract class TripStartTrackingDriver implements DriverTripEvent {
+  const factory TripStartTrackingDriver() = _$TripStartTrackingDriverImpl;
 }
 
 /// @nodoc
@@ -1278,7 +1259,8 @@ mixin _$DriverTripState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
   RemoteMessage? get message => throw _privateConstructorUsedError;
   LocationData? get currentLcoation => throw _privateConstructorUsedError;
-  dynamic get locationStream => throw _privateConstructorUsedError;
+  StreamSubscription<LocationData>? get locationStream =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -1297,7 +1279,7 @@ abstract class $DriverTripStateCopyWith<$Res> {
       {bool isLocationPremissionEnabled,
       RemoteMessage? message,
       LocationData? currentLcoation,
-      dynamic locationStream});
+      StreamSubscription<LocationData>? locationStream});
 }
 
 /// @nodoc
@@ -1336,7 +1318,7 @@ class _$DriverTripStateCopyWithImpl<$Res, $Val extends DriverTripState>
       locationStream: freezed == locationStream
           ? _value.locationStream
           : locationStream // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as StreamSubscription<LocationData>?,
     ) as $Val);
   }
 }
@@ -1353,7 +1335,7 @@ abstract class _$$DriverTripStateImplCopyWith<$Res>
       {bool isLocationPremissionEnabled,
       RemoteMessage? message,
       LocationData? currentLcoation,
-      dynamic locationStream});
+      StreamSubscription<LocationData>? locationStream});
 }
 
 /// @nodoc
@@ -1387,8 +1369,10 @@ class __$$DriverTripStateImplCopyWithImpl<$Res>
           ? _value.currentLcoation
           : currentLcoation // ignore: cast_nullable_to_non_nullable
               as LocationData?,
-      locationStream:
-          freezed == locationStream ? _value.locationStream! : locationStream,
+      locationStream: freezed == locationStream
+          ? _value.locationStream
+          : locationStream // ignore: cast_nullable_to_non_nullable
+              as StreamSubscription<LocationData>?,
     ));
   }
 }
@@ -1410,7 +1394,7 @@ class _$DriverTripStateImpl implements _DriverTripState {
   @override
   final LocationData? currentLcoation;
   @override
-  final dynamic locationStream;
+  final StreamSubscription<LocationData>? locationStream;
 
   @override
   String toString() {
@@ -1426,20 +1410,16 @@ class _$DriverTripStateImpl implements _DriverTripState {
                     isLocationPremissionEnabled) ||
                 other.isLocationPremissionEnabled ==
                     isLocationPremissionEnabled) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality()
-                .equals(other.currentLcoation, currentLcoation) &&
-            const DeepCollectionEquality()
-                .equals(other.locationStream, locationStream));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.currentLcoation, currentLcoation) ||
+                other.currentLcoation == currentLcoation) &&
+            (identical(other.locationStream, locationStream) ||
+                other.locationStream == locationStream));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLocationPremissionEnabled,
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(currentLcoation),
-      const DeepCollectionEquality().hash(locationStream));
+  int get hashCode => Object.hash(runtimeType, isLocationPremissionEnabled,
+      message, currentLcoation, locationStream);
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -1453,10 +1433,11 @@ class _$DriverTripStateImpl implements _DriverTripState {
 
 abstract class _DriverTripState implements DriverTripState {
   const factory _DriverTripState(
-      {final bool isLocationPremissionEnabled,
-      final RemoteMessage? message,
-      final LocationData? currentLcoation,
-      final dynamic locationStream}) = _$DriverTripStateImpl;
+          {final bool isLocationPremissionEnabled,
+          final RemoteMessage? message,
+          final LocationData? currentLcoation,
+          final StreamSubscription<LocationData>? locationStream}) =
+      _$DriverTripStateImpl;
 
   @override
   bool get isLocationPremissionEnabled;
@@ -1465,7 +1446,7 @@ abstract class _DriverTripState implements DriverTripState {
   @override
   LocationData? get currentLcoation;
   @override
-  dynamic get locationStream;
+  StreamSubscription<LocationData>? get locationStream;
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.

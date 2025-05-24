@@ -36,10 +36,11 @@ class DriverTripRepository {
     }
   }
 
-  void sendLocation({required LocationData locationData}) {
+  void sendLocation(
+      {required LocationData locationData, required String firebaseUserId}) {
     try {
       socket.emit(subscribeMessage, {
-        "firebaseId": "xUxZHxtfgwdP3ErtaNzwCoko96C3",
+        "firebaseId": firebaseUserId,
         "driverLocation": {
           "latitude": locationData.latitude,
           "longitude": locationData.longitude

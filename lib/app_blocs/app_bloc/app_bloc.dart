@@ -50,6 +50,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   _onAppEventShowMessage(AppEventShowMessage event, emit) async {
+    print("testing: ${event.message.data}");
+    print("******");
+    print(event.message);
+    print(event.message!.data['body']);
     emit(state.copyWith(message: event.message));
   }
 

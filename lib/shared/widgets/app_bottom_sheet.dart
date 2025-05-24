@@ -5,9 +5,10 @@ import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 void showAppBottomSheet({
   required BuildContext context,
   required RemoteMessage message,
+  required Function onAccept,
 }) {
   var title = message.data['title'] ?? 'Title';
-  var messageBody = message.data['message'] ?? 'Body';
+  var messageBody = message.data['body'] ?? 'Body';
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(
@@ -36,8 +37,8 @@ void showAppBottomSheet({
               const SizedBox(height: 8),
               SizedBox(
                   width: double.infinity,
-                  child:
-                      AppOutlineButton(buttonText: "Accept", onPressed: () {})),
+                  child: AppOutlineButton(
+                      buttonText: "Accept", onPressed: onAccept)),
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,

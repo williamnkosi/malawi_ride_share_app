@@ -1,14 +1,15 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 void showAppBottomSheet({
   required BuildContext context,
-  required RemoteMessage message,
+  required DriverTripRequest request,
   required Function onAccept,
 }) {
-  var title = message.data['title'] ?? 'Title';
-  var messageBody = message.data['body'] ?? 'Body';
+  var title = request.title;
+  var messageBody = request.body;
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(

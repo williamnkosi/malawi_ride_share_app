@@ -21,38 +21,50 @@ class HomePage extends StatelessWidget {
               LocationBloc()..add(const LocationEventInitial()),
         ),
         BlocProvider(
+          lazy: false,
           create: (context) => DriverTripBloc()..add(const DriverTripIntial()),
         ),
       ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-        ),
-        body: const View(),
-        floatingActionButton: Row(
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                print("pressed =====");
-                // ignore: close_sinks
-                final driverTripBloc = context.read<DriverTripBloc>();
-                driverTripBloc.add(const DriverTripStartTrackingDriver());
-              },
-              tooltip: 'Increment',
-              child: Icon(Icons.add),
-            ),
-            SizedBox(width: 10),
-            FloatingActionButton(
-              onPressed: () {
-                // ignore: close_sinks
-                final driverTripBloc = context.read<DriverTripBloc>();
-                driverTripBloc.add(const DriverTripStartTrackingDriver());
-              },
-              tooltip: 'Increment',
-              child: Icon(Icons.remove_done),
-            ),
-          ],
-        ),
+      child: HomeScaffold(),
+    );
+  }
+}
+
+class HomeScaffold extends StatelessWidget {
+  const HomeScaffold({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home Page'),
+      ),
+      body: const View(),
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              print("pressed =====");
+              // ignore: close_sinks
+              final driverTripBloc = context.read<DriverTripBloc>();
+              driverTripBloc.add(const DriverTripStartTrackingDriver());
+            },
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
+          ),
+          SizedBox(width: 10),
+          FloatingActionButton(
+            onPressed: () {
+              // ignore: close_sinks
+              final driverTripBloc = context.read<DriverTripBloc>();
+              driverTripBloc.add(const DriverTripStartTrackingDriver());
+            },
+            tooltip: 'Increment',
+            child: Icon(Icons.remove_done),
+          ),
+        ],
       ),
     );
   }

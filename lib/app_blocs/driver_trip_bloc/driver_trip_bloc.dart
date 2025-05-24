@@ -11,6 +11,7 @@ import 'package:get_it/get_it.dart';
 import 'package:location/location.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
 
 part 'driver_trip_event.dart';
@@ -83,6 +84,11 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
 
   void _onTripRequestReceived(
       DriverTripRequestReceived event, Emitter<DriverTripState> emit) {
-    emit(state.copyWith(message: event.message));
+    var title = event.message.data['title'];
+    var body = event.message.data['body'];
+    Map<String, dynamic> data = event.message.data['data'];
+    var tripRequestMessage =
+        DriverTripRequest(title: title, body: body, data: data);
+    emit(state.copyWith(request: tripRequestMessage));
   }
 }

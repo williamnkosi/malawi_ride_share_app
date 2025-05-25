@@ -29,7 +29,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   @override
   void initState() {
     // TODO: implement initState
-    context.read<AppBloc>().add(const AppEvent.startListening());
+    //context.read<AppBloc>().add(const AppEvent.startListening());
     super.initState();
   }
 

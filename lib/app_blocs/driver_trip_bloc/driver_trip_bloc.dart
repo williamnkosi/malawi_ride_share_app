@@ -22,6 +22,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       GetIt.instance<DriverTripRepository>();
   final FirebaseMessageRepository _firebaseMessagingRepository =
       GetIt.instance<FirebaseMessageRepository>();
+  StreamSubscription<RemoteMessage>? _messageSubscription;
   final logger = Logger('DriverTripBloc');
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
@@ -41,7 +42,8 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       var user = FirebaseAuth.instance.currentUser;
       await _firebaseMessagingRepository.registerDevice(
           firebaseUserId: user!.uid);
-      FirebaseMessaging.onMessage.listen((message) {
+      _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
+        logger.info('Received message: ${message.data}');
         if (message.data.isNotEmpty) {
           add(DriverTripRequestReceived(message: message));
         }
@@ -86,7 +88,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     try {
       var title = event.message.notification?.title ?? '';
       var body = event.message.notification?.body ?? '';
-      Map<String, dynamic> data = event.message.data['data'];
+      Map<String, dynamic> data = event.message.data;
       var tripRequestMessage =
           DriverTripRequest.fromMap(title: title, body: body, data: data);
       emit(state.copyWith(request: tripRequestMessage));

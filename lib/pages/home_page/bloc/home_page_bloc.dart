@@ -18,10 +18,6 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState1> {
 
   _onInitial(event, emit) {
     final Location locationController = Location();
-    LatLng? currentLocation;
-
-    final Map<PolylineId, Polyline> polylines = {};
-
     initializeMap(locationController, emit);
   }
 

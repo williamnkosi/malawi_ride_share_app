@@ -29,7 +29,6 @@ class FirebaseMessageRepository {
   Future<void> registerDevice({required firebaseUserId}) async {
     try {
       var phoneFcmToken = await _firebaseMessaging.getToken();
-      print("token: $phoneFcmToken");
       final device = UserDevice(
         firebaseUserId: firebaseUserId,
         fcmToken: phoneFcmToken!,

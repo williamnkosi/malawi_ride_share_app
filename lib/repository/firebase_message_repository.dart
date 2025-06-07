@@ -1,14 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
-
-import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/models/user_device.dart';
 
 class FirebaseMessageRepository {
   late FirebaseMessaging _firebaseMessaging;
-  final dio = Dio();
   final logger = Logger('FirebaseMessageRepository');
 
   Future<Stream<RemoteMessage>> initNotifications() async {
@@ -38,11 +37,15 @@ class FirebaseMessageRepository {
             Platform.isAndroid ? DevicePlatform.android : DevicePlatform.ios,
         deviceVersion: "1.0.0",
       );
-      final response = await dio.post(
-        'http://192.168.1.211:3000/notifications/register-device',
-        data: device.toJson(),
+      // Optional test ping
+
+      final response = await http.post(
+        Uri.parse('http://192.168.1.211:3000/notifications/register-device'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(device.toJson()),
       );
-      print('test: Device registered: ${response.statusCode}');
+
+      logger.info('Registered ${response.statusCode}');
     } catch (e) {
       logger.severe('Error registering device', e, StackTrace.current);
     }

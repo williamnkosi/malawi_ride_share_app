@@ -1,15 +1,9 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/rendering.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:meta/meta.dart';
-import 'package:web_socket_client/web_socket_client.dart';
 
 part 'location_bloc.freezed.dart';
 part 'location_event.dart';
@@ -23,31 +17,31 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   _onLocationEventInitial(LocationEvent event, emit) async {
     Location location = Location();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
 
     try {
-      _serviceEnabled = await location.serviceEnabled();
-      if (!_serviceEnabled) {
-        _serviceEnabled = await location.requestService();
-        if (!_serviceEnabled) {
+      serviceEnabled = await location.serviceEnabled();
+      if (!serviceEnabled) {
+        serviceEnabled = await location.requestService();
+        if (!serviceEnabled) {
           return;
         }
       }
-      _permissionGranted = await location.hasPermission();
-      if (_permissionGranted == PermissionStatus.denied) {
-        _permissionGranted = await location.requestPermission();
-        if (_permissionGranted != PermissionStatus.granted) {
+      permissionGranted = await location.hasPermission();
+      if (permissionGranted == PermissionStatus.denied) {
+        permissionGranted = await location.requestPermission();
+        if (permissionGranted != PermissionStatus.granted) {
           return;
         }
       }
-      LocationData _locationData = await location.getLocation();
+      LocationData locationData = await location.getLocation();
 
       emit(state.copyWith(
           isLocationPremissionEnabled: true,
-          currentLcoation: _locationData,
+          currentLcoation: locationData,
           coordinates:
-              LatLng(_locationData.latitude!, _locationData.longitude!)));
+              LatLng(locationData.latitude!, locationData.longitude!)));
     } catch (e) {}
   }
 }

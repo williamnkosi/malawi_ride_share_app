@@ -29,7 +29,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripIntial>(_onTripIntial);
     on<DriverTripStartTrackingDriver>(_onTripStartTrackingDriver);
     on<DriverTripRequestReceived>(_onTripRequestReceived);
-    // on<DriverTripAccepted>(_onTripAccepted);
+    on<DriverTripAccepted>(_onTripAccepted);
     // on<DriverTripRejected>(_onTripRejected);
 
     // on<DriverTripCompleted>(_onTripCompleted);
@@ -94,6 +94,13 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       emit(state.copyWith(request: tripRequestMessage));
     } catch (e) {
       logger.severe('Failed to process trip request: $e');
+    }
+  }
+
+  void _onTripAccepted(
+      DriverTripAccepted event, Emitter<DriverTripState> emit) {
+    try {} catch (e) {
+      logger.severe('Failed to accept trip request: $e');
     }
   }
 }

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +37,9 @@ class AppRouter extends StatelessWidget {
                 }
                 return AppRoutes.homePage;
               },
-              error: (_) {}, // Navigate to the login page
+              error: (_) {
+                return null;
+              }, // Navigate to the login page
             );
           },
           routes: [

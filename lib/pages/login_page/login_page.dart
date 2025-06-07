@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/shared/router/router.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
-import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

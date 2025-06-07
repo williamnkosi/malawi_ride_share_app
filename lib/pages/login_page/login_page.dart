@@ -55,10 +55,7 @@ class LoginPage extends StatelessWidget {
                               email: formData!['Email'],
                               password: formData['password']));
                           context.push(AppRoutes.authSignUpPage);
-                          print("Form is valid! Data: $formData");
-                        } else {
-                          print("Form is invalid!");
-                        }
+                        } else {}
                       })),
               const SizedBox(height: 8),
               SizedBox(

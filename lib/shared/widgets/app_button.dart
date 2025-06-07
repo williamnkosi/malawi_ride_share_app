@@ -21,6 +21,7 @@ class AppOutlineButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(0),
         ),
         disabledBackgroundColor:
+            // ignore: deprecated_member_use
             Theme.of(context).colorScheme.secondary.withOpacity(0.2),
       ),
       child: Text(buttonText),

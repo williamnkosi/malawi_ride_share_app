@@ -25,13 +25,6 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   }
 
   @override
-  void initState() {
-    // TODO: implement initState
-    //context.read<AppBloc>().add(const AppEvent.startListening());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _generatePage(),

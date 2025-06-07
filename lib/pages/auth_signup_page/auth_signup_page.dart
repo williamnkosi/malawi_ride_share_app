@@ -52,10 +52,7 @@ class AuthSignupPage extends StatelessWidget {
                             context.read<AuthBloc>().add(AuthEventSignUp(
                                 email: formData!['Email'],
                                 password: formData['password']));
-                            print("Form is valid! Data: $formData");
-                          } else {
-                            print("Form is invalid!");
-                          }
+                          } else {}
                         })),
               ],
             ),

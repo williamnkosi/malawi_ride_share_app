@@ -1,20 +1,20 @@
 import 'package:logging/logging.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart' as io;
 
 import 'package:location/location.dart';
 
 class DriverTripRepository {
   //late final WebSocket socket;
-  late IO.Socket socket;
+  late io.Socket socket;
   final subscribeMessage = 'driver-location-update';
   final logger = Logger('DriverTripRepository');
   DriverTripRepository();
 
   void connetToSocketIO() {
     try {
-      socket = IO.io(
+      socket = io.io(
         "http://192.168.1.211:3000",
-        IO.OptionBuilder()
+        io.OptionBuilder()
             .setTransports(['websocket']) // for Flutter or Dart VM
             .enableAutoConnect()
             .build(),

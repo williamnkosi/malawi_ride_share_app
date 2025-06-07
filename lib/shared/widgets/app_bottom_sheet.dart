@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';

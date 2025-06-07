@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/pages/account_page/account_page.dart';
 import 'package:malawi_ride_share_app/pages/activity_page/activity_page.dart';
 import 'package:malawi_ride_share_app/pages/home_page/home_page.dart';

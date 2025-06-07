@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/models/user_device.dart';
-import 'package:malawi_ride_share_app/shared/widgets/app_bottom_sheet.dart';
 
 class FirebaseMessageRepository {
   late FirebaseMessaging _firebaseMessaging;

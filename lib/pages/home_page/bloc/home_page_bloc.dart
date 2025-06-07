@@ -6,7 +6,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:malawi_ride_share_app/models/location.dart';
 
 part 'home_page_bloc.freezed.dart';
 part 'home_page_event.dart';
@@ -19,9 +18,9 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState1> {
 
   _onInitial(event, emit) {
     final Location locationController = Location();
-    LatLng? _currentLocation;
+    LatLng? currentLocation;
 
-    final Map<PolylineId, Polyline> _polylines = {};
+    final Map<PolylineId, Polyline> polylines = {};
 
     initializeMap(locationController, emit);
   }
@@ -68,13 +67,13 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState1> {
   }
 
   Future<List<LatLng>> fetchPolylinePoints() async {
-    const _googlePlex = LatLng(37.4223, -122.0848);
-    const _mountainViewLocation = LatLng(37.3861, -122.0839);
+    const googlePlex = LatLng(37.4223, -122.0848);
+    const mountainViewLocation = LatLng(37.3861, -122.0839);
     final polyLinePoints = PolylinePoints();
     PolylineRequest request = PolylineRequest(
-        origin: PointLatLng(_googlePlex.latitude, _googlePlex.longitude),
+        origin: PointLatLng(googlePlex.latitude, googlePlex.longitude),
         destination: PointLatLng(
-            _mountainViewLocation.latitude, _mountainViewLocation.longitude),
+            mountainViewLocation.latitude, mountainViewLocation.longitude),
         mode: TravelMode.driving);
     final result = await polyLinePoints.getRouteBetweenCoordinates(
         request: request, googleApiKey: dotenv.env['google_maps_apikey']);

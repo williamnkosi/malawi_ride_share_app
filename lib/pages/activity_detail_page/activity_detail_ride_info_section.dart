@@ -8,12 +8,12 @@ class ActivityDetailRideInfoSection extends StatelessWidget {
     return const Column(
       children: [
         ListTile(
-          leading: const Icon(Icons.arrow_forward),
+          leading: Icon(Icons.arrow_forward),
           title: Text('Lilongwe'),
           trailing: Text('Sep 25 7:56AM'),
         ),
         ListTile(
-          leading: const Icon(
+          leading: Icon(
             Icons.circle,
             size: 12,
           ),
@@ -21,14 +21,14 @@ class ActivityDetailRideInfoSection extends StatelessWidget {
           trailing: Text('Sep 26 7:56AM'),
         ),
         ListTile(
-          leading: const Icon(
+          leading: Icon(
             Icons.star,
             size: 12,
           ),
           title: Text('Rating'),
         ),
         ListTile(
-          leading: const Icon(
+          leading: Icon(
             Icons.star,
             size: 12,
           ),

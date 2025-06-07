@@ -5,7 +5,6 @@ import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/shared/router/app_router.dart';
-import 'package:malawi_ride_share_app/shared/widgets/app_bottom_sheet.dart';
 
 class App extends StatelessWidget {
   final String flavor;

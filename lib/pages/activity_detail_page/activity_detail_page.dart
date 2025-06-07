@@ -17,7 +17,7 @@ class ActivityDetailPage extends StatelessWidget {
         ),
       ),
       body: const Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,7 +28,7 @@ class ActivityDetailPage extends StatelessWidget {
             ),
             Text('Sep 25 7:56AM'),
             Text('MWK 5000 - Mazda CX, 8WB297'),
-            const SizedBox(
+            SizedBox(
               height: 8,
             ),
             ActivityDetailRideInfoSection()

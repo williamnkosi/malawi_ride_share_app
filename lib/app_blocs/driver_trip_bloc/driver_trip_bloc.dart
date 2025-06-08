@@ -18,12 +18,13 @@ part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
+  static const LOGGER_NAME = 'DriverTripBloc';
   final DriverTripRepository driverTripRepository =
       GetIt.instance<DriverTripRepository>();
   final FirebaseMessageRepository _firebaseMessagingRepository =
       GetIt.instance<FirebaseMessageRepository>();
   Stream<LocationData>? _locationSubscription;
-  final logger = Logger('DriverTripBloc');
+  final logger = Logger(LOGGER_NAME);
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
     on<DriverTripIntial>(_onTripIntial);
@@ -62,7 +63,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
         logger.warning('Already tracking location. Ignoring new request.');
         return;
       }
-      logger.info(_locationSubscription);
+      logger.info("Started tracking driver location");
       Location location = Location();
       driverTripRepository.connetToSocketIO();
       _locationSubscription = location.onLocationChanged;
@@ -95,6 +96,11 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       var tripRequestMessage =
           DriverTripRequest.fromMap(title: title, body: body, data: data);
       emit(state.copyWith(request: tripRequestMessage));
+
+      // Optional: Clear the request after a short delay
+      Future.delayed(Duration(milliseconds: 100), () {
+        emit(state.copyWith(request: null));
+      });
     } catch (e) {
       logger.severe('Failed to process trip request: $e');
     }

@@ -38,11 +38,11 @@ class HomeScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<DriverTripBloc, DriverTripState>(
+      listenWhen: (previous, current) =>
+          previous.request != current.request && current.request != null,
       listener: (context, state) {
-        if (state.request != null) {
-          showAppBottomSheet(
-              context: context, request: state.request!, onAccept: () {});
-        }
+        showAppBottomSheet(
+            context: context, request: state.request!, onAccept: () {});
       },
       child: Scaffold(
         appBar: AppBar(

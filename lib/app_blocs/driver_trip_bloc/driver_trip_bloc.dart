@@ -23,7 +23,8 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       GetIt.instance<DriverTripRepository>();
   final FirebaseMessageRepository _firebaseMessagingRepository =
       GetIt.instance<FirebaseMessageRepository>();
-  Stream<LocationData>? _locationSubscription;
+  Stream<LocationData>? _idleLocationSubscription;
+  Stream<LocationData>? _tripLocationSubscription;
   final logger = Logger(LOGGER_NAME);
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
@@ -59,21 +60,20 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       Emitter<DriverTripState> emit) async {
     try {
       // 👇 If already tracking, don't start again
-      if (_locationSubscription != null) {
+      if (_idleLocationSubscription != null) {
         logger.warning('Already tracking location. Ignoring new request.');
         return;
       }
       logger.info("Started tracking driver location");
       Location location = Location();
       driverTripRepository.connetToSocketIO();
-      _locationSubscription = location.onLocationChanged;
+      _idleLocationSubscription = location.onLocationChanged;
 
       await emit.forEach<LocationData>(
-        _locationSubscription!,
+        _idleLocationSubscription!,
         onData: (currentLocation) {
           driverTripRepository.sendLocation(
             locationData: currentLocation,
-            firebaseUserId: user!.uid,
           );
           return state.copyWith(currentLcoation: currentLocation);
         },
@@ -90,6 +90,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   void _onTripRequestReceived(
       DriverTripRequestReceived event, Emitter<DriverTripState> emit) {
     try {
+      logger.info('onTripRequestReceived');
       var title = event.message.notification?.title ?? '';
       var body = event.message.notification?.body ?? '';
       Map<String, dynamic> data = event.message.data;
@@ -107,9 +108,31 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   }
 
   void _onTripAccepted(
-      DriverTripAccepted event, Emitter<DriverTripState> emit) {
-    try {} catch (e) {
+      DriverTripAccepted event, Emitter<DriverTripState> emit) async {
+    try {
+      logger.info('onTripAccepted');
+      _stopIdleLocaitonTracking();
+      Location location = Location();
+      _tripLocationSubscription = location.onLocationChanged;
+      await emit.forEach<LocationData>(
+        _tripLocationSubscription!,
+        onData: (currentLocation) {
+          driverTripRepository.sendTripLocation(
+            locationData: currentLocation,
+          );
+          return state.copyWith(currentLcoation: currentLocation);
+        },
+        onError: (error, stackTrace) {
+          logger.severe('Location stream error: $error');
+          return state;
+        },
+      );
+    } catch (e) {
       logger.severe('Failed to accept trip request: $e');
     }
+  }
+
+  void _stopIdleLocaitonTracking() {
+    _idleLocationSubscription = null;
   }
 }

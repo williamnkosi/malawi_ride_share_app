@@ -42,7 +42,14 @@ class HomeScaffold extends StatelessWidget {
           previous.request != current.request && current.request != null,
       listener: (context, state) {
         showAppBottomSheet(
-            context: context, request: state.request!, onAccept: () {});
+            context: context,
+            request: state.request!,
+            onAccept: () {
+              context.read<DriverTripBloc>().add(const DriverTripAccepted());
+            },
+            onDecline: () {
+              context.read<DriverTripBloc>().add(const DriverTripRejected());
+            });
       },
       child: Scaffold(
         appBar: AppBar(

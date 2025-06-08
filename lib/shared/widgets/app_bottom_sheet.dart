@@ -6,6 +6,7 @@ void showAppBottomSheet({
   required BuildContext context,
   required DriverTripRequest request,
   required Function onAccept,
+  required Function onDecline,
 }) {
   var title = request.title;
   var messageBody = request.body;
@@ -42,8 +43,8 @@ void showAppBottomSheet({
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
-                child:
-                    AppOutlineButton(buttonText: "Decline", onPressed: () {}),
+                child: AppOutlineButton(
+                    buttonText: "Decline", onPressed: onDecline),
               ),
               const SizedBox(height: 16),
             ],

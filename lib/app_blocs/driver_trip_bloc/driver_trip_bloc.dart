@@ -22,7 +22,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       GetIt.instance<DriverTripRepository>();
   final FirebaseMessageRepository _firebaseMessagingRepository =
       GetIt.instance<FirebaseMessageRepository>();
-  StreamSubscription<RemoteMessage>? _messageSubscription;
+  Stream<LocationData>? _locationSubscription;
   final logger = Logger('DriverTripBloc');
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
@@ -42,7 +42,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       var user = FirebaseAuth.instance.currentUser;
       await _firebaseMessagingRepository.registerDevice(
           firebaseUserId: user!.uid);
-      _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
+      FirebaseMessaging.onMessage.listen((message) {
         logger.info('Received message: ${message.data}');
         if (message.data.isNotEmpty) {
           add(DriverTripRequestReceived(message: message));
@@ -57,13 +57,18 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   void _onTripStartTrackingDriver(DriverTripStartTrackingDriver event,
       Emitter<DriverTripState> emit) async {
     try {
-      logger.info('Starting location tracking...');
+      // 👇 If already tracking, don't start again
+      if (_locationSubscription != null) {
+        logger.warning('Already tracking location. Ignoring new request.');
+        return;
+      }
+      logger.info(_locationSubscription);
       Location location = Location();
       driverTripRepository.connetToSocketIO();
-      var locationStream = location.onLocationChanged;
+      _locationSubscription = location.onLocationChanged;
 
       await emit.forEach<LocationData>(
-        locationStream,
+        _locationSubscription!,
         onData: (currentLocation) {
           driverTripRepository.sendLocation(
             locationData: currentLocation,
@@ -76,8 +81,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
           return state;
         },
       );
-
-      emit(state.copyWith(locationStream: locationStream));
     } catch (e) {
       logger.severe('Failed to start location tracking: $e');
     }

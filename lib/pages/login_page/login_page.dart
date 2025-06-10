@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: AppOutlineButton(
-                      buttonText: 'Login',
+                      buttonText: 'Rider Login',
                       onPressed: () {
                         // Validate the form
                         if (_formKey.currentState?.validate() ?? false) {
@@ -54,7 +54,24 @@ class LoginPage extends StatelessWidget {
                           context.read<AuthBloc>().add(AuthEventLogin(
                               email: formData!['Email'],
                               password: formData['password']));
-                          context.push(AppRoutes.authSignUpPage);
+                          //context.push(AppRoutes.homePage);
+                        } else {}
+                      })),
+              const SizedBox(height: 8),
+              SizedBox(
+                  width: double.infinity,
+                  child: AppOutlineButton(
+                      buttonText: 'Driver Login',
+                      onPressed: () {
+                        // Validate the form
+                        if (_formKey.currentState?.validate() ?? false) {
+                          // If valid, save the form state and access the values
+                          _formKey.currentState?.save();
+                          final formData = _formKey.currentState?.value;
+                          context.read<AuthBloc>().add(AuthEventLogin(
+                              email: formData!['Email'],
+                              password: formData['password']));
+                          // context.push(AppRoutes.homePage);
                         } else {}
                       })),
               const SizedBox(height: 8),

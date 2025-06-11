@@ -15,7 +15,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   late final FirebaseAuth auth;
   AuthBloc() : super(const AuthState.start()) {
     on<AuthEventInitial>(_onIntial);
-    on<AuthEventLogin>(_onLogin);
+    on<AuthRiderEventLogin>(_onRiderLogin);
+    on<AuthDriverEventLogin>(_onDriverLogin);
     on<AuthEventSignUp>(_onsignUp);
     on<AuthEventSignOut>(_onSignOut);
   }
@@ -29,14 +30,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  _onLogin(AuthEventLogin event, emit) async {
+  _onRiderLogin(AuthRiderEventLogin event, emit) async {
     final email = event.email;
     final password = event.password;
     try {
       emit(const AuthState.loading());
       UserCredential userCredential = await _authRepository
           .loginInUserWithEmailAndPassword(email: email, password: password);
-      emit(AuthState.authenticated(userCredential));
+      emit(AuthState.authenticated(userCredential, UserType.rider));
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
+
+  _onDriverLogin(AuthDriverEventLogin event, emit) async {
+    final email = event.email;
+    final password = event.password;
+    try {
+      emit(const AuthState.loading());
+      UserCredential userCredential = await _authRepository
+          .loginInUserWithEmailAndPassword(email: email, password: password);
+      emit(AuthState.authenticated(userCredential, UserType.driver));
     } catch (e) {
       emit(AuthState.error(e.toString()));
     }
@@ -49,7 +63,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       UserCredential userCredential = await _authRepository
           .signUpUserEmailAndPassword(email: email, password: password);
-      emit(AuthState.authenticated(userCredential));
+      emit(AuthState.authenticated(userCredential, UserType.driver));
     } catch (e) {
       emit(AuthState.error(e.toString()));
     }

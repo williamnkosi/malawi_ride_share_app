@@ -602,7 +602,6 @@ mixin _$AppState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
   bool get isLoggedIn => throw _privateConstructorUsedError;
   RemoteMessage? get message => throw _privateConstructorUsedError;
-  UserType? get userType => throw _privateConstructorUsedError;
   Stream<RemoteMessage>? get inAppMessageSubscriptioin =>
       throw _privateConstructorUsedError;
 
@@ -622,7 +621,6 @@ abstract class $AppStateCopyWith<$Res> {
       {bool isLocationPremissionEnabled,
       bool isLoggedIn,
       RemoteMessage? message,
-      UserType? userType,
       Stream<RemoteMessage>? inAppMessageSubscriptioin});
 }
 
@@ -644,7 +642,6 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? isLocationPremissionEnabled = null,
     Object? isLoggedIn = null,
     Object? message = freezed,
-    Object? userType = freezed,
     Object? inAppMessageSubscriptioin = freezed,
   }) {
     return _then(_value.copyWith(
@@ -660,10 +657,6 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as RemoteMessage?,
-      userType: freezed == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType?,
       inAppMessageSubscriptioin: freezed == inAppMessageSubscriptioin
           ? _value.inAppMessageSubscriptioin
           : inAppMessageSubscriptioin // ignore: cast_nullable_to_non_nullable
@@ -684,7 +677,6 @@ abstract class _$$AppStateImplCopyWith<$Res>
       {bool isLocationPremissionEnabled,
       bool isLoggedIn,
       RemoteMessage? message,
-      UserType? userType,
       Stream<RemoteMessage>? inAppMessageSubscriptioin});
 }
 
@@ -704,7 +696,6 @@ class __$$AppStateImplCopyWithImpl<$Res>
     Object? isLocationPremissionEnabled = null,
     Object? isLoggedIn = null,
     Object? message = freezed,
-    Object? userType = freezed,
     Object? inAppMessageSubscriptioin = freezed,
   }) {
     return _then(_$AppStateImpl(
@@ -720,10 +711,6 @@ class __$$AppStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as RemoteMessage?,
-      userType: freezed == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType?,
       inAppMessageSubscriptioin: freezed == inAppMessageSubscriptioin
           ? _value.inAppMessageSubscriptioin
           : inAppMessageSubscriptioin // ignore: cast_nullable_to_non_nullable
@@ -739,7 +726,6 @@ class _$AppStateImpl implements _AppState {
       {this.isLocationPremissionEnabled = false,
       this.isLoggedIn = false,
       this.message,
-      this.userType,
       this.inAppMessageSubscriptioin});
 
   @override
@@ -751,13 +737,11 @@ class _$AppStateImpl implements _AppState {
   @override
   final RemoteMessage? message;
   @override
-  final UserType? userType;
-  @override
   final Stream<RemoteMessage>? inAppMessageSubscriptioin;
 
   @override
   String toString() {
-    return 'AppState(isLocationPremissionEnabled: $isLocationPremissionEnabled, isLoggedIn: $isLoggedIn, message: $message, userType: $userType, inAppMessageSubscriptioin: $inAppMessageSubscriptioin)';
+    return 'AppState(isLocationPremissionEnabled: $isLocationPremissionEnabled, isLoggedIn: $isLoggedIn, message: $message, inAppMessageSubscriptioin: $inAppMessageSubscriptioin)';
   }
 
   @override
@@ -772,8 +756,6 @@ class _$AppStateImpl implements _AppState {
             (identical(other.isLoggedIn, isLoggedIn) ||
                 other.isLoggedIn == isLoggedIn) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.userType, userType) ||
-                other.userType == userType) &&
             (identical(other.inAppMessageSubscriptioin,
                     inAppMessageSubscriptioin) ||
                 other.inAppMessageSubscriptioin == inAppMessageSubscriptioin));
@@ -781,7 +763,7 @@ class _$AppStateImpl implements _AppState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isLocationPremissionEnabled,
-      isLoggedIn, message, userType, inAppMessageSubscriptioin);
+      isLoggedIn, message, inAppMessageSubscriptioin);
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
@@ -797,7 +779,6 @@ abstract class _AppState implements AppState {
       {final bool isLocationPremissionEnabled,
       final bool isLoggedIn,
       final RemoteMessage? message,
-      final UserType? userType,
       final Stream<RemoteMessage>? inAppMessageSubscriptioin}) = _$AppStateImpl;
 
   @override
@@ -806,8 +787,6 @@ abstract class _AppState implements AppState {
   bool get isLoggedIn;
   @override
   RemoteMessage? get message;
-  @override
-  UserType? get userType;
   @override
   Stream<RemoteMessage>? get inAppMessageSubscriptioin;
 

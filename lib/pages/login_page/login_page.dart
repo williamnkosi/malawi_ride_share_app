@@ -51,9 +51,10 @@ class LoginPage extends StatelessWidget {
                           // If valid, save the form state and access the values
                           _formKey.currentState?.save();
                           final formData = _formKey.currentState?.value;
-                          context.read<AuthBloc>().add(AuthEventLogin(
-                              email: formData!['Email'],
-                              password: formData['password']));
+                          context.read<AuthBloc>().add(AuthRiderEventLogin(
+                                email: formData!['Email'],
+                                password: formData['password'],
+                              ));
                           //context.push(AppRoutes.homePage);
                         } else {}
                       })),
@@ -68,9 +69,10 @@ class LoginPage extends StatelessWidget {
                           // If valid, save the form state and access the values
                           _formKey.currentState?.save();
                           final formData = _formKey.currentState?.value;
-                          context.read<AuthBloc>().add(AuthEventLogin(
-                              email: formData!['Email'],
-                              password: formData['password']));
+                          context.read<AuthBloc>().add(AuthDriverEventLogin(
+                                email: formData!['Email'],
+                                password: formData['password'],
+                              ));
                           // context.push(AppRoutes.homePage);
                         } else {}
                       })),

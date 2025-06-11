@@ -19,7 +19,10 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
-    required TResult Function(String email, String password) authEventlogin,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
   }) =>
@@ -27,7 +30,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
-    TResult? Function(String email, String password)? authEventlogin,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
   }) =>
@@ -35,7 +39,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
-    TResult Function(String email, String password)? authEventlogin,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
     required TResult orElse(),
@@ -44,7 +49,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
-    required TResult Function(AuthEventLogin value) authEventlogin,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
   }) =>
@@ -52,7 +58,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
-    TResult? Function(AuthEventLogin value)? authEventlogin,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
   }) =>
@@ -60,7 +67,8 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
-    TResult Function(AuthEventLogin value)? authEventlogin,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     required TResult orElse(),
@@ -130,7 +138,10 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
-    required TResult Function(String email, String password) authEventlogin,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
   }) {
@@ -141,7 +152,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
-    TResult? Function(String email, String password)? authEventlogin,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
   }) {
@@ -152,7 +164,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
-    TResult Function(String email, String password)? authEventlogin,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
     required TResult orElse(),
@@ -167,7 +180,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
-    required TResult Function(AuthEventLogin value) authEventlogin,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
   }) {
@@ -178,7 +192,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
-    TResult? Function(AuthEventLogin value)? authEventlogin,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
   }) {
@@ -189,7 +204,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
-    TResult Function(AuthEventLogin value)? authEventlogin,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     required TResult orElse(),
@@ -206,20 +222,20 @@ abstract class AuthEventInitial implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$AuthEventLoginImplCopyWith<$Res> {
-  factory _$$AuthEventLoginImplCopyWith(_$AuthEventLoginImpl value,
-          $Res Function(_$AuthEventLoginImpl) then) =
-      __$$AuthEventLoginImplCopyWithImpl<$Res>;
+abstract class _$$AuthRiderEventLoginImplCopyWith<$Res> {
+  factory _$$AuthRiderEventLoginImplCopyWith(_$AuthRiderEventLoginImpl value,
+          $Res Function(_$AuthRiderEventLoginImpl) then) =
+      __$$AuthRiderEventLoginImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$AuthEventLoginImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventLoginImpl>
-    implements _$$AuthEventLoginImplCopyWith<$Res> {
-  __$$AuthEventLoginImplCopyWithImpl(
-      _$AuthEventLoginImpl _value, $Res Function(_$AuthEventLoginImpl) _then)
+class __$$AuthRiderEventLoginImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthRiderEventLoginImpl>
+    implements _$$AuthRiderEventLoginImplCopyWith<$Res> {
+  __$$AuthRiderEventLoginImplCopyWithImpl(_$AuthRiderEventLoginImpl _value,
+      $Res Function(_$AuthRiderEventLoginImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AuthEvent
@@ -230,7 +246,7 @@ class __$$AuthEventLoginImplCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$AuthEventLoginImpl(
+    return _then(_$AuthRiderEventLoginImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -245,8 +261,9 @@ class __$$AuthEventLoginImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthEventLoginImpl implements AuthEventLogin {
-  const _$AuthEventLoginImpl({required this.email, required this.password});
+class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
+  const _$AuthRiderEventLoginImpl(
+      {required this.email, required this.password});
 
   @override
   final String email;
@@ -255,14 +272,14 @@ class _$AuthEventLoginImpl implements AuthEventLogin {
 
   @override
   String toString() {
-    return 'AuthEvent.authEventlogin(email: $email, password: $password)';
+    return 'AuthEvent.authRiderEventlogin(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthEventLoginImpl &&
+            other is _$AuthRiderEventLoginImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -276,43 +293,48 @@ class _$AuthEventLoginImpl implements AuthEventLogin {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
-      __$$AuthEventLoginImplCopyWithImpl<_$AuthEventLoginImpl>(
+  _$$AuthRiderEventLoginImplCopyWith<_$AuthRiderEventLoginImpl> get copyWith =>
+      __$$AuthRiderEventLoginImplCopyWithImpl<_$AuthRiderEventLoginImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
-    required TResult Function(String email, String password) authEventlogin,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
   }) {
-    return authEventlogin(email, password);
+    return authRiderEventlogin(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
-    TResult? Function(String email, String password)? authEventlogin,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
   }) {
-    return authEventlogin?.call(email, password);
+    return authRiderEventlogin?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
-    TResult Function(String email, String password)? authEventlogin,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
     required TResult orElse(),
   }) {
-    if (authEventlogin != null) {
-      return authEventlogin(email, password);
+    if (authRiderEventlogin != null) {
+      return authRiderEventlogin(email, password);
     }
     return orElse();
   }
@@ -321,44 +343,47 @@ class _$AuthEventLoginImpl implements AuthEventLogin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
-    required TResult Function(AuthEventLogin value) authEventlogin,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
   }) {
-    return authEventlogin(this);
+    return authRiderEventlogin(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
-    TResult? Function(AuthEventLogin value)? authEventlogin,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
   }) {
-    return authEventlogin?.call(this);
+    return authRiderEventlogin?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
-    TResult Function(AuthEventLogin value)? authEventlogin,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     required TResult orElse(),
   }) {
-    if (authEventlogin != null) {
-      return authEventlogin(this);
+    if (authRiderEventlogin != null) {
+      return authRiderEventlogin(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthEventLogin implements AuthEvent {
-  const factory AuthEventLogin(
+abstract class AuthRiderEventLogin implements AuthEvent {
+  const factory AuthRiderEventLogin(
       {required final String email,
-      required final String password}) = _$AuthEventLoginImpl;
+      required final String password}) = _$AuthRiderEventLoginImpl;
 
   String get email;
   String get password;
@@ -366,8 +391,183 @@ abstract class AuthEventLogin implements AuthEvent {
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
+  _$$AuthRiderEventLoginImplCopyWith<_$AuthRiderEventLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthDriverEventLoginImplCopyWith<$Res> {
+  factory _$$AuthDriverEventLoginImplCopyWith(_$AuthDriverEventLoginImpl value,
+          $Res Function(_$AuthDriverEventLoginImpl) then) =
+      __$$AuthDriverEventLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$AuthDriverEventLoginImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthDriverEventLoginImpl>
+    implements _$$AuthDriverEventLoginImplCopyWith<$Res> {
+  __$$AuthDriverEventLoginImplCopyWithImpl(_$AuthDriverEventLoginImpl _value,
+      $Res Function(_$AuthDriverEventLoginImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_$AuthDriverEventLoginImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
+  const _$AuthDriverEventLoginImpl(
+      {required this.email, required this.password});
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.authEventDriverlogin(email: $email, password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthDriverEventLoginImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthDriverEventLoginImplCopyWith<_$AuthDriverEventLoginImpl>
+      get copyWith =>
+          __$$AuthDriverEventLoginImplCopyWithImpl<_$AuthDriverEventLoginImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+  }) {
+    return authEventDriverlogin(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+  }) {
+    return authEventDriverlogin?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    required TResult orElse(),
+  }) {
+    if (authEventDriverlogin != null) {
+      return authEventDriverlogin(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+  }) {
+    return authEventDriverlogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+  }) {
+    return authEventDriverlogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    required TResult orElse(),
+  }) {
+    if (authEventDriverlogin != null) {
+      return authEventDriverlogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthDriverEventLogin implements AuthEvent {
+  const factory AuthDriverEventLogin(
+      {required final String email,
+      required final String password}) = _$AuthDriverEventLoginImpl;
+
+  String get email;
+  String get password;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthDriverEventLoginImplCopyWith<_$AuthDriverEventLoginImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -449,7 +649,10 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
-    required TResult Function(String email, String password) authEventlogin,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
   }) {
@@ -460,7 +663,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
-    TResult? Function(String email, String password)? authEventlogin,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
   }) {
@@ -471,7 +675,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
-    TResult Function(String email, String password)? authEventlogin,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
     required TResult orElse(),
@@ -486,7 +691,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
-    required TResult Function(AuthEventLogin value) authEventlogin,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
   }) {
@@ -497,7 +703,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
-    TResult? Function(AuthEventLogin value)? authEventlogin,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
   }) {
@@ -508,7 +715,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
-    TResult Function(AuthEventLogin value)? authEventlogin,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     required TResult orElse(),
@@ -577,7 +785,10 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
-    required TResult Function(String email, String password) authEventlogin,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
   }) {
@@ -588,7 +799,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
-    TResult? Function(String email, String password)? authEventlogin,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
   }) {
@@ -599,7 +811,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
-    TResult Function(String email, String password)? authEventlogin,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
     required TResult orElse(),
@@ -614,7 +827,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
-    required TResult Function(AuthEventLogin value) authEventlogin,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
   }) {
@@ -625,7 +839,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
-    TResult? Function(AuthEventLogin value)? authEventlogin,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
   }) {
@@ -636,7 +851,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
-    TResult Function(AuthEventLogin value)? authEventlogin,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     required TResult orElse(),
@@ -658,7 +874,8 @@ mixin _$AuthState {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) =>
@@ -667,7 +884,8 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) =>
@@ -676,7 +894,8 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -775,7 +994,8 @@ class _$StartImpl implements _Start {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -787,7 +1007,8 @@ class _$StartImpl implements _Start {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -799,7 +1020,8 @@ class _$StartImpl implements _Start {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -898,7 +1120,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -910,7 +1133,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -922,7 +1146,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -984,7 +1209,7 @@ abstract class _$$AuthenticatedImplCopyWith<$Res> {
           _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
       __$$AuthenticatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserCredential userCredential});
+  $Res call({UserCredential userCredential, UserType userType});
 }
 
 /// @nodoc
@@ -1001,12 +1226,17 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? userCredential = null,
+    Object? userType = null,
   }) {
     return _then(_$AuthenticatedImpl(
       null == userCredential
           ? _value.userCredential
           : userCredential // ignore: cast_nullable_to_non_nullable
               as UserCredential,
+      null == userType
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
     ));
   }
 }
@@ -1014,14 +1244,16 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl(this.userCredential);
+  const _$AuthenticatedImpl(this.userCredential, this.userType);
 
   @override
   final UserCredential userCredential;
+  @override
+  final UserType userType;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(userCredential: $userCredential)';
+    return 'AuthState.authenticated(userCredential: $userCredential, userType: $userType)';
   }
 
   @override
@@ -1030,11 +1262,13 @@ class _$AuthenticatedImpl implements _Authenticated {
         (other.runtimeType == runtimeType &&
             other is _$AuthenticatedImpl &&
             (identical(other.userCredential, userCredential) ||
-                other.userCredential == userCredential));
+                other.userCredential == userCredential) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userCredential);
+  int get hashCode => Object.hash(runtimeType, userCredential, userType);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1049,11 +1283,12 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
-    return authenticated(userCredential);
+    return authenticated(userCredential, userType);
   }
 
   @override
@@ -1061,11 +1296,12 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
-    return authenticated?.call(userCredential);
+    return authenticated?.call(userCredential, userType);
   }
 
   @override
@@ -1073,13 +1309,14 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(userCredential);
+      return authenticated(userCredential, userType);
     }
     return orElse();
   }
@@ -1126,10 +1363,12 @@ class _$AuthenticatedImpl implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthState {
-  const factory _Authenticated(final UserCredential userCredential) =
+  const factory _Authenticated(
+          final UserCredential userCredential, final UserType userType) =
       _$AuthenticatedImpl;
 
   UserCredential get userCredential;
+  UserType get userType;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1181,7 +1420,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1193,7 +1433,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1205,7 +1446,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1331,7 +1573,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential) authenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1343,7 +1586,8 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential)? authenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1355,7 +1599,8 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential)? authenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),

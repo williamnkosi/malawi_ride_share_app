@@ -5,6 +5,7 @@ import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_blo
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/pages/home_page/bloc/home_page_bloc.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/driver_home_page.dart';
+import 'package:malawi_ride_share_app/pages/home_page/rider_home_page/rider_home_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,8 +27,16 @@ class HomePage extends StatelessWidget {
         ),
       ],
       child: BlocBuilder<AuthBloc, AuthState>(
+        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
-          return DriverHomePage();
+          return state.maybeWhen(
+              authenticated: (userCredential, userType) =>
+                  userType == UserType.driver
+                      ? DriverHomePage()
+                      : RiderHomePage(),
+              orElse: () {
+                return Container();
+              });
         },
       ),
     );

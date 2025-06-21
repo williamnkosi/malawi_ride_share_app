@@ -28,7 +28,7 @@ class DriverHomePage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Home Page'),
+          title: const Text('Driver Home Page'),
         ),
         body: const View(),
         floatingActionButton: Row(

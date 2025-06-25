@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
-void SearchRiderBottomSheet({required BuildContext context}) {
+void searchRiderBottomSheet({required BuildContext context}) {
   showModalBottomSheet(
       showDragHandle: true,
       context: context,

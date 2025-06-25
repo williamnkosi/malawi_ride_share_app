@@ -38,7 +38,7 @@ class RiderHomePage extends StatelessWidget {
               SizedBox(width: 10),
               FloatingActionButton(
                 onPressed: () {
-                  SearchRiderBottomSheet(context: context);
+                  searchRiderBottomSheet(context: context);
                 },
                 tooltip: 'Increment',
                 child: Icon(Icons.remove_done),

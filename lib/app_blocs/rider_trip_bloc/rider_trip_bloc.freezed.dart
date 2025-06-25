@@ -16,37 +16,48 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RiderTripEvent {
+  Location get startLocation => throw _privateConstructorUsedError;
+  Location get endLocation => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(Location startLocation, Location endLocation)
+        tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(Location startLocation, Location endLocation)?
+        tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(Location startLocation, Location endLocation)?
+        tripSubmitTrip,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(RiderTripSubmitTrip value) tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(RiderTripSubmitTrip value)? tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(RiderTripSubmitTrip value)? tripSubmitTrip,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of RiderTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RiderTripEventCopyWith<RiderTripEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +66,8 @@ abstract class $RiderTripEventCopyWith<$Res> {
   factory $RiderTripEventCopyWith(
           RiderTripEvent value, $Res Function(RiderTripEvent) then) =
       _$RiderTripEventCopyWithImpl<$Res, RiderTripEvent>;
+  @useResult
+  $Res call({Location startLocation, Location endLocation});
 }
 
 /// @nodoc
@@ -69,70 +82,131 @@ class _$RiderTripEventCopyWithImpl<$Res, $Val extends RiderTripEvent>
 
   /// Create a copy of RiderTripEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startLocation = null,
+    Object? endLocation = null,
+  }) {
+    return _then(_value.copyWith(
+      startLocation: null == startLocation
+          ? _value.startLocation
+          : startLocation // ignore: cast_nullable_to_non_nullable
+              as Location,
+      endLocation: null == endLocation
+          ? _value.endLocation
+          : endLocation // ignore: cast_nullable_to_non_nullable
+              as Location,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$RiderTripSubmitTripImplCopyWith<$Res>
+    implements $RiderTripEventCopyWith<$Res> {
+  factory _$$RiderTripSubmitTripImplCopyWith(_$RiderTripSubmitTripImpl value,
+          $Res Function(_$RiderTripSubmitTripImpl) then) =
+      __$$RiderTripSubmitTripImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Location startLocation, Location endLocation});
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$RiderTripEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$RiderTripSubmitTripImplCopyWithImpl<$Res>
+    extends _$RiderTripEventCopyWithImpl<$Res, _$RiderTripSubmitTripImpl>
+    implements _$$RiderTripSubmitTripImplCopyWith<$Res> {
+  __$$RiderTripSubmitTripImplCopyWithImpl(_$RiderTripSubmitTripImpl _value,
+      $Res Function(_$RiderTripSubmitTripImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of RiderTripEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startLocation = null,
+    Object? endLocation = null,
+  }) {
+    return _then(_$RiderTripSubmitTripImpl(
+      startLocation: null == startLocation
+          ? _value.startLocation
+          : startLocation // ignore: cast_nullable_to_non_nullable
+              as Location,
+      endLocation: null == endLocation
+          ? _value.endLocation
+          : endLocation // ignore: cast_nullable_to_non_nullable
+              as Location,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
+  const _$RiderTripSubmitTripImpl(
+      {required this.startLocation, required this.endLocation});
+
+  @override
+  final Location startLocation;
+  @override
+  final Location endLocation;
 
   @override
   String toString() {
-    return 'RiderTripEvent.started()';
+    return 'RiderTripEvent.tripSubmitTrip(startLocation: $startLocation, endLocation: $endLocation)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$RiderTripSubmitTripImpl &&
+            (identical(other.startLocation, startLocation) ||
+                other.startLocation == startLocation) &&
+            (identical(other.endLocation, endLocation) ||
+                other.endLocation == endLocation));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, startLocation, endLocation);
+
+  /// Create a copy of RiderTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RiderTripSubmitTripImplCopyWith<_$RiderTripSubmitTripImpl> get copyWith =>
+      __$$RiderTripSubmitTripImplCopyWithImpl<_$RiderTripSubmitTripImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(Location startLocation, Location endLocation)
+        tripSubmitTrip,
   }) {
-    return started();
+    return tripSubmitTrip(startLocation, endLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(Location startLocation, Location endLocation)?
+        tripSubmitTrip,
   }) {
-    return started?.call();
+    return tripSubmitTrip?.call(startLocation, endLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(Location startLocation, Location endLocation)?
+        tripSubmitTrip,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (tripSubmitTrip != null) {
+      return tripSubmitTrip(startLocation, endLocation);
     }
     return orElse();
   }
@@ -140,34 +214,48 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(RiderTripSubmitTrip value) tripSubmitTrip,
   }) {
-    return started(this);
+    return tripSubmitTrip(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(RiderTripSubmitTrip value)? tripSubmitTrip,
   }) {
-    return started?.call(this);
+    return tripSubmitTrip?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(RiderTripSubmitTrip value)? tripSubmitTrip,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (tripSubmitTrip != null) {
+      return tripSubmitTrip(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements RiderTripEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class RiderTripSubmitTrip implements RiderTripEvent {
+  const factory RiderTripSubmitTrip(
+      {required final Location startLocation,
+      required final Location endLocation}) = _$RiderTripSubmitTripImpl;
+
+  @override
+  Location get startLocation;
+  @override
+  Location get endLocation;
+
+  /// Create a copy of RiderTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RiderTripSubmitTripImplCopyWith<_$RiderTripSubmitTripImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

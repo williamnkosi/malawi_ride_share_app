@@ -8,8 +8,8 @@ part 'rider_trip_state.dart';
 
 class RiderTripBloc extends Bloc<RiderTripEvent, RiderTripState> {
   RiderTripBloc() : super(const RiderTripState()) {
-    on<RiderTripEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<RiderTripSubmitTrip>(_onRiderTripSubmitTrip);
   }
+
+  _onRiderTripSubmitTrip(RiderTripSubmitTrip event, emit) {}
 }

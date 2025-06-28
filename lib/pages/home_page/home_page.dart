@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
+import 'package:malawi_ride_share_app/app_blocs/rider_trip_bloc/rider_trip_bloc.dart';
 import 'package:malawi_ride_share_app/pages/home_page/bloc/home_page_bloc.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/driver_home_page.dart';
 import 'package:malawi_ride_share_app/pages/home_page/rider_home_page/rider_home_page.dart';
@@ -24,6 +25,9 @@ class HomePage extends StatelessWidget {
         BlocProvider(
           lazy: false,
           create: (context) => DriverTripBloc()..add(const DriverTripIntial()),
+        ),
+        BlocProvider(
+          create: (context) => RiderTripBloc(),
         ),
       ],
       child: BlocBuilder<AuthBloc, AuthState>(

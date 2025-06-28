@@ -8,16 +8,24 @@ class RiderTripRepository {
   late io.Socket socket;
   final logger = Logger('RiderTripRepository');
   Future<void> requestTrip(
-      {required Location startLocation, required Location endLocation}) async {
+      {required LocationData startLocation,
+      required LocationData endLocation}) async {
     try {
       var user = FirebaseAuth.instance.currentUser!.uid;
-      var url = Uri.parse("http://192.168.1.211:3000/trip/request");
+      var url = Uri.parse("http://192.168.1.210:3000/trip/request");
       var requestBody = {
         "firebaseId": user,
-        "startLocation": startLocation,
-        "endLocation": endLocation
+        "startLocation": {
+          "latitude": startLocation.latitude.toString(),
+          "longitude": startLocation.longitude.toString()
+        },
+        "endLocation": {
+          "latitude": endLocation.latitude.toString(),
+          "longitude": endLocation.longitude.toString()
+        }
       };
-      final response = await http.post(url, body: requestBody);
+      final response = await http.post(url, body: requestBody.toString());
+      print(response);
     } catch (e) {
       logger.severe("Couldn't request trip: $e");
     }

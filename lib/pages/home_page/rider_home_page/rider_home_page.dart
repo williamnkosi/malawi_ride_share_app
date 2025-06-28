@@ -13,39 +13,27 @@ class RiderHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => RiderTripBloc(),
-      child: BlocListener<RiderTripBloc, RiderTripState>(
-        listener: (context, state) {
-          // showAppBottomSheet(
-          //     context: context,
-          //     request: state.request!,
-          //     onAccept: () {},
-          //     onDecline: () {});
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Driver Home Page'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rider Home Page'),
+      ),
+      body: const View(),
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(
+            onPressed: () {},
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
           ),
-          body: const View(),
-          floatingActionButton: Row(
-            children: [
-              FloatingActionButton(
-                onPressed: () {},
-                tooltip: 'Increment',
-                child: Icon(Icons.add),
-              ),
-              SizedBox(width: 10),
-              FloatingActionButton(
-                onPressed: () {
-                  searchRiderBottomSheet(context: context);
-                },
-                tooltip: 'Increment',
-                child: Icon(Icons.remove_done),
-              ),
-            ],
+          SizedBox(width: 10),
+          FloatingActionButton(
+            onPressed: () {
+              searchRiderBottomSheet(context: context);
+            },
+            tooltip: 'Increment',
+            child: Icon(Icons.remove_done),
           ),
-        ),
+        ],
       ),
     );
   }

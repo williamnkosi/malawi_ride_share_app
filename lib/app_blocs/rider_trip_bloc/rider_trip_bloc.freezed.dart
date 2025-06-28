@@ -16,23 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RiderTripEvent {
-  Location get startLocation => throw _privateConstructorUsedError;
-  Location get endLocation => throw _privateConstructorUsedError;
+  LocationData get startLocation => throw _privateConstructorUsedError;
+  LocationData get endLocation => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Location startLocation, Location endLocation)
+    required TResult Function(
+            LocationData startLocation, LocationData endLocation)
         tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Location startLocation, Location endLocation)?
+    TResult? Function(LocationData startLocation, LocationData endLocation)?
         tripSubmitTrip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location startLocation, Location endLocation)?
+    TResult Function(LocationData startLocation, LocationData endLocation)?
         tripSubmitTrip,
     required TResult orElse(),
   }) =>
@@ -67,7 +68,7 @@ abstract class $RiderTripEventCopyWith<$Res> {
           RiderTripEvent value, $Res Function(RiderTripEvent) then) =
       _$RiderTripEventCopyWithImpl<$Res, RiderTripEvent>;
   @useResult
-  $Res call({Location startLocation, Location endLocation});
+  $Res call({LocationData startLocation, LocationData endLocation});
 }
 
 /// @nodoc
@@ -92,11 +93,11 @@ class _$RiderTripEventCopyWithImpl<$Res, $Val extends RiderTripEvent>
       startLocation: null == startLocation
           ? _value.startLocation
           : startLocation // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationData,
       endLocation: null == endLocation
           ? _value.endLocation
           : endLocation // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationData,
     ) as $Val);
   }
 }
@@ -109,7 +110,7 @@ abstract class _$$RiderTripSubmitTripImplCopyWith<$Res>
       __$$RiderTripSubmitTripImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Location startLocation, Location endLocation});
+  $Res call({LocationData startLocation, LocationData endLocation});
 }
 
 /// @nodoc
@@ -132,11 +133,11 @@ class __$$RiderTripSubmitTripImplCopyWithImpl<$Res>
       startLocation: null == startLocation
           ? _value.startLocation
           : startLocation // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationData,
       endLocation: null == endLocation
           ? _value.endLocation
           : endLocation // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationData,
     ));
   }
 }
@@ -148,9 +149,9 @@ class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
       {required this.startLocation, required this.endLocation});
 
   @override
-  final Location startLocation;
+  final LocationData startLocation;
   @override
-  final Location endLocation;
+  final LocationData endLocation;
 
   @override
   String toString() {
@@ -183,7 +184,8 @@ class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Location startLocation, Location endLocation)
+    required TResult Function(
+            LocationData startLocation, LocationData endLocation)
         tripSubmitTrip,
   }) {
     return tripSubmitTrip(startLocation, endLocation);
@@ -192,7 +194,7 @@ class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Location startLocation, Location endLocation)?
+    TResult? Function(LocationData startLocation, LocationData endLocation)?
         tripSubmitTrip,
   }) {
     return tripSubmitTrip?.call(startLocation, endLocation);
@@ -201,7 +203,7 @@ class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location startLocation, Location endLocation)?
+    TResult Function(LocationData startLocation, LocationData endLocation)?
         tripSubmitTrip,
     required TResult orElse(),
   }) {
@@ -242,13 +244,13 @@ class _$RiderTripSubmitTripImpl implements RiderTripSubmitTrip {
 
 abstract class RiderTripSubmitTrip implements RiderTripEvent {
   const factory RiderTripSubmitTrip(
-      {required final Location startLocation,
-      required final Location endLocation}) = _$RiderTripSubmitTripImpl;
+      {required final LocationData startLocation,
+      required final LocationData endLocation}) = _$RiderTripSubmitTripImpl;
 
   @override
-  Location get startLocation;
+  LocationData get startLocation;
   @override
-  Location get endLocation;
+  LocationData get endLocation;
 
   /// Create a copy of RiderTripEvent
   /// with the given fields replaced by the non-null parameter values.

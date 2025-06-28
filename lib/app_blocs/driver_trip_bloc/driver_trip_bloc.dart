@@ -18,14 +18,13 @@ part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
-  static const LOGGER_NAME = 'DriverTripBloc';
   final DriverTripRepository driverTripRepository =
       GetIt.instance<DriverTripRepository>();
   final FirebaseMessageRepository _firebaseMessagingRepository =
       GetIt.instance<FirebaseMessageRepository>();
   Stream<LocationData>? _idleLocationSubscription;
   Stream<LocationData>? _tripLocationSubscription;
-  final logger = Logger(LOGGER_NAME);
+  final logger = Logger('DriverTripBloc');
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc() : super(const DriverTripState()) {
     on<DriverTripIntial>(_onTripIntial);

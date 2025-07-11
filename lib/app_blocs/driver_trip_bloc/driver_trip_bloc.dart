@@ -65,7 +65,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       }
       logger.info("Started tracking driver location");
       Location location = Location();
-      driverTripRepository.connetToSocketIO();
       _idleLocationSubscription = location.onLocationChanged;
 
       await emit.forEach<LocationData>(

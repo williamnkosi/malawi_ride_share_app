@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:malawi_ride_share_app/services/api_constants.dart';
 import 'package:malawi_ride_share_app/services/exceptions.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -7,7 +8,7 @@ class ApiService {
 
   static void initialize() {
     _dio = Dio(BaseOptions(
-      baseUrl: "http://192.168.1.211:3000",
+      baseUrl: ApiConstants.baseUrl,
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers: {

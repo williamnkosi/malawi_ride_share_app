@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/services/api_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service_interface.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
@@ -22,8 +23,7 @@ class SocketService implements SocketServiceInterface {
         return;
       }
 
-      final baseUrl =
-          'http://${dotenv.env['IP_ADDRESS']}:${dotenv.env['PORT'] ?? '3000'}';
+      final baseUrl = ApiConstants.baseUrl;
 
       _socket = io.io(baseUrl, <String, dynamic>{
         'transports': ['websocket'],

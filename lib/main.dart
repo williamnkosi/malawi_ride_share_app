@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:malawi_ride_share_app/services/locator.dart';
-import 'package:malawi_ride_share_app/shared/logging_setup.dart';
 
 void main() async {
   // Ensure Flutter is initialized for async operations
@@ -15,7 +13,6 @@ void main() async {
   }
 
   // Initialize dependencies (including ApiService)
-  await setupGetIt();
 
   runApp(const MyApp());
 }

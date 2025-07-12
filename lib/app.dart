@@ -4,11 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
+import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/router/app_router.dart';
 
 class App extends StatelessWidget {
   final String flavor;
-  const App({super.key, required this.flavor});
+  App({super.key, required this.flavor}) {
+    setupGetIt();
+  }
 
   // This widget is the root of your application.
   @override
@@ -17,12 +22,14 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(
-          create: (context) => AppBloc()..add(AppEvent.appEventInitial()),
+          create: (context) =>
+              AppBloc(fireBaseRepository: getIt<FirebaseRepository>())
+                ..add(AppEvent.appEventInitial()),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) =>
-              AuthBloc()..add(const AuthEvent.authEventInitial()),
+          create: (context) => AuthBloc(authRepository: getIt<AuthRepository>())
+            ..add(const AuthEvent.authEventInitial()),
           lazy: false,
         )
       ],

@@ -13,12 +13,10 @@ part 'app_state.dart';
 part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  FirebaseRepository get _fireBaseRepository =>
-      getIt<FirebaseRepository>(); // ✅ Access when needed
+  final FirebaseRepository fireBaseRepository;
 
-  late final FirebaseApp app;
   final logger = Logger('AppBloc');
-  AppBloc() : super(const AppState()) {
+  AppBloc({required this.fireBaseRepository}) : super(const AppState()) {
     on<AppEventInitial>(_onAppEventIntial);
     //on<AppEventStartListening>(_onAppEventStartListening);
     //on<AppEventShowMessage>(_onAppEventShowMessage);
@@ -27,10 +25,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   _onAppEventIntial(AppEventInitial event, emit) async {
     try {
-      await _fireBaseRepository.initializeApp().then((value) async {
-        await _fireBaseRepository.initializeAuth();
-        await _fireBaseRepository.initNotifications();
-      });
       // var user = FirebaseAuth.instance.currentUser;
       //await _fireBaseRepository.registerDevice(firebaseUserId: user!.uid);
     } catch (e) {

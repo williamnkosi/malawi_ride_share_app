@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/app_blocs/rider_trip_bloc/rider_trip_repository.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
@@ -9,16 +10,20 @@ import 'package:malawi_ride_share_app/services/socket_service/socket_service.dar
 GetIt getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
+  final Logger logger = Logger('setupGetIt ---> locator service');
+
+  logger.info('=====================================');
   getIt.registerSingleton<ApiService>(ApiService());
-  print('ApiService registered');
+  logger.info('ApiService registered');
   getIt.registerSingleton<FirebaseRepository>(FirebaseRepository());
-  print('FirebaseRepository registered');
+  logger.info('FirebaseRepository registered');
   getIt.registerSingleton<SocketService>(SocketService());
-  print('SocketService registered');
+  logger.info('SocketService registered');
   getIt.registerSingleton<AuthRepository>(AuthRepository());
-  print('AuthRepository registered');
+  logger.info('AuthRepository registered');
   getIt.registerSingleton<DriverTripRepository>(DriverTripRepository());
-  print('DriverTripRepository registered');
+  logger.info('DriverTripRepository registered');
   getIt.registerSingleton<RiderTripRepository>(RiderTripRepository());
-  print('RiderTripRepository registered');
+  logger.info('RiderTripRepository registered');
+  logger.info('===================================== /n');
 }

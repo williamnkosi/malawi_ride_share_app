@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
-import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:malawi_ride_share_app/models/user_device.dart';
@@ -21,12 +19,11 @@ class FirebaseRepository {
     initializeApp();
   }
 
-  Future<FirebaseApp> initializeApp() async {
+  void initializeApp() {
     try {
-      app = await Firebase.initializeApp(
+      Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
-      return app;
     } catch (e) {
       logger.severe(
           "$_name - Error initializing Firebase", e, StackTrace.current);
@@ -34,9 +31,10 @@ class FirebaseRepository {
     }
   }
 
-  Future<FirebaseAuth> initializeAuth() async {
+  void initializeAuth() {
     try {
-      return FirebaseAuth.instanceFor(app: app);
+      FirebaseAuth.instanceFor(app: app);
+      initializeAuth();
     } catch (e) {
       logger.severe(
           "$_name - Error initializing Firebase Auth", e, StackTrace.current);

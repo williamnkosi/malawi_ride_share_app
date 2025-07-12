@@ -11,7 +11,6 @@ import 'package:logging/logging.dart';
 
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
-import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
 
 part 'driver_trip_bloc.freezed.dart';
 part 'driver_trip_event.dart';
@@ -20,8 +19,7 @@ part 'driver_trip_state.dart';
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final DriverTripRepository driverTripRepository =
       GetIt.instance<DriverTripRepository>();
-  final FirebaseMessageRepository _firebaseMessagingRepository =
-      GetIt.instance<FirebaseMessageRepository>();
+
   Stream<LocationData>? _idleLocationSubscription;
   Stream<LocationData>? _tripLocationSubscription;
   final logger = Logger('DriverTripBloc');
@@ -40,9 +38,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       DriverTripIntial event, Emitter<DriverTripState> emit) async {
     try {
       logger.info('Initializing trip...');
-      var user = FirebaseAuth.instance.currentUser;
-      await _firebaseMessagingRepository.registerDevice(
-          firebaseUserId: user!.uid);
       FirebaseMessaging.onMessage.listen((message) {
         logger.info('Received message: ${message.data}');
         if (message.data.isNotEmpty) {

@@ -20,7 +20,7 @@ void main() {
   });
   // Ensure that the Flutter framework is initialized
   WidgetsFlutterBinding.ensureInitialized();
-  setupGetIt();
+  //setupGetIt();
   runApp(const App(
     flavor: 'Production',
   ));

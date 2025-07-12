@@ -5,7 +5,7 @@ import 'package:malawi_ride_share_app/services/locator.dart';
 void main() {
   // Ensure that the Flutter framework is initialized
   WidgetsFlutterBinding.ensureInitialized();
-  setupGetIt();
+  //setupGetIt();
   runApp(const App(
     flavor: 'Staging',
   ));

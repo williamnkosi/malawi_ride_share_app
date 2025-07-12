@@ -1,40 +1,27 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:malawi_ride_share_app/models/user_device.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 
 final _name = 'FirebaseRepository';
 
 class FirebaseRepository {
   late FirebaseMessaging _firebaseMessaging;
   final logger = Logger('FirebaseRepository');
+  final ApiService apiService;
+  FirebaseRepository({required this.apiService});
 
-  late final FirebaseApp app;
-
-  FirebaseRepository() {
-    initializeApp();
-  }
-
-  void initializeApp() {
-    try {
-      Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      );
-    } catch (e) {
-      logger.severe(
-          "$_name - Error initializing Firebase", e, StackTrace.current);
-      rethrow;
-    }
-  }
+  FirebaseApp get app => Firebase.app();
 
   void initializeAuth() {
     try {
       FirebaseAuth.instanceFor(app: app);
-      initializeAuth();
     } catch (e) {
       logger.severe(
           "$_name - Error initializing Firebase Auth", e, StackTrace.current);

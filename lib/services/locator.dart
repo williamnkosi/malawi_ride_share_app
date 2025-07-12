@@ -15,7 +15,8 @@ Future<void> setupGetIt() async {
   logger.info('=====================================');
   getIt.registerSingleton<ApiService>(ApiService());
   logger.info('ApiService registered');
-  getIt.registerSingleton<FirebaseRepository>(FirebaseRepository());
+  getIt.registerSingleton<FirebaseRepository>(
+      FirebaseRepository(apiService: getIt<ApiService>()));
   logger.info('FirebaseRepository registered');
   getIt.registerSingleton<SocketService>(SocketService());
   logger.info('SocketService registered');

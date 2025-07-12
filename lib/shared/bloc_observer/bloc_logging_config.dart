@@ -26,7 +26,7 @@ class BlocLoggingConfig {
   // Debug configuration for specific BLoCs
   static FilteredBlocObserver get authOnly => FilteredBlocObserver(
         logLevel: LogLevel.verbose,
-        watchedBlocs: {AuthBloc, AppBloc},
+        watchedBlocs: {AuthBloc},
       );
 
   static FilteredBlocObserver get tripOnly => FilteredBlocObserver(
@@ -42,15 +42,12 @@ class BlocLoggingConfig {
 
 void enableAuthDebugLogging() {
   Bloc.observer = BlocLoggingConfig.authOnly;
-  print('🔍 Auth debugging enabled - Only AuthBloc and AppBloc will be logged');
 }
 
 void enableTripDebugLogging() {
   Bloc.observer = BlocLoggingConfig.tripOnly;
-  print('🔍 Trip debugging enabled - Only trip-related BLoCs will be logged');
 }
 
 void disableAllBlocLogging() {
   Bloc.observer = BlocLoggingConfig.silent;
-  print('🔇 BLoC logging disabled');
 }

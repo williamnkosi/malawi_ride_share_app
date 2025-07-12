@@ -1,7 +1,7 @@
 // lib/services/api_service/api_service.dart
 import 'package:dio/dio.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/services/api_constants.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service_interface.dart';
 import 'package:malawi_ride_share_app/services/exceptions.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -11,13 +11,25 @@ class ApiService implements ApiServiceInterface {
   final Logger _logger = Logger('ApiService');
 
   // Constructor
-  ApiService();
+  ApiService() {
+    initialize();
+  }
 
   @override
   Future<void> initialize() async {
     try {
+      // Get base URL with fallback
+      String baseUrl;
+      try {
+        baseUrl = ApiConstants.baseUrl;
+      } catch (e) {
+        _logger.warning(
+            'Failed to get baseUrl from environment, using fallback: $e');
+        baseUrl = 'http://localhost:3000'; // Fallback URL
+      }
+
       _dio = Dio(BaseOptions(
-        baseUrl: ApiConstants.baseUrl,
+        baseUrl: baseUrl,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10),
         headers: {
@@ -42,8 +54,7 @@ class ApiService implements ApiServiceInterface {
       // // Add error interceptor
       // _dio.interceptors.add(_ErrorInterceptor());
 
-      _logger.info(
-          'API Service initialized with base URL: ${ApiConstants.baseUrl}');
+      _logger.info('API Service initialized with base URL: $baseUrl');
     } catch (e) {
       _logger.severe('Failed to initialize API service: $e');
       rethrow;

@@ -7,7 +7,7 @@ void main() async {
   // Ensure that the Flutter framework is initialized
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  setupGetIt();
+  //setupGetIt();
   runApp(const App(
     flavor: 'Development',
   ));

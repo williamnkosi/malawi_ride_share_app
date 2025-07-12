@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/repository/firebase_message_repository.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,8 +13,9 @@ part 'app_state.dart';
 part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  final _fireBaseRepository = getIt<FirebaseRepository>();
-  final _firebaseMessagingRepository = getIt<FirebaseMessageRepository>();
+  FirebaseRepository get _fireBaseRepository =>
+      getIt<FirebaseRepository>(); // ✅ Access when needed
+
   late final FirebaseApp app;
   final logger = Logger('AppBloc');
   AppBloc() : super(const AppState()) {
@@ -29,11 +29,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     try {
       await _fireBaseRepository.initializeApp().then((value) async {
         await _fireBaseRepository.initializeAuth();
-        await _firebaseMessagingRepository.initNotifications();
+        await _fireBaseRepository.initNotifications();
       });
-      var user = FirebaseAuth.instance.currentUser;
-      await _firebaseMessagingRepository.registerDevice(
-          firebaseUserId: user!.uid);
+      // var user = FirebaseAuth.instance.currentUser;
+      //await _fireBaseRepository.registerDevice(firebaseUserId: user!.uid);
     } catch (e) {
       logger.severe('Error initializing app', e, StackTrace.current);
     }

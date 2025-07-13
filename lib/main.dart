@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  // Ensure Flutter is initialized for async operations
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load environment variables first
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    print("Warning: .env file not found, using default values");
+  }
+
+  // Initialize dependencies (including ApiService)
+
   runApp(const MyApp());
 }
 

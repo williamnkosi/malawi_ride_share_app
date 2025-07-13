@@ -13,7 +13,14 @@ Future<void> setupGetIt() async {
   final Logger logger = Logger('setupGetIt ---> locator service');
 
   logger.info('=====================================');
-  getIt.registerSingleton<ApiService>(ApiService());
+  getIt.registerSingletonAsync<ApiService>(() async {
+    logger.info('🔄 Creating and initializing ApiService...');
+    final apiService = ApiService();
+    await apiService.initialize(); // ✅ Properly initialize
+    logger.info('✅ ApiService initialized successfully');
+    return apiService;
+  });
+  await getIt.isReady<ApiService>();
   logger.info('ApiService registered');
   getIt.registerSingleton<FirebaseRepository>(
       FirebaseRepository(apiService: getIt<ApiService>()));

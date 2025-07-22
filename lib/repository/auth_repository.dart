@@ -1,7 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/shared/custom_exception.dart';
 
 class AuthRepository {
+  final logger = Logger('AuthRepository');
+  final ApiService apiService;
+
+  AuthRepository({required this.apiService});
+
   Future<UserCredential> loginInUserWithEmailAndPassword(
       {required email, required password}) async {
     try {
@@ -44,5 +51,10 @@ class AuthRepository {
     } catch (e) {
       throw CustomException("Couldn't complete request");
     }
+  }
+
+  Future<void> getUserData() async {
+    try {} catch (e) {}
+    ;
   }
 }

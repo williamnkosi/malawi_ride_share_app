@@ -2,8 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
-class SignupUserPage extends StatelessWidget {
+enum Gender { male, female }
+
+class SignupUserPage extends StatefulWidget {
   const SignupUserPage({super.key});
+
+  @override
+  State<SignupUserPage> createState() => _SignupUserPageState();
+}
+
+class _SignupUserPageState extends State<SignupUserPage> {
+  DateTime? selectedDate;
+  Gender? selectedGender;
+  Future<void> _selectDate() async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime(2021, 7, 25),
+      firstDate: DateTime(2021),
+      lastDate: DateTime(2022),
+    );
+
+    setState(() {
+      selectedDate = pickedDate;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +41,44 @@ class SignupUserPage extends StatelessWidget {
               const AppTextFieldWidget(hintText: 'last Name'),
               const AppTextFieldWidget(hintText: 'Email'),
               const AppTextFieldWidget(hintText: 'Phone Number'),
+              Row(children: [
+                Text(selectedDate != null
+                    ? 'Selected Date: ${selectedDate!.toLocal()}'
+                    : 'No date selected'),
+                SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: _selectDate,
+                  child: const Text('Select Date'),
+                ),
+              ]),
+              Column(
+                children: <Widget>[
+                  ListTile(
+                    title: const Text('Lafayette'),
+                    leading: Radio<Gender>(
+                      value: Gender.male,
+                      groupValue: selectedGender,
+                      onChanged: (Gender? value) {
+                        setState(() {
+                          selectedGender = value;
+                        });
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    title: const Text('Thomas Jefferson'),
+                    leading: Radio<Gender>(
+                      value: Gender.female,
+                      groupValue: selectedGender,
+                      onChanged: (Gender? value) {
+                        setState(() {
+                          selectedGender = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
               const AppTextFieldWidget(
                 hintText: 'Password',
                 obscureText: true,

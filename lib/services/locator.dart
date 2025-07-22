@@ -27,7 +27,8 @@ Future<void> setupGetIt() async {
   logger.info('FirebaseRepository registered');
   getIt.registerSingleton<SocketService>(SocketService());
   logger.info('SocketService registered');
-  getIt.registerSingleton<AuthRepository>(AuthRepository());
+  getIt.registerSingleton<AuthRepository>(
+      AuthRepository(apiService: getIt<ApiService>()));
   logger.info('AuthRepository registered');
   getIt.registerSingleton<DriverTripRepository>(DriverTripRepository());
   logger.info('DriverTripRepository registered');

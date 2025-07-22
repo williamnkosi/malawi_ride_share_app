@@ -57,7 +57,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
               Column(
                 children: <Widget>[
                   ListTile(
-                    title: const Text('Lafayette'),
+                    title: const Text('Male'),
                     leading: Radio<Gender>(
                       value: Gender.male,
                       groupValue: selectedGender,
@@ -69,7 +69,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
                     ),
                   ),
                   ListTile(
-                    title: const Text('Thomas Jefferson'),
+                    title: const Text('Female'),
                     leading: Radio<Gender>(
                       value: Gender.female,
                       groupValue: selectedGender,

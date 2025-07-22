@@ -32,6 +32,10 @@
 	<string>We need your location to show it on the map.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to show it on the map.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to camera to take profile photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to photo library to select profile photos.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

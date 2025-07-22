@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/shared/custom_exception.dart';
+import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 
 class AuthRepository {
   final logger = Logger('AuthRepository');
@@ -53,8 +55,16 @@ class AuthRepository {
     }
   }
 
-  Future<void> getUserData() async {
-    try {} catch (e) {}
-    ;
+  Future<Map<String, dynamic>> getUserData(
+      {required CreateUserDto createUserDto}) async {
+    try {
+      var response = await apiService.post(ApiConstants.createUser,
+          body: createUserDto.toJson());
+
+      return response;
+    } catch (e) {
+      logger.severe('Error retrieving user data: $e');
+      throw CustomException("Couldn't complete request");
+    }
   }
 }

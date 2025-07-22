@@ -6,16 +6,17 @@ class SignupUserState with _$SignupUserState {
   const factory SignupUserState.initial() = SignupUserInitialState;
 
   /// Form state with user input data
-  const factory SignupUserState.form({
+  const factory SignupUserState.formUpdate({
     String? firstName,
     String? lastName,
     String? email,
     String? phoneNumber,
     DateTime? dateOfBirth,
-    String? gender,
+    Gender? gender,
     String? password,
     String? confirmPassword,
     File? profileImage,
+    bool? isFormValid,
   }) = SignupUserFormState;
 
   /// Loading state during image operations
@@ -25,8 +26,12 @@ class SignupUserState with _$SignupUserState {
   const factory SignupUserState.loading() = SignupUserLoadingState;
 
   /// Success state after successful signup
-  const factory SignupUserState.success() = SignupUserSuccessState;
+  const factory SignupUserState.success(String message) =
+      SignupUserSuccessState;
 
   /// Error state with error message
   const factory SignupUserState.error(String message) = SignupUserErrorState;
+
+  const factory SignupUserState.permissionError(String message) =
+      SignupUserPermissionErrorState;
 }

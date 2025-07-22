@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:malawi_ride_share_app/repository/image_repository.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
@@ -20,150 +20,44 @@ class _SignupUserPageState extends State<SignupUserPage> {
   Gender? selectedGender;
 
   File? _profileImage; // ✅ Add profile image variable
-  final ImagePicker _picker = ImagePicker();
+  late final ImageRepository _imageRepository;
+
+  @override
+  void initState() {
+    super.initState();
+    _imageRepository = getIt<ImageRepository>();
+  }
 
   Future<void> _pickProfileImage() async {
-    await _showImagePickerDialog();
-  }
-
-  Future<void> _showImagePickerDialog() async {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Select Profile Image'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                leading: const Icon(Icons.photo_library),
-                title: const Text('Gallery'),
-                onTap: () {
-                  Navigator.pop(context);
-                  _pickImageFromGallery();
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.camera_alt),
-                title: const Text('Camera'),
-                onTap: () {
-                  Navigator.pop(context);
-                  _pickImageFromCamera();
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Future<void> _pickImageFromGallery() async {
     try {
-      print('🖼️ Requesting gallery permission...');
+      final File? image = await _imageRepository.showImagePickerDialog(
+        context,
+        maxWidth: 800,
+        maxHeight: 800,
+        imageQuality: 85,
+      );
 
-      // Request permission explicitly
-      final PermissionStatus galleryStatus = await Permission.photos.request();
-      print('📱 Gallery permission status: $galleryStatus');
-
-      if (galleryStatus == PermissionStatus.granted) {
-        print('✅ Gallery permission granted, opening picker...');
-        final XFile? image = await _picker.pickImage(
-          source: ImageSource.gallery,
-          maxWidth: 1800,
-          maxHeight: 1800,
-          imageQuality: 80,
+      if (image != null) {
+        setState(() {
+          _profileImage = image;
+        });
+      }
+    } on ImagePermissionException catch (e) {
+      // Handle permission denied
+      if (mounted) {
+        ImageRepository.showPermissionDeniedDialog(
+          context,
+          e.message.contains('Camera') ? 'camera access' : 'gallery access',
         );
-
-        if (image != null) {
-          print('✅ Image picked successfully: ${image.path}');
-          setState(() {
-            _profileImage = File(image.path);
-          });
-        } else {
-          print('❌ No image selected');
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No image selected')),
-          );
-        }
-      } else {
-        print('❌ Gallery permission denied: $galleryStatus');
-        _showPermissionDeniedDialog('gallery access');
       }
     } catch (e) {
-      print('🚨 Error picking image from gallery: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error accessing gallery: $e')),
-      );
-    }
-  }
-
-  Future<void> _pickImageFromCamera() async {
-    try {
-      print('📷 Requesting camera permission...');
-
-      // Request permission explicitly
-      final PermissionStatus cameraStatus = await Permission.camera.request();
-      print('📱 Camera permission status: $cameraStatus');
-
-      if (cameraStatus == PermissionStatus.granted) {
-        print('✅ Camera permission granted, opening camera...');
-        final XFile? image = await _picker.pickImage(
-          source: ImageSource.camera,
-          maxWidth: 1800,
-          maxHeight: 1800,
-          imageQuality: 80,
+      // Handle other errors
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
         );
-
-        if (image != null) {
-          print('✅ Photo taken successfully: ${image.path}');
-          setState(() {
-            _profileImage = File(image.path);
-          });
-        } else {
-          print('❌ No photo taken');
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No photo taken')),
-          );
-        }
-      } else {
-        print('❌ Camera permission denied: $cameraStatus');
-        _showPermissionDeniedDialog('camera access');
       }
-    } catch (e) {
-      print('🚨 Error taking photo: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error accessing camera: $e')),
-      );
     }
-  }
-
-  void _showPermissionDeniedDialog(String permissionType) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Permission Required'),
-          content: Text(
-            'This app needs $permissionType permission to function properly. '
-            'Please grant the permission in your device settings.',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                openAppSettings();
-              },
-              child: const Text('Open Settings'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   Future<void> _selectDate() async {

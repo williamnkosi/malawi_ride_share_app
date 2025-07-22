@@ -30,6 +30,9 @@ class _SignupUserPageState extends State<SignupUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Signup User'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -43,7 +46,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
               const AppTextFieldWidget(hintText: 'Phone Number'),
               Row(children: [
                 Text(selectedDate != null
-                    ? 'Selected Date: ${selectedDate!.toLocal()}'
+                    ? 'Selected Date: ${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'
                     : 'No date selected'),
                 SizedBox(width: 16),
                 ElevatedButton(

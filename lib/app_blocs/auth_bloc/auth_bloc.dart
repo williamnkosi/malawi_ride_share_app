@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthDriverEventLogin>(_onDriverLogin);
     on<AuthEventSignUp>(_onsignUp);
     on<AuthEventSignOut>(_onSignOut);
+    on<AuthEventSetToUnauthenticated>(_onSetToUnauthenticated);
   }
 
   _onIntial(event, emit) async {
@@ -73,5 +74,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } catch (e) {
       emit(AuthState.error(e.toString()));
     }
+  }
+
+  _onSetToUnauthenticated(event, emit) {
+    emit(const AuthState.unauthenticated());
   }
 }

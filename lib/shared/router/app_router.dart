@@ -36,7 +36,7 @@ class AppRouter extends StatelessWidget {
                 if (publicRoutes.contains(routerState.matchedLocation)) {
                   return null;
                 }
-                return AppRoutes.homePage;
+                return AppRoutes.loginPage;
               },
               error: (_) {
                 return null;

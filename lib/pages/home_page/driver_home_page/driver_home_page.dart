@@ -10,49 +10,11 @@ class DriverHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<DriverTripBloc, DriverTripState>(
-      listenWhen: (previous, current) =>
-          previous.request != current.request && current.request != null,
-      listener: (context, state) {
-        showAppBottomSheet(
-            context: context,
-            request: state.request!,
-            onAccept: () {
-              context.read<DriverTripBloc>().add(const DriverTripAccepted());
-            },
-            onDecline: () {
-              context.read<DriverTripBloc>().add(const DriverTripRejected());
-            });
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Driver Home Page'),
-        ),
-        body: const View(),
-        floatingActionButton: Row(
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                // ignore: close_sinks
-                final driverTripBloc = context.read<DriverTripBloc>();
-                driverTripBloc.add(const DriverTripStartTrackingDriver());
-              },
-              tooltip: 'Increment',
-              child: Icon(Icons.add),
-            ),
-            SizedBox(width: 10),
-            FloatingActionButton(
-              onPressed: () {
-                // ignore: close_sinks
-                final driverTripBloc = context.read<DriverTripBloc>();
-                driverTripBloc.add(const DriverTripStartTrackingDriver());
-              },
-              tooltip: 'Increment',
-              child: Icon(Icons.remove_done),
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Driver Home Page'),
       ),
+      body: const View(),
     );
   }
 }

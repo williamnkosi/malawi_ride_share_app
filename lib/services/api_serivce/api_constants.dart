@@ -15,4 +15,6 @@ class ApiConstants {
       );
 
   static const String tripRequest = "/trip/request";
+
+  static const String createUser = "/users";
 }

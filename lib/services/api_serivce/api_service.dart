@@ -70,7 +70,26 @@ class ApiService implements ApiServiceInterface {
       _logger.fine('POST request to: $endpoint');
       final response = await _dio.post(endpoint, data: body);
       _logger.fine('POST response: ${response.statusCode}');
-      return response.data;
+
+      // Handle different response data types
+      final responseData = response.data;
+      _logger.fine('Response data type: ${responseData.runtimeType}');
+
+      if (responseData is Map<String, dynamic>) {
+        return responseData;
+      } else if (responseData is List) {
+        // If server returns a list, wrap it in a map
+        _logger.info('Server returned a list, wrapping in map');
+        return {'data': responseData};
+      } else if (responseData == null) {
+        _logger.info('Server returned null data');
+        return {};
+      } else {
+        // If server returns something else, wrap it
+        _logger.info(
+            'Server returned ${responseData.runtimeType}, wrapping in map');
+        return {'result': responseData};
+      }
     } on DioException catch (e) {
       _logger.severe('POST error to $endpoint: ${e.message}');
       throw _handleDioError(e);
@@ -83,7 +102,20 @@ class ApiService implements ApiServiceInterface {
       _logger.fine('GET request to: $endpoint');
       final response = await _dio.get(endpoint);
       _logger.fine('GET response: ${response.statusCode}');
-      return response.data;
+
+      // Handle different response data types
+      final responseData = response.data;
+      if (responseData is Map<String, dynamic>) {
+        return responseData;
+      } else if (responseData is List) {
+        // If server returns a list, wrap it in a map
+        return {'data': responseData};
+      } else if (responseData == null) {
+        return {};
+      } else {
+        // If server returns something else, wrap it
+        return {'result': responseData};
+      }
     } on DioException catch (e) {
       _logger.severe('GET error to $endpoint: ${e.message}');
       throw _handleDioError(e);
@@ -99,7 +131,20 @@ class ApiService implements ApiServiceInterface {
       _logger.fine('PUT request to: $endpoint');
       final response = await _dio.put(endpoint, data: body);
       _logger.fine('PUT response: ${response.statusCode}');
-      return response.data;
+
+      // Handle different response data types
+      final responseData = response.data;
+      if (responseData is Map<String, dynamic>) {
+        return responseData;
+      } else if (responseData is List) {
+        // If server returns a list, wrap it in a map
+        return {'data': responseData};
+      } else if (responseData == null) {
+        return {};
+      } else {
+        // If server returns something else, wrap it
+        return {'result': responseData};
+      }
     } on DioException catch (e) {
       _logger.severe('PUT error to $endpoint: ${e.message}');
       throw _handleDioError(e);
@@ -112,7 +157,20 @@ class ApiService implements ApiServiceInterface {
       _logger.fine('DELETE request to: $endpoint');
       final response = await _dio.delete(endpoint);
       _logger.fine('DELETE response: ${response.statusCode}');
-      return response.data;
+
+      // Handle different response data types
+      final responseData = response.data;
+      if (responseData is Map<String, dynamic>) {
+        return responseData;
+      } else if (responseData is List) {
+        // If server returns a list, wrap it in a map
+        return {'data': responseData};
+      } else if (responseData == null) {
+        return {};
+      } else {
+        // If server returns something else, wrap it
+        return {'result': responseData};
+      }
     } on DioException catch (e) {
       _logger.severe('DELETE error to $endpoint: ${e.message}');
       throw _handleDioError(e);
@@ -127,7 +185,33 @@ class ApiService implements ApiServiceInterface {
         return NetworkException('Request timeout');
       case DioExceptionType.badResponse:
         final statusCode = error.response?.statusCode ?? 0;
-        final message = error.response?.data?['message'] ?? 'Server error';
+        final responseData = error.response?.data;
+
+        // Log the response data for debugging
+        _logger.severe(
+            'Bad response received: $responseData (type: ${responseData.runtimeType})');
+
+        // Handle different types of message responses
+        String message = 'Server error';
+
+        if (responseData != null) {
+          if (responseData is Map<String, dynamic>) {
+            final messageData = responseData['message'];
+            if (messageData is String) {
+              message = messageData;
+            } else if (messageData is List) {
+              // Join list items into a single string
+              message = messageData.map((e) => e.toString()).join(', ');
+            } else if (messageData != null) {
+              message = messageData.toString();
+            }
+          } else if (responseData is String) {
+            message = responseData;
+          } else {
+            message = responseData.toString();
+          }
+        }
+
         return ApiException(message, statusCode);
       case DioExceptionType.cancel:
         return NetworkException('Request cancelled');

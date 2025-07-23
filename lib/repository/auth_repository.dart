@@ -55,7 +55,7 @@ class AuthRepository {
     }
   }
 
-  Future<Map<String, dynamic>> getUserData(
+  Future<Map<String, dynamic>> createUserInDatabase(
       {required CreateUserDto createUserDto}) async {
     try {
       var response = await apiService.post(ApiConstants.createUser,

@@ -9,7 +9,6 @@ import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
-import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
 class SignupUserPage extends StatefulWidget {
   const SignupUserPage({super.key});
@@ -25,19 +24,6 @@ class _SignupUserPageState extends State<SignupUserPage> {
   @override
   void initState() {
     super.initState();
-  }
-
-  Future<void> _selectDate() async {
-    final DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime(2021, 7, 25),
-      firstDate: DateTime(2021),
-      lastDate: DateTime(2022),
-    );
-
-    setState(() {
-      selectedDate = pickedDate;
-    });
   }
 
   @override
@@ -246,53 +232,6 @@ Widget _buildFormFields(BuildContext context) {
       const SizedBox(height: 16),
 
       // ✅ Password Field
-      FormBuilderTextField(
-        name: 'password',
-        decoration: const InputDecoration(
-          labelText: 'Password',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.lock),
-        ),
-        obscureText: true,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength(6),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(password: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
-
-      // ✅ Confirm Password Field
-      FormBuilderTextField(
-        name: 'confirmPassword',
-        decoration: const InputDecoration(
-          labelText: 'Confirm Password',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.lock_outline),
-        ),
-        obscureText: true,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          (value) {
-            final formData = FormBuilder.of(context)?.value;
-            if (value != formData?['password']) {
-              return 'Passwords do not match';
-            }
-            return null;
-          },
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context
-                .read<SignupUserCubit>()
-                .updateFormData(confirmPassword: value);
-          }
-        },
-      ),
     ],
   );
 }

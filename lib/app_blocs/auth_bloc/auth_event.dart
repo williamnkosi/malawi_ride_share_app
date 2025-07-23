@@ -16,4 +16,8 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.authEventsignOut() = AuthEventSignOut;
   const factory AuthEvent.authEventSetToUnauthenticated() =
       AuthEventSetToUnauthenticated;
+  const factory AuthEvent.authEventSetAuthenticated({
+    required UserCredential userCredential,
+    required UserType userType,
+  }) = AuthEventSetAuthenticated;
 }

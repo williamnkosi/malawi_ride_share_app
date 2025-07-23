@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
@@ -20,6 +21,7 @@ enum Gender {
 class SignupUserCubit extends Cubit<SignupUserState> {
   final ImageRepository _imageRepository;
   final AuthRepository _authRepository;
+  final AuthBloc _authBloc;
 
   File? _profileImage;
   String _firstName = '';
@@ -31,7 +33,7 @@ class SignupUserCubit extends Cubit<SignupUserState> {
   DateTime? _dateOfBirth;
   Gender? _gender;
 
-  SignupUserCubit(this._imageRepository, this._authRepository)
+  SignupUserCubit(this._imageRepository, this._authRepository, this._authBloc)
       : super(const SignupUserState.initial());
 
   void updateFormData({
@@ -172,6 +174,13 @@ class SignupUserCubit extends Cubit<SignupUserState> {
         dateOfBirth: _dateOfBirth!.toIso8601String().split('T')[0],
       );
       await _authRepository.createUserInDatabase(createUserDto: createUserDto);
+
+      _authBloc.add(
+        AuthEvent.authEventSetAuthenticated(
+          userCredential: userCredential,
+          userType: UserType.rider, // or determine based on your logic
+        ),
+      );
 
       emit(const SignupUserState.success('Account created successfully!'));
     } catch (e) {

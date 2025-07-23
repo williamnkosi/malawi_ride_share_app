@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/pages/signup_user_page/signup_user_cubit.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
@@ -32,47 +33,95 @@ class _SignupUserPageState extends State<SignupUserPage> {
       create: (context) => SignupUserCubit(
         getIt<ImageRepository>(),
         getIt<AuthRepository>(),
+        context.read<AuthBloc>(),
       ),
       child: BlocConsumer<SignupUserCubit, SignupUserState>(
         listener: (context, state) {
-          // TODO: implement listener
+          state.maybeWhen(
+            success: (message) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(message)),
+              );
+            },
+            error: (message) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(message)),
+              );
+            },
+            orElse: () {},
+          );
         },
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
               title: const Text('Signup User'),
             ),
-            body: FormBuilder(
-              key: formKey,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Profile Image Picker
-                      const ProfileImage(),
-                      const SizedBox(height: 16),
-                      _buildFormFields(context),
-                      const SizedBox(height: 16),
-                      _buildDatePicker(context, state),
-                      const SizedBox(height: 16),
-                      _buildGenderSelection(context, state),
-                      const SizedBox(height: 16),
-                      _buildPasswordFields(context),
-                      const SizedBox(height: 32),
-                      SizedBox(
-                          width: double.infinity,
-                          child: AppOutlineButton(
-                              buttonText: 'Continue',
-                              onPressed: context
-                                  .read<SignupUserCubit>()
-                                  .submitSignup)),
-                    ],
+            body: Stack(
+              children: [
+                FormBuilder(
+                  key: formKey,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          // Profile Image Picker
+                          const ProfileImage(),
+                          const SizedBox(height: 16),
+                          _buildFormFields(context),
+                          const SizedBox(height: 16),
+                          _buildDatePicker(context, state),
+                          const SizedBox(height: 16),
+                          _buildGenderSelection(context, state),
+                          const SizedBox(height: 16),
+                          _buildPasswordFields(context),
+                          const SizedBox(height: 32),
+                          SizedBox(
+                              width: double.infinity,
+                              child: AppOutlineButton(
+                                  buttonText: 'Continue',
+                                  onPressed: context
+                                      .read<SignupUserCubit>()
+                                      .submitSignup)),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                // Loading overlay with circular progress indicator
+                if (state.maybeWhen(
+                  loading: () => true,
+                  orElse: () => false,
+                ))
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: Colors.black.withOpacity(0.5),
+                    child: const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
+                            strokeWidth: 3.0,
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'Creating your account...',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
             ),
           );
         },

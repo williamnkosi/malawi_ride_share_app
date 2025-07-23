@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
@@ -32,11 +31,8 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final firebaseRepo = getIt<FirebaseRepository>();
-    final authRepo = getIt<AuthRepository>();
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(
           create: (context) =>
               AppBloc(fireBaseRepository: getIt<FirebaseRepository>()),

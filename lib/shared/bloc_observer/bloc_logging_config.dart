@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/rider_trip_bloc/rider_trip_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/shared/bloc_observer/filtered_bloc_observer.dart';
@@ -19,7 +18,6 @@ class BlocLoggingConfig {
   // Production configuration
   static FilteredBlocObserver get production => FilteredBlocObserver(
         logLevel: LogLevel.basic,
-        ignoredBlocs: {LocationBloc}, // Location updates might be too frequent
         watchedBlocs: {AppBloc, AuthBloc}, // Only log critical BLoCs
       );
 

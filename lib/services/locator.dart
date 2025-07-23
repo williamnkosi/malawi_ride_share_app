@@ -4,6 +4,7 @@ import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_rep
 import 'package:malawi_ride_share_app/app_blocs/rider_trip_bloc/rider_trip_repository.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
@@ -27,8 +28,11 @@ Future<void> setupGetIt() async {
   logger.info('FirebaseRepository registered');
   getIt.registerSingleton<SocketService>(SocketService());
   logger.info('SocketService registered');
-  getIt.registerSingleton<AuthRepository>(AuthRepository());
+  getIt.registerSingleton<AuthRepository>(
+      AuthRepository(apiService: getIt<ApiService>()));
   logger.info('AuthRepository registered');
+  getIt.registerSingleton<ImageRepository>(ImageRepository());
+  logger.info('ImageRepository registered');
   getIt.registerSingleton<DriverTripRepository>(DriverTripRepository());
   logger.info('DriverTripRepository registered');
   getIt.registerSingleton<RiderTripRepository>(RiderTripRepository());

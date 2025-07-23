@@ -39,13 +39,12 @@ class App extends StatelessWidget {
         BlocProvider(create: (context) => LocationBloc()),
         BlocProvider(
           create: (context) =>
-              AppBloc(fireBaseRepository: getIt<FirebaseRepository>())
-                ..add(AppEvent.appEventInitial()),
+              AppBloc(fireBaseRepository: getIt<FirebaseRepository>()),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => AuthBloc(authRepository: getIt<AuthRepository>())
-            ..add(const AuthEvent.authEventInitial()),
+          create: (context) =>
+              AuthBloc(authRepository: getIt<AuthRepository>()),
           lazy: false,
         )
       ],

@@ -25,6 +25,9 @@ mixin _$AuthEvent {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$AuthEvent {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +49,9 @@ mixin _$AuthEvent {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +62,10 @@ mixin _$AuthEvent {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +75,10 @@ mixin _$AuthEvent {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +88,10 @@ mixin _$AuthEvent {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,6 +165,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) {
     return authEventInitial();
   }
@@ -156,6 +180,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) {
     return authEventInitial?.call();
   }
@@ -168,6 +195,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -184,6 +214,10 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) {
     return authEventInitial(this);
   }
@@ -196,6 +230,10 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) {
     return authEventInitial?.call(this);
   }
@@ -208,6 +246,10 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -307,6 +349,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) {
     return authRiderEventlogin(email, password);
   }
@@ -319,6 +364,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) {
     return authRiderEventlogin?.call(email, password);
   }
@@ -331,6 +379,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -347,6 +398,10 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) {
     return authRiderEventlogin(this);
   }
@@ -359,6 +414,10 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) {
     return authRiderEventlogin?.call(this);
   }
@@ -371,6 +430,10 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -482,6 +545,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) {
     return authEventDriverlogin(email, password);
   }
@@ -494,6 +560,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) {
     return authEventDriverlogin?.call(email, password);
   }
@@ -506,6 +575,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -522,6 +594,10 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) {
     return authEventDriverlogin(this);
   }
@@ -534,6 +610,10 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) {
     return authEventDriverlogin?.call(this);
   }
@@ -546,6 +626,10 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -655,6 +739,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) {
     return authEventsignUp(email, password);
   }
@@ -667,6 +754,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) {
     return authEventsignUp?.call(email, password);
   }
@@ -679,6 +769,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -695,6 +788,10 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) {
     return authEventsignUp(this);
   }
@@ -707,6 +804,10 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) {
     return authEventsignUp?.call(this);
   }
@@ -719,6 +820,10 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -791,6 +896,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
         authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
   }) {
     return authEventsignOut();
   }
@@ -803,6 +911,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult? Function(String email, String password)? authEventDriverlogin,
     TResult? Function(String email, String password)? authEventsignUp,
     TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
   }) {
     return authEventsignOut?.call();
   }
@@ -815,6 +926,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult Function(String email, String password)? authEventDriverlogin,
     TResult Function(String email, String password)? authEventsignUp,
     TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -831,6 +945,10 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
   }) {
     return authEventsignOut(this);
   }
@@ -843,6 +961,10 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
   }) {
     return authEventsignOut?.call(this);
   }
@@ -855,6 +977,10 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -866,6 +992,355 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
 
 abstract class AuthEventSignOut implements AuthEvent {
   const factory AuthEventSignOut() = _$AuthEventSignOutImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthEventSetToUnauthenticatedImplCopyWith<$Res> {
+  factory _$$AuthEventSetToUnauthenticatedImplCopyWith(
+          _$AuthEventSetToUnauthenticatedImpl value,
+          $Res Function(_$AuthEventSetToUnauthenticatedImpl) then) =
+      __$$AuthEventSetToUnauthenticatedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthEventSetToUnauthenticatedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSetToUnauthenticatedImpl>
+    implements _$$AuthEventSetToUnauthenticatedImplCopyWith<$Res> {
+  __$$AuthEventSetToUnauthenticatedImplCopyWithImpl(
+      _$AuthEventSetToUnauthenticatedImpl _value,
+      $Res Function(_$AuthEventSetToUnauthenticatedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AuthEventSetToUnauthenticatedImpl
+    implements AuthEventSetToUnauthenticated {
+  const _$AuthEventSetToUnauthenticatedImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.authEventSetToUnauthenticated()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventSetToUnauthenticatedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetToUnauthenticated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetToUnauthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (authEventSetToUnauthenticated != null) {
+      return authEventSetToUnauthenticated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetToUnauthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetToUnauthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (authEventSetToUnauthenticated != null) {
+      return authEventSetToUnauthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthEventSetToUnauthenticated implements AuthEvent {
+  const factory AuthEventSetToUnauthenticated() =
+      _$AuthEventSetToUnauthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthEventSetAuthenticatedImplCopyWith<$Res> {
+  factory _$$AuthEventSetAuthenticatedImplCopyWith(
+          _$AuthEventSetAuthenticatedImpl value,
+          $Res Function(_$AuthEventSetAuthenticatedImpl) then) =
+      __$$AuthEventSetAuthenticatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserCredential userCredential, UserType userType});
+}
+
+/// @nodoc
+class __$$AuthEventSetAuthenticatedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSetAuthenticatedImpl>
+    implements _$$AuthEventSetAuthenticatedImplCopyWith<$Res> {
+  __$$AuthEventSetAuthenticatedImplCopyWithImpl(
+      _$AuthEventSetAuthenticatedImpl _value,
+      $Res Function(_$AuthEventSetAuthenticatedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userCredential = null,
+    Object? userType = null,
+  }) {
+    return _then(_$AuthEventSetAuthenticatedImpl(
+      userCredential: null == userCredential
+          ? _value.userCredential
+          : userCredential // ignore: cast_nullable_to_non_nullable
+              as UserCredential,
+      userType: null == userType
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
+  const _$AuthEventSetAuthenticatedImpl(
+      {required this.userCredential, required this.userType});
+
+  @override
+  final UserCredential userCredential;
+  @override
+  final UserType userType;
+
+  @override
+  String toString() {
+    return 'AuthEvent.authEventSetAuthenticated(userCredential: $userCredential, userType: $userType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventSetAuthenticatedImpl &&
+            (identical(other.userCredential, userCredential) ||
+                other.userCredential == userCredential) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userCredential, userType);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventSetAuthenticatedImplCopyWith<_$AuthEventSetAuthenticatedImpl>
+      get copyWith => __$$AuthEventSetAuthenticatedImplCopyWithImpl<
+          _$AuthEventSetAuthenticatedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+        authRiderEventlogin,
+    required TResult Function(String email, String password)
+        authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetAuthenticated(userCredential, userType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetAuthenticated?.call(userCredential, userType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+        authEventSetAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (authEventSetAuthenticated != null) {
+      return authEventSetAuthenticated(userCredential, userType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+        authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetAuthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
+  }) {
+    return authEventSetAuthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+        authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+        authEventSetAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (authEventSetAuthenticated != null) {
+      return authEventSetAuthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthEventSetAuthenticated implements AuthEvent {
+  const factory AuthEventSetAuthenticated(
+      {required final UserCredential userCredential,
+      required final UserType userType}) = _$AuthEventSetAuthenticatedImpl;
+
+  UserCredential get userCredential;
+  UserType get userType;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthEventSetAuthenticatedImplCopyWith<_$AuthEventSetAuthenticatedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -9,7 +9,13 @@ import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dt
 part 'signup_user_state.dart';
 part 'signup_user_cubit.freezed.dart';
 
-enum Gender { male, female }
+enum Gender {
+  male("male"),
+  female("female");
+
+  const Gender(this.value);
+  final String value;
+}
 
 class SignupUserCubit extends Cubit<SignupUserState> {
   final ImageRepository _imageRepository;
@@ -139,13 +145,9 @@ class SignupUserCubit extends Cubit<SignupUserState> {
     }
   }
 
-  Future<void> submitSignup(Map<String, dynamic> formData) async {
+  Future<void> submitSignup() async {
     try {
       emit(const SignupUserState.loading());
-
-      // Update internal state with FormBuilder data
-      _password = formData['password'] ?? '';
-      _confirmPassword = formData['confirmPassword'] ?? '';
 
       // Validate the complete form
       if (!_isFormValid()) {
@@ -166,10 +168,10 @@ class SignupUserCubit extends Cubit<SignupUserState> {
         lastName: _lastName,
         phoneNumber: _phoneNumber,
         email: _email,
-        gender: _gender!.toString(),
+        gender: _gender!.value,
         dateOfBirth: _dateOfBirth!.toIso8601String().split('T')[0],
       );
-      await _authRepository.getUserData(createUserDto: createUserDto);
+      await _authRepository.createUserInDatabase(createUserDto: createUserDto);
 
       emit(const SignupUserState.success('Account created successfully!'));
     } catch (e) {

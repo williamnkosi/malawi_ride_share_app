@@ -21,5 +21,9 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final logger = Logger('DriverTripBloc');
   final user = FirebaseAuth.instance.currentUser;
   DriverTripBloc({required this.driverTripRepository})
-      : super(const DriverTripState());
+      : super(const DriverTripState()) {
+    on<DriverTripIntial>(_onInitial);
+  }
+
+  _onInitial(DriverTripIntial event, emit) async {}
 }

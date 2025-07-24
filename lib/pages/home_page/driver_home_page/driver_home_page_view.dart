@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_bloc.dart';
+import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/widgets/driver_map_section.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/widgets/driver_status_bar.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
@@ -42,53 +42,6 @@ class _DriverHomePageViewState extends State<DriverHomePageView> {
           );
         },
       ),
-    );
-  }
-}
-
-class DriverMapsSection extends StatelessWidget {
-  // Hardcoded location for Lilongwe, Malawi (Capital city)
-  static const LatLng _lilongweCenter = LatLng(-13.9626, 33.7741);
-
-  // Hardcoded marker for driver location
-  static const Marker _driverMarker = Marker(
-    markerId: MarkerId('driver_location'),
-    position: _lilongweCenter,
-    infoWindow: InfoWindow(
-      title: 'Your Location',
-      snippet: 'Driver current position',
-    ),
-    icon: BitmapDescriptor.defaultMarker,
-  );
-
-  const DriverMapsSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
-      builder: (context, state) {
-        return Expanded(
-          child: GoogleMap(
-            onMapCreated: (GoogleMapController controller) {
-              // Map controller ready - can be used later for programmatic control
-            },
-            initialCameraPosition: const CameraPosition(
-              target: _lilongweCenter,
-              zoom: 15.0,
-            ),
-            markers: {_driverMarker},
-            myLocationEnabled: true,
-            myLocationButtonEnabled: true,
-            compassEnabled: true,
-            mapToolbarEnabled: false,
-            zoomControlsEnabled: true,
-            mapType: MapType.normal,
-            onTap: (LatLng position) {
-              // TODO: Handle map tap if needed
-            },
-          ),
-        );
-      },
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
@@ -14,6 +16,8 @@ class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
   final LocationRepository locationRepository;
+  StreamSubscription<Position>? _locationSubscription;
+  Timer? _locationUpdateTimer;
   DriverOperationsBloc({required this.locationRepository})
       : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
@@ -35,20 +39,77 @@ class DriverOperationsBloc
 
   _onDriverOperationsGoOffline(DriverOperationsGoOffline event,
       Emitter<DriverOperationsState> emit) async {
-    var currentLocation = await locationRepository.getCurrentLocation();
-    emit(
-      DriverOperationsState.offline(
+    try {
+      // Stop location tracking
+      await _stopLocationTracking();
+
+      final currentLocation = await locationRepository.getCurrentLocation();
+
+      emit(DriverOperationsState.offline(
         lastKnownLocation: currentLocation,
-      ),
-    );
+      ));
+
+      logger.info('Driver went offline');
+    } catch (e) {
+      logger.severe('Error going offline: $e');
+      emit(DriverOperationsState.error(
+        message: 'Failed to go offline: ${e.toString()}',
+      ));
+    }
   }
 
   _onDriverOperationsGoOnline(DriverOperationsGoOnline event,
       Emitter<DriverOperationsState> emit) async {
-    var currentLocation = await locationRepository.getCurrentLocation();
-    emit(DriverOperationsState.online(
-      currentLocation: currentLocation,
-      isTrackingLocation: true,
-    ));
+    try {
+      emit(const DriverOperationsState.loading());
+
+      final currentLocation = await locationRepository.getCurrentLocation();
+
+      if (currentLocation == null) {
+        emit(const DriverOperationsState.error(
+          message: 'Unable to get current location. Please check GPS settings.',
+        ));
+        return;
+      } // Set online time
+
+      emit(DriverOperationsState.online(
+        currentLocation: currentLocation,
+        isTrackingLocation: true,
+      ));
+
+      _locationSubscription = locationRepository.getLocationStream().listen(
+        (position) {
+          emit(DriverOperationsState.online(
+            currentLocation: position,
+            onlineTime: DateTime.now(),
+            isTrackingLocation: true,
+          ));
+        },
+        onError: (error) {
+          logger.severe('Location stream error: $error');
+        },
+      );
+
+      logger.info('Driver went online');
+    } catch (e) {
+      logger.severe('Error going online: $e');
+      emit(DriverOperationsState.error(
+        message: 'Failed to go online: ${e.toString()}',
+      ));
+    }
+  }
+
+  Future<void> _stopLocationTracking() async {
+    await _locationSubscription?.cancel();
+    _locationSubscription = null;
+
+    _locationUpdateTimer?.cancel();
+    _locationUpdateTimer = null;
+  }
+
+  @override
+  Future<void> close() {
+    _stopLocationTracking();
+    return super.close();
   }
 }

@@ -16,6 +16,7 @@ class DriverOperationsState with _$DriverOperationsState {
   // Driver is online and available for trips
   const factory DriverOperationsState.online({
     required Position? currentLocation,
+    DateTime? onlineTime,
     @Default(true) bool isTrackingLocation,
   }) = _Online;
 
@@ -82,7 +83,6 @@ class DriverOperationsState with _$DriverOperationsState {
   // Error state
   const factory DriverOperationsState.error({
     required String message,
-    Position? currentLocation,
     DriverOperationsState? previousState,
   }) = _StateError;
 }

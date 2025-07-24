@@ -1,10 +1,9 @@
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 import 'package:logging/logging.dart';
 
 class LocationRepository {
-  final Location _location = Location();
   final logger = Logger('LocationRepository');
 
   /// Check if location permission is granted
@@ -12,17 +11,19 @@ class LocationRepository {
     try {
       logger.info('🗺️ Checking location permission status...');
 
-      // Check using location package
-      bool serviceEnabled = await _location.serviceEnabled();
+      // Check if location service is enabled
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
         logger.warning('📍 Location service is not enabled');
         return false;
       }
 
-      PermissionStatus permissionGranted = await _location.hasPermission();
-      logger.info('📱 Location permission status: $permissionGranted');
+      // Check location permission
+      LocationPermission permission = await Geolocator.checkPermission();
+      logger.info('📱 Location permission status: $permission');
 
-      return permissionGranted == PermissionStatus.granted;
+      return permission == LocationPermission.always ||
+          permission == LocationPermission.whileInUse;
     } catch (e) {
       logger.severe('❌ Error checking location permission: $e');
       return false;
@@ -34,27 +35,25 @@ class LocationRepository {
     try {
       logger.info('🔐 Requesting location permission...');
 
-      // First check if service is enabled
-      bool serviceEnabled = await _location.serviceEnabled();
+      // Check if location service is enabled
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
-        logger.info('📍 Requesting location service...');
-        serviceEnabled = await _location.requestService();
-        if (!serviceEnabled) {
-          logger.warning('❌ Location service denied by user');
-          return false;
-        }
+        logger.warning('❌ Location service is not enabled');
+        return false;
       }
 
-      // Request permission
-      PermissionStatus permissionGranted = await _location.hasPermission();
-      if (permissionGranted == PermissionStatus.denied) {
+      // Check current permission
+      LocationPermission permission = await Geolocator.checkPermission();
+
+      if (permission == LocationPermission.denied) {
         logger.info('🔐 Requesting location permission from user...');
-        permissionGranted = await _location.requestPermission();
+        permission = await Geolocator.requestPermission();
       }
 
-      final isGranted = permissionGranted == PermissionStatus.granted;
-      logger.info('✅ Location permission granted: $isGranted');
+      final isGranted = permission == LocationPermission.always ||
+          permission == LocationPermission.whileInUse;
 
+      logger.info('✅ Location permission granted: $isGranted');
       return isGranted;
     } catch (e) {
       logger.severe('❌ Error requesting location permission: $e');
@@ -63,7 +62,7 @@ class LocationRepository {
   }
 
   /// Get current location
-  Future<LocationData?> getCurrentLocation() async {
+  Future<Position?> getCurrentLocation() async {
     try {
       logger.info('📍 Getting current location...');
 
@@ -73,61 +72,91 @@ class LocationRepository {
         return null;
       }
 
-      final locationData = await _location.getLocation();
-      logger.info(
-          '✅ Current location: ${locationData.latitude}, ${locationData.longitude}');
+      final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
 
-      return locationData;
+      logger.info(
+          '✅ Current location: ${position.latitude}, ${position.longitude}');
+      return position;
     } catch (e) {
       logger.severe('❌ Error getting current location: $e');
       return null;
     }
   }
 
+  /// Get location stream for continuous tracking
+  Stream<Position> getLocationStream() {
+    logger.info('👂 Starting location stream...');
+
+    return Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 10, // Update when moved 10 meters
+        timeLimit: Duration(seconds: 30), // Timeout after 30 seconds
+      ),
+    );
+  }
+
   /// Open app settings for manual permission grant
   Future<bool> openLocationSettings() async {
     try {
       logger.info('⚙️ Opening location settings...');
-      final opened = await permission_handler.Permission.location
-          .request()
-          .then((status) async {
-        if (status.isPermanentlyDenied) {
-          return await permission_handler.openAppSettings();
-        }
-        return status.isGranted;
-      });
 
-      return opened;
+      // First try to request permission normally
+      LocationPermission permission = await Geolocator.checkPermission();
+
+      if (permission == LocationPermission.deniedForever) {
+        // If permanently denied, open app settings
+        return await permission_handler.openAppSettings();
+      } else {
+        // Try to request permission
+        permission = await Geolocator.requestPermission();
+        return permission == LocationPermission.always ||
+            permission == LocationPermission.whileInUse;
+      }
     } catch (e) {
       logger.severe('❌ Error opening location settings: $e');
       return false;
     }
   }
 
-  /// Enable location service
-  Future<bool> enableLocationService() async {
-    try {
-      logger.info('🔧 Enabling location service...');
-      return await _location.requestService();
-    } catch (e) {
-      logger.severe('❌ Error enabling location service: $e');
-      return false;
-    }
-  }
-
-  /// Listen to location changes
-  Stream<LocationData> onLocationChanged() {
-    logger.info('👂 Starting location change listener...');
-    return _location.onLocationChanged;
-  }
-
   /// Check if location service is enabled
   Future<bool> isLocationServiceEnabled() async {
     try {
-      return await _location.serviceEnabled();
+      return await Geolocator.isLocationServiceEnabled();
     } catch (e) {
       logger.severe('❌ Error checking location service: $e');
       return false;
     }
+  }
+
+  /// Calculate distance between two positions
+  double calculateDistance(Position from, Position to) {
+    return Geolocator.distanceBetween(
+      from.latitude,
+      from.longitude,
+      to.latitude,
+      to.longitude,
+    );
+  }
+
+  /// Calculate bearing between two positions
+  double calculateBearing(Position from, Position to) {
+    return Geolocator.bearingBetween(
+      from.latitude,
+      from.longitude,
+      to.latitude,
+      to.longitude,
+    );
+  }
+
+  /// Get location accuracy description
+  String getLocationAccuracyDescription(Position position) {
+    final accuracy = position.accuracy;
+    if (accuracy <= 5) return 'Excellent';
+    if (accuracy <= 10) return 'Good';
+    if (accuracy <= 20) return 'Fair';
+    return 'Poor';
   }
 }

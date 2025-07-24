@@ -11,7 +11,6 @@ class DriverOperationsState with _$DriverOperationsState {
   // Driver is offline
   const factory DriverOperationsState.offline({
     Position? lastKnownLocation,
-    DateTime? lastOnlineTime,
   }) = _Offline;
 
   // Driver is online and available for trips

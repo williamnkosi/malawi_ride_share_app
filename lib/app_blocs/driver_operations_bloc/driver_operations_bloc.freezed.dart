@@ -20,7 +20,7 @@ mixin _$DriverOperationsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -38,7 +38,7 @@ mixin _$DriverOperationsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -56,7 +56,7 @@ mixin _$DriverOperationsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -207,7 +207,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -228,7 +228,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -249,7 +249,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -398,7 +398,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -419,7 +419,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -440,7 +440,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -548,6 +548,8 @@ abstract class _$$DriverOperationsGoOfflineImplCopyWith<$Res> {
           _$DriverOperationsGoOfflineImpl value,
           $Res Function(_$DriverOperationsGoOfflineImpl) then) =
       __$$DriverOperationsGoOfflineImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Position lastKnownLocation});
 }
 
 /// @nodoc
@@ -562,34 +564,60 @@ class __$$DriverOperationsGoOfflineImplCopyWithImpl<$Res>
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? lastKnownLocation = null,
+  }) {
+    return _then(_$DriverOperationsGoOfflineImpl(
+      lastKnownLocation: null == lastKnownLocation
+          ? _value.lastKnownLocation
+          : lastKnownLocation // ignore: cast_nullable_to_non_nullable
+              as Position,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
-  const _$DriverOperationsGoOfflineImpl();
+  const _$DriverOperationsGoOfflineImpl({required this.lastKnownLocation});
+
+  @override
+  final Position lastKnownLocation;
 
   @override
   String toString() {
-    return 'DriverOperationsEvent.goOffline()';
+    return 'DriverOperationsEvent.goOffline(lastKnownLocation: $lastKnownLocation)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DriverOperationsGoOfflineImpl);
+            other is _$DriverOperationsGoOfflineImpl &&
+            (identical(other.lastKnownLocation, lastKnownLocation) ||
+                other.lastKnownLocation == lastKnownLocation));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, lastKnownLocation);
+
+  /// Create a copy of DriverOperationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverOperationsGoOfflineImplCopyWith<_$DriverOperationsGoOfflineImpl>
+      get copyWith => __$$DriverOperationsGoOfflineImplCopyWithImpl<
+          _$DriverOperationsGoOfflineImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -602,7 +630,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
-    return goOffline();
+    return goOffline(lastKnownLocation);
   }
 
   @override
@@ -610,7 +638,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -623,7 +651,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
-    return goOffline?.call();
+    return goOffline?.call(lastKnownLocation);
   }
 
   @override
@@ -631,7 +659,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -646,7 +674,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult orElse(),
   }) {
     if (goOffline != null) {
-      return goOffline();
+      return goOffline(lastKnownLocation);
     }
     return orElse();
   }
@@ -730,7 +758,17 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
 }
 
 abstract class DriverOperationsGoOffline implements DriverOperationsEvent {
-  const factory DriverOperationsGoOffline() = _$DriverOperationsGoOfflineImpl;
+  const factory DriverOperationsGoOffline(
+          {required final Position lastKnownLocation}) =
+      _$DriverOperationsGoOfflineImpl;
+
+  Position get lastKnownLocation;
+
+  /// Create a copy of DriverOperationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DriverOperationsGoOfflineImplCopyWith<_$DriverOperationsGoOfflineImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -781,7 +819,7 @@ class _$DriverOperationsStartLocationTrackingImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -802,7 +840,7 @@ class _$DriverOperationsStartLocationTrackingImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -823,7 +861,7 @@ class _$DriverOperationsStartLocationTrackingImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -975,7 +1013,7 @@ class _$DriverOperationsStopLocationTrackingImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -996,7 +1034,7 @@ class _$DriverOperationsStopLocationTrackingImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -1017,7 +1055,7 @@ class _$DriverOperationsStopLocationTrackingImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -1198,7 +1236,7 @@ class _$DriverOperationsLocationUpdatedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -1219,7 +1257,7 @@ class _$DriverOperationsLocationUpdatedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -1240,7 +1278,7 @@ class _$DriverOperationsLocationUpdatedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -1401,7 +1439,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -1422,7 +1460,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -1443,7 +1481,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -1594,7 +1632,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -1615,7 +1653,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -1636,7 +1674,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -1785,7 +1823,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -1806,7 +1844,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -1827,7 +1865,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -1976,7 +2014,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -1997,7 +2035,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -2018,7 +2056,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -2207,7 +2245,7 @@ class _$DriverOperationsCompleteTripImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -2228,7 +2266,7 @@ class _$DriverOperationsCompleteTripImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -2249,7 +2287,7 @@ class _$DriverOperationsCompleteTripImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -2438,7 +2476,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -2459,7 +2497,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -2480,7 +2518,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -2668,7 +2706,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function() goOnline,
-    required TResult Function() goOffline,
+    required TResult Function(Position lastKnownLocation) goOffline,
     required TResult Function() startLocationTracking,
     required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
@@ -2689,7 +2727,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
+    TResult? Function(Position lastKnownLocation)? goOffline,
     TResult? Function()? startLocationTracking,
     TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
@@ -2710,7 +2748,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function()? goOnline,
-    TResult Function()? goOffline,
+    TResult Function(Position lastKnownLocation)? goOffline,
     TResult Function()? startLocationTracking,
     TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
@@ -2829,9 +2867,7 @@ mixin _$DriverOperationsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -2882,8 +2918,7 @@ mixin _$DriverOperationsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -2934,8 +2969,7 @@ mixin _$DriverOperationsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3099,9 +3133,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -3155,8 +3187,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3210,8 +3241,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3373,9 +3403,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -3429,8 +3457,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3484,8 +3511,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3610,7 +3636,7 @@ abstract class _$$OfflineImplCopyWith<$Res> {
           _$OfflineImpl value, $Res Function(_$OfflineImpl) then) =
       __$$OfflineImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Position? lastKnownLocation, DateTime? lastOnlineTime});
+  $Res call({Position? lastKnownLocation});
 }
 
 /// @nodoc
@@ -3627,17 +3653,12 @@ class __$$OfflineImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? lastKnownLocation = freezed,
-    Object? lastOnlineTime = freezed,
   }) {
     return _then(_$OfflineImpl(
       lastKnownLocation: freezed == lastKnownLocation
           ? _value.lastKnownLocation
           : lastKnownLocation // ignore: cast_nullable_to_non_nullable
               as Position?,
-      lastOnlineTime: freezed == lastOnlineTime
-          ? _value.lastOnlineTime
-          : lastOnlineTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
     ));
   }
 }
@@ -3645,16 +3666,14 @@ class __$$OfflineImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OfflineImpl implements _Offline {
-  const _$OfflineImpl({this.lastKnownLocation, this.lastOnlineTime});
+  const _$OfflineImpl({this.lastKnownLocation});
 
   @override
   final Position? lastKnownLocation;
-  @override
-  final DateTime? lastOnlineTime;
 
   @override
   String toString() {
-    return 'DriverOperationsState.offline(lastKnownLocation: $lastKnownLocation, lastOnlineTime: $lastOnlineTime)';
+    return 'DriverOperationsState.offline(lastKnownLocation: $lastKnownLocation)';
   }
 
   @override
@@ -3663,14 +3682,11 @@ class _$OfflineImpl implements _Offline {
         (other.runtimeType == runtimeType &&
             other is _$OfflineImpl &&
             (identical(other.lastKnownLocation, lastKnownLocation) ||
-                other.lastKnownLocation == lastKnownLocation) &&
-            (identical(other.lastOnlineTime, lastOnlineTime) ||
-                other.lastOnlineTime == lastOnlineTime));
+                other.lastKnownLocation == lastKnownLocation));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, lastKnownLocation, lastOnlineTime);
+  int get hashCode => Object.hash(runtimeType, lastKnownLocation);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3685,9 +3701,7 @@ class _$OfflineImpl implements _Offline {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -3733,7 +3747,7 @@ class _$OfflineImpl implements _Offline {
             DriverOperationsState? previousState)
         error,
   }) {
-    return offline(lastKnownLocation, lastOnlineTime);
+    return offline(lastKnownLocation);
   }
 
   @override
@@ -3741,8 +3755,7 @@ class _$OfflineImpl implements _Offline {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3788,7 +3801,7 @@ class _$OfflineImpl implements _Offline {
             DriverOperationsState? previousState)?
         error,
   }) {
-    return offline?.call(lastKnownLocation, lastOnlineTime);
+    return offline?.call(lastKnownLocation);
   }
 
   @override
@@ -3796,8 +3809,7 @@ class _$OfflineImpl implements _Offline {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -3845,7 +3857,7 @@ class _$OfflineImpl implements _Offline {
     required TResult orElse(),
   }) {
     if (offline != null) {
-      return offline(lastKnownLocation, lastOnlineTime);
+      return offline(lastKnownLocation);
     }
     return orElse();
   }
@@ -3913,12 +3925,9 @@ class _$OfflineImpl implements _Offline {
 }
 
 abstract class _Offline implements DriverOperationsState {
-  const factory _Offline(
-      {final Position? lastKnownLocation,
-      final DateTime? lastOnlineTime}) = _$OfflineImpl;
+  const factory _Offline({final Position? lastKnownLocation}) = _$OfflineImpl;
 
   Position? get lastKnownLocation;
-  DateTime? get lastOnlineTime;
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4047,9 +4056,7 @@ class _$OnlineImpl implements _Online {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -4104,8 +4111,7 @@ class _$OnlineImpl implements _Online {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -4160,8 +4166,7 @@ class _$OnlineImpl implements _Online {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -4423,9 +4428,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -4480,8 +4483,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -4536,8 +4538,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -4815,9 +4816,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -4872,8 +4871,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -4928,8 +4926,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -5186,9 +5183,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -5243,8 +5238,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -5299,8 +5293,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -5577,9 +5570,7 @@ class _$OnTripImpl implements _OnTrip {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -5634,8 +5625,7 @@ class _$OnTripImpl implements _OnTrip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -5690,8 +5680,7 @@ class _$OnTripImpl implements _OnTrip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -5969,9 +5958,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -6026,8 +6013,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -6082,8 +6068,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -6352,9 +6337,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -6409,8 +6392,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -6465,8 +6447,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -6696,9 +6677,7 @@ class _$UnavailableImpl implements _Unavailable {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -6752,8 +6731,7 @@ class _$UnavailableImpl implements _Unavailable {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -6807,8 +6785,7 @@ class _$UnavailableImpl implements _Unavailable {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -7049,9 +7026,7 @@ class _$StateErrorImpl implements _StateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            Position? lastKnownLocation, DateTime? lastOnlineTime)
-        offline,
+    required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)
         online,
@@ -7105,8 +7080,7 @@ class _$StateErrorImpl implements _StateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,
@@ -7160,8 +7134,7 @@ class _$StateErrorImpl implements _StateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Position? lastKnownLocation, DateTime? lastOnlineTime)?
-        offline,
+    TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position currentLocation, DateTime onlineTime,
             List<Position> locationHistory, bool isTrackingLocation)?
         online,

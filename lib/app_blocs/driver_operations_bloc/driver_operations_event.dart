@@ -5,9 +5,7 @@ class DriverOperationsEvent with _$DriverOperationsEvent {
   // Driver lifecycle events
   const factory DriverOperationsEvent.initialize() = DriverOperationsInitialize;
   const factory DriverOperationsEvent.goOnline() = DriverOperationsGoOnline;
-  const factory DriverOperationsEvent.goOffline({
-    required Position lastKnownLocation,
-  }) = DriverOperationsGoOffline;
+  const factory DriverOperationsEvent.goOffline() = DriverOperationsGoOffline;
 
   // Location tracking events
   const factory DriverOperationsEvent.startLocationTracking() =

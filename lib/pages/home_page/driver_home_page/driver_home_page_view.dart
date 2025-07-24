@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_bloc.dart';
+import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/widgets/driver_status_bar.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
@@ -147,49 +148,6 @@ class DriverOptionsBar extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class DriverStatusBar extends StatelessWidget {
-  const DriverStatusBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
-      builder: (context, state) {
-        return Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16.0),
-          color: Colors.green.shade50,
-          child: Row(
-            children: [
-              Icon(Icons.circle, color: Colors.green, size: 12),
-              const SizedBox(width: 8),
-              const Text(
-                'Online - Ready for trips',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.green,
-                ),
-              ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: () {
-                  // TODO: Implement go offline functionality
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text('Go Offline'),
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }

@@ -20,6 +20,8 @@ class DriverOperationsBloc
       // TODO: implement event handler
     });
     on<DriverOperationsInitialize>(_onDriverOperationsInitialize);
+    on<DriverOperationsGoOffline>(_onDriverOperationsGoOffline);
+    on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
   }
 
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
@@ -28,6 +30,25 @@ class DriverOperationsBloc
     var currentLocation = await locationRepository.getCurrentLocation();
     emit(DriverOperationsState.offline(
       lastKnownLocation: currentLocation,
+    ));
+  }
+
+  _onDriverOperationsGoOffline(DriverOperationsGoOffline event,
+      Emitter<DriverOperationsState> emit) async {
+    var currentLocation = await locationRepository.getCurrentLocation();
+    emit(
+      DriverOperationsState.offline(
+        lastKnownLocation: currentLocation,
+      ),
+    );
+  }
+
+  _onDriverOperationsGoOnline(DriverOperationsGoOnline event,
+      Emitter<DriverOperationsState> emit) async {
+    var currentLocation = await locationRepository.getCurrentLocation();
+    emit(DriverOperationsState.online(
+      currentLocation: currentLocation,
+      isTrackingLocation: true,
     ));
   }
 }

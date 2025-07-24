@@ -105,7 +105,6 @@ class LocationRepository {
 
       // First try to request permission normally
       LocationPermission permission = await Geolocator.checkPermission();
-
       if (permission == LocationPermission.deniedForever) {
         // If permanently denied, open app settings
         return await permission_handler.openAppSettings();

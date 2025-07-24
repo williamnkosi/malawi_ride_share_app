@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_trip_bloc/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 void showAppBottomSheet({
   required BuildContext context,
-  required DriverTripRequest request,
   required Function onAccept,
   required Function onDecline,
 }) {
-  var title = request.title;
-  var messageBody = request.body;
+  var title = "testing";
+  var messageBody = "testing";
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(

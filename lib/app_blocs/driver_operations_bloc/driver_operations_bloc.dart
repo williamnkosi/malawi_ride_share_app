@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
@@ -16,9 +17,12 @@ class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
   final LocationRepository locationRepository;
+  final DriverOperationsRepository driverOperationsRepository;
   StreamSubscription<Position>? _locationSubscription;
   Timer? _locationUpdateTimer;
-  DriverOperationsBloc({required this.locationRepository})
+  DriverOperationsBloc(
+      {required this.locationRepository,
+      required this.driverOperationsRepository})
       : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler

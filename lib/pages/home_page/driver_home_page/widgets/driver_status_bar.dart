@@ -15,7 +15,8 @@ class DriverStatusBar extends StatelessWidget {
     return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (position, isActive) => StatusBarUI(isOnline: true),
+          online: (position, isActive, isOnline) =>
+              StatusBarUI(isOnline: isOnline),
           offline: (_) => StatusBarUI(isOnline: false),
           // Add other cases if needed, or fallback
           orElse: () => const SizedBox.shrink(),

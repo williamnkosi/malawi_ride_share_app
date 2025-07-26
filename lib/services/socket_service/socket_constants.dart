@@ -25,10 +25,8 @@ class SocketConstants {
   // ========================
   // Connection & Registration
   // ========================
-  static const String driverConnect = 'connect';
-  static const String driverDisconnect = 'disconnect';
-  static const String driverRegister = 'driver:register';
-  static const String driverUnregister = 'driver:unregister';
+  static const String driverConnect = 'driver:connect';
+  static const String driverDisconnect = 'driver:disconnect';
 
   // ========================
   // Location & Status Management
@@ -118,8 +116,6 @@ class SocketConstants {
   static List<String> get allDriverEvents => [
         driverConnect,
         driverDisconnect,
-        driverRegister,
-        driverUnregister,
         driverLocationUpdate,
         driverStatusUpdate,
         driverGoOnline,

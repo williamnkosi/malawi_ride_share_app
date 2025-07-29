@@ -22,11 +22,6 @@ LocationDto _$LocationDtoFromJson(Map<String, dynamic> json) {
 mixin _$LocationDto {
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
-  double? get altitude => throw _privateConstructorUsedError;
-  double? get accuracy => throw _privateConstructorUsedError;
-  double? get heading => throw _privateConstructorUsedError;
-  double? get speed => throw _privateConstructorUsedError;
-  String? get timestamp => throw _privateConstructorUsedError;
 
   /// Serializes this LocationDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,14 +39,7 @@ abstract class $LocationDtoCopyWith<$Res> {
           LocationDto value, $Res Function(LocationDto) then) =
       _$LocationDtoCopyWithImpl<$Res, LocationDto>;
   @useResult
-  $Res call(
-      {double latitude,
-      double longitude,
-      double? altitude,
-      double? accuracy,
-      double? heading,
-      double? speed,
-      String? timestamp});
+  $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
@@ -71,11 +59,6 @@ class _$LocationDtoCopyWithImpl<$Res, $Val extends LocationDto>
   $Res call({
     Object? latitude = null,
     Object? longitude = null,
-    Object? altitude = freezed,
-    Object? accuracy = freezed,
-    Object? heading = freezed,
-    Object? speed = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
       latitude: null == latitude
@@ -86,26 +69,6 @@ class _$LocationDtoCopyWithImpl<$Res, $Val extends LocationDto>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
-      altitude: freezed == altitude
-          ? _value.altitude
-          : altitude // ignore: cast_nullable_to_non_nullable
-              as double?,
-      accuracy: freezed == accuracy
-          ? _value.accuracy
-          : accuracy // ignore: cast_nullable_to_non_nullable
-              as double?,
-      heading: freezed == heading
-          ? _value.heading
-          : heading // ignore: cast_nullable_to_non_nullable
-              as double?,
-      speed: freezed == speed
-          ? _value.speed
-          : speed // ignore: cast_nullable_to_non_nullable
-              as double?,
-      timestamp: freezed == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -118,14 +81,7 @@ abstract class _$$LocationDtoImplCopyWith<$Res>
       __$$LocationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {double latitude,
-      double longitude,
-      double? altitude,
-      double? accuracy,
-      double? heading,
-      double? speed,
-      String? timestamp});
+  $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
@@ -143,11 +99,6 @@ class __$$LocationDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? latitude = null,
     Object? longitude = null,
-    Object? altitude = freezed,
-    Object? accuracy = freezed,
-    Object? heading = freezed,
-    Object? speed = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_$LocationDtoImpl(
       latitude: null == latitude
@@ -158,26 +109,6 @@ class __$$LocationDtoImplCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
-      altitude: freezed == altitude
-          ? _value.altitude
-          : altitude // ignore: cast_nullable_to_non_nullable
-              as double?,
-      accuracy: freezed == accuracy
-          ? _value.accuracy
-          : accuracy // ignore: cast_nullable_to_non_nullable
-              as double?,
-      heading: freezed == heading
-          ? _value.heading
-          : heading // ignore: cast_nullable_to_non_nullable
-              as double?,
-      speed: freezed == speed
-          ? _value.speed
-          : speed // ignore: cast_nullable_to_non_nullable
-              as double?,
-      timestamp: freezed == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -185,14 +116,7 @@ class __$$LocationDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$LocationDtoImpl implements _LocationDto {
-  const _$LocationDtoImpl(
-      {required this.latitude,
-      required this.longitude,
-      this.altitude,
-      this.accuracy,
-      this.heading,
-      this.speed,
-      this.timestamp});
+  const _$LocationDtoImpl({required this.latitude, required this.longitude});
 
   factory _$LocationDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$LocationDtoImplFromJson(json);
@@ -201,20 +125,10 @@ class _$LocationDtoImpl implements _LocationDto {
   final double latitude;
   @override
   final double longitude;
-  @override
-  final double? altitude;
-  @override
-  final double? accuracy;
-  @override
-  final double? heading;
-  @override
-  final double? speed;
-  @override
-  final String? timestamp;
 
   @override
   String toString() {
-    return 'LocationDto(latitude: $latitude, longitude: $longitude, altitude: $altitude, accuracy: $accuracy, heading: $heading, speed: $speed, timestamp: $timestamp)';
+    return 'LocationDto(latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -225,21 +139,12 @@ class _$LocationDtoImpl implements _LocationDto {
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
-            (identical(other.altitude, altitude) ||
-                other.altitude == altitude) &&
-            (identical(other.accuracy, accuracy) ||
-                other.accuracy == accuracy) &&
-            (identical(other.heading, heading) || other.heading == heading) &&
-            (identical(other.speed, speed) || other.speed == speed) &&
-            (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp));
+                other.longitude == longitude));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude, altitude,
-      accuracy, heading, speed, timestamp);
+  int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
   /// Create a copy of LocationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -260,12 +165,7 @@ class _$LocationDtoImpl implements _LocationDto {
 abstract class _LocationDto implements LocationDto {
   const factory _LocationDto(
       {required final double latitude,
-      required final double longitude,
-      final double? altitude,
-      final double? accuracy,
-      final double? heading,
-      final double? speed,
-      final String? timestamp}) = _$LocationDtoImpl;
+      required final double longitude}) = _$LocationDtoImpl;
 
   factory _LocationDto.fromJson(Map<String, dynamic> json) =
       _$LocationDtoImpl.fromJson;
@@ -274,16 +174,6 @@ abstract class _LocationDto implements LocationDto {
   double get latitude;
   @override
   double get longitude;
-  @override
-  double? get altitude;
-  @override
-  double? get accuracy;
-  @override
-  double? get heading;
-  @override
-  double? get speed;
-  @override
-  String? get timestamp;
 
   /// Create a copy of LocationDto
   /// with the given fields replaced by the non-null parameter values.

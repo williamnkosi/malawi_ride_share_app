@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class SocketConstants {
   // Base WebSocket URL from environment
   static String get socketUrl =>
-      'ws://${dotenv.env['ip_address']}:${dotenv.env['SOCKET_PORT'] ?? dotenv.env['PORT'] ?? '3000'}';
+      'http://${dotenv.env['ip_address']}:${dotenv.env['SOCKET_PORT'] ?? dotenv.env['PORT'] ?? '3000'}';
 
   // Connection timeout from environment
   static Duration get connectionTimeout => Duration(
@@ -17,6 +17,8 @@ class SocketConstants {
 
   static int get maxReconnectAttempts =>
       int.parse(dotenv.env['SOCKET_MAX_RECONNECT_ATTEMPTS'] ?? '5');
+
+  static const String locationTrackingNamespace = '/location-tracking/';
 
   // =================================================================
   // DRIVER WEBSOCKET EVENTS

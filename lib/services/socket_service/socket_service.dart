@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service_interface.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
@@ -22,20 +22,24 @@ class SocketService implements SocketServiceInterface {
         _logger.info('Socket already initialized');
         return;
       }
-
-      final baseUrl = ApiConstants.baseUrl;
-
-      _socket = io.io(baseUrl, <String, dynamic>{
-        'transports': ['websocket'],
-        'autoConnect': false,
-        'timeout':
-            int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10') * 1000,
-        'forceNew': true,
-      });
+      final baseUrl = SocketConstants.socketUrl;
+      _logger.info('Initializing socket with base URL: $baseUrl');
+      _socket = io.io(
+          baseUrl,
+          io.OptionBuilder()
+              .setTransports(['websocket'])
+              .disableAutoConnect() // Changed from autoConnect: false
+              .setTimeout(
+                  int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10') *
+                      1000)
+              .enableForceNew()
+              .build());
 
       _setupEventListeners();
 
-      _logger.info('Socket service initialized with URL: $baseUrl');
+      // Auto-connect after initialization
+      _socket!.connect();
+      _logger.info('Socket service initialized and connected to: $baseUrl');
     } catch (e) {
       _logger.severe('Failed to initialize socket: $e');
       rethrow;
@@ -59,6 +63,73 @@ class SocketService implements SocketServiceInterface {
     } catch (e) {
       _logger.severe('Failed to connect socket: $e');
       rethrow;
+    }
+  }
+
+  Future<void> connectWithAuth(String firebaseId) async {
+    try {
+      if (_socket == null) {
+        await initialize();
+      }
+
+      // Set auth data before connecting
+      _socket!.auth = {'firebaseId': firebaseId};
+
+      if (!isConnected) {
+        this._logger.info('Connecting socket with auth: ${_socket!.auth}');
+        _socket!.connect();
+        _logger.info('Connecting to socket with firebaseId: $firebaseId');
+
+        // Wait for connection to be established
+        await _waitForConnection();
+      } else {
+        _logger.info('Socket already connected');
+      }
+    } catch (e) {
+      _logger.severe('Failed to connect socket with auth: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> _waitForConnection(
+      {Duration timeout = const Duration(seconds: 10)}) async {
+    final completer = Completer<void>();
+    Timer? timeoutTimer;
+
+    // Listen for connection
+    void onConnect(_) {
+      if (!completer.isCompleted) {
+        _logger.info('✅ Socket connection established');
+        completer.complete();
+      }
+    }
+
+    // Listen for connection error
+    void onConnectError(error) {
+      if (!completer.isCompleted) {
+        _logger.severe('❌ Socket connection error: $error');
+        completer.completeError(Exception('Connection failed: $error'));
+      }
+    }
+
+    // Set up listeners
+    _socket!.onConnect(onConnect);
+    _socket!.onConnectError(onConnectError);
+
+    // Set up timeout
+    timeoutTimer = Timer(timeout, () {
+      if (!completer.isCompleted) {
+        completer
+            .completeError(TimeoutException('Connection timeout', timeout));
+      }
+    });
+
+    try {
+      await completer.future;
+    } finally {
+      timeoutTimer.cancel();
+      _socket!.off('connect', onConnect);
+      _socket!.off('connect_error', onConnectError);
     }
   }
 
@@ -89,6 +160,69 @@ class SocketService implements SocketServiceInterface {
     } catch (e) {
       _logger.severe('Failed to emit event $event: $e');
       rethrow;
+    }
+  }
+
+  // Emit event with acknowledgment and timeout
+  @override
+  Future<dynamic> emitWithAck(String event, dynamic data,
+      {Duration? timeout}) async {
+    try {
+      if (_socket != null && isConnected) {
+        final completer = Completer<dynamic>();
+        final timeoutDuration = timeout ?? const Duration(seconds: 10);
+
+        // Emit with acknowledgment callback
+        _socket!.emitWithAck(event, data, ack: (response) {
+          if (!completer.isCompleted) {
+            _logger.fine('✅ Event $event acknowledged: $response');
+            completer.complete(response);
+          }
+        });
+
+        // Set up timeout
+        final timeoutTimer = Timer(timeoutDuration, () {
+          if (!completer.isCompleted) {
+            _logger.warning(
+                '⏰ Event $event acknowledgment timeout after ${timeoutDuration.inSeconds}s');
+            completer.completeError(TimeoutException(
+                'Emit acknowledgment timeout for event: $event',
+                timeoutDuration));
+          }
+        });
+
+        try {
+          final response = await completer.future;
+          timeoutTimer.cancel(); // Cancel timeout if we got response
+          return response;
+        } catch (e) {
+          timeoutTimer.cancel(); // Cancel timeout on any error
+          rethrow;
+        }
+      } else {
+        _logger.warning('Socket not connected, cannot emit event: $event');
+        throw Exception('Socket not connected');
+      }
+    } catch (e) {
+      _logger.severe('Failed to emit event $event with ack: $e');
+      rethrow;
+    }
+  }
+
+  // Emit event safely with success tracking
+  Future<bool> emitSafe(String event, dynamic data) async {
+    try {
+      if (_socket != null && isConnected) {
+        _socket!.emit(event, data);
+        _logger.fine('📤 Safely emitted event: $event');
+        return true;
+      } else {
+        _logger.warning('Socket not connected, cannot emit event: $event');
+        return false;
+      }
+    } catch (e) {
+      _logger.severe('Failed to safely emit event $event: $e');
+      return false;
     }
   }
 

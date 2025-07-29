@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
@@ -36,7 +36,7 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<LocationRepository>(LocationRepository());
   logger.info('LocationRepository registered');
   getIt.registerLazySingleton<DriverOperationsRepository>(
-      () => DriverOperationsRepository());
+      () => DriverOperationsRepository(socketService: getIt<SocketService>()));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 }

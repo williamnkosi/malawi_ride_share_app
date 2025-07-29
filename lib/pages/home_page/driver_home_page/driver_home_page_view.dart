@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/widgets/driver_map_section.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/widgets/driver_status_bar.dart';
+import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
@@ -19,6 +20,7 @@ class _DriverHomePageViewState extends State<DriverHomePageView> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => DriverOperationsBloc(
+          firebaseRepository: getIt<FirebaseRepository>(),
           locationRepository: getIt<LocationRepository>(),
           driverOperationsRepository: getIt<DriverOperationsRepository>())
         ..add(

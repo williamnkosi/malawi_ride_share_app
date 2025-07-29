@@ -9,11 +9,6 @@ class LocationDto with _$LocationDto {
   const factory LocationDto({
     required double latitude,
     required double longitude,
-    double? altitude,
-    double? accuracy,
-    double? heading,
-    double? speed,
-    String? timestamp,
   }) = _LocationDto;
 
   factory LocationDto.fromJson(Map<String, dynamic> json) =>
@@ -24,11 +19,6 @@ class LocationDto with _$LocationDto {
     return LocationDto(
       latitude: position.latitude,
       longitude: position.longitude,
-      altitude: position.altitude,
-      accuracy: position.accuracy,
-      heading: position.heading,
-      speed: position.speed,
-      timestamp: DateTime.now().toIso8601String(),
     );
   }
 }

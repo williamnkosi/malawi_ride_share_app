@@ -63,4 +63,17 @@ class FirebaseRepository {
       logger.severe('Error registering device', e, StackTrace.current);
     }
   }
+
+  Future<User> getCurrentUser() async {
+    try {
+      final user = FirebaseAuth.instanceFor(app: app).currentUser;
+      if (user == null) {
+        throw Exception('No user is currently signed in');
+      }
+      return user;
+    } catch (e) {
+      logger.severe('Error getting current user', e, StackTrace.current);
+      throw Exception('Failed to get current user');
+    }
+  }
 }

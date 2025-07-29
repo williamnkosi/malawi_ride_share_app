@@ -4,9 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
+import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 
 part 'driver_operations_event.dart';
@@ -17,11 +18,13 @@ class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
   final LocationRepository locationRepository;
+  final FirebaseRepository firebaseRepository;
   final DriverOperationsRepository driverOperationsRepository;
   StreamSubscription<Position>? _locationSubscription;
   Timer? _locationUpdateTimer;
   DriverOperationsBloc(
-      {required this.locationRepository,
+      {required this.firebaseRepository,
+      required this.locationRepository,
       required this.driverOperationsRepository})
       : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
@@ -68,6 +71,7 @@ class DriverOperationsBloc
       emit(const DriverOperationsState.loading());
 
       final currentLocation = await locationRepository.getCurrentLocation();
+      final firebaseId = await firebaseRepository.getCurrentUser();
 
       if (currentLocation == null) {
         emit(const DriverOperationsState.error(
@@ -75,6 +79,9 @@ class DriverOperationsBloc
         ));
         return;
       } // Set online time
+
+      await driverOperationsRepository.goOnline(
+          firebaseId: firebaseId.uid, currentLocation: currentLocation);
 
       emit(DriverOperationsState.online(
         currentLocation: currentLocation,

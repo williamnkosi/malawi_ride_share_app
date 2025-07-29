@@ -1,6 +1,7 @@
 // lib/services/socket_service.dart
 import 'dart:async';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service_interface.dart';
@@ -66,14 +67,18 @@ class SocketService implements SocketServiceInterface {
     }
   }
 
-  Future<void> connectWithAuth(String firebaseId) async {
+  Future<void> connectWithAuth(
+      {required String firebaseId, Position? initialPosition}) async {
     try {
       if (_socket == null) {
         await initialize();
       }
 
       // Set auth data before connecting
-      _socket!.auth = {'firebaseId': firebaseId};
+      _socket!.auth = {
+        'firebaseId': firebaseId,
+        'initialPosition': initialPosition?.toJson()
+      };
 
       if (!isConnected) {
         this._logger.info('Connecting socket with auth: ${_socket!.auth}');

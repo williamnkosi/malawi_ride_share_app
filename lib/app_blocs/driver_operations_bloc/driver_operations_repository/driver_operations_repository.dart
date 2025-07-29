@@ -37,7 +37,8 @@ class DriverOperationsRepository
   Future<void> goOnline(
       {required String firebaseId, required Position currentLocation}) async {
     try {
-      await socketService.connectWithAuth(firebaseId);
+      await socketService.connectWithAuth(
+          firebaseId: firebaseId, initialPosition: currentLocation);
 
       _logger.info('Driver connected and auto-registered via auth');
 
@@ -55,6 +56,20 @@ class DriverOperationsRepository
     } catch (e) {
       _logger.severe('Failed to go online: $e');
       throw Exception('Failed to go online: $e');
+    }
+  }
+
+  Future<void> startTrackingLocation(
+      {required String firebaseId, required Position initialPosition}) async {
+    try {
+      await socketService.emitWithAck(SocketConstants.driverLocationUpdate,
+          {'firebaseId': firebaseId, 'location': initialPosition.toJson()});
+
+      _logger.info(
+          'Emitting location update for driver: $firebaseId. Current position: ${initialPosition.latitude}, ${initialPosition.longitude}');
+    } catch (e) {
+      _logger.severe('Failed to start tracking location: $e');
+      throw Exception('Failed to start tracking location: $e');
     }
   }
 

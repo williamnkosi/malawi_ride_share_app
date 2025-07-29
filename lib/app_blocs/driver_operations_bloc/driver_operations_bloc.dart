@@ -40,7 +40,13 @@ class DriverOperationsBloc
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
       Emitter<DriverOperationsState> emit) async {
     emit(const DriverOperationsState.loading());
-    var currentLocation = await locationRepository.getCurrentLocation();
+    final currentLocation = await locationRepository.getCurrentLocation();
+    final firebaseId = await firebaseRepository.getCurrentUser();
+
+    await driverOperationsRepository.initializeSocket(
+      firebaseId: firebaseId.uid,
+      currentLocation: currentLocation,
+    );
     emit(DriverOperationsState.offline(
       lastKnownLocation: currentLocation,
     ));
@@ -74,6 +80,15 @@ class DriverOperationsBloc
 
       final currentLocation = await locationRepository.getCurrentLocation();
       final firebaseId = await firebaseRepository.getCurrentUser();
+
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        emit(const DriverOperationsState.error(
+          message: 'Location permission denied. Please enable it in settings.',
+        ));
+        return;
+      }
 
       if (currentLocation == null) {
         emit(const DriverOperationsState.error(

@@ -38,7 +38,6 @@ class SocketService implements SocketServiceInterface {
 
       _setupEventListeners();
 
-      // Auto-connect after initialization
       _socket!.connect();
       _logger.info('Socket service initialized and connected to: $baseUrl');
     } catch (e) {

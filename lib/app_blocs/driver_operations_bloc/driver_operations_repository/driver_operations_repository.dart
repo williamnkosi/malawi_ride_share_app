@@ -6,6 +6,8 @@ import 'package:malawi_ride_share_app/services/socket_service/socket_constants.d
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 abstract class DriverOperationsRepositoryInterface {
+  Future<void> initializeSocket(
+      {required String firebaseId, required Position? currentLocation});
   Future<void> goOnline(
       {required String firebaseId, required Position currentLocation});
   Future<void> goOffline();
@@ -19,13 +21,16 @@ class DriverOperationsRepository
 
   DriverOperationsRepository({required this.socketService}) {
     // Initialize socket when repository is created
-    _initializeSocket();
   }
 
   // Private method to handle socket initialization
-  Future<void> _initializeSocket() async {
+  @override
+  Future<void> initializeSocket(
+      {required String firebaseId, required Position? currentLocation}) async {
     try {
       await socketService.initialize();
+      await socketService.connectWithAuth(
+          firebaseId: firebaseId, initialPosition: currentLocation);
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');

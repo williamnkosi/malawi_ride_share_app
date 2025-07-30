@@ -82,6 +82,7 @@ class DriverOperationsRepository
     }
   }
 
+  @override
   Future<void> goOffline({required String firebaseId}) async {
     try {
       socketService.disconnect();

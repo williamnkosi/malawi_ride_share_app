@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
 import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
@@ -43,10 +44,17 @@ class DriverOperationsBloc
     final currentLocation = await locationRepository.getCurrentLocation();
     final firebaseId = await firebaseRepository.getCurrentUser();
 
+    if (currentLocation == null) {
+      emit(const DriverOperationsState.error(
+        message: 'Unable to get current location. Please check GPS settings.',
+      ));
+      return;
+    }
     await driverOperationsRepository.initializeSocket(
-      firebaseId: firebaseId.uid,
-      currentLocation: currentLocation,
-    );
+        firebaseId: firebaseId.uid,
+        currentLocation: LocationDto(
+            latitude: currentLocation.latitude,
+            longitude: currentLocation.longitude));
     emit(DriverOperationsState.offline(
       lastKnownLocation: currentLocation,
     ));
@@ -98,7 +106,10 @@ class DriverOperationsBloc
       } // Set online time
 
       await driverOperationsRepository.goOnline(
-          firebaseId: firebaseId.uid, currentLocation: currentLocation);
+          firebaseId: firebaseId.uid,
+          currentLocation: LocationDto(
+              latitude: currentLocation.latitude,
+              longitude: currentLocation.longitude));
       _trackUserLocationFunction();
 
       emit(DriverOperationsState.online(
@@ -125,7 +136,7 @@ class DriverOperationsBloc
           // Emit location update to socket
           driverOperationsRepository.startTrackingLocation(
             firebaseId: firebaseId.uid,
-            initialPosition: position,
+            currentLocation: position,
           );
         },
         onError: (error) {
@@ -145,10 +156,12 @@ class DriverOperationsBloc
       final firebaseId = await firebaseRepository.getCurrentUser();
       _locationSubscription = locationRepository.getLocationStream().listen(
         (position) {
+          logger.info(
+              'Tracking location for driver: ${firebaseId.uid}. Position: ${position.latitude}, ${position.longitude}');
           // Emit location update to socket
           driverOperationsRepository.startTrackingLocation(
             firebaseId: firebaseId.uid,
-            initialPosition: position,
+            currentLocation: position,
           );
         },
         onError: (error) {

@@ -8,7 +8,7 @@ part 'driver_connect_dto.g.dart';
 class DriverConnectDto with _$DriverConnectDto {
   const factory DriverConnectDto({
     required String firebaseId,
-    LocationDto? initialLocation,
+    LocationDto? location,
   }) = _DriverConnectDto;
 
   factory DriverConnectDto.fromJson(Map<String, dynamic> json) =>

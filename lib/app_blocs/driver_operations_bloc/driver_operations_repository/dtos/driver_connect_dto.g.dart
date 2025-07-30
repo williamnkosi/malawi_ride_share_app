@@ -10,15 +10,14 @@ _$DriverConnectDtoImpl _$$DriverConnectDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DriverConnectDtoImpl(
       firebaseId: json['firebaseId'] as String,
-      initialLocation: json['initialLocation'] == null
+      location: json['location'] == null
           ? null
-          : LocationDto.fromJson(
-              json['initialLocation'] as Map<String, dynamic>),
+          : LocationDto.fromJson(json['location'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$DriverConnectDtoImplToJson(
         _$DriverConnectDtoImpl instance) =>
     <String, dynamic>{
       'firebaseId': instance.firebaseId,
-      'initialLocation': instance.initialLocation,
+      'location': instance.location,
     };

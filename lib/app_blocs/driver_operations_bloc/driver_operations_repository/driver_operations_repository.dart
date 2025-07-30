@@ -2,14 +2,16 @@ import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/driver_connect_dto.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/update_driver_location_dto.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 abstract class DriverOperationsRepositoryInterface {
   Future<void> initializeSocket(
-      {required String firebaseId, required Position? currentLocation});
+      {required String firebaseId, required LocationDto? currentLocation});
   Future<void> goOnline(
-      {required String firebaseId, required Position currentLocation});
+      {required String firebaseId, required LocationDto currentLocation});
   Future<void> goOffline();
 }
 
@@ -26,11 +28,12 @@ class DriverOperationsRepository
   // Private method to handle socket initialization
   @override
   Future<void> initializeSocket(
-      {required String firebaseId, required Position? currentLocation}) async {
+      {required String firebaseId,
+      required LocationDto? currentLocation}) async {
     try {
       await socketService.initialize();
       await socketService.connectWithAuth(
-          firebaseId: firebaseId, initialPosition: currentLocation);
+          firebaseId: firebaseId, location: currentLocation);
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');
@@ -40,24 +43,15 @@ class DriverOperationsRepository
 
   @override
   Future<void> goOnline(
-      {required String firebaseId, required Position currentLocation}) async {
+      {required String firebaseId,
+      required LocationDto currentLocation}) async {
     try {
-      await socketService.connectWithAuth(
-          firebaseId: firebaseId, initialPosition: currentLocation);
-
-      _logger.info('Driver connected and auto-registered via auth');
-
-      var location = LocationDto(
+      final location = LocationDto(
         latitude: currentLocation.latitude,
         longitude: currentLocation.longitude,
       );
-      var driverConnectDto = DriverConnectDto(
-        firebaseId: firebaseId,
-        initialLocation: location,
-      );
-
-      await socketService.emitWithAck(
-          SocketConstants.driverLocationUpdate, driverConnectDto.toJson());
+      await socketService.connectWithAuth(
+          firebaseId: firebaseId, location: location);
     } catch (e) {
       _logger.severe('Failed to go online: $e');
       throw Exception('Failed to go online: $e');
@@ -65,13 +59,23 @@ class DriverOperationsRepository
   }
 
   Future<void> startTrackingLocation(
-      {required String firebaseId, required Position initialPosition}) async {
+      {required String firebaseId, required Position currentLocation}) async {
     try {
-      await socketService.emitWithAck(SocketConstants.driverLocationUpdate,
-          {'firebaseId': firebaseId, 'location': initialPosition.toJson()});
+      var location = LocationDto(
+        latitude: currentLocation.latitude,
+        longitude: currentLocation.longitude,
+      );
+      var driverConnectDto = UpdateDriverLocationDto(
+        firebaseId: firebaseId,
+        location: location,
+        driverStatus: DriverStatus.online,
+      );
+
+      await socketService.emitWithAck(
+          SocketConstants.driverLocationUpdate, driverConnectDto.toJson());
 
       _logger.info(
-          'Emitting location update for driver: $firebaseId. Current position: ${initialPosition.latitude}, ${initialPosition.longitude}');
+          'Emitting location update for driver: $firebaseId. Current position: ${location.latitude}, ${location.longitude}');
     } catch (e) {
       _logger.severe('Failed to start tracking location: $e');
       throw Exception('Failed to start tracking location: $e');

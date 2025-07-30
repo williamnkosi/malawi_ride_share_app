@@ -21,7 +21,7 @@ DriverConnectDto _$DriverConnectDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DriverConnectDto {
   String get firebaseId => throw _privateConstructorUsedError;
-  LocationDto? get initialLocation => throw _privateConstructorUsedError;
+  LocationDto? get location => throw _privateConstructorUsedError;
 
   /// Serializes this DriverConnectDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,9 +39,9 @@ abstract class $DriverConnectDtoCopyWith<$Res> {
           DriverConnectDto value, $Res Function(DriverConnectDto) then) =
       _$DriverConnectDtoCopyWithImpl<$Res, DriverConnectDto>;
   @useResult
-  $Res call({String firebaseId, LocationDto? initialLocation});
+  $Res call({String firebaseId, LocationDto? location});
 
-  $LocationDtoCopyWith<$Res>? get initialLocation;
+  $LocationDtoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -60,16 +60,16 @@ class _$DriverConnectDtoCopyWithImpl<$Res, $Val extends DriverConnectDto>
   @override
   $Res call({
     Object? firebaseId = null,
-    Object? initialLocation = freezed,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
       firebaseId: null == firebaseId
           ? _value.firebaseId
           : firebaseId // ignore: cast_nullable_to_non_nullable
               as String,
-      initialLocation: freezed == initialLocation
-          ? _value.initialLocation
-          : initialLocation // ignore: cast_nullable_to_non_nullable
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as LocationDto?,
     ) as $Val);
   }
@@ -78,13 +78,13 @@ class _$DriverConnectDtoCopyWithImpl<$Res, $Val extends DriverConnectDto>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocationDtoCopyWith<$Res>? get initialLocation {
-    if (_value.initialLocation == null) {
+  $LocationDtoCopyWith<$Res>? get location {
+    if (_value.location == null) {
       return null;
     }
 
-    return $LocationDtoCopyWith<$Res>(_value.initialLocation!, (value) {
-      return _then(_value.copyWith(initialLocation: value) as $Val);
+    return $LocationDtoCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
     });
   }
 }
@@ -97,10 +97,10 @@ abstract class _$$DriverConnectDtoImplCopyWith<$Res>
       __$$DriverConnectDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String firebaseId, LocationDto? initialLocation});
+  $Res call({String firebaseId, LocationDto? location});
 
   @override
-  $LocationDtoCopyWith<$Res>? get initialLocation;
+  $LocationDtoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -117,16 +117,16 @@ class __$$DriverConnectDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? firebaseId = null,
-    Object? initialLocation = freezed,
+    Object? location = freezed,
   }) {
     return _then(_$DriverConnectDtoImpl(
       firebaseId: null == firebaseId
           ? _value.firebaseId
           : firebaseId // ignore: cast_nullable_to_non_nullable
               as String,
-      initialLocation: freezed == initialLocation
-          ? _value.initialLocation
-          : initialLocation // ignore: cast_nullable_to_non_nullable
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as LocationDto?,
     ));
   }
@@ -135,8 +135,7 @@ class __$$DriverConnectDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$DriverConnectDtoImpl implements _DriverConnectDto {
-  const _$DriverConnectDtoImpl(
-      {required this.firebaseId, this.initialLocation});
+  const _$DriverConnectDtoImpl({required this.firebaseId, this.location});
 
   factory _$DriverConnectDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$DriverConnectDtoImplFromJson(json);
@@ -144,11 +143,11 @@ class _$DriverConnectDtoImpl implements _DriverConnectDto {
   @override
   final String firebaseId;
   @override
-  final LocationDto? initialLocation;
+  final LocationDto? location;
 
   @override
   String toString() {
-    return 'DriverConnectDto(firebaseId: $firebaseId, initialLocation: $initialLocation)';
+    return 'DriverConnectDto(firebaseId: $firebaseId, location: $location)';
   }
 
   @override
@@ -158,13 +157,13 @@ class _$DriverConnectDtoImpl implements _DriverConnectDto {
             other is _$DriverConnectDtoImpl &&
             (identical(other.firebaseId, firebaseId) ||
                 other.firebaseId == firebaseId) &&
-            (identical(other.initialLocation, initialLocation) ||
-                other.initialLocation == initialLocation));
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, firebaseId, initialLocation);
+  int get hashCode => Object.hash(runtimeType, firebaseId, location);
 
   /// Create a copy of DriverConnectDto
   /// with the given fields replaced by the non-null parameter values.
@@ -186,7 +185,7 @@ class _$DriverConnectDtoImpl implements _DriverConnectDto {
 abstract class _DriverConnectDto implements DriverConnectDto {
   const factory _DriverConnectDto(
       {required final String firebaseId,
-      final LocationDto? initialLocation}) = _$DriverConnectDtoImpl;
+      final LocationDto? location}) = _$DriverConnectDtoImpl;
 
   factory _DriverConnectDto.fromJson(Map<String, dynamic> json) =
       _$DriverConnectDtoImpl.fromJson;
@@ -194,7 +193,7 @@ abstract class _DriverConnectDto implements DriverConnectDto {
   @override
   String get firebaseId;
   @override
-  LocationDto? get initialLocation;
+  LocationDto? get location;
 
   /// Create a copy of DriverConnectDto
   /// with the given fields replaced by the non-null parameter values.

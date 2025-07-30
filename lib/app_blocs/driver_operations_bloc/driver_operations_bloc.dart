@@ -67,7 +67,8 @@ class DriverOperationsBloc
       await _stopLocationTracking();
 
       final currentLocation = await locationRepository.getCurrentLocation();
-
+      final firebaseId = await firebaseRepository.getCurrentUser();
+      await driverOperationsRepository.goOffline(firebaseId: firebaseId.uid);
       emit(DriverOperationsState.offline(
         lastKnownLocation: currentLocation,
       ));
@@ -177,11 +178,15 @@ class DriverOperationsBloc
   }
 
   Future<void> _stopLocationTracking() async {
-    await _locationSubscription?.cancel();
-    _locationSubscription = null;
+    try {
+      await _locationSubscription?.cancel();
+      _locationSubscription = null;
 
-    _locationUpdateTimer?.cancel();
-    _locationUpdateTimer = null;
+      _locationUpdateTimer?.cancel();
+      _locationUpdateTimer = null;
+    } catch (e) {
+      logger.severe('Error stopping location tracking: $e');
+    }
   }
 
   @override

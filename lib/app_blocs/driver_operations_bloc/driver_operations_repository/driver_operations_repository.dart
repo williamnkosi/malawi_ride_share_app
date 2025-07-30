@@ -12,7 +12,7 @@ abstract class DriverOperationsRepositoryInterface {
       {required String firebaseId, required LocationDto? currentLocation});
   Future<void> goOnline(
       {required String firebaseId, required LocationDto currentLocation});
-  Future<void> goOffline();
+  Future<void> goOffline({required String firebaseId});
 }
 
 class DriverOperationsRepository
@@ -82,8 +82,16 @@ class DriverOperationsRepository
     }
   }
 
-  @override
-  Future<void> goOffline() async {
-    // TODO: implement goOffline
+  Future<void> goOffline({required String firebaseId}) async {
+    try {
+      socketService.disconnect();
+
+      _logger.info('Driver $firebaseId went offline and disconnected');
+    } catch (e) {
+      _logger.severe('Failed to go offline: $e');
+      // Still disconnect even if status update fails
+      socketService.disconnect();
+      rethrow;
+    }
   }
 }

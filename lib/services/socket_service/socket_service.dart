@@ -1,5 +1,6 @@
 // lib/services/socket_service.dart
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
@@ -18,16 +19,19 @@ class SocketService implements SocketServiceInterface {
   bool get isConnected => _socket?.connected ?? false;
 
   @override
-  Future<void> initialize() async {
+  Future<void> initialize({String? namespace}) async {
     try {
       if (_socket != null) {
         _logger.info('Socket already initialized');
         return;
       }
-      final baseUrl = SocketConstants.socketUrl;
-      _logger.info('Initializing socket with base URL: $baseUrl');
+
+      final targetNamespace =
+          namespace ?? SocketConstants.locationTrackingNamespace;
+      final nameSpaceUrl = SocketConstants.getNamespaceUrl(targetNamespace);
+      _logger.info('Initializing socket with base URL: $nameSpaceUrl');
       _socket = io.io(
-          baseUrl,
+          nameSpaceUrl,
           io.OptionBuilder()
               .setTransports(['websocket'])
               .disableAutoConnect() // Changed from autoConnect: false
@@ -40,7 +44,8 @@ class SocketService implements SocketServiceInterface {
       _setupEventListeners();
 
       _socket!.connect();
-      _logger.info('Socket service initialized and connected to: $baseUrl');
+      _logger
+          .info('Socket service initialized and connected to: $nameSpaceUrl');
     } catch (e) {
       _logger.severe('Failed to initialize socket: $e');
       rethrow;
@@ -49,10 +54,10 @@ class SocketService implements SocketServiceInterface {
 
   // Connect to socket
   @override
-  Future<void> connect() async {
+  Future<void> connect({String? namespace}) async {
     try {
       if (_socket == null) {
-        await initialize();
+        await initialize(namespace: namespace);
       }
 
       if (!isConnected) {
@@ -67,16 +72,19 @@ class SocketService implements SocketServiceInterface {
     }
   }
 
-  Future<void> connectWithAuth(
-      {required String firebaseId, LocationDto? location}) async {
+  Future<void> connectWithAuth({
+    required String firebaseId,
+    LocationDto? location,
+    String? namespace,
+  }) async {
     try {
       if (_socket == null) {
-        await initialize();
+        await initialize(namespace: namespace);
       }
 
       // Set auth data before connecting
       _socket!.auth = {
-        'firebaseId': firebaseId,
+        'token': await FirebaseAuth.instance.currentUser?.getIdToken(),
         'initialPosition': location?.toJson(),
         'status': 'online'
       };

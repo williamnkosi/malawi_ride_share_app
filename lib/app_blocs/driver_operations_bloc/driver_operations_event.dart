@@ -7,11 +7,6 @@ class DriverOperationsEvent with _$DriverOperationsEvent {
   const factory DriverOperationsEvent.goOnline() = DriverOperationsGoOnline;
   const factory DriverOperationsEvent.goOffline() = DriverOperationsGoOffline;
 
-  // Location tracking events
-  const factory DriverOperationsEvent.startLocationTracking() =
-      DriverOperationsStartLocationTracking;
-  const factory DriverOperationsEvent.stopLocationTracking() =
-      DriverOperationsStopLocationTracking;
   const factory DriverOperationsEvent.locationUpdated(Position position) =
       DriverOperationsLocationUpdated;
 

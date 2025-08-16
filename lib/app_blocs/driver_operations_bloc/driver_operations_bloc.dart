@@ -34,8 +34,6 @@ class DriverOperationsBloc
     on<DriverOperationsInitialize>(_onDriverOperationsInitialize);
     on<DriverOperationsGoOffline>(_onDriverOperationsGoOffline);
     on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
-    on<DriverOperationsStartLocationTracking>(
-        _onDriverOperationsStartLocationTracking);
   }
 
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
@@ -123,31 +121,6 @@ class DriverOperationsBloc
       logger.severe('Error going online: $e');
       emit(DriverOperationsState.error(
         message: 'Failed to go online: ${e.toString()}',
-      ));
-    }
-  }
-
-  _onDriverOperationsStartLocationTracking(
-      DriverOperationsStartLocationTracking event,
-      Emitter<DriverOperationsState> emit) async {
-    try {
-      final firebaseId = await firebaseRepository.getCurrentUser();
-      _locationSubscription = locationRepository.getLocationStream().listen(
-        (position) {
-          // Emit location update to socket
-          driverOperationsRepository.startTrackingLocation(
-            firebaseId: firebaseId.uid,
-            currentLocation: position,
-          );
-        },
-        onError: (error) {
-          logger.severe('Location stream error: $error');
-        },
-      );
-    } catch (e) {
-      logger.severe('Error starting location tracking: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to start location tracking: ${e.toString()}',
       ));
     }
   }

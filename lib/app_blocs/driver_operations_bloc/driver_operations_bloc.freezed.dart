@@ -21,8 +21,6 @@ mixin _$DriverOperationsEvent {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -39,8 +37,6 @@ mixin _$DriverOperationsEvent {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -57,8 +53,6 @@ mixin _$DriverOperationsEvent {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -76,10 +70,6 @@ mixin _$DriverOperationsEvent {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -98,10 +88,6 @@ mixin _$DriverOperationsEvent {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -119,10 +105,6 @@ mixin _$DriverOperationsEvent {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -208,8 +190,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -229,8 +209,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -250,8 +228,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -275,10 +251,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -300,10 +272,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -324,10 +292,6 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -399,8 +363,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -420,8 +382,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -441,8 +401,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -466,10 +424,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -491,10 +445,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -515,10 +465,6 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -590,8 +536,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -611,8 +555,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -632,8 +574,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -657,10 +597,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -682,10 +618,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -706,10 +638,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -731,394 +659,6 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
 
 abstract class DriverOperationsGoOffline implements DriverOperationsEvent {
   const factory DriverOperationsGoOffline() = _$DriverOperationsGoOfflineImpl;
-}
-
-/// @nodoc
-abstract class _$$DriverOperationsStartLocationTrackingImplCopyWith<$Res> {
-  factory _$$DriverOperationsStartLocationTrackingImplCopyWith(
-          _$DriverOperationsStartLocationTrackingImpl value,
-          $Res Function(_$DriverOperationsStartLocationTrackingImpl) then) =
-      __$$DriverOperationsStartLocationTrackingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$DriverOperationsStartLocationTrackingImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsStartLocationTrackingImpl>
-    implements _$$DriverOperationsStartLocationTrackingImplCopyWith<$Res> {
-  __$$DriverOperationsStartLocationTrackingImplCopyWithImpl(
-      _$DriverOperationsStartLocationTrackingImpl _value,
-      $Res Function(_$DriverOperationsStartLocationTrackingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DriverOperationsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$DriverOperationsStartLocationTrackingImpl
-    implements DriverOperationsStartLocationTracking {
-  const _$DriverOperationsStartLocationTrackingImpl();
-
-  @override
-  String toString() {
-    return 'DriverOperationsEvent.startLocationTracking()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DriverOperationsStartLocationTrackingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
-    required TResult Function() goOnline,
-    required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
-    required TResult Function(Position position) locationUpdated,
-    required TResult Function() tripRequestReceived,
-    required TResult Function() acceptTrip,
-    required TResult Function() rejectTrip,
-    required TResult Function() startTrip,
-    required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
-    required TResult Function(String reason) cancelTrip,
-    required TResult Function(bool isAvailable) updateAvailability,
-  }) {
-    return startLocationTracking();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialize,
-    TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
-    TResult? Function(Position position)? locationUpdated,
-    TResult? Function()? tripRequestReceived,
-    TResult? Function()? acceptTrip,
-    TResult? Function()? rejectTrip,
-    TResult? Function()? startTrip,
-    TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
-    TResult? Function(String reason)? cancelTrip,
-    TResult? Function(bool isAvailable)? updateAvailability,
-  }) {
-    return startLocationTracking?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function()? goOnline,
-    TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
-    TResult Function(Position position)? locationUpdated,
-    TResult Function()? tripRequestReceived,
-    TResult Function()? acceptTrip,
-    TResult Function()? rejectTrip,
-    TResult Function()? startTrip,
-    TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
-    TResult Function(String reason)? cancelTrip,
-    TResult Function(bool isAvailable)? updateAvailability,
-    required TResult orElse(),
-  }) {
-    if (startLocationTracking != null) {
-      return startLocationTracking();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DriverOperationsInitialize value) initialize,
-    required TResult Function(DriverOperationsGoOnline value) goOnline,
-    required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
-    required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
-    required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
-    required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
-    required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
-    required TResult Function(DriverOperationsStartTrip value) startTrip,
-    required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
-    required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
-    required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
-  }) {
-    return startLocationTracking(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DriverOperationsInitialize value)? initialize,
-    TResult? Function(DriverOperationsGoOnline value)? goOnline,
-    TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
-    TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
-    TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
-    TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
-    TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
-    TResult? Function(DriverOperationsStartTrip value)? startTrip,
-    TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
-    TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
-    TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
-  }) {
-    return startLocationTracking?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DriverOperationsInitialize value)? initialize,
-    TResult Function(DriverOperationsGoOnline value)? goOnline,
-    TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
-    TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
-    TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
-    TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
-    TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
-    TResult Function(DriverOperationsStartTrip value)? startTrip,
-    TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
-    TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
-    TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
-    required TResult orElse(),
-  }) {
-    if (startLocationTracking != null) {
-      return startLocationTracking(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DriverOperationsStartLocationTracking
-    implements DriverOperationsEvent {
-  const factory DriverOperationsStartLocationTracking() =
-      _$DriverOperationsStartLocationTrackingImpl;
-}
-
-/// @nodoc
-abstract class _$$DriverOperationsStopLocationTrackingImplCopyWith<$Res> {
-  factory _$$DriverOperationsStopLocationTrackingImplCopyWith(
-          _$DriverOperationsStopLocationTrackingImpl value,
-          $Res Function(_$DriverOperationsStopLocationTrackingImpl) then) =
-      __$$DriverOperationsStopLocationTrackingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$DriverOperationsStopLocationTrackingImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsStopLocationTrackingImpl>
-    implements _$$DriverOperationsStopLocationTrackingImplCopyWith<$Res> {
-  __$$DriverOperationsStopLocationTrackingImplCopyWithImpl(
-      _$DriverOperationsStopLocationTrackingImpl _value,
-      $Res Function(_$DriverOperationsStopLocationTrackingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DriverOperationsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$DriverOperationsStopLocationTrackingImpl
-    implements DriverOperationsStopLocationTracking {
-  const _$DriverOperationsStopLocationTrackingImpl();
-
-  @override
-  String toString() {
-    return 'DriverOperationsEvent.stopLocationTracking()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DriverOperationsStopLocationTrackingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
-    required TResult Function() goOnline,
-    required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
-    required TResult Function(Position position) locationUpdated,
-    required TResult Function() tripRequestReceived,
-    required TResult Function() acceptTrip,
-    required TResult Function() rejectTrip,
-    required TResult Function() startTrip,
-    required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
-    required TResult Function(String reason) cancelTrip,
-    required TResult Function(bool isAvailable) updateAvailability,
-  }) {
-    return stopLocationTracking();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialize,
-    TResult? Function()? goOnline,
-    TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
-    TResult? Function(Position position)? locationUpdated,
-    TResult? Function()? tripRequestReceived,
-    TResult? Function()? acceptTrip,
-    TResult? Function()? rejectTrip,
-    TResult? Function()? startTrip,
-    TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
-    TResult? Function(String reason)? cancelTrip,
-    TResult? Function(bool isAvailable)? updateAvailability,
-  }) {
-    return stopLocationTracking?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function()? goOnline,
-    TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
-    TResult Function(Position position)? locationUpdated,
-    TResult Function()? tripRequestReceived,
-    TResult Function()? acceptTrip,
-    TResult Function()? rejectTrip,
-    TResult Function()? startTrip,
-    TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
-    TResult Function(String reason)? cancelTrip,
-    TResult Function(bool isAvailable)? updateAvailability,
-    required TResult orElse(),
-  }) {
-    if (stopLocationTracking != null) {
-      return stopLocationTracking();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DriverOperationsInitialize value) initialize,
-    required TResult Function(DriverOperationsGoOnline value) goOnline,
-    required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
-    required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
-    required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
-    required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
-    required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
-    required TResult Function(DriverOperationsStartTrip value) startTrip,
-    required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
-    required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
-    required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
-  }) {
-    return stopLocationTracking(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DriverOperationsInitialize value)? initialize,
-    TResult? Function(DriverOperationsGoOnline value)? goOnline,
-    TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
-    TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
-    TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
-    TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
-    TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
-    TResult? Function(DriverOperationsStartTrip value)? startTrip,
-    TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
-    TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
-    TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
-  }) {
-    return stopLocationTracking?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DriverOperationsInitialize value)? initialize,
-    TResult Function(DriverOperationsGoOnline value)? goOnline,
-    TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
-    TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
-    TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
-    TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
-    TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
-    TResult Function(DriverOperationsStartTrip value)? startTrip,
-    TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
-    TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
-    TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
-    required TResult orElse(),
-  }) {
-    if (stopLocationTracking != null) {
-      return stopLocationTracking(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DriverOperationsStopLocationTracking
-    implements DriverOperationsEvent {
-  const factory DriverOperationsStopLocationTracking() =
-      _$DriverOperationsStopLocationTrackingImpl;
 }
 
 /// @nodoc
@@ -1199,8 +739,6 @@ class _$DriverOperationsLocationUpdatedImpl
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -1220,8 +758,6 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -1241,8 +777,6 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -1266,10 +800,6 @@ class _$DriverOperationsLocationUpdatedImpl
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -1291,10 +821,6 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1315,10 +841,6 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1402,8 +924,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -1423,8 +943,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -1444,8 +962,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -1469,10 +985,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -1494,10 +1006,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1518,10 +1026,6 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1595,8 +1099,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -1616,8 +1118,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -1637,8 +1137,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -1662,10 +1160,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -1687,10 +1181,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1711,10 +1201,6 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1786,8 +1272,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -1807,8 +1291,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -1828,8 +1310,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -1853,10 +1333,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -1878,10 +1354,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1902,10 +1374,6 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -1977,8 +1445,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -1998,8 +1464,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -2019,8 +1483,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -2044,10 +1506,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -2069,10 +1527,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2093,10 +1547,6 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2208,8 +1658,6 @@ class _$DriverOperationsCompleteTripImpl
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -2229,8 +1677,6 @@ class _$DriverOperationsCompleteTripImpl
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -2250,8 +1696,6 @@ class _$DriverOperationsCompleteTripImpl
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -2275,10 +1719,6 @@ class _$DriverOperationsCompleteTripImpl
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -2300,10 +1740,6 @@ class _$DriverOperationsCompleteTripImpl
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2324,10 +1760,6 @@ class _$DriverOperationsCompleteTripImpl
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2439,8 +1871,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -2460,8 +1890,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -2481,8 +1909,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -2506,10 +1932,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -2531,10 +1953,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2555,10 +1973,6 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2669,8 +2083,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     required TResult Function() initialize,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
-    required TResult Function() startLocationTracking,
-    required TResult Function() stopLocationTracking,
     required TResult Function(Position position) locationUpdated,
     required TResult Function() tripRequestReceived,
     required TResult Function() acceptTrip,
@@ -2690,8 +2102,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult? Function()? initialize,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
-    TResult? Function()? startLocationTracking,
-    TResult? Function()? stopLocationTracking,
     TResult? Function(Position position)? locationUpdated,
     TResult? Function()? tripRequestReceived,
     TResult? Function()? acceptTrip,
@@ -2711,8 +2121,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult Function()? initialize,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
-    TResult Function()? startLocationTracking,
-    TResult Function()? stopLocationTracking,
     TResult Function(Position position)? locationUpdated,
     TResult Function()? tripRequestReceived,
     TResult Function()? acceptTrip,
@@ -2736,10 +2144,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
-    required TResult Function(DriverOperationsStartLocationTracking value)
-        startLocationTracking,
-    required TResult Function(DriverOperationsStopLocationTracking value)
-        stopLocationTracking,
     required TResult Function(DriverOperationsLocationUpdated value)
         locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
@@ -2761,10 +2165,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult? Function(DriverOperationsInitialize value)? initialize,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
-    TResult? Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult? Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,
@@ -2785,10 +2185,6 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult Function(DriverOperationsInitialize value)? initialize,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
-    TResult Function(DriverOperationsStartLocationTracking value)?
-        startLocationTracking,
-    TResult Function(DriverOperationsStopLocationTracking value)?
-        stopLocationTracking,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
         tripRequestReceived,

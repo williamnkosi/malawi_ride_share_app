@@ -6,6 +6,7 @@ import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 GetIt getIt = GetIt.instance;
@@ -26,8 +27,33 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<FirebaseRepository>(
       FirebaseRepository(apiService: getIt<ApiService>()));
   logger.info('FirebaseRepository registered');
-  getIt.registerSingleton<SocketService>(SocketService());
-  logger.info('SocketService registered');
+
+  // getIt.registerSingleton<SocketService>(SocketService());
+  // logger.info('SocketService registered');
+
+  logger.info('=====================================');
+  getIt.registerSingletonAsync<SocketService>(
+    () async {
+      logger.info('🔄 Creating Location Tracking SocketService...');
+      final socketService = SocketService();
+
+      logger.info('✅ Location Tracking SocketService initialized');
+      return socketService;
+    },
+    instanceName: SocketConstants.locationTrackingNamespace,
+  );
+
+  getIt.registerSingletonAsync<SocketService>(
+    () async {
+      logger.info('🔄 Creating Chat SocketService...');
+      final socketService = SocketService();
+      logger.info('✅ Trips SocketService initialized');
+      return socketService;
+    },
+    instanceName: SocketConstants.tripsNamespace,
+  );
+  logger.info('=====================================');
+
   getIt.registerSingleton<AuthRepository>(
       AuthRepository(apiService: getIt<ApiService>()));
   logger.info('AuthRepository registered');
@@ -35,8 +61,14 @@ Future<void> setupGetIt() async {
   logger.info('ImageRepository registered');
   getIt.registerSingleton<LocationRepository>(LocationRepository());
   logger.info('LocationRepository registered');
-  getIt.registerLazySingleton<DriverOperationsRepository>(
-      () => DriverOperationsRepository(socketService: getIt<SocketService>()));
+
+  getIt.registerLazySingleton<DriverOperationsRepository>(() =>
+      DriverOperationsRepository(
+        driverLocationSocketService: getIt<SocketService>(
+            instanceName: SocketConstants.locationTrackingNamespace),
+        tripsSocketService:
+            getIt<SocketService>(instanceName: SocketConstants.tripsNamespace),
+      ));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 }

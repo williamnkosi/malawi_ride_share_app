@@ -2,7 +2,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
@@ -29,7 +28,15 @@ class SocketService implements SocketServiceInterface {
       final targetNamespace =
           namespace ?? SocketConstants.locationTrackingNamespace;
       final nameSpaceUrl = SocketConstants.getNamespaceUrl(targetNamespace);
-      _logger.info('Initializing socket with base URL: $nameSpaceUrl');
+      _logger.info('=== SOCKET INITIALIZATION DEBUG ===');
+      _logger.info('Target namespace: $targetNamespace');
+      _logger.info('Generated URL: $nameSpaceUrl');
+      _logger.info('IP from env: ${dotenv.env['ip_address']}');
+      _logger.info('Port from env: ${dotenv.env['SOCKET_PORT']}');
+      _logger.info('Timeout from env: ${dotenv.env['SOCKET_TIMEOUT_SECONDS']}');
+      _logger.info('Base socket URL: ${SocketConstants.socketUrl}');
+      _logger.info('=====================================');
+
       _socket = io.io(
           nameSpaceUrl,
           io.OptionBuilder()
@@ -43,7 +50,6 @@ class SocketService implements SocketServiceInterface {
 
       _setupEventListeners();
 
-      _socket!.connect();
       _logger
           .info('Socket service initialized and connected to: $nameSpaceUrl');
     } catch (e) {
@@ -75,27 +81,38 @@ class SocketService implements SocketServiceInterface {
   Future<void> connectWithAuth({
     required String firebaseId,
     LocationDto? location,
-    String? namespace,
+    required String namespace,
   }) async {
     try {
       if (_socket == null) {
         await initialize(namespace: namespace);
       }
 
-      // Set auth data before connecting
+      // Get Firebase token with error handling
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        throw Exception('No authenticated user found');
+      }
+
+      final idToken = await currentUser.getIdToken();
+      _logger.info('✅ Firebase token obtained');
+      _logger.info('✅ Firebase id obtained: $firebaseId');
+      // Set auth data with all required fields
       _socket!.auth = {
-        'token': await FirebaseAuth.instance.currentUser?.getIdToken(),
+        'token': idToken,
+        'firebaseId': firebaseId, // ← This was missing!
         'initialPosition': location?.toJson(),
         'status': 'online'
       };
 
+      // Connect only if not already connected
       if (!isConnected) {
-        this._logger.info('Connecting socket with auth: ${_socket!.auth}');
+        _logger.info('🔌 Connecting socket with auth data: ${_socket!.auth}');
         _socket!.connect();
-        _logger.info('Connecting to socket with firebaseId: $firebaseId');
 
-        // Wait for connection to be established
+        // Wait for connection
         await _waitForConnection();
+        _logger.info('✅ Socket connected successfully');
       } else {
         _logger.info('Socket already connected');
       }

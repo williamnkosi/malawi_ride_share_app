@@ -17,11 +17,14 @@ abstract class DriverOperationsRepositoryInterface {
 
 class DriverOperationsRepository
     implements DriverOperationsRepositoryInterface {
-  final SocketService socketService;
+  final SocketService driverLocationSocketService;
+  final SocketService tripsSocketService;
 
   final Logger _logger = Logger('DriverOperationsRepository');
 
-  DriverOperationsRepository({required this.socketService}) {
+  DriverOperationsRepository(
+      {required this.driverLocationSocketService,
+      required this.tripsSocketService}) {
     // Initialize socket when repository is created
   }
 
@@ -31,9 +34,12 @@ class DriverOperationsRepository
       {required String firebaseId,
       required LocationDto? currentLocation}) async {
     try {
-      await socketService.initialize();
-      await socketService.connectWithAuth(
-          firebaseId: firebaseId, location: currentLocation);
+      await driverLocationSocketService.connectWithAuth(
+          firebaseId: firebaseId,
+          location: currentLocation,
+          namespace: SocketConstants.locationTrackingNamespace);
+      // await tripsSocketService.connectWithAuth(
+      //     firebaseId: firebaseId, namespace: SocketConstants.tripsNamespace);
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');
@@ -50,8 +56,10 @@ class DriverOperationsRepository
         latitude: currentLocation.latitude,
         longitude: currentLocation.longitude,
       );
-      await socketService.connectWithAuth(
-          firebaseId: firebaseId, location: location);
+      await driverLocationSocketService.connectWithAuth(
+          firebaseId: firebaseId,
+          location: location,
+          namespace: SocketConstants.locationTrackingNamespace);
     } catch (e) {
       _logger.severe('Failed to go online: $e');
       throw Exception('Failed to go online: $e');
@@ -71,7 +79,7 @@ class DriverOperationsRepository
         driverStatus: DriverStatus.online,
       );
 
-      await socketService.emitWithAck(
+      await driverLocationSocketService.emitWithAck(
           SocketConstants.driverLocationUpdate, driverConnectDto.toJson());
 
       _logger.info(
@@ -85,13 +93,13 @@ class DriverOperationsRepository
   @override
   Future<void> goOffline({required String firebaseId}) async {
     try {
-      socketService.disconnect();
+      driverLocationSocketService.disconnect();
 
       _logger.info('Driver $firebaseId went offline and disconnected');
     } catch (e) {
       _logger.severe('Failed to go offline: $e');
       // Still disconnect even if status update fails
-      socketService.disconnect();
+      driverLocationSocketService.disconnect();
       rethrow;
     }
   }

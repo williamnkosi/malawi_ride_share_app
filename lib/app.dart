@@ -42,8 +42,9 @@ class App extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
-          create: (context) =>
-              AuthBloc(authRepository: getIt<AuthRepository>()),
+          create: (context) => AuthBloc(
+              authRepository: getIt<AuthRepository>(),
+              firebaseRepository: getIt<FirebaseRepository>()),
           lazy: false,
         )
       ],

@@ -25,6 +25,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppEventLocationPermissionGranted>(_onLocationPermissionGranted);
     on<AppEventLocationPermissionDenied>(_onLocationPermissionDenied);
     on<AppEventOpenLocationSettings>(_onOpenLocationSettings);
+    on<AppEventRequestNotificationPermission>(_onRequestNotificationPermission);
   }
 
   /// Handle location permission request
@@ -104,6 +105,27 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       add(const AppEvent.checkLocationPermission());
     } catch (e) {
       logger.severe('❌ Error opening location settings: $e');
+    }
+  }
+
+  Future<void> _onRequestNotificationPermission(
+    AppEventRequestNotificationPermission event,
+    Emitter<AppState> emit,
+  ) async {
+    try {
+      logger.info('🔐 Requesting notification permission from AppBloc...');
+
+      final isGranted =
+          await fireBaseRepository.requestNotificationPermissions()();
+
+      if (isGranted) {
+        emit(state.copyWith(isNotificationPermissionEnabled: true));
+      } else {
+        emit(state.copyWith(isNotificationPermissionEnabled: false));
+      }
+    } catch (e) {
+      logger.severe('❌ Error requesting notification permission: $e');
+      emit(state.copyWith(isNotificationPermissionEnabled: false));
     }
   }
 }

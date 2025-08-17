@@ -5,9 +5,8 @@ import 'package:logging/logging.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:malawi_ride_share_app/models/user_device.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
-
-final _name = 'FirebaseRepository';
 
 class FirebaseRepository {
   late FirebaseMessaging _firebaseMessaging;
@@ -17,50 +16,126 @@ class FirebaseRepository {
 
   FirebaseApp get app => Firebase.app();
 
-  void initializeAuth() {
+  /// Check if notification permission is granted
+  Future<bool> isNotificationPermissionGranted() async {
     try {
-      FirebaseAuth.instanceFor(app: app);
+      logger.info('🔔 Checking notification permission status...');
+
+      _firebaseMessaging = FirebaseMessaging.instance;
+      final settings = await _firebaseMessaging.getNotificationSettings();
+
+      final isGranted =
+          settings.authorizationStatus == AuthorizationStatus.authorized;
+      logger.info('📱 Notification permission granted: $isGranted');
+
+      return isGranted;
     } catch (e) {
-      logger.severe(
-          "$_name - Error initializing Firebase Auth", e, StackTrace.current);
-      rethrow;
+      logger.severe('❌ Error checking notification permission: $e');
+      return false;
     }
   }
 
-  Future<Stream<RemoteMessage>> initNotifications() async {
+  /// Request notification permissions
+  Future<bool> requestNotificationPermissions() async {
     try {
-      _firebaseMessaging = FirebaseMessaging.instance;
-      await _firebaseMessaging.requestPermission();
-      _firebaseMessaging.getToken().then((value) {
-        logger.info('Firebase token: $value /n');
-      });
+      logger.info('🔐 Requesting notification permissions...');
 
-      return FirebaseMessaging.onMessage;
+      _firebaseMessaging = FirebaseMessaging.instance;
+      final settings = await _firebaseMessaging.requestPermission(
+        alert: true,
+        announcement: false,
+        badge: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+        sound: true,
+      );
+
+      final isGranted =
+          settings.authorizationStatus == AuthorizationStatus.authorized;
+      logger.info('✅ Notification permission granted: $isGranted');
+
+      if (isGranted) {
+        final token = await _firebaseMessaging.getToken();
+        logger.info('🔑 Firebase token: $token\n');
+      }
+
+      return isGranted;
     } catch (e) {
       logger.severe(
-          'Error initializing Firebase notifications', e, StackTrace.current);
-      throw Exception('Failed to initialize notifications');
+          '❌ Error requesting notification permissions', e, StackTrace.current);
+      return false;
+    }
+  }
+
+  /// Get the stream of incoming messages
+  Stream<RemoteMessage> get messageStream {
+    logger.info('👂 Getting message stream...');
+    return FirebaseMessaging.onMessage;
+  }
+
+  /// Get the stream of messages when app is opened from notification
+  Stream<RemoteMessage> get messageOpenedAppStream {
+    logger.info('👂 Getting message opened app stream...');
+    return FirebaseMessaging.onMessageOpenedApp;
+  }
+
+  /// Initialize Firebase messaging and get FCM token
+  Future<String?> initializeMessaging() async {
+    try {
+      logger.info('🚀 Initializing Firebase messaging...');
+
+      _firebaseMessaging = FirebaseMessaging.instance;
+      final token = await _firebaseMessaging.getToken();
+
+      if (token != null) {
+        logger.info('🔑 FCM Token obtained: ${token.substring(0, 20)}...');
+      } else {
+        logger.warning('⚠️ Failed to get FCM token');
+      }
+
+      return token;
+    } catch (e) {
+      logger.severe(
+          '❌ Error initializing Firebase messaging', e, StackTrace.current);
+      return null;
+    }
+  }
+
+  /// Get current FCM token
+  Future<String?> getFCMToken() async {
+    try {
+      final token = await _firebaseMessaging.getToken();
+      logger.info('🔑 Current FCM token: ${token?.substring(0, 20)}...');
+      return token;
+    } catch (e) {
+      logger.severe('❌ Error getting FCM token', e, StackTrace.current);
+      return null;
     }
   }
 
   Future<void> registerDevice({required firebaseUserId}) async {
     try {
-      var phoneFcmToken = await _firebaseMessaging.getToken();
+      logger.info('📱 Registering device for user: $firebaseUserId');
+
+      var phoneFcmToken = await getFCMToken();
+      if (phoneFcmToken == null) {
+        throw Exception('Failed to get FCM token');
+      }
+
       final device = UserDevice(
         firebaseUserId: firebaseUserId,
-        fcmToken: phoneFcmToken!,
+        fcmToken: phoneFcmToken,
         platform:
             Platform.isAndroid ? DevicePlatform.android : DevicePlatform.ios,
         deviceVersion: "1.0.0",
       );
-      // Optional test ping
 
-      // var response = GetIt.instance<ApiService>()
-      //     .post('/notifications/register-device', body: device.toJson());
-
-      // logger.info('Registered ${response.toString()}');
+      await apiService.post(ApiConstants.registerDevice, body: device.toJson());
+      logger.info('✅ Device registered successfully');
     } catch (e) {
-      logger.severe('Error registering device', e, StackTrace.current);
+      logger.severe('❌ Error registering device', e, StackTrace.current);
+      rethrow;
     }
   }
 

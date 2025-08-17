@@ -18,4 +18,8 @@ class AppEvent with _$AppEvent {
   const factory AppEvent.locationPermissionDenied() =
       AppEventLocationPermissionDenied;
   const factory AppEvent.openLocationSettings() = AppEventOpenLocationSettings;
+
+  // Notification permission events
+  const factory AppEvent.requestNotificationPermission() =
+      AppEventRequestNotificationPermission;
 }

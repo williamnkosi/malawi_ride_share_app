@@ -19,6 +19,9 @@ class _DriverHomePageState extends State<DriverHomePage> {
     // Request location permission when landing on the driver home page
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AppBloc>().add(const AppEvent.checkLocationPermission());
+      context
+          .read<AppBloc>()
+          .add(const AppEvent.requestNotificationPermission());
     });
   }
 

@@ -114,8 +114,9 @@ class FirebaseRepository {
     }
   }
 
-  Future<void> registerDevice({required firebaseUserId}) async {
+  Future<void> registerDevice() async {
     try {
+      final firebaseUserId = (await getCurrentUser()).uid;
       logger.info('📱 Registering device for user: $firebaseUserId');
 
       var phoneFcmToken = await getFCMToken();
@@ -124,7 +125,6 @@ class FirebaseRepository {
       }
 
       final device = UserDevice(
-        firebaseUserId: firebaseUserId,
         fcmToken: phoneFcmToken,
         platform:
             Platform.isAndroid ? DevicePlatform.android : DevicePlatform.ios,

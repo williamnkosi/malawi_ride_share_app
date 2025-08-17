@@ -39,8 +39,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       UserCredential userCredential = await authRepository
           .loginInUserWithEmailAndPassword(email: email, password: password);
-      await firebaseRepository.registerDevice(
-          firebaseUserId: userCredential.user!.uid);
       emit(AuthState.authenticated(userCredential, UserType.rider));
     } catch (e) {
       emit(AuthState.error(e.toString()));
@@ -54,8 +52,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       UserCredential userCredential = await authRepository
           .loginInUserWithEmailAndPassword(email: email, password: password);
-      await firebaseRepository.registerDevice(
-          firebaseUserId: userCredential.user!.uid);
+
       emit(AuthState.authenticated(userCredential, UserType.driver));
     } catch (e) {
       emit(AuthState.error(e.toString()));

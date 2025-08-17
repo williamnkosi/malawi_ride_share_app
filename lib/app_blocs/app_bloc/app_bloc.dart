@@ -121,6 +121,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
       if (isGranted) {
         emit(state.copyWith(isNotificationPermissionEnabled: true));
+        fireBaseRepository.registerDevice();
       } else {
         emit(state.copyWith(isNotificationPermissionEnabled: false));
       }

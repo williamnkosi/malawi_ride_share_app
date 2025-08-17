@@ -12,7 +12,10 @@ class DriverMapsSection extends StatelessWidget {
     return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (currentLocation, _, __) => MapView(
+          online: (
+            currentLocation,
+          ) =>
+              MapView(
             location: currentLocation,
           ),
           offline: (lastKnownLocation) => MapView(

@@ -16,8 +16,6 @@ class DriverOperationsState with _$DriverOperationsState {
   // Driver is online and available for trips
   const factory DriverOperationsState.online({
     required Position? currentLocation,
-    DateTime? onlineTime,
-    @Default(true) bool isTrackingLocation,
   }) = _Online;
 
   // Driver received a trip request

@@ -2226,9 +2226,7 @@ mixin _$DriverOperationsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -2277,9 +2275,7 @@ mixin _$DriverOperationsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -2327,9 +2323,7 @@ mixin _$DriverOperationsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -2490,9 +2484,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -2544,9 +2536,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -2597,9 +2587,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -2758,9 +2746,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -2812,9 +2798,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -2865,9 +2849,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3054,9 +3036,7 @@ class _$OfflineImpl implements _Offline {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -3108,9 +3088,7 @@ class _$OfflineImpl implements _Offline {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3161,9 +3139,7 @@ class _$OfflineImpl implements _Offline {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3292,10 +3268,7 @@ abstract class _$$OnlineImplCopyWith<$Res> {
           _$OnlineImpl value, $Res Function(_$OnlineImpl) then) =
       __$$OnlineImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position? currentLocation,
-      DateTime? onlineTime,
-      bool isTrackingLocation});
+  $Res call({Position? currentLocation});
 }
 
 /// @nodoc
@@ -3312,22 +3285,12 @@ class __$$OnlineImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentLocation = freezed,
-    Object? onlineTime = freezed,
-    Object? isTrackingLocation = null,
   }) {
     return _then(_$OnlineImpl(
       currentLocation: freezed == currentLocation
           ? _value.currentLocation
           : currentLocation // ignore: cast_nullable_to_non_nullable
               as Position?,
-      onlineTime: freezed == onlineTime
-          ? _value.onlineTime
-          : onlineTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      isTrackingLocation: null == isTrackingLocation
-          ? _value.isTrackingLocation
-          : isTrackingLocation // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -3335,22 +3298,14 @@ class __$$OnlineImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OnlineImpl implements _Online {
-  const _$OnlineImpl(
-      {required this.currentLocation,
-      this.onlineTime,
-      this.isTrackingLocation = true});
+  const _$OnlineImpl({required this.currentLocation});
 
   @override
   final Position? currentLocation;
-  @override
-  final DateTime? onlineTime;
-  @override
-  @JsonKey()
-  final bool isTrackingLocation;
 
   @override
   String toString() {
-    return 'DriverOperationsState.online(currentLocation: $currentLocation, onlineTime: $onlineTime, isTrackingLocation: $isTrackingLocation)';
+    return 'DriverOperationsState.online(currentLocation: $currentLocation)';
   }
 
   @override
@@ -3359,16 +3314,11 @@ class _$OnlineImpl implements _Online {
         (other.runtimeType == runtimeType &&
             other is _$OnlineImpl &&
             (identical(other.currentLocation, currentLocation) ||
-                other.currentLocation == currentLocation) &&
-            (identical(other.onlineTime, onlineTime) ||
-                other.onlineTime == onlineTime) &&
-            (identical(other.isTrackingLocation, isTrackingLocation) ||
-                other.isTrackingLocation == isTrackingLocation));
+                other.currentLocation == currentLocation));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, currentLocation, onlineTime, isTrackingLocation);
+  int get hashCode => Object.hash(runtimeType, currentLocation);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3384,9 +3334,7 @@ class _$OnlineImpl implements _Online {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -3429,7 +3377,7 @@ class _$OnlineImpl implements _Online {
             String message, DriverOperationsState? previousState)
         error,
   }) {
-    return online(currentLocation, onlineTime, isTrackingLocation);
+    return online(currentLocation);
   }
 
   @override
@@ -3438,9 +3386,7 @@ class _$OnlineImpl implements _Online {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3482,7 +3428,7 @@ class _$OnlineImpl implements _Online {
     TResult? Function(String message, DriverOperationsState? previousState)?
         error,
   }) {
-    return online?.call(currentLocation, onlineTime, isTrackingLocation);
+    return online?.call(currentLocation);
   }
 
   @override
@@ -3491,9 +3437,7 @@ class _$OnlineImpl implements _Online {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3537,7 +3481,7 @@ class _$OnlineImpl implements _Online {
     required TResult orElse(),
   }) {
     if (online != null) {
-      return online(currentLocation, onlineTime, isTrackingLocation);
+      return online(currentLocation);
     }
     return orElse();
   }
@@ -3605,14 +3549,10 @@ class _$OnlineImpl implements _Online {
 }
 
 abstract class _Online implements DriverOperationsState {
-  const factory _Online(
-      {required final Position? currentLocation,
-      final DateTime? onlineTime,
-      final bool isTrackingLocation}) = _$OnlineImpl;
+  const factory _Online({required final Position? currentLocation}) =
+      _$OnlineImpl;
 
   Position? get currentLocation;
-  DateTime? get onlineTime;
-  bool get isTrackingLocation;
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3749,9 +3689,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -3804,9 +3742,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -3858,9 +3794,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4135,9 +4069,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -4190,9 +4122,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4244,9 +4174,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4500,9 +4428,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -4555,9 +4481,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4609,9 +4533,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4885,9 +4807,7 @@ class _$OnTripImpl implements _OnTrip {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -4940,9 +4860,7 @@ class _$OnTripImpl implements _OnTrip {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -4994,9 +4912,7 @@ class _$OnTripImpl implements _OnTrip {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -5271,9 +5187,7 @@ class _$TripCompletedImpl implements _TripCompleted {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -5326,9 +5240,7 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -5380,9 +5292,7 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -5648,9 +5558,7 @@ class _$TripCancelledImpl implements _TripCancelled {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -5703,9 +5611,7 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -5757,9 +5663,7 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -5986,9 +5890,7 @@ class _$UnavailableImpl implements _Unavailable {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -6040,9 +5942,7 @@ class _$UnavailableImpl implements _Unavailable {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -6093,9 +5993,7 @@ class _$UnavailableImpl implements _Unavailable {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -6319,9 +6217,7 @@ class _$StateErrorImpl implements _StateError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
-    required TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)
-        online,
+    required TResult Function(Position? currentLocation) online,
     required TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)
         tripRequestReceived,
@@ -6373,9 +6269,7 @@ class _$StateErrorImpl implements _StateError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
-    TResult? Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult? Function(Position? currentLocation)? online,
     TResult? Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,
@@ -6426,9 +6320,7 @@ class _$StateErrorImpl implements _StateError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
-    TResult Function(Position? currentLocation, DateTime? onlineTime,
-            bool isTrackingLocation)?
-        online,
+    TResult Function(Position? currentLocation)? online,
     TResult Function(Position currentLocation, TripRequest tripRequest,
             DateTime onlineTime, List<Position> locationHistory)?
         tripRequestReceived,

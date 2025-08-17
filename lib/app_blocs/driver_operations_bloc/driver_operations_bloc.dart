@@ -34,6 +34,7 @@ class DriverOperationsBloc
     on<DriverOperationsInitialize>(_onDriverOperationsInitialize);
     on<DriverOperationsGoOffline>(_onDriverOperationsGoOffline);
     on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
+    on<DriverOperationsLocationUpdated>(_onLocationUpdated);
   }
 
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
@@ -109,12 +110,28 @@ class DriverOperationsBloc
           currentLocation: LocationDto(
               latitude: currentLocation.latitude,
               longitude: currentLocation.longitude));
-      _trackUserLocationFunction();
 
       emit(DriverOperationsState.online(
         currentLocation: currentLocation,
-        isTrackingLocation: true,
       ));
+
+      _locationSubscription = locationRepository.getLocationStream().listen(
+        (position) {
+          logger.info(
+              'Tracking location for driver: ${firebaseId.uid}. Position: ${position.latitude}, ${position.longitude}');
+          // Emit location update to socket
+          emit(DriverOperationsState.online(
+            currentLocation: position,
+          ));
+          driverOperationsRepository.startTrackingLocation(
+            firebaseId: firebaseId.uid,
+            currentLocation: position,
+          );
+        },
+        onError: (error) {
+          logger.severe('Location stream error: $error');
+        },
+      );
 
       logger.info('Driver went online');
     } catch (e) {
@@ -125,29 +142,20 @@ class DriverOperationsBloc
     }
   }
 
-  _trackUserLocationFunction() async {
-    try {
-      final firebaseId = await firebaseRepository.getCurrentUser();
-      _locationSubscription = locationRepository.getLocationStream().listen(
-        (position) {
-          logger.info(
-              'Tracking location for driver: ${firebaseId.uid}. Position: ${position.latitude}, ${position.longitude}');
-          // Emit location update to socket
-          driverOperationsRepository.startTrackingLocation(
-            firebaseId: firebaseId.uid,
-            currentLocation: position,
-          );
-        },
-        onError: (error) {
-          logger.severe('Location stream error: $error');
-        },
-      );
-    } catch (e) {
-      logger.severe('Error starting location tracking: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to start location tracking: ${e.toString()}',
-      ));
-    }
+  _onLocationUpdated(DriverOperationsLocationUpdated event,
+      Emitter<DriverOperationsState> emit) {
+    state.maybeWhen(
+      online: (currentLocation) {
+        emit(DriverOperationsState.online(
+          currentLocation: event
+              .position, // Note: use event.position, not event.currentLocation
+        ));
+      },
+      orElse: () {
+        logger.warning(
+            'Location update received but driver is not in a trackable state');
+      },
+    );
   }
 
   Future<void> _stopLocationTracking() async {

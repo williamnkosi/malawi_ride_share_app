@@ -66,8 +66,7 @@ class DriverOperationsBloc
       await _stopLocationTracking();
 
       final currentLocation = await locationRepository.getCurrentLocation();
-      final firebaseId = await firebaseRepository.getCurrentUser();
-      await driverOperationsRepository.goOffline(firebaseId: firebaseId.uid);
+      driverOperationsRepository.goOffline();
       emit(DriverOperationsState.offline(
         lastKnownLocation: currentLocation,
       ));

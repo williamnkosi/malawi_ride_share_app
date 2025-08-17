@@ -28,6 +28,7 @@ mixin _$AppEvent {
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +43,7 @@ mixin _$AppEvent {
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +58,7 @@ mixin _$AppEvent {
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +80,8 @@ mixin _$AppEvent {
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +101,8 @@ mixin _$AppEvent {
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -115,6 +122,8 @@ mixin _$AppEvent {
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -191,6 +200,7 @@ class _$AppEventInitialImpl implements AppEventInitial {
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return appEventInitial();
   }
@@ -208,6 +218,7 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return appEventInitial?.call();
   }
@@ -225,6 +236,7 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventInitial != null) {
@@ -252,6 +264,8 @@ class _$AppEventInitialImpl implements AppEventInitial {
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return appEventInitial(this);
   }
@@ -274,6 +288,8 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return appEventInitial?.call(this);
   }
@@ -296,6 +312,8 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventInitial != null) {
@@ -363,6 +381,7 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return startListening();
   }
@@ -380,6 +399,7 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return startListening?.call();
   }
@@ -397,6 +417,7 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (startListening != null) {
@@ -424,6 +445,8 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return startListening(this);
   }
@@ -446,6 +469,8 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return startListening?.call(this);
   }
@@ -468,6 +493,8 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (startListening != null) {
@@ -560,6 +587,7 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return appEventShowMessage(message);
   }
@@ -577,6 +605,7 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return appEventShowMessage?.call(message);
   }
@@ -594,6 +623,7 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventShowMessage != null) {
@@ -621,6 +651,8 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return appEventShowMessage(this);
   }
@@ -643,6 +675,8 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return appEventShowMessage?.call(this);
   }
@@ -665,6 +699,8 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventShowMessage != null) {
@@ -739,6 +775,7 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return appEventHideMessage();
   }
@@ -756,6 +793,7 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return appEventHideMessage?.call();
   }
@@ -773,6 +811,7 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventHideMessage != null) {
@@ -800,6 +839,8 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return appEventHideMessage(this);
   }
@@ -822,6 +863,8 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return appEventHideMessage?.call(this);
   }
@@ -844,6 +887,8 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (appEventHideMessage != null) {
@@ -913,6 +958,7 @@ class _$AppEventRequestLocationPermissionImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return requestLocationPermission();
   }
@@ -930,6 +976,7 @@ class _$AppEventRequestLocationPermissionImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return requestLocationPermission?.call();
   }
@@ -947,6 +994,7 @@ class _$AppEventRequestLocationPermissionImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (requestLocationPermission != null) {
@@ -974,6 +1022,8 @@ class _$AppEventRequestLocationPermissionImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return requestLocationPermission(this);
   }
@@ -996,6 +1046,8 @@ class _$AppEventRequestLocationPermissionImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return requestLocationPermission?.call(this);
   }
@@ -1018,6 +1070,8 @@ class _$AppEventRequestLocationPermissionImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (requestLocationPermission != null) {
@@ -1087,6 +1141,7 @@ class _$AppEventCheckLocationPermissionImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return checkLocationPermission();
   }
@@ -1104,6 +1159,7 @@ class _$AppEventCheckLocationPermissionImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return checkLocationPermission?.call();
   }
@@ -1121,6 +1177,7 @@ class _$AppEventCheckLocationPermissionImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (checkLocationPermission != null) {
@@ -1148,6 +1205,8 @@ class _$AppEventCheckLocationPermissionImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return checkLocationPermission(this);
   }
@@ -1170,6 +1229,8 @@ class _$AppEventCheckLocationPermissionImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return checkLocationPermission?.call(this);
   }
@@ -1192,6 +1253,8 @@ class _$AppEventCheckLocationPermissionImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (checkLocationPermission != null) {
@@ -1262,6 +1325,7 @@ class _$AppEventLocationPermissionGrantedImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return locationPermissionGranted();
   }
@@ -1279,6 +1343,7 @@ class _$AppEventLocationPermissionGrantedImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return locationPermissionGranted?.call();
   }
@@ -1296,6 +1361,7 @@ class _$AppEventLocationPermissionGrantedImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (locationPermissionGranted != null) {
@@ -1323,6 +1389,8 @@ class _$AppEventLocationPermissionGrantedImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return locationPermissionGranted(this);
   }
@@ -1345,6 +1413,8 @@ class _$AppEventLocationPermissionGrantedImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return locationPermissionGranted?.call(this);
   }
@@ -1367,6 +1437,8 @@ class _$AppEventLocationPermissionGrantedImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (locationPermissionGranted != null) {
@@ -1436,6 +1508,7 @@ class _$AppEventLocationPermissionDeniedImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return locationPermissionDenied();
   }
@@ -1453,6 +1526,7 @@ class _$AppEventLocationPermissionDeniedImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return locationPermissionDenied?.call();
   }
@@ -1470,6 +1544,7 @@ class _$AppEventLocationPermissionDeniedImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (locationPermissionDenied != null) {
@@ -1497,6 +1572,8 @@ class _$AppEventLocationPermissionDeniedImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return locationPermissionDenied(this);
   }
@@ -1519,6 +1596,8 @@ class _$AppEventLocationPermissionDeniedImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return locationPermissionDenied?.call(this);
   }
@@ -1541,6 +1620,8 @@ class _$AppEventLocationPermissionDeniedImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (locationPermissionDenied != null) {
@@ -1610,6 +1691,7 @@ class _$AppEventOpenLocationSettingsImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return openLocationSettings();
   }
@@ -1627,6 +1709,7 @@ class _$AppEventOpenLocationSettingsImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return openLocationSettings?.call();
   }
@@ -1644,6 +1727,7 @@ class _$AppEventOpenLocationSettingsImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (openLocationSettings != null) {
@@ -1671,6 +1755,8 @@ class _$AppEventOpenLocationSettingsImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return openLocationSettings(this);
   }
@@ -1693,6 +1779,8 @@ class _$AppEventOpenLocationSettingsImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return openLocationSettings?.call(this);
   }
@@ -1715,6 +1803,8 @@ class _$AppEventOpenLocationSettingsImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (openLocationSettings != null) {
@@ -1785,6 +1875,7 @@ class _$AppEventRequestNotificationPermissionImpl
     required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
   }) {
     return requestNotificationPermission();
   }
@@ -1802,6 +1893,7 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
   }) {
     return requestNotificationPermission?.call();
   }
@@ -1819,6 +1911,7 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (requestNotificationPermission != null) {
@@ -1846,6 +1939,8 @@ class _$AppEventRequestNotificationPermissionImpl
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
         requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
   }) {
     return requestNotificationPermission(this);
   }
@@ -1868,6 +1963,8 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
   }) {
     return requestNotificationPermission?.call(this);
   }
@@ -1890,6 +1987,8 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
     required TResult orElse(),
   }) {
     if (requestNotificationPermission != null) {
@@ -1905,8 +2004,194 @@ abstract class AppEventRequestNotificationPermission implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$AppEventCheckNotificationPermissionImplCopyWith<$Res> {
+  factory _$$AppEventCheckNotificationPermissionImplCopyWith(
+          _$AppEventCheckNotificationPermissionImpl value,
+          $Res Function(_$AppEventCheckNotificationPermissionImpl) then) =
+      __$$AppEventCheckNotificationPermissionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AppEventCheckNotificationPermissionImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res,
+        _$AppEventCheckNotificationPermissionImpl>
+    implements _$$AppEventCheckNotificationPermissionImplCopyWith<$Res> {
+  __$$AppEventCheckNotificationPermissionImplCopyWithImpl(
+      _$AppEventCheckNotificationPermissionImpl _value,
+      $Res Function(_$AppEventCheckNotificationPermissionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AppEventCheckNotificationPermissionImpl
+    implements AppEventCheckNotificationPermission {
+  const _$AppEventCheckNotificationPermissionImpl();
+
+  @override
+  String toString() {
+    return 'AppEvent.checkNotificationPermission()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppEventCheckNotificationPermissionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appEventInitial,
+    required TResult Function() startListening,
+    required TResult Function(RemoteMessage message) appEventShowMessage,
+    required TResult Function() appEventHideMessage,
+    required TResult Function() requestLocationPermission,
+    required TResult Function() checkLocationPermission,
+    required TResult Function() locationPermissionGranted,
+    required TResult Function() locationPermissionDenied,
+    required TResult Function() openLocationSettings,
+    required TResult Function() requestNotificationPermission,
+    required TResult Function() checkNotificationPermission,
+  }) {
+    return checkNotificationPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appEventInitial,
+    TResult? Function()? startListening,
+    TResult? Function(RemoteMessage message)? appEventShowMessage,
+    TResult? Function()? appEventHideMessage,
+    TResult? Function()? requestLocationPermission,
+    TResult? Function()? checkLocationPermission,
+    TResult? Function()? locationPermissionGranted,
+    TResult? Function()? locationPermissionDenied,
+    TResult? Function()? openLocationSettings,
+    TResult? Function()? requestNotificationPermission,
+    TResult? Function()? checkNotificationPermission,
+  }) {
+    return checkNotificationPermission?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appEventInitial,
+    TResult Function()? startListening,
+    TResult Function(RemoteMessage message)? appEventShowMessage,
+    TResult Function()? appEventHideMessage,
+    TResult Function()? requestLocationPermission,
+    TResult Function()? checkLocationPermission,
+    TResult Function()? locationPermissionGranted,
+    TResult Function()? locationPermissionDenied,
+    TResult Function()? openLocationSettings,
+    TResult Function()? requestNotificationPermission,
+    TResult Function()? checkNotificationPermission,
+    required TResult orElse(),
+  }) {
+    if (checkNotificationPermission != null) {
+      return checkNotificationPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppEventInitial value) appEventInitial,
+    required TResult Function(AppEventStartListening value) startListening,
+    required TResult Function(AppEventShowMessage value) appEventShowMessage,
+    required TResult Function(AppEventHideMessage value) appEventHideMessage,
+    required TResult Function(AppEventRequestLocationPermission value)
+        requestLocationPermission,
+    required TResult Function(AppEventCheckLocationPermission value)
+        checkLocationPermission,
+    required TResult Function(AppEventLocationPermissionGranted value)
+        locationPermissionGranted,
+    required TResult Function(AppEventLocationPermissionDenied value)
+        locationPermissionDenied,
+    required TResult Function(AppEventOpenLocationSettings value)
+        openLocationSettings,
+    required TResult Function(AppEventRequestNotificationPermission value)
+        requestNotificationPermission,
+    required TResult Function(AppEventCheckNotificationPermission value)
+        checkNotificationPermission,
+  }) {
+    return checkNotificationPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppEventInitial value)? appEventInitial,
+    TResult? Function(AppEventStartListening value)? startListening,
+    TResult? Function(AppEventShowMessage value)? appEventShowMessage,
+    TResult? Function(AppEventHideMessage value)? appEventHideMessage,
+    TResult? Function(AppEventRequestLocationPermission value)?
+        requestLocationPermission,
+    TResult? Function(AppEventCheckLocationPermission value)?
+        checkLocationPermission,
+    TResult? Function(AppEventLocationPermissionGranted value)?
+        locationPermissionGranted,
+    TResult? Function(AppEventLocationPermissionDenied value)?
+        locationPermissionDenied,
+    TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
+    TResult? Function(AppEventRequestNotificationPermission value)?
+        requestNotificationPermission,
+    TResult? Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
+  }) {
+    return checkNotificationPermission?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppEventInitial value)? appEventInitial,
+    TResult Function(AppEventStartListening value)? startListening,
+    TResult Function(AppEventShowMessage value)? appEventShowMessage,
+    TResult Function(AppEventHideMessage value)? appEventHideMessage,
+    TResult Function(AppEventRequestLocationPermission value)?
+        requestLocationPermission,
+    TResult Function(AppEventCheckLocationPermission value)?
+        checkLocationPermission,
+    TResult Function(AppEventLocationPermissionGranted value)?
+        locationPermissionGranted,
+    TResult Function(AppEventLocationPermissionDenied value)?
+        locationPermissionDenied,
+    TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
+    TResult Function(AppEventRequestNotificationPermission value)?
+        requestNotificationPermission,
+    TResult Function(AppEventCheckNotificationPermission value)?
+        checkNotificationPermission,
+    required TResult orElse(),
+  }) {
+    if (checkNotificationPermission != null) {
+      return checkNotificationPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppEventCheckNotificationPermission implements AppEvent {
+  const factory AppEventCheckNotificationPermission() =
+      _$AppEventCheckNotificationPermissionImpl;
+}
+
+/// @nodoc
 mixin _$AppState {
   bool get isLocationPremissionEnabled => throw _privateConstructorUsedError;
+  bool get isNotificationPermissionEnabled =>
+      throw _privateConstructorUsedError;
   bool get isLoggedIn => throw _privateConstructorUsedError;
   RemoteMessage? get message => throw _privateConstructorUsedError;
   Stream<RemoteMessage>? get inAppMessageSubscriptioin =>
@@ -1926,6 +2211,7 @@ abstract class $AppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLocationPremissionEnabled,
+      bool isNotificationPermissionEnabled,
       bool isLoggedIn,
       RemoteMessage? message,
       Stream<RemoteMessage>? inAppMessageSubscriptioin});
@@ -1947,6 +2233,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @override
   $Res call({
     Object? isLocationPremissionEnabled = null,
+    Object? isNotificationPermissionEnabled = null,
     Object? isLoggedIn = null,
     Object? message = freezed,
     Object? inAppMessageSubscriptioin = freezed,
@@ -1955,6 +2242,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       isLocationPremissionEnabled: null == isLocationPremissionEnabled
           ? _value.isLocationPremissionEnabled
           : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationPermissionEnabled: null == isNotificationPermissionEnabled
+          ? _value.isNotificationPermissionEnabled
+          : isNotificationPermissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoggedIn: null == isLoggedIn
           ? _value.isLoggedIn
@@ -1982,6 +2273,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLocationPremissionEnabled,
+      bool isNotificationPermissionEnabled,
       bool isLoggedIn,
       RemoteMessage? message,
       Stream<RemoteMessage>? inAppMessageSubscriptioin});
@@ -2001,6 +2293,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLocationPremissionEnabled = null,
+    Object? isNotificationPermissionEnabled = null,
     Object? isLoggedIn = null,
     Object? message = freezed,
     Object? inAppMessageSubscriptioin = freezed,
@@ -2009,6 +2302,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
       isLocationPremissionEnabled: null == isLocationPremissionEnabled
           ? _value.isLocationPremissionEnabled
           : isLocationPremissionEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationPermissionEnabled: null == isNotificationPermissionEnabled
+          ? _value.isNotificationPermissionEnabled
+          : isNotificationPermissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoggedIn: null == isLoggedIn
           ? _value.isLoggedIn
@@ -2031,6 +2328,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
 class _$AppStateImpl implements _AppState {
   const _$AppStateImpl(
       {this.isLocationPremissionEnabled = false,
+      this.isNotificationPermissionEnabled = false,
       this.isLoggedIn = false,
       this.message,
       this.inAppMessageSubscriptioin});
@@ -2038,6 +2336,9 @@ class _$AppStateImpl implements _AppState {
   @override
   @JsonKey()
   final bool isLocationPremissionEnabled;
+  @override
+  @JsonKey()
+  final bool isNotificationPermissionEnabled;
   @override
   @JsonKey()
   final bool isLoggedIn;
@@ -2048,7 +2349,7 @@ class _$AppStateImpl implements _AppState {
 
   @override
   String toString() {
-    return 'AppState(isLocationPremissionEnabled: $isLocationPremissionEnabled, isLoggedIn: $isLoggedIn, message: $message, inAppMessageSubscriptioin: $inAppMessageSubscriptioin)';
+    return 'AppState(isLocationPremissionEnabled: $isLocationPremissionEnabled, isNotificationPermissionEnabled: $isNotificationPermissionEnabled, isLoggedIn: $isLoggedIn, message: $message, inAppMessageSubscriptioin: $inAppMessageSubscriptioin)';
   }
 
   @override
@@ -2060,6 +2361,10 @@ class _$AppStateImpl implements _AppState {
                     isLocationPremissionEnabled) ||
                 other.isLocationPremissionEnabled ==
                     isLocationPremissionEnabled) &&
+            (identical(other.isNotificationPermissionEnabled,
+                    isNotificationPermissionEnabled) ||
+                other.isNotificationPermissionEnabled ==
+                    isNotificationPermissionEnabled) &&
             (identical(other.isLoggedIn, isLoggedIn) ||
                 other.isLoggedIn == isLoggedIn) &&
             (identical(other.message, message) || other.message == message) &&
@@ -2069,8 +2374,13 @@ class _$AppStateImpl implements _AppState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLocationPremissionEnabled,
-      isLoggedIn, message, inAppMessageSubscriptioin);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLocationPremissionEnabled,
+      isNotificationPermissionEnabled,
+      isLoggedIn,
+      message,
+      inAppMessageSubscriptioin);
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
@@ -2084,12 +2394,15 @@ class _$AppStateImpl implements _AppState {
 abstract class _AppState implements AppState {
   const factory _AppState(
       {final bool isLocationPremissionEnabled,
+      final bool isNotificationPermissionEnabled,
       final bool isLoggedIn,
       final RemoteMessage? message,
       final Stream<RemoteMessage>? inAppMessageSubscriptioin}) = _$AppStateImpl;
 
   @override
   bool get isLocationPremissionEnabled;
+  @override
+  bool get isNotificationPermissionEnabled;
   @override
   bool get isLoggedIn;
   @override

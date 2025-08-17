@@ -22,4 +22,6 @@ class AppEvent with _$AppEvent {
   // Notification permission events
   const factory AppEvent.requestNotificationPermission() =
       AppEventRequestNotificationPermission;
+  const factory AppEvent.checkNotificationPermission() =
+      AppEventCheckNotificationPermission;
 }

@@ -26,6 +26,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppEventLocationPermissionDenied>(_onLocationPermissionDenied);
     on<AppEventOpenLocationSettings>(_onOpenLocationSettings);
     on<AppEventRequestNotificationPermission>(_onRequestNotificationPermission);
+    on<AppEventCheckNotificationPermission>(_onCheckNotificationPermission);
   }
 
   /// Handle location permission request
@@ -116,7 +117,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       logger.info('🔐 Requesting notification permission from AppBloc...');
 
       final isGranted =
-          await fireBaseRepository.requestNotificationPermissions()();
+          await fireBaseRepository.requestNotificationPermissions();
 
       if (isGranted) {
         emit(state.copyWith(isNotificationPermissionEnabled: true));
@@ -125,6 +126,23 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       }
     } catch (e) {
       logger.severe('❌ Error requesting notification permission: $e');
+      emit(state.copyWith(isNotificationPermissionEnabled: false));
+    }
+  }
+
+  /// Handle checking current notification permission status
+  Future<void> _onCheckNotificationPermission(
+    AppEventCheckNotificationPermission event,
+    Emitter<AppState> emit,
+  ) async {
+    try {
+      logger.info('🔍 Checking notification permission status...');
+
+      final isGranted =
+          await fireBaseRepository.isNotificationPermissionGranted();
+      emit(state.copyWith(isNotificationPermissionEnabled: isGranted));
+    } catch (e) {
+      logger.severe('❌ Error checking notification permission: $e');
       emit(state.copyWith(isNotificationPermissionEnabled: false));
     }
   }

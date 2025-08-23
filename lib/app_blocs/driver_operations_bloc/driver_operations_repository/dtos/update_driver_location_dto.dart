@@ -10,7 +10,7 @@ class UpdateDriverLocationDto with _$UpdateDriverLocationDto {
   const factory UpdateDriverLocationDto({
     required String firebaseId,
     required LocationDto location,
-    required DriverStatus driverStatus,
+    required DriverStatus status,
   }) = _UpdateDriverLocationDto;
 
   factory UpdateDriverLocationDto.fromJson(Map<String, dynamic> json) =>

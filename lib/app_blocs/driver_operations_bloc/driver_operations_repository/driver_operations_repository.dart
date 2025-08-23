@@ -5,11 +5,11 @@ import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_op
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 abstract class DriverOperationsRepositoryInterface {
   void initializeSocket();
-  void goOnline();
+  Future<void> startTrackingLocation(
+      {required String firebaseId, required Position currentLocation});
   void goOffline();
 }
 
@@ -21,11 +21,8 @@ class DriverOperationsRepository
 
   DriverOperationsRepository({
     required this.driverSocketService,
-  }) {
-    // Initialize socket when repository is created
-  }
+  });
 
-  // Private method to handle socket initialization
   @override
   Future<void> initializeSocket() async {
     try {
@@ -37,16 +34,6 @@ class DriverOperationsRepository
   }
 
   @override
-  void goOnline() async {
-    try {
-      await driverSocketService.connectWithAuth();
-    } catch (e) {
-      goOffline();
-      _logger.severe('Failed to go online: $e');
-      throw Exception('Failed to go online: $e');
-    }
-  }
-
   Future<void> startTrackingLocation(
       {required String firebaseId, required Position currentLocation}) async {
     try {
@@ -57,7 +44,7 @@ class DriverOperationsRepository
       var driverConnectDto = UpdateDriverLocationDto(
         firebaseId: firebaseId,
         location: location,
-        driverStatus: DriverStatus.online,
+        status: DriverStatus.online,
       );
 
       await driverSocketService.emitWithAck(

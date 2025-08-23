@@ -23,7 +23,7 @@ UpdateDriverLocationDto _$UpdateDriverLocationDtoFromJson(
 mixin _$UpdateDriverLocationDto {
   String get firebaseId => throw _privateConstructorUsedError;
   LocationDto get location => throw _privateConstructorUsedError;
-  DriverStatus get driverStatus => throw _privateConstructorUsedError;
+  DriverStatus get status => throw _privateConstructorUsedError;
 
   /// Serializes this UpdateDriverLocationDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,8 +41,7 @@ abstract class $UpdateDriverLocationDtoCopyWith<$Res> {
           $Res Function(UpdateDriverLocationDto) then) =
       _$UpdateDriverLocationDtoCopyWithImpl<$Res, UpdateDriverLocationDto>;
   @useResult
-  $Res call(
-      {String firebaseId, LocationDto location, DriverStatus driverStatus});
+  $Res call({String firebaseId, LocationDto location, DriverStatus status});
 
   $LocationDtoCopyWith<$Res> get location;
 }
@@ -65,7 +64,7 @@ class _$UpdateDriverLocationDtoCopyWithImpl<$Res,
   $Res call({
     Object? firebaseId = null,
     Object? location = null,
-    Object? driverStatus = null,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
       firebaseId: null == firebaseId
@@ -76,9 +75,9 @@ class _$UpdateDriverLocationDtoCopyWithImpl<$Res,
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as LocationDto,
-      driverStatus: null == driverStatus
-          ? _value.driverStatus
-          : driverStatus // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
               as DriverStatus,
     ) as $Val);
   }
@@ -103,8 +102,7 @@ abstract class _$$UpdateDriverLocationDtoImplCopyWith<$Res>
       __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String firebaseId, LocationDto location, DriverStatus driverStatus});
+  $Res call({String firebaseId, LocationDto location, DriverStatus status});
 
   @override
   $LocationDtoCopyWith<$Res> get location;
@@ -127,7 +125,7 @@ class __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? firebaseId = null,
     Object? location = null,
-    Object? driverStatus = null,
+    Object? status = null,
   }) {
     return _then(_$UpdateDriverLocationDtoImpl(
       firebaseId: null == firebaseId
@@ -138,9 +136,9 @@ class __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as LocationDto,
-      driverStatus: null == driverStatus
-          ? _value.driverStatus
-          : driverStatus // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
               as DriverStatus,
     ));
   }
@@ -150,9 +148,7 @@ class __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
   const _$UpdateDriverLocationDtoImpl(
-      {required this.firebaseId,
-      required this.location,
-      required this.driverStatus});
+      {required this.firebaseId, required this.location, required this.status});
 
   factory _$UpdateDriverLocationDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateDriverLocationDtoImplFromJson(json);
@@ -162,11 +158,11 @@ class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
   @override
   final LocationDto location;
   @override
-  final DriverStatus driverStatus;
+  final DriverStatus status;
 
   @override
   String toString() {
-    return 'UpdateDriverLocationDto(firebaseId: $firebaseId, location: $location, driverStatus: $driverStatus)';
+    return 'UpdateDriverLocationDto(firebaseId: $firebaseId, location: $location, status: $status)';
   }
 
   @override
@@ -178,14 +174,12 @@ class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
                 other.firebaseId == firebaseId) &&
             (identical(other.location, location) ||
                 other.location == location) &&
-            (identical(other.driverStatus, driverStatus) ||
-                other.driverStatus == driverStatus));
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, firebaseId, location, driverStatus);
+  int get hashCode => Object.hash(runtimeType, firebaseId, location, status);
 
   /// Create a copy of UpdateDriverLocationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -206,10 +200,9 @@ class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
 
 abstract class _UpdateDriverLocationDto implements UpdateDriverLocationDto {
   const factory _UpdateDriverLocationDto(
-          {required final String firebaseId,
-          required final LocationDto location,
-          required final DriverStatus driverStatus}) =
-      _$UpdateDriverLocationDtoImpl;
+      {required final String firebaseId,
+      required final LocationDto location,
+      required final DriverStatus status}) = _$UpdateDriverLocationDtoImpl;
 
   factory _UpdateDriverLocationDto.fromJson(Map<String, dynamic> json) =
       _$UpdateDriverLocationDtoImpl.fromJson;
@@ -219,7 +212,7 @@ abstract class _UpdateDriverLocationDto implements UpdateDriverLocationDto {
   @override
   LocationDto get location;
   @override
-  DriverStatus get driverStatus;
+  DriverStatus get status;
 
   /// Create a copy of UpdateDriverLocationDto
   /// with the given fields replaced by the non-null parameter values.

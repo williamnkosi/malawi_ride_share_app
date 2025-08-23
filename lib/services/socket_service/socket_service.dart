@@ -234,6 +234,7 @@ abstract class SocketService implements SocketServiceInterface {
   }
 
   // Emit event safely with success tracking
+  @override
   Future<bool> emitSafe(String event, dynamic data) async {
     try {
       if (socket != null && isConnected) {

@@ -11,7 +11,7 @@ _$UpdateDriverLocationDtoImpl _$$UpdateDriverLocationDtoImplFromJson(
     _$UpdateDriverLocationDtoImpl(
       firebaseId: json['firebaseId'] as String,
       location: LocationDto.fromJson(json['location'] as Map<String, dynamic>),
-      driverStatus: $enumDecode(_$DriverStatusEnumMap, json['driverStatus']),
+      status: $enumDecode(_$DriverStatusEnumMap, json['status']),
     );
 
 Map<String, dynamic> _$$UpdateDriverLocationDtoImplToJson(
@@ -19,7 +19,7 @@ Map<String, dynamic> _$$UpdateDriverLocationDtoImplToJson(
     <String, dynamic>{
       'firebaseId': instance.firebaseId,
       'location': instance.location,
-      'driverStatus': _$DriverStatusEnumMap[instance.driverStatus]!,
+      'status': _$DriverStatusEnumMap[instance.status]!,
     };
 
 const _$DriverStatusEnumMap = {

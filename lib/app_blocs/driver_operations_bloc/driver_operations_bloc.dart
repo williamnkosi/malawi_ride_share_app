@@ -99,7 +99,10 @@ class DriverOperationsBloc
         return;
       } // Set online time
 
-      driverOperationsRepository.goOnline();
+      await driverOperationsRepository.startTrackingLocation(
+        firebaseId: firebaseId.uid,
+        currentLocation: currentLocation,
+      );
 
       emit(DriverOperationsState.online(
         currentLocation: currentLocation,

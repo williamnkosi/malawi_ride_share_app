@@ -18,11 +18,8 @@ class SocketConstants {
   static int get maxReconnectAttempts =>
       int.parse(dotenv.env['SOCKET_MAX_RECONNECT_ATTEMPTS'] ?? '5');
 
-  static const String locationTrackingNamespace = '/location-tracking';
-  static const String tripsNamespace = '/trips';
-
   static String getNamespaceUrl(String namespace) {
-    return '$socketUrl';
+    return socketUrl;
   }
 
   // =================================================================

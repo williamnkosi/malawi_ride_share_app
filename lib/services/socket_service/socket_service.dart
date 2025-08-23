@@ -76,10 +76,7 @@ abstract class SocketService implements SocketServiceInterface {
     }
   }
 
-  Future<void> connectWithAuth({
-    required String firebaseId,
-    LocationDto? location,
-  }) async {
+  Future<void> connectWithAuth() async {
     try {
       if (socket == null) {
         await initialize();
@@ -92,14 +89,13 @@ abstract class SocketService implements SocketServiceInterface {
       }
 
       final idToken = await currentUser.getIdToken();
+      final firebaseId = currentUser.uid;
       _logger.info('✅ Firebase token obtained');
       _logger.info('✅ Firebase id obtained: $firebaseId');
       // Set auth data with all required fields
       socket!.auth = {
         'token': idToken,
         'firebaseId': firebaseId, // ← This was missing!
-        'initialPosition': location?.toJson(),
-        'status': 'online'
       };
 
       // Connect only if not already connected

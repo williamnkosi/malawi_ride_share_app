@@ -8,10 +8,8 @@ import 'package:malawi_ride_share_app/services/socket_service/socket_constants.d
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 abstract class DriverOperationsRepositoryInterface {
-  Future<void> initializeSocket(
-      {required String firebaseId, required LocationDto? currentLocation});
-  Future<void> goOnline(
-      {required String firebaseId, required LocationDto currentLocation});
+  void initializeSocket();
+  void goOnline();
   void goOffline();
 }
 
@@ -29,36 +27,19 @@ class DriverOperationsRepository
 
   // Private method to handle socket initialization
   @override
-  Future<void> initializeSocket(
-      {required String firebaseId,
-      required LocationDto? currentLocation}) async {
+  Future<void> initializeSocket() async {
     try {
-      await driverSocketService.connectWithAuth(
-        firebaseId: firebaseId,
-        location: currentLocation,
-      );
-      // await tripsSocketService.connectWithAuth(
-      //     firebaseId: firebaseId, namespace: SocketConstants.tripsNamespace);
+      await driverSocketService.connectWithAuth();
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');
-      // You might want to rethrow or handle this error based on your needs
     }
   }
 
   @override
-  Future<void> goOnline(
-      {required String firebaseId,
-      required LocationDto currentLocation}) async {
+  void goOnline() async {
     try {
-      final location = LocationDto(
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
-      );
-      await driverSocketService.connectWithAuth(
-        firebaseId: firebaseId,
-        location: location,
-      );
+      await driverSocketService.connectWithAuth();
     } catch (e) {
       goOffline();
       _logger.severe('Failed to go online: $e');

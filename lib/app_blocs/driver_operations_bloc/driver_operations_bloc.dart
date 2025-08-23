@@ -41,7 +41,6 @@ class DriverOperationsBloc
       Emitter<DriverOperationsState> emit) async {
     emit(const DriverOperationsState.loading());
     final currentLocation = await locationRepository.getCurrentLocation();
-    final firebaseId = await firebaseRepository.getCurrentUser();
 
     if (currentLocation == null) {
       emit(const DriverOperationsState.error(
@@ -49,11 +48,7 @@ class DriverOperationsBloc
       ));
       return;
     }
-    await driverOperationsRepository.initializeSocket(
-        firebaseId: firebaseId.uid,
-        currentLocation: LocationDto(
-            latitude: currentLocation.latitude,
-            longitude: currentLocation.longitude));
+    await driverOperationsRepository.initializeSocket();
     emit(DriverOperationsState.offline(
       lastKnownLocation: currentLocation,
     ));
@@ -104,25 +99,19 @@ class DriverOperationsBloc
         return;
       } // Set online time
 
-      await driverOperationsRepository.goOnline(
-          firebaseId: firebaseId.uid,
-          currentLocation: LocationDto(
-              latitude: currentLocation.latitude,
-              longitude: currentLocation.longitude));
+      driverOperationsRepository.goOnline();
 
       emit(DriverOperationsState.online(
         currentLocation: currentLocation,
       ));
 
       _locationSubscription = locationRepository.getLocationStream().listen(
-        (position) {
+        (position) async {
           logger.info(
               'Tracking location for driver: ${firebaseId.uid}. Position: ${position.latitude}, ${position.longitude}');
           // Emit location update to socket
-          emit(DriverOperationsState.online(
-            currentLocation: position,
-          ));
-          driverOperationsRepository.startTrackingLocation(
+          add(DriverOperationsLocationUpdated(position));
+          await driverOperationsRepository.startTrackingLocation(
             firebaseId: firebaseId.uid,
             currentLocation: position,
           );

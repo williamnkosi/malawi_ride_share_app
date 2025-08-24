@@ -30,9 +30,37 @@ class DriverOperationsRepository
   Future<void> initializeSocket() async {
     try {
       await driverLocationSocketService.connectWithAuth();
+      await driverTripSocketService.connectWithAuth();
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');
+      // Disconnect any connected sockets if initialization fails
+      await _disconnectAllSockets();
+      rethrow;
+    }
+  }
+
+  /// Disconnects all socket services safely
+  Future<void> _disconnectAllSockets() async {
+    try {
+      _logger.info('Disconnecting all socket services...');
+
+      // Disconnect location socket if connected
+      if (driverLocationSocketService.isConnected) {
+        driverLocationSocketService.disconnect();
+        _logger.info('Location socket disconnected');
+      }
+
+      // Disconnect trip socket if connected
+      if (driverTripSocketService.isConnected) {
+        driverTripSocketService.disconnect();
+        _logger.info('Trip socket disconnected');
+      }
+
+      _logger.info('All socket services disconnected');
+    } catch (e) {
+      _logger.severe('Error during socket disconnection: $e');
+      // Don't rethrow here - we want to ensure cleanup happens
     }
   }
 

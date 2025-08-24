@@ -9,8 +9,6 @@ import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/rider_socket_service.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
 GetIt getIt = GetIt.instance;
 

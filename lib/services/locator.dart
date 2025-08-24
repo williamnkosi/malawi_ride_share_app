@@ -7,6 +7,7 @@ import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
+import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/rider_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
@@ -41,6 +42,17 @@ Future<void> setupGetIt() async {
     },
   );
 
+  logger.info('=====================================');
+  getIt.registerSingletonAsync<DriverTripSocketService>(
+    () async {
+      logger.info('🔄 Creating DriverTripSocketService...');
+      final socketService = DriverTripSocketService();
+
+      logger.info('✅ DriverTripSocketService initialized');
+      return socketService;
+    },
+  );
+
   getIt.registerSingletonAsync<RiderSocketService>(
     () async {
       logger.info('🔄 Creating RiderSocketService...');
@@ -61,7 +73,8 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<DriverOperationsRepository>(() =>
       DriverOperationsRepository(
-          driverSocketService: getIt<DriverLocationSocketService>()));
+          driverLocationSocketService: getIt<DriverLocationSocketService>(),
+          driverTripSocketService: getIt<DriverTripSocketService>()));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 }

@@ -11,8 +11,11 @@ import 'package:socket_io_client/socket_io_client.dart' as io;
 abstract class SocketService implements SocketServiceInterface {
   io.Socket? socket;
   final Logger _logger = Logger('SocketService');
+  final String? namespace;
 
   final Map<String, StreamController<dynamic>> _eventControllers = {};
+
+  SocketService({this.namespace});
 
   @override
   bool get isConnected => socket?.connected ?? false;
@@ -26,18 +29,20 @@ abstract class SocketService implements SocketServiceInterface {
       }
 
       final socketUrl = SocketConstants.socketUrl;
+      final fullUrl = namespace != null ? '$socketUrl$namespace' : socketUrl;
 
       _logger.info('=== SOCKET INITIALIZATION DEBUG ===');
 
-      _logger.info('Generated URL: $socketUrl');
+      _logger.info('Generated base URL: $socketUrl');
+      _logger.info('Namespace: ${namespace ?? 'default (/)'}');
+      _logger.info('Full URL: $fullUrl');
       _logger.info('IP from env: ${dotenv.env['ip_address']}');
       _logger.info('Port from env: ${dotenv.env['SOCKET_PORT']}');
       _logger.info('Timeout from env: ${dotenv.env['SOCKET_TIMEOUT_SECONDS']}');
-      _logger.info('Base socket URL: ${SocketConstants.socketUrl}');
       _logger.info('=====================================');
 
       socket = io.io(
-          socketUrl,
+          fullUrl,
           io.OptionBuilder()
               .setTransports(['websocket'])
               .disableAutoConnect() // Changed from autoConnect: false
@@ -49,7 +54,8 @@ abstract class SocketService implements SocketServiceInterface {
 
       _setupEventListeners();
 
-      _logger.info('Socket service initialized and connected to: $socketUrl');
+      _logger.info(
+          'Socket service initialized for namespace: ${namespace ?? 'default'} at: $fullUrl');
     } catch (e) {
       _logger.severe('Failed to initialize socket: $e');
       rethrow;
@@ -88,19 +94,26 @@ abstract class SocketService implements SocketServiceInterface {
         throw Exception('No authenticated user found');
       }
 
-      final idToken = await currentUser.getIdToken();
+      // Force token refresh to ensure it's valid
+      final idToken = await currentUser.getIdToken(true);
       final firebaseId = currentUser.uid;
-      _logger.info('✅ Firebase token obtained');
+
+      _logger.info('✅ Firebase token obtained and refreshed');
       _logger.info('✅ Firebase id obtained: $firebaseId');
+      if (idToken != null) {
+        _logger.info('🔍 Token length: ${idToken.length} characters');
+      }
+
       // Set auth data with all required fields
       socket!.auth = {
         'token': idToken,
-        'firebaseId': firebaseId, // ← This was missing!
+        'firebaseId': firebaseId,
       };
 
       // Connect only if not already connected
       if (!isConnected) {
-        _logger.info('🔌 Connecting socket with auth data: ${socket!.auth}');
+        _logger.info(
+            '🔌 Connecting socket with auth data: ${socket!.auth.keys.toList()}');
         socket!.connect();
 
         // Wait for connection
@@ -268,10 +281,26 @@ abstract class SocketService implements SocketServiceInterface {
 
     socket!.onConnect((_) {
       _logger.info('✅ Socket connected successfully');
+      _logger.info('🔗 Socket ID: ${socket!.id}');
+      _logger.info('🔗 Socket auth: ${socket!.auth}');
     });
 
     socket!.onDisconnect((reason) {
-      _logger.info('❌ Socket disconnected. Reason: $reason');
+      _logger.severe('❌ Socket disconnected. Reason: $reason');
+      _logger.severe('🔗 Socket ID was: ${socket!.id}');
+
+      // Log specific disconnect reasons
+      if (reason == 'io server disconnect') {
+        _logger.severe('🚨 Server forcibly disconnected this client');
+        _logger
+            .severe('💡 Check: Auth token, server logs, namespace permissions');
+      } else if (reason == 'io client disconnect') {
+        _logger.info('📱 Client initiated disconnect');
+      } else if (reason == 'ping timeout') {
+        _logger.warning('⏰ Connection lost due to ping timeout');
+      } else if (reason == 'transport close') {
+        _logger.warning('🔌 Transport connection closed');
+      }
     });
 
     socket!.onError((error) {

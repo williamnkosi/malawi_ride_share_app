@@ -4,19 +4,26 @@ import 'package:malawi_ride_share_app/services/socket_service/socket_service.dar
 
 class DriverSocketService extends SocketService {
   final Logger _logger = Logger('DriverSocketService');
+
+  // Constructor that sets the trips namespace
+  DriverSocketService() : super(namespace: SocketConstants.tripsNamespace);
+
   @override
   void setupCustomEventListeners() {
     if (socket == null) return;
 
-    socket!.on(SocketConstants.driverTripRequestReceived, (data) {
-      socket!.on('trip_request', (data) {
-        _logger.info('Received trip request: $data');
-        broadcastEvent('trip_request', data);
-      });
+    // Listen for trip request events
+    socket!.on('trip:new_request', (data) {
+      _logger.info('Received trip request: $data');
+      broadcastEvent('trip:new_request', data);
     });
+
     socket!.on(SocketConstants.driverTripCancelled, (data) {
-      // Handle trip cancelled
+      _logger.info('Trip cancelled: $data');
+      broadcastEvent(SocketConstants.driverTripCancelled, data);
     });
-    // ...other driver events
+
+    _logger.info(
+        'Driver socket listeners set up for namespace: ${SocketConstants.tripsNamespace}');
   }
 }

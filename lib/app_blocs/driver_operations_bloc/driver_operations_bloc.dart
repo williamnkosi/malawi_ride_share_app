@@ -39,19 +39,28 @@ class DriverOperationsBloc
 
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
       Emitter<DriverOperationsState> emit) async {
-    emit(const DriverOperationsState.loading());
-    final currentLocation = await locationRepository.getCurrentLocation();
+    try {
+      emit(const DriverOperationsState.loading());
+      final currentLocation = await locationRepository.getCurrentLocation();
 
-    if (currentLocation == null) {
-      emit(const DriverOperationsState.error(
-        message: 'Unable to get current location. Please check GPS settings.',
+      if (currentLocation == null) {
+        logger.severe('Unable to get current location during initialization.');
+        emit(const DriverOperationsState.error(
+          message: 'Unable to get current location. Please check GPS settings.',
+        ));
+        return;
+      }
+      await driverOperationsRepository.initializeSocket();
+      logger.info('DriverOperationsBloc initialized successfully.');
+      emit(DriverOperationsState.offline(
+        lastKnownLocation: currentLocation,
       ));
-      return;
+    } catch (e) {
+      logger.severe('Error during driver operations initialization: $e');
+      emit(DriverOperationsState.error(
+        message: 'Failed to initialize driver operations: ${e.toString()}',
+      ));
     }
-    await driverOperationsRepository.initializeSocket();
-    emit(DriverOperationsState.offline(
-      lastKnownLocation: currentLocation,
-    ));
   }
 
   _onDriverOperationsGoOffline(DriverOperationsGoOffline event,

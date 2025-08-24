@@ -19,8 +19,14 @@ class SocketConstants {
       int.parse(dotenv.env['SOCKET_MAX_RECONNECT_ATTEMPTS'] ?? '5');
 
   static String getNamespaceUrl(String namespace) {
-    return socketUrl;
+    return '$socketUrl$namespace';
   }
+
+  // =================================================================
+  // NAMESPACES
+  // =================================================================
+  static const String tripsNamespace = '/trips';
+  static const String locationTrackingNamespace = '/location-tracking';
 
   // =================================================================
   // DRIVER WEBSOCKET EVENTS

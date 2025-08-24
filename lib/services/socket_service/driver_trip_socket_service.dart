@@ -2,16 +2,11 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
 
-class DriverSocketService extends SocketService {
-  final Logger _logger = Logger('DriverSocketService');
-
-  // Constructor that sets the trips namespace
-  DriverSocketService() : super(namespace: SocketConstants.tripsNamespace);
-
+class DriverTripSocketService extends SocketService {
+  final Logger _logger = Logger('DriverTripSocketService');
+  DriverTripSocketService() : super(namespace: SocketConstants.tripsNamespace);
   @override
   void setupCustomEventListeners() {
-    if (socket == null) return;
-
     // Listen for trip request events
     socket!.on('trip:new_request', (data) {
       _logger.info('Received trip request: $data');

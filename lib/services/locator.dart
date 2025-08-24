@@ -6,7 +6,7 @@ import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
-import 'package:malawi_ride_share_app/services/socket_service/driver_socket_service.dart';
+import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/rider_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
@@ -30,16 +30,13 @@ Future<void> setupGetIt() async {
       FirebaseRepository(apiService: getIt<ApiService>()));
   logger.info('FirebaseRepository registered');
 
-  // getIt.registerSingleton<SocketService>(SocketService());
-  // logger.info('SocketService registered');
-
   logger.info('=====================================');
-  getIt.registerSingletonAsync<DriverSocketService>(
+  getIt.registerSingletonAsync<DriverLocationSocketService>(
     () async {
-      logger.info('🔄 Creating DriverSocketService...');
-      final socketService = DriverSocketService();
+      logger.info('🔄 Creating DriverLocationSocketService...');
+      final socketService = DriverLocationSocketService();
 
-      logger.info('✅ DriverSocketService initialized');
+      logger.info('✅ DriverLocationSocketService initialized');
       return socketService;
     },
   );
@@ -64,7 +61,7 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<DriverOperationsRepository>(() =>
       DriverOperationsRepository(
-          driverSocketService: getIt<DriverSocketService>()));
+          driverSocketService: getIt<DriverLocationSocketService>()));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 }

@@ -28,12 +28,33 @@ class DriverOperationsRepository
 
   @override
   Future<void> initializeSocket() async {
+    bool locationSocketConnected = false;
+    bool tripSocketConnected = false;
+
     try {
+      // Connect location socket first
+      _logger.info('Connecting to location socket...');
       await driverLocationSocketService.connectWithAuth();
+      locationSocketConnected = true;
+      _logger.info('✅ Location socket connected successfully');
+
+      // Connect trip socket second
+      _logger.info('Connecting to trip socket...');
       await driverTripSocketService.connectWithAuth();
+      tripSocketConnected = true;
+      _logger.info('✅ Trip socket connected successfully');
+
       _logger.info('Socket service initialized in DriverOperationsRepository');
     } catch (e) {
       _logger.severe('Failed to initialize socket service: $e');
+
+      // Log which sockets were connected before failure
+      _logger.severe('Connection status at failure:');
+      _logger.severe(
+          '  - Location socket: ${locationSocketConnected ? "CONNECTED" : "FAILED"}');
+      _logger.severe(
+          '  - Trip socket: ${tripSocketConnected ? "CONNECTED" : "FAILED"}');
+
       // Disconnect any connected sockets if initialization fails
       await _disconnectAllSockets();
       rethrow;
@@ -48,16 +69,20 @@ class DriverOperationsRepository
       // Disconnect location socket if connected
       if (driverLocationSocketService.isConnected) {
         driverLocationSocketService.disconnect();
-        _logger.info('Location socket disconnected');
+        _logger.info('🔌 Location socket disconnected');
+      } else {
+        _logger.info('📍 Location socket was not connected');
       }
 
       // Disconnect trip socket if connected
       if (driverTripSocketService.isConnected) {
         driverTripSocketService.disconnect();
-        _logger.info('Trip socket disconnected');
+        _logger.info('🔌 Trip socket disconnected');
+      } else {
+        _logger.info('🚗 Trip socket was not connected');
       }
 
-      _logger.info('All socket services disconnected');
+      _logger.info('All socket services processed');
     } catch (e) {
       _logger.severe('Error during socket disconnection: $e');
       // Don't rethrow here - we want to ensure cleanup happens
@@ -92,14 +117,21 @@ class DriverOperationsRepository
   @override
   void goOffline() async {
     try {
-      driverLocationSocketService.disconnect();
+      _logger.info('Going offline - disconnecting sockets...');
 
-      _logger.info('Driver  went offline and disconnected');
+      // Use the centralized disconnect function for consistency
+      await _disconnectAllSockets();
+
+      _logger.info('Driver went offline and all sockets disconnected');
     } catch (e) {
       _logger.severe('Failed to go offline: $e');
-      // Still disconnect even if status update fails
-      driverLocationSocketService.disconnect();
-
+      // Still try to disconnect even if other operations fail
+      try {
+        await _disconnectAllSockets();
+      } catch (disconnectError) {
+        _logger.severe(
+            'Failed to disconnect sockets during error handling: $disconnectError');
+      }
       rethrow;
     }
   }

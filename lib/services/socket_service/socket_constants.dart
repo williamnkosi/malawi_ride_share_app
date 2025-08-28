@@ -26,7 +26,7 @@ class SocketConstants {
   // NAMESPACES
   // =================================================================
   static const String tripsNamespace = '/trips';
-  static const String locationTrackingNamespace = '/driver-location';
+  static const String locationTrackingNamespace = '/driver';
 
   // =================================================================
   // DRIVER WEBSOCKET EVENTS

@@ -7,7 +7,7 @@ class DriverLocationSocketService extends SocketService {
 
   // Constructor that sets the trips namespace
   DriverLocationSocketService()
-      : super(namespace: SocketConstants.tripsNamespace);
+      : super(namespace: SocketConstants.locationTrackingNamespace);
 
   @override
   void setupCustomEventListeners() {

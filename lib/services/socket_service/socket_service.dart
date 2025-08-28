@@ -108,6 +108,7 @@ abstract class SocketService implements SocketServiceInterface {
       socket!.auth = {
         'token': idToken,
         'firebaseId': firebaseId,
+        'userType': 'driver'
       };
 
       // Connect only if not already connected

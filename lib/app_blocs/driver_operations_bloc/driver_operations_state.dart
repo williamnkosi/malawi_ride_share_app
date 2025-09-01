@@ -26,7 +26,7 @@ class DriverOperationsState with _$DriverOperationsState {
   // Driver is en route to pickup passenger
   const factory DriverOperationsState.enRouteToPickup({
     required Position currentLocation,
-    required Trip activeTrip,
+    required TripRequestNotificationDto activeTrip,
     required DateTime estimatedPickupTime,
     required DateTime onlineTime,
     @Default([]) List<Position> locationHistory,

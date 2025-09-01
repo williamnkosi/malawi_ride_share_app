@@ -23,6 +23,7 @@ class DriverOperationsBloc
   final FirebaseRepository firebaseRepository;
   final DriverOperationsRepository driverOperationsRepository;
   StreamSubscription<Position>? _locationSubscription;
+  StreamSubscription<dynamic>? _onRouteLocationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
   DriverOperationsBloc(
@@ -38,6 +39,7 @@ class DriverOperationsBloc
     on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
     on<DriverOperationsLocationUpdated>(_onLocationUpdated);
     on<DriverOperationsTripRequestReceived>(_onTripRequestReceived);
+    on<DriverOperationsAcceptTrip>(_onTripRequestAccepted);
 
     // Subscribe to trip request events from socket
     _setupTripRequestListener();
@@ -85,6 +87,37 @@ class DriverOperationsBloc
       logger.severe('Error during driver operations initialization: $e');
       emit(DriverOperationsState.error(
         message: 'Failed to initialize driver operations: ${e.toString()}',
+      ));
+    }
+  }
+
+  _onTripRequestAccepted(DriverOperationsAcceptTrip event,
+      Emitter<DriverOperationsState> emit) async {
+    try {
+      TripRequestNotificationDto? currentTripRequest = state.maybeWhen(
+          tripRequestReceived: (tripRequest) {
+            return tripRequest;
+          },
+          orElse: () => null);
+
+      emit(const DriverOperationsState.loading());
+      // Accept the trip request
+      driverOperationsRepository.acceptTrip(tripId: currentTripRequest!.tripId);
+
+      _onRouteLocationSubscription =
+          locationRepository.getLocationStream().listen((position) async {
+        // Handle location updates while en route to pickup
+        emit(DriverOperationsState.enRouteToPickup(
+          currentLocation: position,
+          activeTrip: currentTripRequest,
+          estimatedPickupTime: DateTime.now().add(Duration(minutes: 5)),
+          onlineTime: DateTime.now(),
+        ));
+      });
+    } catch (e) {
+      logger.severe('Error accepting trip request: $e');
+      emit(DriverOperationsState.error(
+        message: 'Failed to accept trip request: ${e.toString()}',
       ));
     }
   }

@@ -888,6 +888,8 @@ abstract class _$$DriverOperationsTripRequestReceivedImplCopyWith<$Res> {
       __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TripRequestNotificationDto tripData});
+
+  $TripRequestNotificationDtoCopyWith<$Res> get tripData;
 }
 
 /// @nodoc
@@ -905,14 +907,24 @@ class __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tripData = freezed,
+    Object? tripData = null,
   }) {
     return _then(_$DriverOperationsTripRequestReceivedImpl(
-      tripData: freezed == tripData
+      tripData: null == tripData
           ? _value.tripData
           : tripData // ignore: cast_nullable_to_non_nullable
               as TripRequestNotificationDto,
     ));
+  }
+
+  /// Create a copy of DriverOperationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TripRequestNotificationDtoCopyWith<$Res> get tripData {
+    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripData, (value) {
+      return _then(_value.copyWith(tripData: value));
+    });
   }
 }
 
@@ -935,12 +947,12 @@ class _$DriverOperationsTripRequestReceivedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DriverOperationsTripRequestReceivedImpl &&
-            const DeepCollectionEquality().equals(other.tripData, tripData));
+            (identical(other.tripData, tripData) ||
+                other.tripData == tripData));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(tripData));
+  int get hashCode => Object.hash(runtimeType, tripData);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2282,7 +2294,7 @@ mixin _$DriverOperationsState {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -2330,7 +2342,7 @@ mixin _$DriverOperationsState {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -2377,7 +2389,7 @@ mixin _$DriverOperationsState {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -2537,7 +2549,7 @@ class _$InitialImpl implements _Initial {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -2588,7 +2600,7 @@ class _$InitialImpl implements _Initial {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -2638,7 +2650,7 @@ class _$InitialImpl implements _Initial {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -2796,7 +2808,7 @@ class _$LoadingImpl implements _Loading {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -2847,7 +2859,7 @@ class _$LoadingImpl implements _Loading {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -2897,7 +2909,7 @@ class _$LoadingImpl implements _Loading {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3083,7 +3095,7 @@ class _$OfflineImpl implements _Offline {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -3134,7 +3146,7 @@ class _$OfflineImpl implements _Offline {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3184,7 +3196,7 @@ class _$OfflineImpl implements _Offline {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3378,7 +3390,7 @@ class _$OnlineImpl implements _Online {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -3429,7 +3441,7 @@ class _$OnlineImpl implements _Online {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3479,7 +3491,7 @@ class _$OnlineImpl implements _Online {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3604,6 +3616,8 @@ abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
       __$$TripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TripRequestNotificationDto tripRequest});
+
+  $TripRequestNotificationDtoCopyWith<$Res> get tripRequest;
 }
 
 /// @nodoc
@@ -3619,14 +3633,25 @@ class __$$TripRequestReceivedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tripRequest = freezed,
+    Object? tripRequest = null,
   }) {
     return _then(_$TripRequestReceivedImpl(
-      tripRequest: freezed == tripRequest
+      tripRequest: null == tripRequest
           ? _value.tripRequest
           : tripRequest // ignore: cast_nullable_to_non_nullable
               as TripRequestNotificationDto,
     ));
+  }
+
+  /// Create a copy of DriverOperationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TripRequestNotificationDtoCopyWith<$Res> get tripRequest {
+    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripRequest,
+        (value) {
+      return _then(_value.copyWith(tripRequest: value));
+    });
   }
 }
 
@@ -3648,13 +3673,12 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TripRequestReceivedImpl &&
-            const DeepCollectionEquality()
-                .equals(other.tripRequest, tripRequest));
+            (identical(other.tripRequest, tripRequest) ||
+                other.tripRequest == tripRequest));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(tripRequest));
+  int get hashCode => Object.hash(runtimeType, tripRequest);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3676,7 +3700,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -3727,7 +3751,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3777,7 +3801,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -3904,12 +3928,12 @@ abstract class _$$EnRouteToPickupImplCopyWith<$Res> {
   @useResult
   $Res call(
       {Position currentLocation,
-      Trip activeTrip,
+      TripRequestNotificationDto activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory});
 
-  $TripCopyWith<$Res> get activeTrip;
+  $TripRequestNotificationDtoCopyWith<$Res> get activeTrip;
 }
 
 /// @nodoc
@@ -3939,7 +3963,7 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
       activeTrip: null == activeTrip
           ? _value.activeTrip
           : activeTrip // ignore: cast_nullable_to_non_nullable
-              as Trip,
+              as TripRequestNotificationDto,
       estimatedPickupTime: null == estimatedPickupTime
           ? _value.estimatedPickupTime
           : estimatedPickupTime // ignore: cast_nullable_to_non_nullable
@@ -3959,8 +3983,9 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TripCopyWith<$Res> get activeTrip {
-    return $TripCopyWith<$Res>(_value.activeTrip, (value) {
+  $TripRequestNotificationDtoCopyWith<$Res> get activeTrip {
+    return $TripRequestNotificationDtoCopyWith<$Res>(_value.activeTrip,
+        (value) {
       return _then(_value.copyWith(activeTrip: value));
     });
   }
@@ -3980,7 +4005,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @override
   final Position currentLocation;
   @override
-  final Trip activeTrip;
+  final TripRequestNotificationDto activeTrip;
   @override
   final DateTime estimatedPickupTime;
   @override
@@ -4045,7 +4070,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -4097,7 +4122,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -4148,7 +4173,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -4257,13 +4282,13 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
 abstract class _EnRouteToPickup implements DriverOperationsState {
   const factory _EnRouteToPickup(
       {required final Position currentLocation,
-      required final Trip activeTrip,
+      required final TripRequestNotificationDto activeTrip,
       required final DateTime estimatedPickupTime,
       required final DateTime onlineTime,
       final List<Position> locationHistory}) = _$EnRouteToPickupImpl;
 
   Position get currentLocation;
-  Trip get activeTrip;
+  TripRequestNotificationDto get activeTrip;
   DateTime get estimatedPickupTime;
   DateTime get onlineTime;
   List<Position> get locationHistory;
@@ -4401,7 +4426,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -4453,7 +4478,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -4504,7 +4529,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -4777,7 +4802,7 @@ class _$OnTripImpl implements _OnTrip {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -4829,7 +4854,7 @@ class _$OnTripImpl implements _OnTrip {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -4880,7 +4905,7 @@ class _$OnTripImpl implements _OnTrip {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5154,7 +5179,7 @@ class _$TripCompletedImpl implements _TripCompleted {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -5206,7 +5231,7 @@ class _$TripCompletedImpl implements _TripCompleted {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5257,7 +5282,7 @@ class _$TripCompletedImpl implements _TripCompleted {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5522,7 +5547,7 @@ class _$TripCancelledImpl implements _TripCancelled {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -5574,7 +5599,7 @@ class _$TripCancelledImpl implements _TripCancelled {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5625,7 +5650,7 @@ class _$TripCancelledImpl implements _TripCancelled {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5851,7 +5876,7 @@ class _$UnavailableImpl implements _Unavailable {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -5902,7 +5927,7 @@ class _$UnavailableImpl implements _Unavailable {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -5952,7 +5977,7 @@ class _$UnavailableImpl implements _Unavailable {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -6175,7 +6200,7 @@ class _$StateErrorImpl implements _StateError {
         tripRequestReceived,
     required TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)
@@ -6226,7 +6251,7 @@ class _$StateErrorImpl implements _StateError {
         tripRequestReceived,
     TResult? Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?
@@ -6276,7 +6301,7 @@ class _$StateErrorImpl implements _StateError {
         tripRequestReceived,
     TResult Function(
             Position currentLocation,
-            Trip activeTrip,
+            TripRequestNotificationDto activeTrip,
             DateTime estimatedPickupTime,
             DateTime onlineTime,
             List<Position> locationHistory)?

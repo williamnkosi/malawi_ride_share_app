@@ -12,6 +12,7 @@ abstract class DriverOperationsRepositoryInterface {
   Future<void> startTrackingLocation(
       {required String firebaseId, required Position currentLocation});
   void goOffline();
+  void acceptTrip({required String tripId});
 }
 
 class DriverOperationsRepository
@@ -133,6 +134,18 @@ class DriverOperationsRepository
             'Failed to disconnect sockets during error handling: $disconnectError');
       }
       rethrow;
+    }
+  }
+
+  @override
+  void acceptTrip({required String tripId}) {
+    try {
+      _logger.info('Accepting trip: $tripId');
+      driverTripSocketService
+          .emitWithAck(SocketConstants.driverAcceptTrip, {'tripId': tripId});
+    } catch (e) {
+      _logger.severe('Failed to accept trip $tripId: $e');
+      throw Exception('Failed to accept trip $tripId: $e');
     }
   }
 }

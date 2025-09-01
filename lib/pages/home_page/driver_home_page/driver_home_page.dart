@@ -165,7 +165,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
               onPressed: () {
                 Navigator.of(context).pop();
                 context.read<DriverOperationsBloc>().add(
-                      const DriverOperationsEvent.acceptTrip(),
+                      DriverOperationsEvent.acceptTrip(),
                     );
               },
               child: const Text('Accept'),

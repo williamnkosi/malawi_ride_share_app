@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
 import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
@@ -22,6 +23,7 @@ class DriverOperationsBloc
   final FirebaseRepository firebaseRepository;
   final DriverOperationsRepository driverOperationsRepository;
   StreamSubscription<Position>? _locationSubscription;
+  StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
   DriverOperationsBloc(
       {required this.firebaseRepository,
@@ -35,6 +37,30 @@ class DriverOperationsBloc
     on<DriverOperationsGoOffline>(_onDriverOperationsGoOffline);
     on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
     on<DriverOperationsLocationUpdated>(_onLocationUpdated);
+    on<DriverOperationsTripRequestReceived>(_onTripRequestReceived);
+
+    // Subscribe to trip request events from socket
+    _setupTripRequestListener();
+  }
+
+  void _setupTripRequestListener() {
+    _tripRequestSubscription = driverOperationsRepository
+        .driverTripSocketService
+        .on<Map<String, dynamic>>('trip:new_request')
+        .listen((data) {
+      final tripData = TripRequestNotificationDto.fromJson(data);
+      logger.info('🚗 Trip request received from socket: $data');
+      add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
+    });
+  }
+
+  void _onTripRequestReceived(DriverOperationsTripRequestReceived event,
+      Emitter<DriverOperationsState> emit) {
+    logger.info('Handling trip request in BLoC: ${event.tripData}');
+    // Handle the trip request - update state, show notification, etc.
+    emit(DriverOperationsState.tripRequestReceived(
+      tripRequest: event.tripData,
+    ));
   }
 
   _onDriverOperationsInitialize(DriverOperationsInitialize event,
@@ -173,6 +199,7 @@ class DriverOperationsBloc
   @override
   Future<void> close() {
     _stopLocationTracking();
+    _tripRequestSubscription?.cancel();
     return super.close();
   }
 }

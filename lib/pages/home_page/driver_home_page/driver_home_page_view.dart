@@ -18,34 +18,25 @@ class DriverHomePageView extends StatefulWidget {
 class _DriverHomePageViewState extends State<DriverHomePageView> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DriverOperationsBloc(
-          firebaseRepository: getIt<FirebaseRepository>(),
-          locationRepository: getIt<LocationRepository>(),
-          driverOperationsRepository: getIt<DriverOperationsRepository>())
-        ..add(
-          const DriverOperationsEvent.initialize(),
-        ),
-      child: BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            initial: () => const Center(child: CircularProgressIndicator()),
-            loading: () => const Center(child: CircularProgressIndicator()),
-            orElse: () {
-              return Column(
-                children: [
-                  // Driver status bar
-                  DriverStatusBar(),
-                  // Google Maps view
-                  DriverMapsSection(),
-                  // Bottom action panel
-                  DriverOptionsBar(),
-                ],
-              );
-            },
-          );
-        },
-      ),
+    return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          initial: () => const Center(child: CircularProgressIndicator()),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          orElse: () {
+            return Column(
+              children: [
+                // Driver status bar
+                DriverStatusBar(),
+                // Google Maps view
+                DriverMapsSection(),
+                // Bottom action panel
+                DriverOptionsBar(),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }

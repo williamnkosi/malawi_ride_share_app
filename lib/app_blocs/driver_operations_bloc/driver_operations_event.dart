@@ -11,8 +11,9 @@ class DriverOperationsEvent with _$DriverOperationsEvent {
       DriverOperationsLocationUpdated;
 
   // Trip management events
-  const factory DriverOperationsEvent.tripRequestReceived() =
-      DriverOperationsTripRequestReceived;
+  const factory DriverOperationsEvent.tripRequestReceived({
+    required TripRequestNotificationDto tripData,
+  }) = DriverOperationsTripRequestReceived;
   const factory DriverOperationsEvent.acceptTrip() = DriverOperationsAcceptTrip;
   const factory DriverOperationsEvent.rejectTrip() = DriverOperationsRejectTrip;
   const factory DriverOperationsEvent.startTrip() = DriverOperationsStartTrip;

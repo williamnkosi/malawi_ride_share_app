@@ -20,10 +20,7 @@ class DriverOperationsState with _$DriverOperationsState {
 
   // Driver received a trip request
   const factory DriverOperationsState.tripRequestReceived({
-    required Position currentLocation,
-    required TripRequest tripRequest,
-    required DateTime onlineTime,
-    @Default([]) List<Position> locationHistory,
+    required TripRequestNotificationDto tripRequest,
   }) = _TripRequestReceived;
 
   // Driver is en route to pickup passenger

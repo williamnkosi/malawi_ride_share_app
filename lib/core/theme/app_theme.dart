@@ -53,6 +53,53 @@ ThemeData buildAppTheme() {
         ),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.surface,
+      contentPadding: EdgeInsets.symmetric(
+          horizontal: defaultAppSpacing.m, vertical: defaultAppSpacing.m),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.border, width: 1),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.border, width: 1),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.primary, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.error, width: 1),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.error, width: 2),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(defaultAppRadii.s),
+        borderSide: BorderSide(color: AppColors.gray20, width: 1),
+      ),
+      labelStyle: TextStyle(
+        fontSize: defaultTypographyTokens.bodyMedium,
+        fontWeight: FontWeight.w400,
+        color: AppColors.gray60,
+      ),
+      hintStyle: TextStyle(
+        fontSize: defaultTypographyTokens.bodyMedium,
+        fontWeight: FontWeight.w400,
+        color: AppColors.gray40,
+      ),
+      errorStyle: TextStyle(
+        fontSize: defaultTypographyTokens.labelSmall,
+        fontWeight: FontWeight.w400,
+        color: AppColors.error,
+      ),
+      prefixIconColor: AppColors.gray60,
+      suffixIconColor: AppColors.gray60,
+    ),
     colorScheme: ColorScheme.light(
       primary: AppColors.primary,
       primaryContainer: AppColors.primaryContainer,

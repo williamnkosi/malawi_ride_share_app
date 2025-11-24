@@ -8,7 +8,9 @@ import 'package:malawi_ride_share_app/core/theme/app_typography.dart';
 import 'package:malawi_ride_share_app/core/theme/app_typography_token.dart';
 import 'package:malawi_ride_share_app/core/theme/bottom_sheet_theme.dart';
 import 'package:malawi_ride_share_app/core/theme/button_themes.dart';
+import 'package:malawi_ride_share_app/core/theme/dialog_theme.dart';
 import 'package:malawi_ride_share_app/core/theme/input_decoration_theme.dart';
+import 'package:malawi_ride_share_app/core/theme/snack_bar_theme.dart';
 
 ThemeData buildAppTheme() {
   return ThemeData(
@@ -27,6 +29,8 @@ ThemeData buildAppTheme() {
       defaultAppSpacing,
       defaultTypographyTokens,
     ),
+    snackBarTheme: buildSnackBarTheme(defaultAppRadii),
+    dialogTheme: buildDialogTheme(defaultAppElevation, defaultAppRadii),
     colorScheme: ColorScheme.light(
       primary: AppColors.primary,
       primaryContainer: AppColors.primaryContainer,

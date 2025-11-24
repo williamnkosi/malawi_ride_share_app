@@ -22,11 +22,13 @@ class AuthRepository {
         throw CustomException("No user found for that email");
       } else if (e.code == 'wrong-password') {
         throw CustomException("Wrong password provided for that user");
+      } else {
+        // Handle other FirebaseAuthException cases
+        throw CustomException("Authentication failed: ${e.message}");
       }
     } catch (e) {
-      throw CustomException("Couldn't complete request");
+      throw CustomException("Couldn't complete request -- $e");
     }
-    throw CustomException("Couldn't complete request");
   }
 
   Future<UserCredential> signUpUserEmailAndPassword(

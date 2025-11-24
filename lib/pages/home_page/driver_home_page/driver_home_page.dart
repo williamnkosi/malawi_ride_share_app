@@ -130,7 +130,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) {
+      builder: (BuildContext dialogContext) {
         return AlertDialog(
           title: const Text('New Trip Request'),
           content: Column(
@@ -154,7 +154,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(dialogContext).pop();
                 context.read<DriverOperationsBloc>().add(
                       const DriverOperationsEvent.rejectTrip(),
                     );
@@ -163,7 +163,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(dialogContext).pop();
                 context.read<DriverOperationsBloc>().add(
                       DriverOperationsEvent.acceptTrip(),
                     );

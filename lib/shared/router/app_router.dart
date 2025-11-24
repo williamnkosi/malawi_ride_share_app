@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/bottom_navigation_bar.dart';
 import 'package:malawi_ride_share_app/core/theme/app_theme.dart';
-import 'package:malawi_ride_share_app/pages/auth_signup_page/auth_signup_page.dart';
 import 'package:malawi_ride_share_app/pages/login_page/login_page.dart';
 import 'package:malawi_ride_share_app/pages/signup_user_page/signup_user_page.dart';
 import 'package:malawi_ride_share_app/shared/router/router.dart';

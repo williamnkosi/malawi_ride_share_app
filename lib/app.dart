@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/location_bloc/location_bloc.dart';
-import 'package:malawi_ride_share_app/core/theme/app_theme.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
 import 'package:malawi_ride_share_app/repository/auth_repository.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';

@@ -36,3 +36,9 @@ class AppElevation extends ThemeExtension<AppElevation> {
     );
   }
 }
+
+const defaultAppElevation = AppElevation(
+  low: 2,
+  medium: 4,
+  high: 8,
+);

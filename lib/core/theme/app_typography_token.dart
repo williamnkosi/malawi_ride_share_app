@@ -47,3 +47,11 @@ class AppTypographyToken extends ThemeExtension<AppTypographyToken> {
     );
   }
 }
+
+const defaultTypographyTokens = AppTypographyToken(
+  displayLarge: 34.0,
+  titleLarge: 20.0,
+  bodyLarge: 16.0,
+  bodyMedium: 14.0,
+  labelSmall: 12.0,
+);

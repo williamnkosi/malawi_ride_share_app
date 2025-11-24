@@ -42,6 +42,9 @@ class LoginPage extends StatelessWidget {
                 ]),
               ),
               SizedBox(
+                height: 32,
+              ),
+              SizedBox(
                   width: double.infinity,
                   child: AppOutlineButton(
                       buttonText: 'Rider Login',

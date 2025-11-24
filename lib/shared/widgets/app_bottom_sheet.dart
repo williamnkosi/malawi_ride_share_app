@@ -37,12 +37,12 @@ void showAppBottomSheet({
               SizedBox(
                   width: double.infinity,
                   child: AppOutlineButton(
-                      buttonText: "Accept", onPressed: onAccept)),
+                      buttonText: "Accept", onPressed: () => onAccept())),
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: AppOutlineButton(
-                    buttonText: "Decline", onPressed: onDecline),
+                    buttonText: "Decline", onPressed: () => onDecline()),
               ),
               const SizedBox(height: 16),
             ],

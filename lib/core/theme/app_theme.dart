@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
+import 'package:malawi_ride_share_app/core/theme/app_elevation.dart';
 import 'package:malawi_ride_share_app/core/theme/app_radii.dart';
 import 'package:malawi_ride_share_app/core/theme/app_spacing.dart';
 import 'package:malawi_ride_share_app/core/theme/app_typography.dart';
@@ -25,12 +26,32 @@ ThemeData buildAppTheme() {
     ),
     textTheme: buildTextTheme(defaultTypographyTokens, AppColors.onSurface),
     extensions: <ThemeExtension<dynamic>>[
+      defaultAppElevation,
       defaultAppSpacing,
       defaultAppRadii,
       defaultTypographyTokens,
     ],
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColors.surface,
+      modalBackgroundColor: AppColors.gray0,
+      elevation: defaultAppElevation.high,
+      shape: RoundedRectangleBorder(
+        borderRadius:
+            BorderRadius.vertical(top: Radius.circular(defaultAppRadii.m)),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      dragHandleColor: AppColors.gray40,
+      dragHandleSize: Size(defaultAppSpacing.xl, defaultAppSpacing.xs),
+      showDragHandle: true,
+    ),
   );
 }
+
+const defaultAppElevation = AppElevation(
+  low: 2,
+  medium: 4,
+  high: 8,
+);
 
 const defaultAppSpacing = AppSpacing(
   xs: 4,

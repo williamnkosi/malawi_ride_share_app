@@ -2,28 +2,56 @@ import 'package:flutter/material.dart';
 
 class AppOutlineButton extends StatelessWidget {
   final String buttonText;
-  final Function onPressed;
-  final bool isDisabled;
-  const AppOutlineButton(
-      {super.key,
-      required this.buttonText,
-      required this.onPressed,
-      this.isDisabled = false});
+  final VoidCallback? onPressed;
+
+  const AppOutlineButton({
+    super.key,
+    required this.buttonText,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () => onPressed(),
-      style: OutlinedButton.styleFrom(
-        foregroundColor: Colors.black,
-        side: const BorderSide(color: Colors.black), // Black text color
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0),
-        ),
-        disabledBackgroundColor:
-            // ignore: deprecated_member_use
-            Theme.of(context).colorScheme.secondary.withOpacity(0.2),
-      ),
+      onPressed: onPressed,
+      child: Text(buttonText),
+    );
+  }
+}
+
+class AppElevatedButton extends StatelessWidget {
+  final String buttonText;
+  final VoidCallback? onPressed;
+
+  const AppElevatedButton({
+    super.key,
+    required this.buttonText,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text(buttonText),
+    );
+  }
+}
+
+class AppTextButton extends StatelessWidget {
+  final String buttonText;
+  final VoidCallback? onPressed;
+
+  const AppTextButton({
+    super.key,
+    required this.buttonText,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
       child: Text(buttonText),
     );
   }

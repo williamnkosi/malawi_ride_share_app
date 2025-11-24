@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Brand
-  static const Color brand = Color(0xFF0066FF);
-  static const Color brandContainer = Color(0xFFDDE9FF);
+  // Brand Colors
+  static const Color primary = Color(0xFF8B5CF6); // Luxurious purple
+  static const Color primaryContainer =
+      Color(0xFFF3E8FF); // Subtle purple for cards/chips
 
-  // Neutrals
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color black = Color(0xFF000000);
-  static const Color neutral10 = Color(0xFFF8F9FB);
-  static const Color neutral20 = Color(0xFFEFF2F7);
-  static const Color neutral50 = Color(0xFF9AA4B2);
-  static const Color neutral80 = Color(0xFF2E3A45);
+  // Neutral Gray Scale
+  static const Color gray0 = Color(0xFFFFFFFF); // Main background
+  static const Color gray5 = Color(0xFFFAFAFA); // Surface
+  static const Color gray10 = Color(0xFFF4F4F5); // Surface variant
+  static const Color gray20 = Color(0xFFE4E4E7); // Borders / dividers
+  static const Color gray40 = Color(0xFFA1A1AA); // Secondary text / icons
+  static const Color gray60 = Color(0xFF52525B); // Main text
+  static const Color gray80 = Color(0xFF27272A); // Headings / strong emphasis
+  static const Color gray100 = Color(0xFF000000); // Pure black if needed
 
-  // Semantic
-  static const Color success = Color(0xFF16A34A);
-  static const Color danger = Color(0xFFEF4444);
-  static const Color warning = Color(0xFFF59E0B);
+  // Surface & Structural Colors
+  static const Color background = gray0;
+  static const Color surface = gray5;
+  static const Color surfaceVariant = gray10;
+  static const Color border = gray20;
+  static const Color shadow = Color.fromRGBO(0, 0, 0, 0.08);
+
+  static const Color onBackground = gray80;
+  static const Color onSurface = gray60;
+
+  // Semantic Colors
+  static const Color success = Color(0xFF34D399); // Soft green
+  static const Color error = Color(0xFFEF4444); // Red for errors
+  static const Color warning = Color(0xFFFBBF24); // Yellow for alerts
+  static const Color info = Color(0xFF3B82F6); // Optional blue for info
 }

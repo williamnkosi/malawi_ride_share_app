@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/core/theme/app_bar_theme.dart';
 import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
 import 'package:malawi_ride_share_app/core/theme/app_elevation.dart';
 import 'package:malawi_ride_share_app/core/theme/app_radii.dart';
@@ -17,6 +18,7 @@ ThemeData buildAppTheme() {
     cardColor: AppColors.surface,
     dividerColor: AppColors.border,
     shadowColor: AppColors.shadow,
+    appBarTheme: buildAppBarTheme(defaultAppElevation, defaultTypographyTokens),
     outlinedButtonTheme: buildOutlinedButtonTheme(),
     elevatedButtonTheme: buildElevatedButtonTheme(),
     textButtonTheme: buildTextButtonTheme(),

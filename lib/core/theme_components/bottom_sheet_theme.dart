@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
-import 'package:malawi_ride_share_app/core/theme/app_elevation.dart';
-import 'package:malawi_ride_share_app/core/theme/app_radii.dart';
-import 'package:malawi_ride_share_app/core/theme/app_spacing.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_colors.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_elevation.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_radii.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_spacing.dart';
 
 BottomSheetThemeData buildBottomSheetTheme(
   AppElevation elevation,

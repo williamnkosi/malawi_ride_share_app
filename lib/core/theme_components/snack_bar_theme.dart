@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
-import 'package:malawi_ride_share_app/core/theme/app_radii.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_colors.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_radii.dart';
 
 SnackBarThemeData buildSnackBarTheme(AppRadii radii) {
   return SnackBarThemeData(

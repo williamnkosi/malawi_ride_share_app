@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/core/theme/app_typography_token.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_typography_token.dart';
 
 TextTheme buildTextTheme(AppTypographyToken tokens, Color textColor) {
   return TextTheme(

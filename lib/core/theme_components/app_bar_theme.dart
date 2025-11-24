@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
-import 'package:malawi_ride_share_app/core/theme/app_elevation.dart';
-import 'package:malawi_ride_share_app/core/theme/app_typography_token.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_colors.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_elevation.dart';
+import 'package:malawi_ride_share_app/core/tokens/app_typography_token.dart';
 
 AppBarTheme buildAppBarTheme(
     AppElevation elevation, AppTypographyToken typographyToken) {

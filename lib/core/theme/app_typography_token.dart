@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 @immutable
-class TypographyTokens extends ThemeExtension<TypographyTokens> {
+class AppTypographyToken extends ThemeExtension<AppTypographyToken> {
   final double displayLarge;
   final double titleLarge;
   final double bodyLarge;
   final double bodyMedium;
   final double labelSmall;
 
-  const TypographyTokens({
+  const AppTypographyToken({
     required this.displayLarge,
     required this.titleLarge,
     required this.bodyLarge,
@@ -19,14 +19,14 @@ class TypographyTokens extends ThemeExtension<TypographyTokens> {
   });
 
   @override
-  TypographyTokens copyWith({
+  AppTypographyToken copyWith({
     double? displayLarge,
     double? titleLarge,
     double? bodyLarge,
     double? bodyMedium,
     double? labelSmall,
   }) {
-    return TypographyTokens(
+    return AppTypographyToken(
       displayLarge: displayLarge ?? this.displayLarge,
       titleLarge: titleLarge ?? this.titleLarge,
       bodyLarge: bodyLarge ?? this.bodyLarge,
@@ -36,9 +36,9 @@ class TypographyTokens extends ThemeExtension<TypographyTokens> {
   }
 
   @override
-  TypographyTokens lerp(ThemeExtension<TypographyTokens>? other, double t) {
-    if (other is! TypographyTokens) return this;
-    return TypographyTokens(
+  AppTypographyToken lerp(ThemeExtension<AppTypographyToken>? other, double t) {
+    if (other is! AppTypographyToken) return this;
+    return AppTypographyToken(
       displayLarge: lerpDouble(displayLarge, other.displayLarge, t)!,
       titleLarge: lerpDouble(titleLarge, other.titleLarge, t)!,
       bodyLarge: lerpDouble(bodyLarge, other.bodyLarge, t)!,

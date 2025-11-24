@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:malawi_ride_share_app/core/theme/app_typography_token.dart';
 
-TextTheme buildTextTheme(Color primaryTextColor) {
+TextTheme buildTextTheme(AppTypographyToken tokens, Color textColor) {
   return TextTheme(
     displayLarge: TextStyle(
-        fontSize: 34, fontWeight: FontWeight.bold, color: primaryTextColor),
+      fontSize: tokens.displayLarge,
+      fontWeight: FontWeight.bold,
+      color: textColor,
+    ),
     titleLarge: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.w600, color: primaryTextColor),
-    bodyLarge: TextStyle(fontSize: 16, color: primaryTextColor),
-    bodyMedium: TextStyle(fontSize: 14, color: primaryTextColor),
-    labelSmall: TextStyle(fontSize: 12, color: primaryTextColor),
+      fontSize: tokens.titleLarge,
+      fontWeight: FontWeight.w600,
+      color: textColor,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: tokens.bodyLarge,
+      color: textColor,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: tokens.bodyMedium,
+      color: textColor,
+    ),
+    labelSmall: TextStyle(
+      fontSize: tokens.labelSmall,
+      color: textColor,
+    ),
   );
 }

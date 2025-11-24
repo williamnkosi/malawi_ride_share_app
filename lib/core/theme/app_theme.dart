@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:malawi_ride_share_app/core/theme/app_colors.dart';
 import 'package:malawi_ride_share_app/core/theme/app_radii.dart';
 import 'package:malawi_ride_share_app/core/theme/app_spacing.dart';
+import 'package:malawi_ride_share_app/core/theme/app_typography.dart';
 import 'package:malawi_ride_share_app/core/theme/app_typography_token.dart';
 
 ThemeData buildAppTheme() {
@@ -22,6 +23,7 @@ ThemeData buildAppTheme() {
       error: AppColors.error,
       onError: AppColors.gray0,
     ),
+    textTheme: buildTextTheme(defaultTypographyTokens, AppColors.onSurface),
     extensions: <ThemeExtension<dynamic>>[
       defaultAppSpacing,
       defaultAppRadii,
@@ -46,7 +48,8 @@ const defaultAppRadii = AppRadii(
   xl: 32,
   pill: 9999,
 );
-const defaultTypographyTokens = TypographyTokens(
+
+const defaultTypographyTokens = AppTypographyToken(
   displayLarge: 34.0,
   titleLarge: 20.0,
   bodyLarge: 16.0,

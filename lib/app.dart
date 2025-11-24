@@ -32,26 +32,26 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final firebaseRepo = getIt<FirebaseRepository>();
-    final authRepo = getIt<AuthRepository>();
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => LocationBloc()),
-        BlocProvider(
-          create: (context) =>
-              AppBloc(fireBaseRepository: getIt<FirebaseRepository>()),
-          lazy: false,
+    return MaterialApp(
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => LocationBloc()),
+          BlocProvider(
+            create: (context) =>
+                AppBloc(fireBaseRepository: getIt<FirebaseRepository>()),
+            lazy: false,
+          ),
+          BlocProvider(
+            create: (context) =>
+                AuthBloc(authRepository: getIt<AuthRepository>()),
+            lazy: false,
+          )
+        ],
+        child: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            return AppRouter();
+          },
         ),
-        BlocProvider(
-          create: (context) =>
-              AuthBloc(authRepository: getIt<AuthRepository>()),
-          lazy: false,
-        )
-      ],
-      child: BlocBuilder<AuthBloc, AuthState>(
-        builder: (context, state) {
-          return AppRouter();
-        },
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/shared/bloc_observer/filtered_bloc_observer.dart';
 
 class BlocLoggingConfig {

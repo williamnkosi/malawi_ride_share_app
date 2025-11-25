@@ -22,29 +22,49 @@ class AuthRepository {
         throw CustomException("No user found for that email");
       } else if (e.code == 'wrong-password') {
         throw CustomException("Wrong password provided for that user");
+      } else {
+        // Handle other FirebaseAuthException cases
+        throw CustomException("Authentication failed: ${e.message}");
       }
     } catch (e) {
-      throw CustomException("Couldn't complete request");
+      throw CustomException("Couldn't complete request -- $e");
     }
-    throw CustomException("Couldn't complete request");
   }
 
   Future<UserCredential> signUpUserEmailAndPassword(
       {required String email, required String password}) async {
     try {
+      logger.info('Attempting to create user with email: $email');
+
       UserCredential user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+
+      logger.info('User created successfully: ${user.user?.uid}');
+      logger.info('User email verified: ${user.user?.emailVerified}');
+
       return user;
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        throw CustomException("The password provided is too weak");
-      } else if (e.code == "email-already-in-use") {
-        throw CustomException('An account already exists with that email');
+      logger.severe('FirebaseAuthException: ${e.code} - ${e.message}');
+
+      switch (e.code) {
+        case 'weak-password':
+          throw CustomException("The password provided is too weak");
+        case 'email-already-in-use':
+          throw CustomException('An account already exists with that email');
+        case 'invalid-email':
+          throw CustomException('The email address is not valid');
+        case 'operation-not-allowed':
+          throw CustomException('Email/password accounts are not enabled');
+        case 'admin-restricted-operation':
+          throw CustomException(
+              'This operation is restricted by the administrator');
+        default:
+          throw CustomException('Sign up failed: ${e.message}');
       }
     } catch (e) {
-      throw CustomException("Couldn't complete request");
+      logger.severe('Unexpected error during sign up: $e');
+      throw CustomException("Couldn't complete request: $e");
     }
-    throw CustomException("Unexpected error occurred");
   }
 
   Future<void> signOutUser() async {

@@ -10,6 +10,8 @@ abstract class SocketServiceInterface {
 
   // Event handling
   void emit(String event, dynamic data);
+  Future<bool> emitSafe(String event, dynamic data);
+  Future<dynamic> emitWithAck(String event, dynamic data, {Duration? timeout});
   Stream<T> on<T>(String event);
 
   // Connection status

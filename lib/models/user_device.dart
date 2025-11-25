@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'user_device.freezed.dart';
+part 'user_device.g.dart';
+
 enum DevicePlatform {
   android("android"),
   ios("ios");
@@ -6,23 +11,14 @@ enum DevicePlatform {
   const DevicePlatform(this.value);
 }
 
-class UserDevice {
-  final String firebaseUserId;
-  final String fcmToken;
-  final DevicePlatform platform;
-  final String deviceVersion;
+@freezed
+class UserDevice with _$UserDevice {
+  const factory UserDevice({
+    required String fcmToken,
+    required DevicePlatform platform,
+    required String deviceVersion,
+  }) = _UserDevice;
 
-  UserDevice({
-    required this.firebaseUserId,
-    required this.fcmToken,
-    required this.platform,
-    required this.deviceVersion,
-  });
-
-  Map<String, dynamic> toJson() => {
-        "firebaseUserId": firebaseUserId,
-        "fcmToken": fcmToken,
-        "platform": platform.name, // converts enum to "ANDROID"/"IOS"
-        "deviceVersion": deviceVersion,
-      };
+  factory UserDevice.fromJson(Map<String, dynamic> json) =>
+      _$UserDeviceFromJson(json);
 }

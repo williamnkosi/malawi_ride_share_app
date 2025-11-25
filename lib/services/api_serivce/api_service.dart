@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service_interface.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/interceptos/auth_interceptor.dart';
 import 'package:malawi_ride_share_app/services/exceptions.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -48,10 +49,8 @@ class ApiService implements ApiServiceInterface {
         compact: true,
       ));
 
-      // // Add auth interceptor
-      // _dio.interceptors.add(_AuthInterceptor());
+      _dio.interceptors.add(AuthInterceptor());
 
-      // // Add error interceptor
       // _dio.interceptors.add(_ErrorInterceptor());
 
       _logger.info('API Service initialized with base URL: $baseUrl');

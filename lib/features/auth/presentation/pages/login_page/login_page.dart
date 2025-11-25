@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
-import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/shared/router/router.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/config/routes/router.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 class LoginPage extends StatelessWidget {

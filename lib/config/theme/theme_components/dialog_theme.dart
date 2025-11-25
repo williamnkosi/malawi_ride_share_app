@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:malawi_ride_share_app/core/tokens/app_colors.dart';
-import 'package:malawi_ride_share_app/core/tokens/app_elevation.dart';
-import 'package:malawi_ride_share_app/core/tokens/app_radii.dart';
+import 'package:malawi_ride_share_app/config/theme/tokens/app_colors.dart';
+import 'package:malawi_ride_share_app/config/theme/tokens/app_elevation.dart';
+import 'package:malawi_ride_share_app/config/theme/tokens/app_radii.dart';
 
 DialogThemeData buildDialogTheme(AppElevation elevation, AppRadii radii) {
   return DialogThemeData(

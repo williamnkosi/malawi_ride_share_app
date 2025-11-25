@@ -12,12 +12,15 @@ part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthRepository authRepository;
+  final FirebaseAuthRepositoryImp authRepository;
   final FirebaseRepository firebaseRepository;
   final Logger _logger = Logger('AuthBloc');
 
-  final SignInUserUseCase _signInUserUseCase;
-  AuthBloc({required this.authRepository, required this.firebaseRepository})
+  final SignInUserUseCase signInUserUseCase;
+  AuthBloc(
+      {required this.authRepository,
+      required this.firebaseRepository,
+      required this.signInUserUseCase})
       : super(const AuthState.start()) {
     on<AuthEventInitial>(_onIntial);
     on<AuthRiderEventLogin>(_onRiderLogin);
@@ -55,7 +58,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       emit(const AuthState.loading());
       var params = EmailPasswordParams(email: email, password: password);
-      var userCredential = await SignInUser.call(params);
+      var userCredential = await signInUserUseCase(params);
       emit(AuthState.authenticated(userCredential, UserType.driver));
     } catch (e) {
       emit(AuthState.error(e.toString()));

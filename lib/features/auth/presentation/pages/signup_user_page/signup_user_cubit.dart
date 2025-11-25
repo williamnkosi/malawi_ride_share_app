@@ -20,7 +20,7 @@ enum Gender {
 
 class SignupUserCubit extends Cubit<SignupUserState> {
   final ImageRepository _imageRepository;
-  final AuthRepository _authRepository;
+  final FirebaseAuthRepositoryImp _authRepository;
   final AuthBloc _authBloc;
 
   File? _profileImage;

@@ -3,6 +3,7 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';
@@ -76,10 +77,18 @@ Future<void> setupGetIt() async {
           driverTripSocketService: getIt<DriverTripSocketService>()));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
+
+  await setupAuthFeatureDependencies();
 }
 
 Future<void> setupAuthFeatureDependencies() async {
   // Use cases
   getIt.registerSingleton<SignInUserUseCase>(
       SignInUserUseCase(getIt<FirebaseAuthRepositoryImp>()));
+
+  getIt.registerFactory<AuthBloc>(() => AuthBloc(
+        signInUserUseCase: getIt<SignInUserUseCase>(),
+        authRepository: getIt<FirebaseAuthRepositoryImp>(),
+        firebaseRepository: getIt<FirebaseRepository>(),
+      ));
 }

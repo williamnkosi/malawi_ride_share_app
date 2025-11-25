@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user.dart';
+import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
@@ -86,9 +88,15 @@ Future<void> setupAuthFeatureDependencies() async {
   getIt.registerSingleton<SignInUserUseCase>(
       SignInUserUseCase(getIt<FirebaseAuthRepositoryImp>()));
 
+  getIt.registerSingleton<SignUpUserUseCase>(
+      SignUpUserUseCase(getIt<FirebaseAuthRepositoryImp>()));
+
+  getIt.registerSingleton<SignOutUserUseCase>(
+      SignOutUserUseCase(getIt<FirebaseAuthRepositoryImp>()));
+
   getIt.registerFactory<AuthBloc>(() => AuthBloc(
         signInUserUseCase: getIt<SignInUserUseCase>(),
-        authRepository: getIt<FirebaseAuthRepositoryImp>(),
-        firebaseRepository: getIt<FirebaseRepository>(),
+        signUpUserUseCase: getIt<SignUpUserUseCase>(),
+        signOutUserUseCase: getIt<SignOutUserUseCase>(),
       ));
 }

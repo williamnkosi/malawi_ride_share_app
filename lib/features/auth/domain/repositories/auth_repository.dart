@@ -1,7 +1,9 @@
-abstract class FirebaseAuthRepositoryInterfaces {
-  Future<void> loginInUserWithEmailAndPassword(
+import 'package:firebase_auth/firebase_auth.dart';
+
+abstract class AuthRepositoryInterfaces {
+  Future<UserCredential> loginInUserWithEmailAndPassword(
       {required String email, required String password});
-  Future<void> signUpUserEmailAndPassword(
+  Future<UserCredential> signUpUserEmailAndPassword(
       {required String email, required String password});
   Future<void> signOutUser();
 }

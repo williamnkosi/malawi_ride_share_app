@@ -12,26 +12,15 @@ class AuthRepository implements FirebaseAuthRepositoryInterfaces {
 
   AuthRepository({required this.apiService});
 
+  @override
   Future<UserCredential> loginInUserWithEmailAndPassword(
       {required email, required password}) async {
-    try {
-      UserCredential user = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-      return user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        throw CustomException("No user found for that email");
-      } else if (e.code == 'wrong-password') {
-        throw CustomException("Wrong password provided for that user");
-      } else {
-        // Handle other FirebaseAuthException cases
-        throw CustomException("Authentication failed: ${e.message}");
-      }
-    } catch (e) {
-      throw CustomException("Couldn't complete request -- $e");
-    }
+    UserCredential user = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+    return user;
   }
 
+  @override
   Future<UserCredential> signUpUserEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -62,31 +51,19 @@ class AuthRepository implements FirebaseAuthRepositoryInterfaces {
         default:
           throw CustomException('Sign up failed: ${e.message}');
       }
-    } catch (e) {
-      logger.severe('Unexpected error during sign up: $e');
-      throw CustomException("Couldn't complete request: $e");
     }
   }
 
   @override
   Future<void> signOutUser() async {
-    try {
-      await FirebaseAuth.instance.signOut();
-    } catch (e) {
-      throw CustomException("Couldn't complete request");
-    }
+    await FirebaseAuth.instance.signOut();
   }
 
   Future<Map<String, dynamic>> createUserInDatabase(
       {required CreateUserDto createUserDto}) async {
-    try {
-      var response = await apiService.post(ApiConstants.createUser,
-          body: createUserDto.toJson());
+    var response = await apiService.post(ApiConstants.createUser,
+        body: createUserDto.toJson());
 
-      return response;
-    } catch (e) {
-      logger.severe('Error retrieving user data: $e');
-      throw CustomException("Couldn't complete request");
-    }
+    return response;
   }
 }

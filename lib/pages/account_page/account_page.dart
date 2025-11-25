@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 class AccountPage extends StatelessWidget {

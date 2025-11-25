@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_password_params.dart';
+import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 
 part 'auth_event.dart';
@@ -13,6 +15,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
   final FirebaseRepository firebaseRepository;
   final Logger _logger = Logger('AuthBloc');
+
+  final SignInUserUseCase _signInUserUseCase;
   AuthBloc({required this.authRepository, required this.firebaseRepository})
       : super(const AuthState.start()) {
     on<AuthEventInitial>(_onIntial);
@@ -50,9 +54,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final password = event.password;
     try {
       emit(const AuthState.loading());
-      UserCredential userCredential = await authRepository
-          .loginInUserWithEmailAndPassword(email: email, password: password);
-
+      var params = EmailPasswordParams(email: email, password: password);
+      var userCredential = await SignInUser.call(params);
       emit(AuthState.authenticated(userCredential, UserType.driver));
     } catch (e) {
       emit(AuthState.error(e.toString()));

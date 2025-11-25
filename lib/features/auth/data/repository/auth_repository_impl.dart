@@ -6,12 +6,11 @@ import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/shared/custom_exception.dart';
 import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 
-class AuthRepository implements FirebaseAuthRepositoryInterfaces {
+class FirebaseAuthRepositoryImp implements FirebaseAuthRepositoryInterfaces {
   final logger = Logger('AuthRepository');
   final ApiService apiService;
 
-  AuthRepository({required this.apiService});
-
+  FirebaseAuthRepositoryImp({required this.apiService});
   @override
   Future<UserCredential> loginInUserWithEmailAndPassword(
       {required email, required password}) async {

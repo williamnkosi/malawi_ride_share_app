@@ -32,7 +32,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
     return BlocProvider(
       create: (context) => SignupUserCubit(
         getIt<ImageRepository>(),
-        getIt<AuthRepository>(),
+        getIt<FirebaseAuthRepositoryImp>(),
         context.read<AuthBloc>(),
       ),
       child: BlocConsumer<SignupUserCubit, SignupUserState>(

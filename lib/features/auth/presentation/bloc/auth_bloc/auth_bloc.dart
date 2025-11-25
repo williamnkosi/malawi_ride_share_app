@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 
 part 'auth_event.dart';

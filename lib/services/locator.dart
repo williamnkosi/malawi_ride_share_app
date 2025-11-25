@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
-import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/repository/location_repository.dart';

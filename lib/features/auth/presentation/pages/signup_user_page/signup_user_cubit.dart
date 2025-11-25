@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 

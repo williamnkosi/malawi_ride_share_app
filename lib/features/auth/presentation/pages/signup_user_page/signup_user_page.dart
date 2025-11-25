@@ -6,7 +6,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_cubit.dart';
-import 'package:malawi_ride_share_app/repository/auth_repository.dart';
+import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';

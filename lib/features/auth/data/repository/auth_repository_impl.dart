@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/shared/custom_exception.dart';
 import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 
-class AuthRepository {
+class AuthRepository implements FirebaseAuthRepositoryInterfaces {
   final logger = Logger('AuthRepository');
   final ApiService apiService;
 
@@ -67,6 +68,7 @@ class AuthRepository {
     }
   }
 
+  @override
   Future<void> signOutUser() async {
     try {
       await FirebaseAuth.instance.signOut();

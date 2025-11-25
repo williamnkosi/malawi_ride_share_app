@@ -178,7 +178,7 @@ class SignupUserCubit extends Cubit<SignupUserState> {
       _authBloc.add(
         AuthEvent.authEventSetAuthenticated(
           userCredential: userCredential,
-          userType: UserType.rider, // or determine based on your logic
+          userType: UserType.driver, // or determine based on your logic
         ),
       );
 

@@ -1,22 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:location/location.dart';
-import 'package:malawi_ride_share_app/app_blocs/rider_trip_bloc/rider_trip_bloc.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_text_field.dart';
 
 void searchRiderBottomSheet({required BuildContext context}) {
-  Map<String, dynamic> startData = {
-    'latitude': 42.0000,
-    'longitude': -75.0000,
-  };
-
-  Map<String, dynamic> endData = {
-    'latitude': 42.0000,
-    'longitude': -74.0000,
-  };
-
   showModalBottomSheet(
       showDragHandle: true,
       context: context,
@@ -52,14 +39,7 @@ void searchRiderBottomSheet({required BuildContext context}) {
                 SizedBox(
                   height: 16,
                 ),
-                AppOutlineButton(
-                    buttonText: "Submit",
-                    onPressed: () {
-                      final riderTripBloc = context.read<RiderTripBloc>();
-                      riderTripBloc.add(RiderTripSubmitTrip(
-                          endLocation: LocationData.fromMap(startData),
-                          startLocation: LocationData.fromMap(endData)));
-                    })
+                AppOutlineButton(buttonText: "Submit", onPressed: () {})
               ],
             ),
           ),

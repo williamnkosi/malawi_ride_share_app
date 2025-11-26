@@ -84,6 +84,7 @@ Future<void> setupGetIt() async {
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 
+  await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
 }
 

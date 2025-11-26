@@ -13,11 +13,10 @@ part 'app_state.dart';
 part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  final FirebaseRepository fireBaseRepository;
-
   final EnsureLocationPermission ensureLocationPermission;
   final EnsureNotificationPermission ensureNotificationPermission;
   final OpenLocationSettingUseCase openLocationSettingUseCase;
+  final FirebaseRepository fireBaseRepository;
 
   final logger = Logger('AppBloc');
 
@@ -100,8 +99,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     try {
       logger.info('🔐 Requesting notification permission from AppBloc...');
 
-      final isGranted =
-          await fireBaseRepository.requestNotificationPermissions();
+      final isGranted = await ensureNotificationPermission.call(null);
 
       if (isGranted) {
         emit(state.copyWith(isNotificationPermissionEnabled: true));
@@ -123,8 +121,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     try {
       logger.info('🔍 Checking notification permission status...');
 
-      final isGranted =
-          await fireBaseRepository.isNotificationPermissionGranted();
+      final isGranted = await ensureNotificationPermission.call(null);
       emit(state.copyWith(isNotificationPermissionEnabled: isGranted));
     } catch (e) {
       logger.severe('❌ Error checking notification permission: $e');

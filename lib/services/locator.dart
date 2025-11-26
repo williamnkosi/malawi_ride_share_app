@@ -8,7 +8,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
-import 'package:malawi_ride_share_app/repository/location_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';

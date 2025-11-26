@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
-import 'package:malawi_ride_share_app/repository/location_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_event.dart';
 part 'app_state.dart';

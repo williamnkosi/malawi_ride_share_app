@@ -1,4 +1,4 @@
-abstract class PermissionsRepository {
+abstract class PermissionsRepositoryInterface {
   /// Check if location permission is granted
   Future<bool> isLocationPermissionGranted();
 

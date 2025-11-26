@@ -6,7 +6,6 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/open_location_settings.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
-import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_event.dart';
 part 'app_state.dart';

@@ -5,7 +5,7 @@ import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_op
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/pages/home_page/driver_home_page/driver_home_page_view.dart';
-import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 

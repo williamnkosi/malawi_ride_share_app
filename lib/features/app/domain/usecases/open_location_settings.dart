@@ -4,7 +4,7 @@ import 'package:malawi_ride_share_app/features/app/domain/repositories/location_
 class OpenLocationSettingUseCase implements UseCase<void, void> {
   final LocationPermissionInterface locationRepository;
 
-  OpenLocationSettingUseCase({required this.locationRepository});
+  OpenLocationSettingUseCase(this.locationRepository);
 
   @override
   Future<void> call(void _) async {

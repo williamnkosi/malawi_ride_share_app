@@ -4,8 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_notification_permission.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/open_location_settings.dart';
-import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_event.dart';
 part 'app_state.dart';
@@ -15,12 +16,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   final FirebaseRepository fireBaseRepository;
 
   final EnsureLocationPermission ensureLocationPermission;
+  final EnsureNotificationPermission ensureNotificationPermission;
   final OpenLocationSettingUseCase openLocationSettingUseCase;
 
   final logger = Logger('AppBloc');
 
   AppBloc({
     required this.ensureLocationPermission,
+    required this.ensureNotificationPermission,
     required this.openLocationSettingUseCase,
     required this.fireBaseRepository,
   }) : super(const AppState()) {

@@ -2,7 +2,9 @@ import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_notification_permission.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/open_location_settings.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
@@ -10,7 +12,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
@@ -36,6 +38,8 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<FirebaseRepository>(
       FirebaseRepository(apiService: getIt<ApiService>()));
   logger.info('FirebaseRepository registered');
+
+  await setupAppFeatureDependencies();
 
   logger.info('=====================================');
   getIt.registerSingletonAsync<DriverLocationSocketService>(
@@ -84,7 +88,6 @@ Future<void> setupGetIt() async {
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 
-  await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
 }
 
@@ -93,15 +96,21 @@ Future<void> setupAppFeatureDependencies() async {
   getIt.registerSingleton<LocationPermissionRepositoryImpl>(
       LocationPermissionRepositoryImpl());
 
+  getIt.registerSingleton<NotificationPermissionRepositoryImpl>(
+      NotificationPermissionRepositoryImpl());
+
   // Use cases
   getIt.registerSingleton<EnsureLocationPermission>(
       EnsureLocationPermission(getIt<LocationPermissionRepositoryImpl>()));
+  getIt.registerSingleton<EnsureNotificationPermission>(
+      EnsureNotificationPermission(
+          getIt<NotificationPermissionRepositoryImpl>()));
   getIt.registerSingleton<OpenLocationSettingUseCase>(
-      OpenLocationSettingUseCase(
-          locationRepository: getIt<LocationPermissionRepositoryImpl>()));
+      OpenLocationSettingUseCase(getIt<LocationPermissionRepositoryImpl>()));
 
   getIt.registerFactory<AppBloc>(() => AppBloc(
         ensureLocationPermission: getIt<EnsureLocationPermission>(),
+        ensureNotificationPermission: getIt<EnsureNotificationPermission>(),
         openLocationSettingUseCase: getIt<OpenLocationSettingUseCase>(),
         fireBaseRepository: getIt<FirebaseRepository>(),
       ));

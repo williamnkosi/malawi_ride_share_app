@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/open_location_settings.dart';
 import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,16 +14,18 @@ part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   final FirebaseRepository fireBaseRepository;
-  final LocationRepository locationRepository;
+
+  final EnsureLocationPermission ensureLocationPermission;
+  final OpenLocationSettingUseCase openLocationSettingUseCase;
 
   final logger = Logger('AppBloc');
 
   AppBloc({
+    required this.ensureLocationPermission,
+    required this.openLocationSettingUseCase,
     required this.fireBaseRepository,
-    required this.locationRepository,
   }) : super(const AppState()) {
     on<AppEventRequestLocationPermission>(_onRequestLocationPermission);
-    on<AppEventCheckLocationPermission>(_onCheckLocationPermission);
     on<AppEventLocationPermissionGranted>(_onLocationPermissionGranted);
     on<AppEventLocationPermissionDenied>(_onLocationPermissionDenied);
     on<AppEventOpenLocationSettings>(_onOpenLocationSettings);
@@ -37,7 +41,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     try {
       logger.info('🔐 Requesting location permission from AppBloc...');
 
-      final isGranted = await locationRepository.requestLocationPermission();
+      final isGranted = await ensureLocationPermission.call(null);
 
       if (isGranted) {
         emit(state.copyWith(isLocationPremissionEnabled: true));
@@ -50,28 +54,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       logger.severe('❌ Error requesting location permission: $e');
       emit(state.copyWith(isLocationPremissionEnabled: false));
       add(const AppEvent.locationPermissionDenied());
-    }
-  }
-
-  /// Handle checking current location permission status
-  Future<void> _onCheckLocationPermission(
-    AppEventCheckLocationPermission event,
-    Emitter<AppState> emit,
-  ) async {
-    try {
-      logger.info('🔍 Checking location permission status...');
-
-      final isGranted = await locationRepository.isLocationPermissionGranted();
-      emit(state.copyWith(isLocationPremissionEnabled: isGranted));
-
-      if (isGranted) {
-        add(const AppEvent.locationPermissionGranted());
-      } else {
-        add(const AppEvent.locationPermissionDenied());
-      }
-    } catch (e) {
-      logger.severe('❌ Error checking location permission: $e');
-      emit(state.copyWith(isLocationPremissionEnabled: false));
     }
   }
 
@@ -100,7 +82,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   ) async {
     try {
       logger.info('⚙️ Opening location settings...');
-      await locationRepository.openLocationSettings();
+      await openLocationSettingUseCase.call(null);
 
       // After opening settings, check permission status again
       add(const AppEvent.checkLocationPermission());

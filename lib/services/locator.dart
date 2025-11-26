@@ -1,6 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
+import 'package:malawi_ride_share_app/features/app/domain/usecases/open_location_settings.dart';
+import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
@@ -81,6 +85,25 @@ Future<void> setupGetIt() async {
   logger.info('===================================== /n');
 
   await setupAuthFeatureDependencies();
+}
+
+Future<void> setupAppFeatureDependencies() async {
+  // Repositories Implementations
+  getIt.registerSingleton<LocationPermissionRepositoryImpl>(
+      LocationPermissionRepositoryImpl());
+
+  // Use cases
+  getIt.registerSingleton<EnsureLocationPermission>(
+      EnsureLocationPermission(getIt<LocationPermissionRepositoryImpl>()));
+  getIt.registerSingleton<OpenLocationSettingUseCase>(
+      OpenLocationSettingUseCase(
+          locationRepository: getIt<LocationPermissionRepositoryImpl>()));
+
+  getIt.registerFactory<AppBloc>(() => AppBloc(
+        ensureLocationPermission: getIt<EnsureLocationPermission>(),
+        openLocationSettingUseCase: getIt<OpenLocationSettingUseCase>(),
+        fireBaseRepository: getIt<FirebaseRepository>(),
+      ));
 }
 
 Future<void> setupAuthFeatureDependencies() async {

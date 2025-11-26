@@ -6,5 +6,5 @@ abstract class LocationPermissionInterface {
   Future<bool> requestLocationPermission();
 
   /// Open location settings to allow user to enable location services
-  Future<bool> openLocationSettings();
+  Future<void> openLocationSettings();
 }

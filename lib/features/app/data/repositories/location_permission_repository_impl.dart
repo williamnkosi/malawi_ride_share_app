@@ -32,24 +32,21 @@ class LocationPermissionRepositoryImpl implements LocationPermissionInterface {
   }
 
   @override
-  Future<bool> openLocationSettings() async {
+  Future<void> openLocationSettings() async {
     try {
       logger.info('⚙️ Opening location settings...');
 
-      // First try to request permission normally
       LocationPermission permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.deniedForever) {
-        // If permanently denied, open app settings
-        return await permission_handler.openAppSettings();
+        // Open app settings for permanent denial
+        await permission_handler.openAppSettings();
       } else {
-        // Try to request permission
-        permission = await Geolocator.requestPermission();
-        return permission == LocationPermission.always ||
-            permission == LocationPermission.whileInUse;
+        // Open system location settings
+        await Geolocator.openLocationSettings();
       }
     } catch (e) {
       logger.severe('❌ Error opening location settings: $e');
-      return false;
+      rethrow;
     }
   }
 

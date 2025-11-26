@@ -1,8 +1,8 @@
 import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/permissions_repository_interface.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
 
 class EnsureLocationPermission implements UseCase<bool, void> {
-  final PermissionsRepositoryInterface repository;
+  final LocationPermissionInterface repository;
 
   EnsureLocationPermission(this.repository);
 

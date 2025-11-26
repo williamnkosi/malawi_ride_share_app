@@ -1,14 +1,11 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/permissions_repository.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
+import 'package:permission_handler/permission_handler.dart'
+    as permission_handler;
 
-class PermissionsRepositoryImpl implements PermissionsRepositoryInterface {
-  final logger = Logger('PermissionsRepositoryImpl');
-  @override
-  Future<bool> isCameraPermissionGranted() {
-    // TODO: implement isCameraPermissionGranted
-    throw UnimplementedError();
-  }
+class LocationPermissionRepositoryImpl implements LocationPermissionInterface {
+  final logger = Logger('LocationPermissionRepositoryImpl');
 
   @override
   Future<bool> isLocationPermissionGranted() async {
@@ -35,27 +32,25 @@ class PermissionsRepositoryImpl implements PermissionsRepositoryInterface {
   }
 
   @override
-  Future<bool> isNotificationPermissionGranted() {
-    // TODO: implement isNotificationPermissionGranted
-    throw UnimplementedError();
-  }
+  Future<bool> openLocationSettings() async {
+    try {
+      logger.info('⚙️ Opening location settings...');
 
-  @override
-  Future<bool> isStoragePermissionGranted() {
-    // TODO: implement isStoragePermissionGranted
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<bool> openAppSettings() {
-    // TODO: implement openAppSettings
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<bool> requestCameraPermission() {
-    // TODO: implement requestCameraPermission
-    throw UnimplementedError();
+      // First try to request permission normally
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.deniedForever) {
+        // If permanently denied, open app settings
+        return await permission_handler.openAppSettings();
+      } else {
+        // Try to request permission
+        permission = await Geolocator.requestPermission();
+        return permission == LocationPermission.always ||
+            permission == LocationPermission.whileInUse;
+      }
+    } catch (e) {
+      logger.severe('❌ Error opening location settings: $e');
+      return false;
+    }
   }
 
   @override
@@ -87,17 +82,5 @@ class PermissionsRepositoryImpl implements PermissionsRepositoryInterface {
       logger.severe('❌ Error requesting location permission: $e');
       return false;
     }
-  }
-
-  @override
-  Future<bool> requestNotificationPermission() {
-    // TODO: implement requestNotificationPermission
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<bool> requestStoragePermission() {
-    // TODO: implement requestStoragePermission
-    throw UnimplementedError();
   }
 }

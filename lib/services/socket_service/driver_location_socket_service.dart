@@ -1,6 +1,6 @@
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_service.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/socket_service.dart';
 
 class DriverLocationSocketService extends SocketService {
   final Logger _logger = Logger('DriverLocationSocketService');

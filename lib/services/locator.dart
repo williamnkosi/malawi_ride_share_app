@@ -14,8 +14,9 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
-import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
@@ -35,10 +36,8 @@ Future<void> setupGetIt() async {
   });
   await getIt.isReady<ApiService>();
   logger.info('ApiService registered');
-  getIt.registerSingleton<FirebaseRepository>(
-      FirebaseRepository(apiService: getIt<ApiService>()));
-  logger.info('FirebaseRepository registered');
 
+  await setupSharedDependencies();
   await setupAppFeatureDependencies();
 
   logger.info('=====================================');
@@ -70,18 +69,20 @@ Future<void> setupGetIt() async {
   logger.info('AuthRepository registered');
   getIt.registerSingleton<ImageRepository>(ImageRepository());
   logger.info('ImageRepository registered');
-  getIt.registerSingleton<LocationRepository>(LocationRepository());
   logger.info('LocationRepository registered');
 
-  getIt.registerLazySingleton<DriverOperationsRepository>(() =>
-      DriverOperationsRepository(
-          driverLocationSocketService: getIt<DriverLocationSocketService>(),
-          driverTripSocketService: getIt<DriverTripSocketService>()));
   logger.info('DriverOperationsRepository registered');
   logger.info('===================================== /n');
 
   await setupAuthFeatureDependencies();
   await setupDriverOperationsDependencies();
+}
+
+Future<void> setupSharedDependencies() async {
+  // Shared Repositories
+  getIt.registerSingleton<LocationRepositoryImpl>(LocationRepositoryImpl());
+  getIt.registerSingleton<FirebaseRepositoryImpl>(
+      FirebaseRepositoryImpl(apiService: getIt<ApiService>()));
 }
 
 Future<void> setupAppFeatureDependencies() async {
@@ -97,7 +98,8 @@ Future<void> setupAppFeatureDependencies() async {
       EnsureLocationPermission(getIt<LocationPermissionRepositoryImpl>()));
   getIt.registerSingleton<EnsureNotificationPermission>(
       EnsureNotificationPermission(
-          getIt<NotificationPermissionRepositoryImpl>()));
+          getIt<NotificationPermissionRepositoryImpl>(),
+          getIt<FirebaseRepository>()));
   getIt.registerSingleton<OpenLocationSettingUseCase>(
       OpenLocationSettingUseCase(getIt<LocationPermissionRepositoryImpl>()));
 
@@ -105,7 +107,6 @@ Future<void> setupAppFeatureDependencies() async {
         ensureLocationPermission: getIt<EnsureLocationPermission>(),
         ensureNotificationPermission: getIt<EnsureNotificationPermission>(),
         openLocationSettingUseCase: getIt<OpenLocationSettingUseCase>(),
-        fireBaseRepository: getIt<FirebaseRepository>(),
       ));
 }
 
@@ -128,7 +129,9 @@ Future<void> setupAuthFeatureDependencies() async {
 }
 
 Future<void> setupDriverOperationsDependencies() async {
-  getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
-      locationRepository: getIt<LocationRepository>(),
-      driverOperationsRepository: getIt<DriverOperationsRepository>()));
+  getIt.registerLazySingleton<DriverOperationsRepository>(() =>
+      DriverOperationsRepository(
+          driverLocationSocketService: getIt<DriverLocationSocketService>(),
+          driverTripSocketService: getIt<DriverTripSocketService>()));
+  getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc());
 }

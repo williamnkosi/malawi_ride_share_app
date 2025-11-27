@@ -1,7 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_interface.dart';
-import 'package:malawi_ride_share_app/main_production.dart';
 
 class NotificationPermissionRepositoryImpl
     implements NotificationPermissionRepository {

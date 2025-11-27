@@ -1,6 +1,4 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:permission_handler/permission_handler.dart'
-    as permission_handler;
 import 'package:logging/logging.dart';
 
 class LocationRepository {

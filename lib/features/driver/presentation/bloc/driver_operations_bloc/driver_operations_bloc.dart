@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
@@ -17,11 +18,13 @@ part 'driver_operations_bloc.freezed.dart';
 class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
+  final InitializeUseCase initializeUseCase;
   StreamSubscription<Position>? _locationSubscription;
   StreamSubscription<dynamic>? _onRouteLocationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
-  DriverOperationsBloc() : super(const DriverOperationsState.initial()) {
+  DriverOperationsBloc({required this.initializeUseCase})
+      : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
     });
@@ -60,15 +63,7 @@ class DriverOperationsBloc
       Emitter<DriverOperationsState> emit) async {
     try {
       emit(const DriverOperationsState.loading());
-      final currentLocation = await locationRepository.getCurrentLocation();
 
-      if (currentLocation == null) {
-        logger.severe('Unable to get current location during initialization.');
-        emit(const DriverOperationsState.error(
-          message: 'Unable to get current location. Please check GPS settings.',
-        ));
-        return;
-      }
       await driverOperationsRepository.initializeSocket();
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline(

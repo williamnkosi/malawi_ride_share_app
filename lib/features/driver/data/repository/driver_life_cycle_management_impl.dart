@@ -1,11 +1,12 @@
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_service_interface.dart';
 
 class DriverLifeCycleManagementImpl implements DriverLifeCycleManagement {
+  final SocketServiceInterface socketService;
+
+  DriverLifeCycleManagementImpl({required this.socketService});
   @override
-  Future<void> goOffline({required String firebaseId}) {
-    // TODO: implement goOffline
-    throw UnimplementedError();
-  }
+  Future<void> goOffline({required String firebaseId}) {}
 
   @override
   Future<void> goOnline({required String firebaseId}) {
@@ -15,8 +16,7 @@ class DriverLifeCycleManagementImpl implements DriverLifeCycleManagement {
 
   @override
   Future<void> initializeDriver({required String firebaseId}) {
-    // TODO: implement initializeDriver
-    throw UnimplementedError();
+    return socketService.connect();
   }
 
   @override

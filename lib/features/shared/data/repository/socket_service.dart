@@ -7,7 +7,7 @@ import 'package:malawi_ride_share_app/services/socket_service/socket_constants.d
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_service_interface.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-abstract class SocketService implements SocketServiceInterface {
+class SocketService implements SocketServiceInterface {
   io.Socket? socket;
   final Logger _logger = Logger('SocketService');
   final String? namespace;

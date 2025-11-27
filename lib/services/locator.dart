@@ -1,5 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
+import 'package:malawi_ride_share_app/features/driver/data/repository/driver_life_cycle_management_impl.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
@@ -14,12 +18,13 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/socket_service.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_service_interface.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
-import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
-import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -41,28 +46,6 @@ Future<void> setupGetIt() async {
   await setupAppFeatureDependencies();
 
   logger.info('=====================================');
-  getIt.registerSingletonAsync<DriverLocationSocketService>(
-    () async {
-      logger.info('🔄 Creating DriverLocationSocketService...');
-      final socketService = DriverLocationSocketService();
-
-      logger.info('✅ DriverLocationSocketService initialized');
-      return socketService;
-    },
-  );
-
-  logger.info('=====================================');
-  getIt.registerSingletonAsync<DriverTripSocketService>(
-    () async {
-      logger.info('🔄 Creating DriverTripSocketService...');
-      final socketService = DriverTripSocketService();
-
-      logger.info('✅ DriverTripSocketService initialized');
-      return socketService;
-    },
-  );
-
-  logger.info('=====================================');
 
   getIt.registerSingleton<FirebaseAuthRepositoryImp>(
       FirebaseAuthRepositoryImp(apiService: getIt<ApiService>()));
@@ -80,8 +63,9 @@ Future<void> setupGetIt() async {
 
 Future<void> setupSharedDependencies() async {
   // Shared Repositories
-  getIt.registerSingleton<LocationRepositoryImpl>(LocationRepositoryImpl());
-  getIt.registerSingleton<FirebaseRepositoryImpl>(
+  getIt.registerSingleton<SocketServiceInterface>(SocketService());
+  getIt.registerSingleton<LocationRepository>(LocationRepositoryImpl());
+  getIt.registerSingleton<FirebaseRepository>(
       FirebaseRepositoryImpl(apiService: getIt<ApiService>()));
 }
 
@@ -129,9 +113,18 @@ Future<void> setupAuthFeatureDependencies() async {
 }
 
 Future<void> setupDriverOperationsDependencies() async {
-  getIt.registerLazySingleton<DriverOperationsRepository>(() =>
-      DriverOperationsRepository(
-          driverLocationSocketService: getIt<DriverLocationSocketService>(),
-          driverTripSocketService: getIt<DriverTripSocketService>()));
-  getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc());
+  //repos
+  getIt.registerSingleton<DriverLifeCycleManagement>(
+      DriverLifeCycleManagementImpl(
+          socketService: getIt<SocketServiceInterface>()));
+
+  // Use cases
+  getIt.registerSingleton<InitializeUseCase>(InitializeUseCase(
+      getIt<LocationPermissionInterface>(),
+      getIt<LocationRepository>(),
+      getIt<DriverLifeCycleManagement>()));
+
+  getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
+        initializeUseCase: getIt<InitializeUseCase>(),
+      ));
 }

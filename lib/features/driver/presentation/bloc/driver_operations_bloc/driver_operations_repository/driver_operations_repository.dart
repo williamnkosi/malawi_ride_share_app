@@ -1,8 +1,8 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/dtos/update_driver_location_dto.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/dtos/location_dto.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/dtos/update_driver_location_dto.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';

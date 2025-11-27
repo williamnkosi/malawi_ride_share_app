@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_bloc.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/widgets/driver_map_section.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/widgets/driver_status_bar.dart';
 

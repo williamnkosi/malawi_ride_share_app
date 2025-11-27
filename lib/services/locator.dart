@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/app_blocs/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';

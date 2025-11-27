@@ -1,10 +1,11 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
 
-class LocationRepository {
+class LocationRepositoryImpl implements LocationRepository {
   final logger = Logger('LocationRepository');
 
-  /// Get current location
+  @override
   Future<Position?> getCurrentLocation() async {
     try {
       logger.info('📍 Getting current location...');
@@ -22,7 +23,7 @@ class LocationRepository {
     }
   }
 
-  /// Get location stream for continuous tracking
+  @override
   Stream<Position> getLocationStream() {
     logger.info('👂 Starting location stream...');
 
@@ -35,7 +36,7 @@ class LocationRepository {
     );
   }
 
-  /// Calculate distance between two positions
+  @override
   double calculateDistance(Position from, Position to) {
     return Geolocator.distanceBetween(
       from.latitude,
@@ -43,24 +44,5 @@ class LocationRepository {
       to.latitude,
       to.longitude,
     );
-  }
-
-  /// Calculate bearing between two positions
-  double calculateBearing(Position from, Position to) {
-    return Geolocator.bearingBetween(
-      from.latitude,
-      from.longitude,
-      to.latitude,
-      to.longitude,
-    );
-  }
-
-  /// Get location accuracy description
-  String getLocationAccuracyDescription(Position position) {
-    final accuracy = position.accuracy;
-    if (accuracy <= 5) return 'Excellent';
-    if (accuracy <= 10) return 'Good';
-    if (accuracy <= 20) return 'Fair';
-    return 'Poor';
   }
 }

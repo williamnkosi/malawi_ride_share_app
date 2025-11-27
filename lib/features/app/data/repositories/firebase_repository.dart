@@ -5,68 +5,16 @@ import 'package:logging/logging.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:malawi_ride_share_app/models/user_device.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 
-class FirebaseRepository {
+class FirebaseRepositoryImpl implements FirebaseRepository {
   late FirebaseMessaging _firebaseMessaging;
   final logger = Logger('FirebaseRepository');
   final ApiService apiService;
-  FirebaseRepository({required this.apiService});
-
+  FirebaseRepositoryImpl({required this.apiService});
   FirebaseApp get app => Firebase.app();
-
-  /// Check if notification permission is granted
-  Future<bool> isNotificationPermissionGranted() async {
-    try {
-      logger.info('🔔 Checking notification permission status...');
-
-      _firebaseMessaging = FirebaseMessaging.instance;
-      final settings = await _firebaseMessaging.getNotificationSettings();
-
-      final isGranted =
-          settings.authorizationStatus == AuthorizationStatus.authorized;
-      logger.info('📱 Notification permission granted: $isGranted');
-
-      return isGranted;
-    } catch (e) {
-      logger.severe('❌ Error checking notification permission: $e');
-      return false;
-    }
-  }
-
-  /// Request notification permissions
-  Future<bool> requestNotificationPermissions() async {
-    try {
-      logger.info('🔐 Requesting notification permissions...');
-
-      _firebaseMessaging = FirebaseMessaging.instance;
-      final settings = await _firebaseMessaging.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        carPlay: false,
-        criticalAlert: false,
-        provisional: false,
-        sound: true,
-      );
-
-      final isGranted =
-          settings.authorizationStatus == AuthorizationStatus.authorized;
-      logger.info('✅ Notification permission granted: $isGranted');
-
-      if (isGranted) {
-        final token = await _firebaseMessaging.getToken();
-        logger.info('🔑 Firebase token: $token\n');
-      }
-
-      return isGranted;
-    } catch (e) {
-      logger.severe(
-          '❌ Error requesting notification permissions', e, StackTrace.current);
-      return false;
-    }
-  }
 
   /// Get the stream of incoming messages
   Stream<RemoteMessage> get messageStream {
@@ -80,7 +28,7 @@ class FirebaseRepository {
     return FirebaseMessaging.onMessageOpenedApp;
   }
 
-  /// Initialize Firebase messaging and get FCM token
+  @override
   Future<String?> initializeMessaging() async {
     try {
       logger.info('🚀 Initializing Firebase messaging...');
@@ -102,7 +50,7 @@ class FirebaseRepository {
     }
   }
 
-  /// Get current FCM token
+  @override
   Future<String?> getFCMToken() async {
     try {
       final token = await _firebaseMessaging.getToken();
@@ -114,6 +62,7 @@ class FirebaseRepository {
     }
   }
 
+  @override
   Future<void> registerDevice() async {
     try {
       final firebaseUserId = (await getCurrentUser()).uid;
@@ -139,6 +88,7 @@ class FirebaseRepository {
     }
   }
 
+  @override
   Future<User> getCurrentUser() async {
     try {
       final user = FirebaseAuth.instanceFor(app: app).currentUser;
@@ -150,5 +100,17 @@ class FirebaseRepository {
       logger.severe('Error getting current user', e, StackTrace.current);
       throw Exception('Failed to get current user');
     }
+  }
+
+  @override
+  Future<bool> isNotificationPermissionGranted() {
+    // TODO: implement isNotificationPermissionGranted
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> requestNotificationPermissions() {
+    // TODO: implement requestNotificationPermissions
+    throw UnimplementedError();
   }
 }

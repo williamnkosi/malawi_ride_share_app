@@ -129,7 +129,6 @@ Future<void> setupAuthFeatureDependencies() async {
 
 Future<void> setupDriverOperationsDependencies() async {
   getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
-      firebaseRepository: getIt<FirebaseRepository>(),
       locationRepository: getIt<LocationRepository>(),
       driverOperationsRepository: getIt<DriverOperationsRepository>()));
 }

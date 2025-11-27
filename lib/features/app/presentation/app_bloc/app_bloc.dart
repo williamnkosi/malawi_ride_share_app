@@ -16,7 +16,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   final EnsureLocationPermission ensureLocationPermission;
   final EnsureNotificationPermission ensureNotificationPermission;
   final OpenLocationSettingUseCase openLocationSettingUseCase;
-  final FirebaseRepository fireBaseRepository;
 
   final logger = Logger('AppBloc');
 
@@ -24,7 +23,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     required this.ensureLocationPermission,
     required this.ensureNotificationPermission,
     required this.openLocationSettingUseCase,
-    required this.fireBaseRepository,
   }) : super(const AppState()) {
     on<AppEventRequestLocationPermission>(_onRequestLocationPermission);
     on<AppEventLocationPermissionGranted>(_onLocationPermissionGranted);

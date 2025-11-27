@@ -8,7 +8,7 @@ import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_o
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
-import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 
 part 'driver_operations_event.dart';
 part 'driver_operations_state.dart';
@@ -17,18 +17,11 @@ part 'driver_operations_bloc.freezed.dart';
 class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
-  final LocationRepository locationRepository;
-  final FirebaseRepository firebaseRepository;
-  final DriverOperationsRepository driverOperationsRepository;
   StreamSubscription<Position>? _locationSubscription;
   StreamSubscription<dynamic>? _onRouteLocationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
-  DriverOperationsBloc(
-      {required this.firebaseRepository,
-      required this.locationRepository,
-      required this.driverOperationsRepository})
-      : super(const DriverOperationsState.initial()) {
+  DriverOperationsBloc() : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
     });

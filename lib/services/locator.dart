@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
@@ -89,6 +90,7 @@ Future<void> setupGetIt() async {
   logger.info('===================================== /n');
 
   await setupAuthFeatureDependencies();
+  await setupDriverOperationsDependencies();
 }
 
 Future<void> setupAppFeatureDependencies() async {
@@ -132,4 +134,11 @@ Future<void> setupAuthFeatureDependencies() async {
         signUpUserUseCase: getIt<SignUpUserUseCase>(),
         signOutUserUseCase: getIt<SignOutUserUseCase>(),
       ));
+}
+
+Future<void> setupDriverOperationsDependencies() async {
+  getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
+      firebaseRepository: getIt<FirebaseRepository>(),
+      locationRepository: getIt<LocationRepository>(),
+      driverOperationsRepository: getIt<DriverOperationsRepository>()));
 }

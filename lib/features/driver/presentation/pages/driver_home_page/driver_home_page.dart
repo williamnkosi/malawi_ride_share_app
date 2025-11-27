@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
-import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/dtos/driver_trip_request.dto.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_repository.dart';
@@ -34,10 +34,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DriverOperationsBloc(
-          firebaseRepository: getIt<FirebaseRepository>(),
-          locationRepository: getIt<LocationRepository>(),
-          driverOperationsRepository: getIt<DriverOperationsRepository>())
+      create: (context) => getIt<DriverOperationsBloc>()
         ..add(
           const DriverOperationsEvent.initialize(),
         ),

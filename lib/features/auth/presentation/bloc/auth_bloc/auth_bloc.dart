@@ -6,7 +6,6 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_passwo
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
-import 'package:malawi_ride_share_app/repository/firebase_repository.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

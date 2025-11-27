@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:malawi_ride_share_app/app_blocs/app_bloc/app_bloc.dart';
+import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 
 /// A utility widget that shows location permission status and provides actions
 class LocationPermissionWidget extends StatelessWidget {

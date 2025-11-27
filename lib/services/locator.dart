@@ -19,7 +19,6 @@ import 'package:malawi_ride_share_app/features/app/data/repositories/location_re
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_location_socket_service.dart';
 import 'package:malawi_ride_share_app/services/socket_service/driver_trip_socket_service.dart';
-import 'package:malawi_ride_share_app/services/socket_service/rider_socket_service.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -64,14 +63,6 @@ Future<void> setupGetIt() async {
     },
   );
 
-  getIt.registerSingletonAsync<RiderSocketService>(
-    () async {
-      logger.info('🔄 Creating RiderSocketService...');
-      final socketService = RiderSocketService();
-      logger.info('✅ RiderSocketService initialized');
-      return socketService;
-    },
-  );
   logger.info('=====================================');
 
   getIt.registerSingleton<FirebaseAuthRepositoryImp>(

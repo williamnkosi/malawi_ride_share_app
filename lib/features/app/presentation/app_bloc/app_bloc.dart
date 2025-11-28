@@ -83,7 +83,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       await openLocationSettingUseCase.call(null);
 
       // After opening settings, check permission status again
-      add(const AppEvent.checkLocationPermission());
+      add(const AppEvent.requestLocationPermission());
     } catch (e) {
       logger.severe('❌ Error opening location settings: $e');
     }

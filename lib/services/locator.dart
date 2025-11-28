@@ -3,7 +3,9 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_life_cycle_management_impl.dart';
+import 'package:malawi_ride_share_app/features/driver/data/repository/driver_location_tracking.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -120,12 +122,24 @@ Future<void> setupDriverOperationsDependencies() async {
   getIt.registerSingleton<DriverLifeCycleManagement>(
       DriverLifeCycleManagementImpl(socketService: getIt<SocketRepository>()));
 
+  getIt.registerSingleton<DriverLocationTrackingRepository>(
+      DriverLocationTrackingRepositoryImpl(getIt<SocketRepository>()));
+
   // Use cases
   getIt.registerSingleton<InitializeUseCase>(InitializeUseCase(
       getIt<SocketRepository>(),
       getIt<LocationPermissionRepository>(),
       getIt<LocationRepository>(),
       getIt<DriverLifeCycleManagement>()));
+
+  getIt.registerSingleton<GoOnLineUseCase>(GoOnLineUseCase(
+      getIt<LocationRepository>(),
+      getIt<FirebaseRepository>(),
+      getIt<DriverLifeCycleManagement>(),
+      getIt<DriverLocationTrackingRepository>()));
+
+  getIt.registerSingleton<GoOfflineUseCase>(
+      GoOfflineUseCase(getIt<LocationRepository>()));
 
   getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
         initializeUseCase: getIt<InitializeUseCase>(),

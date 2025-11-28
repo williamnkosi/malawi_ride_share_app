@@ -9,7 +9,6 @@ import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_u
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
-import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 
 part 'driver_operations_event.dart';
 part 'driver_operations_state.dart';

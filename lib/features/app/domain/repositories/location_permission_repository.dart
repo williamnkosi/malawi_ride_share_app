@@ -1,4 +1,4 @@
-abstract class LocationPermissionInterface {
+abstract class LocationPermissionRepository {
   /// Check if location is fully available (services enabled AND permission granted)
   Future<bool> isLocationPermissionGranted();
 

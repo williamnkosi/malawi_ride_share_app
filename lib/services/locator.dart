@@ -1,8 +1,11 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_life_cycle_management_impl.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
@@ -70,21 +73,22 @@ Future<void> setupSharedDependencies() async {
 
 Future<void> setupAppFeatureDependencies() async {
   // Repositories Implementations
-  getIt.registerSingleton<LocationPermissionRepositoryImpl>(
+  getIt.registerSingleton<LocationPermissionRepository>(
       LocationPermissionRepositoryImpl());
 
-  getIt.registerSingleton<NotificationPermissionRepositoryImpl>(
+  getIt.registerSingleton<NotificationPermissionRepository>(
       NotificationPermissionRepositoryImpl());
 
   // Use cases
   getIt.registerSingleton<EnsureLocationPermission>(
-      EnsureLocationPermission(getIt<LocationPermissionRepositoryImpl>()));
+      EnsureLocationPermission(getIt<LocationPermissionRepository>()));
+
   getIt.registerSingleton<EnsureNotificationPermission>(
-      EnsureNotificationPermission(
-          getIt<NotificationPermissionRepositoryImpl>(),
+      EnsureNotificationPermission(getIt<NotificationPermissionRepository>(),
           getIt<FirebaseRepository>()));
+
   getIt.registerSingleton<OpenLocationSettingUseCase>(
-      OpenLocationSettingUseCase(getIt<LocationPermissionRepositoryImpl>()));
+      OpenLocationSettingUseCase(getIt<LocationPermissionRepository>()));
 
   getIt.registerFactory<AppBloc>(() => AppBloc(
         ensureLocationPermission: getIt<EnsureLocationPermission>(),
@@ -119,11 +123,13 @@ Future<void> setupDriverOperationsDependencies() async {
   // Use cases
   getIt.registerSingleton<InitializeUseCase>(InitializeUseCase(
       getIt<SocketRepository>(),
-      getIt<LocationPermissionInterface>(),
+      getIt<LocationPermissionRepository>(),
       getIt<LocationRepository>(),
       getIt<DriverLifeCycleManagement>()));
 
   getIt.registerFactory<DriverOperationsBloc>(() => DriverOperationsBloc(
         initializeUseCase: getIt<InitializeUseCase>(),
+        goOfflineUseCase: getIt<GoOfflineUseCase>(),
+        goOnLineUseCase: getIt<GoOnLineUseCase>(),
       ));
 }

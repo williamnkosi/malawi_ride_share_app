@@ -1,10 +1,10 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 
-class LocationPermissionRepositoryImpl implements LocationPermissionInterface {
+class LocationPermissionRepositoryImpl implements LocationPermissionRepository {
   final logger = Logger('LocationPermissionRepositoryImpl');
 
   @override

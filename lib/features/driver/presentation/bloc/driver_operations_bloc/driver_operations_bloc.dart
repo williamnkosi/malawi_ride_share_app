@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
@@ -17,11 +19,16 @@ class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
   final InitializeUseCase initializeUseCase;
+  final GoOfflineUseCase goOfflineUseCase;
+  final GoOnLineUseCase goOnLineUseCase;
   StreamSubscription<Position>? _locationSubscription;
   StreamSubscription<dynamic>? _onRouteLocationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
-  DriverOperationsBloc({required this.initializeUseCase})
+  DriverOperationsBloc(
+      {required this.initializeUseCase,
+      required this.goOfflineUseCase,
+      required this.goOnLineUseCase})
       : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
@@ -31,22 +38,22 @@ class DriverOperationsBloc
     on<DriverOperationsGoOnline>(_onDriverOperationsGoOnline);
     on<DriverOperationsLocationUpdated>(_onLocationUpdated);
     on<DriverOperationsTripRequestReceived>(_onTripRequestReceived);
-    on<DriverOperationsAcceptTrip>(_onTripRequestAccepted);
+    //on<DriverOperationsAcceptTrip>(_onTripRequestAccepted);
 
     // Subscribe to trip request events from socket
-    _setupTripRequestListener();
+    // _setupTripRequestListener();
   }
 
-  void _setupTripRequestListener() {
-    _tripRequestSubscription = driverOperationsRepository
-        .driverTripSocketService
-        .on<Map<String, dynamic>>('trip:new_request')
-        .listen((data) {
-      final tripData = TripRequestNotificationDto.fromJson(data);
-      logger.info('🚗 Trip request received from socket: $data');
-      add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
-    });
-  }
+  // void _setupTripRequestListener() {
+  //   _tripRequestSubscription = driverOperationsRepository
+  //       .driverTripSocketService
+  //       .on<Map<String, dynamic>>('trip:new_request')
+  //       .listen((data) {
+  //     final tripData = TripRequestNotificationDto.fromJson(data);
+  //     logger.info('🚗 Trip request received from socket: $data');
+  //     add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
+  //   });
+  // }
 
   void _onTripRequestReceived(DriverOperationsTripRequestReceived event,
       Emitter<DriverOperationsState> emit) {
@@ -75,47 +82,45 @@ class DriverOperationsBloc
     }
   }
 
-  _onTripRequestAccepted(DriverOperationsAcceptTrip event,
-      Emitter<DriverOperationsState> emit) async {
-    try {
-      TripRequestNotificationDto? currentTripRequest = state.maybeWhen(
-          tripRequestReceived: (tripRequest) {
-            return tripRequest;
-          },
-          orElse: () => null);
+  // _onTripRequestAccepted(DriverOperationsAcceptTrip event,
+  //     Emitter<DriverOperationsState> emit) async {
+  //   try {
+  //     TripRequestNotificationDto? currentTripRequest = state.maybeWhen(
+  //         tripRequestReceived: (tripRequest) {
+  //           return tripRequest;
+  //         },
+  //         orElse: () => null);
 
-      emit(const DriverOperationsState.loading());
-      // Accept the trip request
-      driverOperationsRepository.acceptTrip(tripId: currentTripRequest!.tripId);
+  //     emit(const DriverOperationsState.loading());
+  //     // Accept the trip request
+  //     driverOperationsRepository.acceptTrip(tripId: currentTripRequest!.tripId);
 
-      _onRouteLocationSubscription =
-          locationRepository.getLocationStream().listen((position) async {
-        // Handle location updates while en route to pickup
-        emit(DriverOperationsState.enRouteToPickup(
-          currentLocation: position,
-          activeTrip: currentTripRequest,
-          estimatedPickupTime: DateTime.now().add(Duration(minutes: 5)),
-          onlineTime: DateTime.now(),
-        ));
-      });
-    } catch (e) {
-      logger.severe('Error accepting trip request: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to accept trip request: ${e.toString()}',
-      ));
-    }
-  }
+  //     _onRouteLocationSubscription =
+  //         locationRepository.getLocationStream().listen((position) async {
+  //       // Handle location updates while en route to pickup
+  //       emit(DriverOperationsState.enRouteToPickup(
+  //         currentLocation: position,
+  //         activeTrip: currentTripRequest,
+  //         estimatedPickupTime: DateTime.now().add(Duration(minutes: 5)),
+  //         onlineTime: DateTime.now(),
+  //       ));
+  //     });
+  //   } catch (e) {
+  //     logger.severe('Error accepting trip request: $e');
+  //     emit(DriverOperationsState.error(
+  //       message: 'Failed to accept trip request: ${e.toString()}',
+  //     ));
+  //   }
+  // }
 
   _onDriverOperationsGoOffline(DriverOperationsGoOffline event,
       Emitter<DriverOperationsState> emit) async {
     try {
       // Stop location tracking
       await _stopLocationTracking();
-
-      final currentLocation = await locationRepository.getCurrentLocation();
-      driverOperationsRepository.goOffline();
+      var current = await goOfflineUseCase.call(null);
       emit(DriverOperationsState.offline(
-        lastKnownLocation: currentLocation,
+        lastKnownLocation: current,
       ));
 
       logger.info('Driver went offline');
@@ -132,49 +137,10 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
 
-      final currentLocation = await locationRepository.getCurrentLocation();
-      final firebaseId = await firebaseRepository.getCurrentUser();
-
-      var permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied ||
-          permission == LocationPermission.deniedForever) {
-        emit(const DriverOperationsState.error(
-          message: 'Location permission denied. Please enable it in settings.',
-        ));
-        return;
-      }
-
-      if (currentLocation == null) {
-        emit(const DriverOperationsState.error(
-          message: 'Unable to get current location. Please check GPS settings.',
-        ));
-        return;
-      } // Set online time
-
-      await driverOperationsRepository.startTrackingLocation(
-        firebaseId: firebaseId.uid,
-        currentLocation: currentLocation,
-      );
-
-      emit(DriverOperationsState.online(
-        currentLocation: currentLocation,
-      ));
-
-      _locationSubscription = locationRepository.getLocationStream().listen(
-        (position) async {
-          logger.info(
-              'Tracking location for driver: ${firebaseId.uid}. Position: ${position.latitude}, ${position.longitude}');
-          // Emit location update to socket
-          add(DriverOperationsLocationUpdated(position));
-          await driverOperationsRepository.startTrackingLocation(
-            firebaseId: firebaseId.uid,
-            currentLocation: position,
-          );
-        },
-        onError: (error) {
-          logger.severe('Location stream error: $error');
-        },
-      );
+      _locationSubscription = await goOnLineUseCase.call(null);
+      _locationSubscription!.onData((position) {
+        add(DriverOperationsLocationUpdated(position));
+      });
 
       logger.info('Driver went online');
     } catch (e) {

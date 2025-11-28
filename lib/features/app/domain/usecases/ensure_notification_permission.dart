@@ -1,5 +1,5 @@
 import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_interface.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 
 class EnsureNotificationPermission implements UseCase<bool, void> {

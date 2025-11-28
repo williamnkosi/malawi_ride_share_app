@@ -1,8 +1,8 @@
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
-import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_service_interface.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 
 class DriverLifeCycleManagementImpl implements DriverLifeCycleManagement {
-  final SocketServiceInterface socketService;
+  final SocketRepository socketService;
 
   DriverLifeCycleManagementImpl({required this.socketService});
   @override

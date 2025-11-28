@@ -5,7 +5,6 @@ import 'package:malawi_ride_share_app/features/driver/data/repository/driver_lif
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_life_cycle_management.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
-import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/domain/usecases/ensure_location_permission.dart';
@@ -18,10 +17,10 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
-import 'package:malawi_ride_share_app/features/shared/data/repository/socket_service.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
-import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_service_interface.dart';
+import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
@@ -63,7 +62,7 @@ Future<void> setupGetIt() async {
 
 Future<void> setupSharedDependencies() async {
   // Shared Repositories
-  getIt.registerSingleton<SocketServiceInterface>(SocketService());
+  getIt.registerSingleton<SocketRepository>(SocketRepositoryImpl());
   getIt.registerSingleton<LocationRepository>(LocationRepositoryImpl());
   getIt.registerSingleton<FirebaseRepository>(
       FirebaseRepositoryImpl(apiService: getIt<ApiService>()));
@@ -115,8 +114,7 @@ Future<void> setupAuthFeatureDependencies() async {
 Future<void> setupDriverOperationsDependencies() async {
   //repos
   getIt.registerSingleton<DriverLifeCycleManagement>(
-      DriverLifeCycleManagementImpl(
-          socketService: getIt<SocketServiceInterface>()));
+      DriverLifeCycleManagementImpl(socketService: getIt<SocketRepository>()));
 
   // Use cases
   getIt.registerSingleton<InitializeUseCase>(InitializeUseCase(

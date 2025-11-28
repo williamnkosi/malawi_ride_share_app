@@ -2,7 +2,7 @@ import 'dart:async';
 
 abstract class SocketRepository {
 // Connection lifecycle
-  Future<void> connect();
+  Future<bool> connect();
   void disconnect();
   bool get isConnected;
 

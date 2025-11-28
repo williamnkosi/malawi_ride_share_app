@@ -5,10 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
-import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/driver_operations_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
-import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
 
 part 'driver_operations_event.dart';
@@ -64,7 +62,7 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
 
-      await driverOperationsRepository.initializeSocket();
+      var currentLocation = await initializeUseCase.call(null);
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline(
         lastKnownLocation: currentLocation,

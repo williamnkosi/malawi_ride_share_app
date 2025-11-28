@@ -16,7 +16,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/features/app/data/repositories/firebase_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
@@ -118,6 +118,7 @@ Future<void> setupDriverOperationsDependencies() async {
 
   // Use cases
   getIt.registerSingleton<InitializeUseCase>(InitializeUseCase(
+      getIt<SocketRepository>(),
       getIt<LocationPermissionInterface>(),
       getIt<LocationRepository>(),
       getIt<DriverLifeCycleManagement>()));

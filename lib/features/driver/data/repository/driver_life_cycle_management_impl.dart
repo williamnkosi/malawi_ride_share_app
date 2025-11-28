@@ -6,16 +6,20 @@ class DriverLifeCycleManagementImpl implements DriverLifeCycleManagement {
 
   DriverLifeCycleManagementImpl({required this.socketService});
   @override
-  Future<void> goOffline({required String firebaseId}) {}
-
-  @override
-  Future<void> goOnline({required String firebaseId}) {
+  Future<void> goOffline({required String firebaseId}) {
     // TODO: implement goOnline
     throw UnimplementedError();
   }
 
   @override
-  Future<void> initializeDriver({required String firebaseId}) {
+  Future<void> goOnline({required String firebaseId}) {
+    // socketService.request(event)
+    // TODO: implement goOnline
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> initializeDriverSession({required String firebaseId}) {
     return socketService.connect();
   }
 

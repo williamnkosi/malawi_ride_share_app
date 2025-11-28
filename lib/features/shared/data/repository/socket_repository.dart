@@ -21,11 +21,11 @@ class SocketRepositoryImpl implements SocketRepository {
   bool get isConnected => _socket?.connected ?? false;
 
   @override
-  Future<void> connect() async {
+  Future<bool> connect() async {
     try {
       if (_socket?.connected == true) {
         _logger.info('Socket already connected');
-        return;
+        return false;
       }
 
       final socketUrl = SocketConstants.socketUrl;
@@ -45,6 +45,7 @@ class SocketRepositoryImpl implements SocketRepository {
 
       await _waitForConnection();
       _logger.info('✅ Socket connected successfully');
+      return true;
     } catch (e) {
       _logger.severe('Failed to connect socket: $e');
       rethrow;

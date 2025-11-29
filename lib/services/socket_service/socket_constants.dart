@@ -26,7 +26,7 @@ class SocketConstants {
   // =================================================================
   static List<SocketNamespace> get namespaces => [
     SocketNamespace.trips,
-    SocketNamespace.driver,
+    SocketNamespace.location,
   ];
 
   // =================================================================
@@ -172,7 +172,7 @@ class SocketConstants {
 /// Socket namespace enumeration
 enum SocketNamespace {
   trips('/trips'),
-  driver('/driver');
+  location('/location');
 
   const SocketNamespace(this.path);
   final String path;

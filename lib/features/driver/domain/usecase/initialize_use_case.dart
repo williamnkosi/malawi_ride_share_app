@@ -29,7 +29,7 @@ class InitializeUseCase implements UseCase<Position?, void> {
 
     var auth = SocketAuth(token: token, userType: UserType.driver);
     var isConnected = await socketRepository.connect(
-      namespaces: [SocketNamespace.trips, SocketNamespace.driver],
+      namespaces: [SocketNamespace.trips, SocketNamespace.location],
       auth: auth,
     );
     if (!isConnected) throw Exception('Socket connection failed');

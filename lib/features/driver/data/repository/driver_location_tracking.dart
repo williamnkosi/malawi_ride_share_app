@@ -16,7 +16,7 @@ class DriverLocationTrackingRepositoryImpl
   }) async {
     socketRepository.emit(
       SocketConstants.driverLocationUpdate,
-      SocketNamespace.driver.path,
+      SocketNamespace.location.path,
       {"location": location.toJson(), "status": status.toString()},
     );
   }

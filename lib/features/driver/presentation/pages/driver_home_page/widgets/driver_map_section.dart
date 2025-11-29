@@ -21,9 +21,54 @@ class DriverMapsSection extends StatelessWidget {
           offline: (lastKnownLocation) => MapView(
             location: lastKnownLocation,
           ),
-          orElse: () => Placeholder(),
+          orElse: () => Expanded(child: ErrorSection()),
         );
       },
+    );
+  }
+}
+
+class ErrorSection extends StatelessWidget {
+  final String? message;
+
+  const ErrorSection({super.key, this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.error_outline,
+              size: 64,
+              color: Colors.red,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Something went wrong',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            if (message != null)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: Text(
+                  message!,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }

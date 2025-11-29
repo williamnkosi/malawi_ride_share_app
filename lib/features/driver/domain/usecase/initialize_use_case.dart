@@ -5,7 +5,7 @@ import 'package:malawi_ride_share_app/features/shared/domain/repositories/locati
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 
-class InitializeUseCase implements UseCase<void, void> {
+class InitializeUseCase implements UseCase<Position?, void> {
   final SocketRepository socketRepository;
 
   final LocationPermissionRepository locationPermissionImpl;

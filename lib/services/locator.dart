@@ -3,10 +3,13 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/notification_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_location_tracking.dart';
+import 'package:malawi_ride_share_app/features/driver/data/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/listen_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
@@ -137,6 +140,10 @@ Future<void> setupDriverOperationsDependencies() async {
     DriverLocationTrackingRepositoryImpl(getIt<SocketRepository>()),
   );
 
+  getIt.registerSingleton<DriverTripRepository>(
+    DriverTripRepositoryImp(getIt<SocketRepository>()),
+  );
+
   // Use cases
   getIt.registerSingleton<InitializeUseCase>(
     InitializeUseCase(
@@ -156,6 +163,10 @@ Future<void> setupDriverOperationsDependencies() async {
 
   getIt.registerSingleton<GoOfflineUseCase>(
     GoOfflineUseCase(getIt<LocationRepository>()),
+  );
+
+  getIt.registerSingleton<ListenTripRequestUseCase>(
+    ListenTripRequestUseCase(getIt<DriverTripRepository>()),
   );
 
   getIt.registerFactory<DriverOperationsBloc>(

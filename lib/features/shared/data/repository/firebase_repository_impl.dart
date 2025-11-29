@@ -55,6 +55,23 @@ class FirebaseRepositoryImpl implements FirebaseRepository {
   }
 
   @override
+  Future<String?> getIdToken() async {
+    try {
+      final user = FirebaseAuth.instanceFor(app: app).currentUser;
+      if (user == null) {
+        logger.warning('⚠️ No user signed in, cannot get ID token');
+        return null;
+      }
+      final idToken = await user.getIdToken();
+      logger.info('🔑 Firebase ID token obtained');
+      return idToken;
+    } catch (e) {
+      logger.severe('❌ Error getting Firebase ID token', e, StackTrace.current);
+      return null;
+    }
+  }
+
+  @override
   String? getFirebaseId() {
     return FirebaseAuth.instanceFor(app: app).currentUser?.uid;
   }
@@ -76,7 +93,10 @@ class FirebaseRepositoryImpl implements FirebaseRepository {
       return token;
     } catch (e) {
       logger.severe(
-          '❌ Error initializing Firebase messaging', e, StackTrace.current);
+        '❌ Error initializing Firebase messaging',
+        e,
+        StackTrace.current,
+      );
       return null;
     }
   }
@@ -94,8 +114,9 @@ class FirebaseRepositoryImpl implements FirebaseRepository {
 
       final device = UserDevice(
         fcmToken: phoneFcmToken,
-        platform:
-            Platform.isAndroid ? DevicePlatform.android : DevicePlatform.ios,
+        platform: Platform.isAndroid
+            ? DevicePlatform.android
+            : DevicePlatform.ios,
         deviceVersion: "1.0.0",
       );
 

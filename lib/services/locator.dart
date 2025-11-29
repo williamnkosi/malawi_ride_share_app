@@ -148,6 +148,7 @@ Future<void> setupDriverOperationsDependencies() async {
   getIt.registerSingleton<InitializeUseCase>(
     InitializeUseCase(
       getIt<SocketRepository>(),
+      getIt<FirebaseRepository>(),
       getIt<LocationPermissionRepository>(),
       getIt<LocationRepository>(),
     ),

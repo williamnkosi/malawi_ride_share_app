@@ -1,6 +1,7 @@
 // lib/features/shared/data/repository/socket_repository.dart
 import 'dart:async';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/core/models/socket_auth.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
@@ -22,12 +23,15 @@ class SocketRepositoryImpl implements SocketRepository {
       _namespaceSockets.values.any((socket) => socket.connected);
 
   @override
-  Future<bool> connect({required List<SocketNamespace> namespaces}) async {
+  Future<bool> connect({
+    required List<SocketNamespace> namespaces,
+    required SocketAuth auth,
+  }) async {
     try {
       _logger.info('Connecting to namespaces: $namespaces');
 
       for (var namespace in namespaces) {
-        await _connectToNamespace(namespace.path);
+        await _connectToNamespace(namespace.path, auth);
       }
 
       _logger.info('✅ Connected to ${namespaces.length} namespace(s)');
@@ -39,7 +43,7 @@ class SocketRepositoryImpl implements SocketRepository {
     }
   }
 
-  Future<void> _connectToNamespace(String namespace) async {
+  Future<void> _connectToNamespace(String namespace, SocketAuth auth) async {
     if (_namespaceSockets.containsKey(namespace)) {
       _logger.info('Already connected to namespace: $namespace');
       return;
@@ -57,6 +61,10 @@ class SocketRepositoryImpl implements SocketRepository {
             .setTransports(['websocket'])
             .disableAutoConnect()
             .setTimeout(SocketConstants.connectionTimeout.inMilliseconds)
+            .setAuth({
+              'token': auth.token,
+              'userType': auth.userType.name.toLowerCase(),
+            })
             .build(),
       );
 

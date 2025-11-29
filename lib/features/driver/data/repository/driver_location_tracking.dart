@@ -14,10 +14,11 @@ class DriverLocationTrackingRepositoryImpl
     required LocationDto location,
     required DriverStatus status,
   }) async {
-    socketRepository.emit(SocketConstants.driverLocationUpdate, {
-      "location": location.toJson(),
-      "status": status.toString(),
-    });
+    socketRepository.emit(
+      SocketConstants.driverLocationUpdate,
+      SocketNamespace.driver.path,
+      {"location": location.toJson(), "status": status.toString()},
+    );
   }
 
   @override

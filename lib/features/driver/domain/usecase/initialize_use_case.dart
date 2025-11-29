@@ -17,7 +17,9 @@ class InitializeUseCase implements UseCase<void, void> {
 
   @override
   Future<Position?> call(void params) async {
-    var isConnected = await socketRepository.connect();
+    var isConnected = await socketRepository.connect(
+      namespaces: [.trips, .driver],
+    );
     if (!isConnected) throw Exception('Socket connection failed');
 
     var currentLocation = await locationRepositoryImp.getCurrentLocation();

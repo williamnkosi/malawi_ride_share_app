@@ -7,7 +7,7 @@ import 'package:socket_io_client/socket_io_client.dart' as io;
 
 class SocketRepositoryImpl implements SocketRepository {
   final Logger _logger = Logger('SocketRepositoryImpl');
-  io.Socket? _socket;
+  final Map<String, io.Socket> _namespaceSockets = {};
 
   final StreamController<bool> _connectionStatusController =
       StreamController<bool>.broadcast();
@@ -18,21 +18,41 @@ class SocketRepositoryImpl implements SocketRepository {
   Stream<bool> get connectionStatus => _connectionStatusController.stream;
 
   @override
-  bool get isConnected => _socket?.connected ?? false;
+  bool get isConnected =>
+      _namespaceSockets.values.any((socket) => socket.connected);
 
   @override
-  Future<bool> connect() async {
+  Future<bool> connect({required List<SocketNamespace> namespaces}) async {
     try {
-      if (_socket?.connected == true) {
-        _logger.info('Socket already connected');
-        return false;
+      _logger.info('Connecting to namespaces: $namespaces');
+
+      for (var namespace in namespaces) {
+        await _connectToNamespace(namespace.path);
       }
 
-      final socketUrl = SocketConstants.socketUrl;
-      _logger.info('Connecting to: $socketUrl');
+      _logger.info('✅ Connected to ${namespaces.length} namespace(s)');
+      _connectionStatusController.add(true);
+      return true;
+    } catch (e) {
+      _logger.severe('Failed to connect to namespaces: $e');
+      rethrow;
+    }
+  }
 
-      _socket = io.io(
-        socketUrl,
+  Future<void> _connectToNamespace(String namespace) async {
+    if (_namespaceSockets.containsKey(namespace)) {
+      _logger.info('Already connected to namespace: $namespace');
+      return;
+    }
+
+    try {
+      final socketUrl = SocketConstants.socketUrl;
+      final namespaceUrl = '$socketUrl$namespace';
+
+      _logger.info('Connecting to namespace: $namespace');
+
+      final socket = io.io(
+        namespaceUrl,
         io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
@@ -40,36 +60,37 @@ class SocketRepositoryImpl implements SocketRepository {
             .build(),
       );
 
-      _setupEventListeners();
-      _socket!.connect();
+      // Setup listeners
+      socket.onConnect((_) {
+        _logger.info('✅ Connected to namespace: $namespace');
+      });
 
-      await _waitForConnection();
-      _logger.info('✅ Socket connected successfully');
-      return true;
+      socket.onDisconnect((reason) {
+        _logger.warning('❌ Disconnected from namespace $namespace: $reason');
+        if (_namespaceSockets.values.every((s) => !s.connected)) {
+          _connectionStatusController.add(false);
+        }
+      });
+
+      socket.onConnectError((error) {
+        _logger.severe('🚫 Connection error on namespace $namespace: $error');
+      });
+
+      socket.connect();
+      await _waitForConnection(socket, namespace);
+
+      _namespaceSockets[namespace] = socket;
     } catch (e) {
-      _logger.severe('Failed to connect socket: $e');
+      _logger.severe('Failed to connect to namespace $namespace: $e');
       rethrow;
     }
   }
 
-  void _setupEventListeners() {
-    _socket?.onConnect((_) {
-      _logger.info('✅ Socket connected');
-      _connectionStatusController.add(true);
-    });
-
-    _socket?.onDisconnect((reason) {
-      _logger.warning('❌ Socket disconnected: $reason');
-      _connectionStatusController.add(false);
-    });
-
-    _socket?.onConnectError((error) {
-      _logger.severe('🚫 Connection error: $error');
-    });
-  }
-
   Future<void> _waitForConnection(
-      {Duration timeout = const Duration(seconds: 10)}) async {
+    io.Socket socket,
+    String namespace, {
+    Duration timeout = const Duration(seconds: 10),
+  }) async {
     final completer = Completer<void>();
     late Timer timeoutTimer;
 
@@ -85,13 +106,14 @@ class SocketRepositoryImpl implements SocketRepository {
       }
     }
 
-    _socket!.onConnect(onConnect);
-    _socket!.onConnectError(onConnectError);
+    socket.onConnect(onConnect);
+    socket.onConnectError(onConnectError);
 
     timeoutTimer = Timer(timeout, () {
       if (!completer.isCompleted) {
-        completer
-            .completeError(TimeoutException('Connection timeout', timeout));
+        completer.completeError(
+          TimeoutException('Connection timeout for $namespace', timeout),
+        );
       }
     });
 
@@ -99,21 +121,23 @@ class SocketRepositoryImpl implements SocketRepository {
       await completer.future;
     } finally {
       timeoutTimer.cancel();
-      _socket!.off('connect', onConnect);
-      _socket!.off('connect_error', onConnectError);
+      socket.off('connect', onConnect);
+      socket.off('connect_error', onConnectError);
     }
   }
 
   @override
   void disconnect() {
     try {
-      if (_socket?.connected == true) {
-        _socket!.disconnect();
-        _logger.info('Socket disconnected');
+      for (var entry in _namespaceSockets.entries) {
+        if (entry.value.connected) {
+          entry.value.disconnect();
+          _logger.info('Disconnected from namespace: ${entry.key}');
+        }
       }
       _connectionStatusController.add(false);
     } catch (e) {
-      _logger.severe('Error disconnecting socket: $e');
+      _logger.severe('Error disconnecting sockets: $e');
     }
   }
 
@@ -124,8 +148,10 @@ class SocketRepositoryImpl implements SocketRepository {
       if (!_connectionStatusController.isClosed) {
         _connectionStatusController.close();
       }
-      _socket?.dispose();
-      _socket = null;
+      for (var socket in _namespaceSockets.values) {
+        socket.dispose();
+      }
+      _namespaceSockets.clear();
       _logger.info('SocketRepository disposed');
     } catch (e) {
       _logger.severe('Error disposing SocketRepository: $e');
@@ -133,34 +159,47 @@ class SocketRepositoryImpl implements SocketRepository {
   }
 
   @override
-  void emit(String event, [dynamic data, String? namespace]) {
+  void emit(String event, String namespace, [dynamic data]) {
     try {
-      if (_socket?.connected != true) {
-        _logger.warning('Socket not connected, cannot emit: $event');
-        throw Exception('Socket not connected');
+      final socket = _namespaceSockets[namespace];
+      if (socket?.connected != true) {
+        _logger.warning(
+          'Socket not connected to $namespace, cannot emit: $event',
+        );
+        throw Exception('Socket not connected to namespace: $namespace');
       }
-      _socket!.emit(event, data);
-      _logger.fine('📤 Emitted: $event');
+      socket!.emit(event, data);
+      _logger.fine('📤 Emitted: $event to $namespace');
     } catch (e) {
-      _logger.severe('Failed to emit $event: $e');
+      _logger.severe('Failed to emit $event to $namespace: $e');
       rethrow;
     }
   }
 
   @override
-  Stream<T> listen<T>(String event, [String? namespace]) {
+  Stream<T> listen<T>(String event, String namespace) {
     final controller = StreamController<T>.broadcast();
-    _socket?.on(event, (data) {
+    final socket = _namespaceSockets[namespace];
+
+    if (socket == null) {
+      _logger.severe('No socket connection for namespace: $namespace');
+      throw Exception('Not connected to namespace: $namespace');
+    }
+
+    socket.on(event, (data) {
       controller.add(data as T);
     });
+
+    _logger.fine('📡 Listening to: $event on $namespace');
     return controller.stream;
   }
 
   @override
-  Future<T?> request<T>(String event, [dynamic data, String? namespace]) async {
+  Future<T?> request<T>(String event, String namespace, [dynamic data]) async {
     try {
-      if (_socket?.connected != true) {
-        throw Exception('Socket not connected');
+      final socket = _namespaceSockets[namespace];
+      if (socket?.connected != true) {
+        throw Exception('Socket not connected to namespace: $namespace');
       }
 
       final completer = Completer<T?>();
@@ -170,16 +209,20 @@ class SocketRepositoryImpl implements SocketRepository {
         }
       });
 
-      _socket!.emitWithAck(event, data, ack: (response) {
-        if (!completer.isCompleted) {
-          timeout.cancel();
-          completer.complete(response as T?);
-        }
-      });
+      socket!.emitWithAck(
+        event,
+        data,
+        ack: (response) {
+          if (!completer.isCompleted) {
+            timeout.cancel();
+            completer.complete(response as T?);
+          }
+        },
+      );
 
       return await completer.future;
     } catch (e) {
-      _logger.severe('Request failed for $event: $e');
+      _logger.severe('Request failed for $event on $namespace: $e');
       rethrow;
     }
   }

@@ -7,13 +7,12 @@ class SocketConstants {
 
   // Connection timeout from environment
   static Duration get connectionTimeout => Duration(
-        seconds: int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10'),
-      );
+    seconds: int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10'),
+  );
 
   // Reconnection settings
-  static Duration get reconnectDelay => Duration(
-        seconds: int.parse(dotenv.env['SOCKET_RECONNECT_DELAY'] ?? '5'),
-      );
+  static Duration get reconnectDelay =>
+      Duration(seconds: int.parse(dotenv.env['SOCKET_RECONNECT_DELAY'] ?? '5'));
 
   static int get maxReconnectAttempts =>
       int.parse(dotenv.env['SOCKET_MAX_RECONNECT_ATTEMPTS'] ?? '5');
@@ -25,8 +24,10 @@ class SocketConstants {
   // =================================================================
   // NAMESPACES
   // =================================================================
-  static const String tripsNamespace = '/trips';
-  static const String locationTrackingNamespace = '/driver';
+  static List<SocketNamespace> get namespaces => [
+    SocketNamespace.trips,
+    SocketNamespace.driver,
+  ];
 
   // =================================================================
   // DRIVER WEBSOCKET EVENTS
@@ -124,41 +125,41 @@ class SocketConstants {
 
   /// Get all driver events for easy debugging/logging
   static List<String> get allDriverEvents => [
-        driverConnect,
-        driverDisconnect,
-        driverLocationUpdate,
-        driverStatusUpdate,
-        driverGoOnline,
-        driverGoOffline,
-        driverTripRequestReceived,
-        driverTripCancelled,
-        driverTripUpdated,
-        driverAcceptTrip,
-        driverDeclineTrip,
-        driverArrivePickup,
-        driverStartTrip,
-        driverCompleteTrip,
-        driverCancelTrip,
-        driverSendMessage,
-        driverMessageReceived,
-        driverTyping,
-        driverStoppedTyping,
-        driverError,
-        driverAuthError,
-        driverConnectionError,
-        driverReconnected,
-      ];
+    driverConnect,
+    driverDisconnect,
+    driverLocationUpdate,
+    driverStatusUpdate,
+    driverGoOnline,
+    driverGoOffline,
+    driverTripRequestReceived,
+    driverTripCancelled,
+    driverTripUpdated,
+    driverAcceptTrip,
+    driverDeclineTrip,
+    driverArrivePickup,
+    driverStartTrip,
+    driverCompleteTrip,
+    driverCancelTrip,
+    driverSendMessage,
+    driverMessageReceived,
+    driverTyping,
+    driverStoppedTyping,
+    driverError,
+    driverAuthError,
+    driverConnectionError,
+    driverReconnected,
+  ];
 
   /// Get all driver status values
   static List<String> get allDriverStatuses => [
-        statusOnline,
-        statusOffline,
-        statusBusy,
-        statusEnRouteToPickup,
-        statusWaitingForPassenger,
-        statusOnTrip,
-        statusUnavailable,
-      ];
+    statusOnline,
+    statusOffline,
+    statusBusy,
+    statusEnRouteToPickup,
+    statusWaitingForPassenger,
+    statusOnTrip,
+    statusUnavailable,
+  ];
 
   /// Check if event is a driver event
   static bool isDriverEvent(String event) => allDriverEvents.contains(event);
@@ -166,4 +167,13 @@ class SocketConstants {
   /// Check if status is valid
   static bool isValidDriverStatus(String status) =>
       allDriverStatuses.contains(status);
+}
+
+/// Socket namespace enumeration
+enum SocketNamespace {
+  trips('/trips'),
+  driver('/driver');
+
+  const SocketNamespace(this.path);
+  final String path;
 }

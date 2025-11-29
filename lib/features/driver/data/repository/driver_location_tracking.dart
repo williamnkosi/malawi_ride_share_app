@@ -8,9 +8,12 @@ class DriverLocationTrackingRepositoryImpl
     implements DriverLocationTrackingRepository {
   final SocketRepository socketRepository;
   DriverLocationTrackingRepositoryImpl(this.socketRepository);
+
   @override
-  Future<void> startTrackingLocation(
-      {required LocationDto location, required DriverStatus status}) async {
+  Future<void> startTrackingLocation({
+    required LocationDto location,
+    required DriverStatus status,
+  }) async {
     socketRepository.emit(SocketConstants.driverLocationUpdate, {
       "location": location.toJson(),
       "status": status.toString(),

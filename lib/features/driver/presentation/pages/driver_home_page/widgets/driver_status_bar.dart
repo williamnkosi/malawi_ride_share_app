@@ -57,7 +57,7 @@ class StatusBarUI extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          ElevatedButton(
+          IconButton(
             onPressed: () {
               isOnline
                   ? context.read<DriverOperationsBloc>().add(
@@ -67,11 +67,12 @@ class StatusBarUI extends StatelessWidget {
                         const DriverOperationsEvent.goOnline(),
                       );
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: isOnline ? Colors.red : Colors.green,
-              foregroundColor: Colors.white,
+            icon: Icon(
+              isOnline ? Icons.power_settings_new : Icons.play_arrow,
+              color: isOnline ? Colors.red : Colors.green,
             ),
-            child: Text(isOnline ? 'Go Offline' : 'Go Online'),
+            tooltip: isOnline ? 'Go Offline' : 'Go Online',
+            iconSize: 32,
           ),
         ],
       ),

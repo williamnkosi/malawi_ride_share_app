@@ -75,7 +75,7 @@ class DriverOperationsBloc
     } catch (e) {
       logger.severe('Error during driver operations initialization: $e');
       emit(DriverOperationsState.error(
-        message: 'Failed to initialize driver operations: ${e.toString()}',
+        message: 'Failed to connect to server',
       ));
     }
   }

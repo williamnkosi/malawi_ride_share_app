@@ -23,11 +23,11 @@ class DriverOperationsBloc
   StreamSubscription<Position>? _locationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
-  DriverOperationsBloc(
-      {required this.initializeUseCase,
-      required this.goOfflineUseCase,
-      required this.goOnLineUseCase})
-      : super(const DriverOperationsState.initial()) {
+  DriverOperationsBloc({
+    required this.initializeUseCase,
+    required this.goOfflineUseCase,
+    required this.goOnLineUseCase,
+  }) : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
     });
@@ -53,30 +53,30 @@ class DriverOperationsBloc
   //   });
   // }
 
-  void _onTripRequestReceived(DriverOperationsTripRequestReceived event,
-      Emitter<DriverOperationsState> emit) {
+  void _onTripRequestReceived(
+    DriverOperationsTripRequestReceived event,
+    Emitter<DriverOperationsState> emit,
+  ) {
     logger.info('Handling trip request in BLoC: ${event.tripData}');
     // Handle the trip request - update state, show notification, etc.
-    emit(DriverOperationsState.tripRequestReceived(
-      tripRequest: event.tripData,
-    ));
+    emit(
+      DriverOperationsState.tripRequestReceived(tripRequest: event.tripData),
+    );
   }
 
-  _onDriverOperationsInitialize(DriverOperationsInitialize event,
-      Emitter<DriverOperationsState> emit) async {
+  _onDriverOperationsInitialize(
+    DriverOperationsInitialize event,
+    Emitter<DriverOperationsState> emit,
+  ) async {
     try {
       emit(const DriverOperationsState.loading());
 
       var currentLocation = await initializeUseCase.call(null);
       logger.info('DriverOperationsBloc initialized successfully.');
-      emit(DriverOperationsState.offline(
-        lastKnownLocation: currentLocation,
-      ));
+      emit(DriverOperationsState.offline(lastKnownLocation: currentLocation));
     } catch (e) {
       logger.severe('Error during driver operations initialization: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to connect to server',
-      ));
+      emit(DriverOperationsState.error(message: 'Failed to connect to server'));
     }
   }
 
@@ -111,27 +111,31 @@ class DriverOperationsBloc
   //   }
   // }
 
-  _onDriverOperationsGoOffline(DriverOperationsGoOffline event,
-      Emitter<DriverOperationsState> emit) async {
+  _onDriverOperationsGoOffline(
+    DriverOperationsGoOffline event,
+    Emitter<DriverOperationsState> emit,
+  ) async {
     try {
       // Stop location tracking
       await _stopLocationTracking();
       var current = await goOfflineUseCase.call(null);
-      emit(DriverOperationsState.offline(
-        lastKnownLocation: current,
-      ));
+      emit(DriverOperationsState.offline(lastKnownLocation: current));
 
       logger.info('Driver went offline');
     } catch (e) {
       logger.severe('Error going offline: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to go offline: ${e.toString()}',
-      ));
+      emit(
+        DriverOperationsState.error(
+          message: 'Failed to go offline: ${e.toString()}',
+        ),
+      );
     }
   }
 
-  _onDriverOperationsGoOnline(DriverOperationsGoOnline event,
-      Emitter<DriverOperationsState> emit) async {
+  _onDriverOperationsGoOnline(
+    DriverOperationsGoOnline event,
+    Emitter<DriverOperationsState> emit,
+  ) async {
     try {
       emit(const DriverOperationsState.loading());
 
@@ -139,28 +143,36 @@ class DriverOperationsBloc
       _locationSubscription!.onData((position) {
         add(DriverOperationsLocationUpdated(position));
       });
+      emit(DriverOperationsState.online(currentLocation: null));
 
       logger.info('Driver went online');
     } catch (e) {
       logger.severe('Error going online: $e');
-      emit(DriverOperationsState.error(
-        message: 'Failed to go online: ${e.toString()}',
-      ));
+      emit(
+        DriverOperationsState.error(
+          message: 'Failed to go online: ${e.toString()}',
+        ),
+      );
     }
   }
 
-  _onLocationUpdated(DriverOperationsLocationUpdated event,
-      Emitter<DriverOperationsState> emit) {
+  _onLocationUpdated(
+    DriverOperationsLocationUpdated event,
+    Emitter<DriverOperationsState> emit,
+  ) {
     state.maybeWhen(
       online: (currentLocation) {
-        emit(DriverOperationsState.online(
-          currentLocation: event
-              .position, // Note: use event.position, not event.currentLocation
-        ));
+        emit(
+          DriverOperationsState.online(
+            currentLocation: event
+                .position, // Note: use event.position, not event.currentLocation
+          ),
+        );
       },
       orElse: () {
         logger.warning(
-            'Location update received but driver is not in a trackable state');
+          'Location update received but driver is not in a trackable state',
+        );
       },
     );
   }

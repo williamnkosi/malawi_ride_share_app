@@ -21,6 +21,7 @@ class _DriverHomePageViewState extends State<DriverHomePageView> {
           loading: () => const Center(child: CircularProgressIndicator()),
           orElse: () {
             return Column(
+              crossAxisAlignment: .start,
               children: [
                 // Driver status bar
                 DriverStatusBar(),

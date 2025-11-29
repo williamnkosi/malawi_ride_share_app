@@ -16,23 +16,27 @@ class GoOnLineUseCase implements UseCase<StreamSubscription<Position>, void> {
   final DriverLocationTrackingRepository driverLocationTrackingRepository;
 
   GoOnLineUseCase(
-      this.locationRepositoryImp,
-      this.firebaseRepository,
-      this.driverLifeCycleManagementImpl,
-      this.driverLocationTrackingRepository);
+    this.locationRepositoryImp,
+    this.firebaseRepository,
+    this.driverLifeCycleManagementImpl,
+    this.driverLocationTrackingRepository,
+  );
   @override
   Future<StreamSubscription<Position>> call(void _) async {
     var id = firebaseRepository.getFirebaseId();
-    id != null
-        ? driverLifeCycleManagementImpl.goOnline(firebaseId: id)
-        : throw Exception('Could not get firebase id');
+    if (id == null) {
+      throw Exception('User not authenticated');
+    }
 
-    driverLifeCycleManagementImpl.goOnline(firebaseId: id);
     var stream = locationRepositoryImp.getLocationStream().listen((position) {
       var location = LocationDto(
-          latitude: position.latitude, longitude: position.longitude);
+        latitude: position.latitude,
+        longitude: position.longitude,
+      );
       driverLocationTrackingRepository.startTrackingLocation(
-          location: location, status: DriverStatus.online);
+        location: location,
+        status: DriverStatus.online,
+      );
     });
     return stream;
   }

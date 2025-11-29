@@ -23,9 +23,6 @@ mixin _$AppEvent {
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -38,9 +35,6 @@ mixin _$AppEvent {
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -53,9 +47,6 @@ mixin _$AppEvent {
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -70,12 +61,6 @@ mixin _$AppEvent {
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -92,12 +77,6 @@ mixin _$AppEvent {
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -113,12 +92,6 @@ mixin _$AppEvent {
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -195,9 +168,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -213,9 +183,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -231,9 +198,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -254,12 +218,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -279,12 +237,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -303,12 +255,6 @@ class _$AppEventInitialImpl implements AppEventInitial {
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -376,9 +322,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -394,9 +337,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -412,9 +352,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -435,12 +372,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -460,12 +391,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -484,12 +409,6 @@ class _$AppEventStartListeningImpl implements AppEventStartListening {
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -582,9 +501,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -600,9 +516,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -618,9 +531,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -641,12 +551,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -666,12 +570,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -690,12 +588,6 @@ class _$AppEventShowMessageImpl implements AppEventShowMessage {
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -770,9 +662,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -788,9 +677,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -806,9 +692,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -829,12 +712,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -854,12 +731,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -878,12 +749,6 @@ class _$AppEventHideMessageImpl implements AppEventHideMessage {
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -953,9 +818,6 @@ class _$AppEventRequestLocationPermissionImpl
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -971,9 +833,6 @@ class _$AppEventRequestLocationPermissionImpl
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -989,9 +848,6 @@ class _$AppEventRequestLocationPermissionImpl
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -1012,12 +868,6 @@ class _$AppEventRequestLocationPermissionImpl
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -1037,12 +887,6 @@ class _$AppEventRequestLocationPermissionImpl
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -1061,12 +905,6 @@ class _$AppEventRequestLocationPermissionImpl
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -1084,556 +922,6 @@ class _$AppEventRequestLocationPermissionImpl
 abstract class AppEventRequestLocationPermission implements AppEvent {
   const factory AppEventRequestLocationPermission() =
       _$AppEventRequestLocationPermissionImpl;
-}
-
-/// @nodoc
-abstract class _$$AppEventCheckLocationPermissionImplCopyWith<$Res> {
-  factory _$$AppEventCheckLocationPermissionImplCopyWith(
-          _$AppEventCheckLocationPermissionImpl value,
-          $Res Function(_$AppEventCheckLocationPermissionImpl) then) =
-      __$$AppEventCheckLocationPermissionImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AppEventCheckLocationPermissionImplCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$AppEventCheckLocationPermissionImpl>
-    implements _$$AppEventCheckLocationPermissionImplCopyWith<$Res> {
-  __$$AppEventCheckLocationPermissionImplCopyWithImpl(
-      _$AppEventCheckLocationPermissionImpl _value,
-      $Res Function(_$AppEventCheckLocationPermissionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AppEventCheckLocationPermissionImpl
-    implements AppEventCheckLocationPermission {
-  const _$AppEventCheckLocationPermissionImpl();
-
-  @override
-  String toString() {
-    return 'AppEvent.checkLocationPermission()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppEventCheckLocationPermissionImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appEventInitial,
-    required TResult Function() startListening,
-    required TResult Function(RemoteMessage message) appEventShowMessage,
-    required TResult Function() appEventHideMessage,
-    required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
-    required TResult Function() openLocationSettings,
-    required TResult Function() requestNotificationPermission,
-    required TResult Function() checkNotificationPermission,
-  }) {
-    return checkLocationPermission();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appEventInitial,
-    TResult? Function()? startListening,
-    TResult? Function(RemoteMessage message)? appEventShowMessage,
-    TResult? Function()? appEventHideMessage,
-    TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
-    TResult? Function()? openLocationSettings,
-    TResult? Function()? requestNotificationPermission,
-    TResult? Function()? checkNotificationPermission,
-  }) {
-    return checkLocationPermission?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appEventInitial,
-    TResult Function()? startListening,
-    TResult Function(RemoteMessage message)? appEventShowMessage,
-    TResult Function()? appEventHideMessage,
-    TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
-    TResult Function()? openLocationSettings,
-    TResult Function()? requestNotificationPermission,
-    TResult Function()? checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (checkLocationPermission != null) {
-      return checkLocationPermission();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppEventInitial value) appEventInitial,
-    required TResult Function(AppEventStartListening value) startListening,
-    required TResult Function(AppEventShowMessage value) appEventShowMessage,
-    required TResult Function(AppEventHideMessage value) appEventHideMessage,
-    required TResult Function(AppEventRequestLocationPermission value)
-        requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
-    required TResult Function(AppEventOpenLocationSettings value)
-        openLocationSettings,
-    required TResult Function(AppEventRequestNotificationPermission value)
-        requestNotificationPermission,
-    required TResult Function(AppEventCheckNotificationPermission value)
-        checkNotificationPermission,
-  }) {
-    return checkLocationPermission(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppEventInitial value)? appEventInitial,
-    TResult? Function(AppEventStartListening value)? startListening,
-    TResult? Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult? Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult? Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult? Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult? Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-  }) {
-    return checkLocationPermission?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppEventInitial value)? appEventInitial,
-    TResult Function(AppEventStartListening value)? startListening,
-    TResult Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (checkLocationPermission != null) {
-      return checkLocationPermission(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AppEventCheckLocationPermission implements AppEvent {
-  const factory AppEventCheckLocationPermission() =
-      _$AppEventCheckLocationPermissionImpl;
-}
-
-/// @nodoc
-abstract class _$$AppEventLocationPermissionGrantedImplCopyWith<$Res> {
-  factory _$$AppEventLocationPermissionGrantedImplCopyWith(
-          _$AppEventLocationPermissionGrantedImpl value,
-          $Res Function(_$AppEventLocationPermissionGrantedImpl) then) =
-      __$$AppEventLocationPermissionGrantedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AppEventLocationPermissionGrantedImplCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res,
-        _$AppEventLocationPermissionGrantedImpl>
-    implements _$$AppEventLocationPermissionGrantedImplCopyWith<$Res> {
-  __$$AppEventLocationPermissionGrantedImplCopyWithImpl(
-      _$AppEventLocationPermissionGrantedImpl _value,
-      $Res Function(_$AppEventLocationPermissionGrantedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AppEventLocationPermissionGrantedImpl
-    implements AppEventLocationPermissionGranted {
-  const _$AppEventLocationPermissionGrantedImpl();
-
-  @override
-  String toString() {
-    return 'AppEvent.locationPermissionGranted()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppEventLocationPermissionGrantedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appEventInitial,
-    required TResult Function() startListening,
-    required TResult Function(RemoteMessage message) appEventShowMessage,
-    required TResult Function() appEventHideMessage,
-    required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
-    required TResult Function() openLocationSettings,
-    required TResult Function() requestNotificationPermission,
-    required TResult Function() checkNotificationPermission,
-  }) {
-    return locationPermissionGranted();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appEventInitial,
-    TResult? Function()? startListening,
-    TResult? Function(RemoteMessage message)? appEventShowMessage,
-    TResult? Function()? appEventHideMessage,
-    TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
-    TResult? Function()? openLocationSettings,
-    TResult? Function()? requestNotificationPermission,
-    TResult? Function()? checkNotificationPermission,
-  }) {
-    return locationPermissionGranted?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appEventInitial,
-    TResult Function()? startListening,
-    TResult Function(RemoteMessage message)? appEventShowMessage,
-    TResult Function()? appEventHideMessage,
-    TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
-    TResult Function()? openLocationSettings,
-    TResult Function()? requestNotificationPermission,
-    TResult Function()? checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (locationPermissionGranted != null) {
-      return locationPermissionGranted();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppEventInitial value) appEventInitial,
-    required TResult Function(AppEventStartListening value) startListening,
-    required TResult Function(AppEventShowMessage value) appEventShowMessage,
-    required TResult Function(AppEventHideMessage value) appEventHideMessage,
-    required TResult Function(AppEventRequestLocationPermission value)
-        requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
-    required TResult Function(AppEventOpenLocationSettings value)
-        openLocationSettings,
-    required TResult Function(AppEventRequestNotificationPermission value)
-        requestNotificationPermission,
-    required TResult Function(AppEventCheckNotificationPermission value)
-        checkNotificationPermission,
-  }) {
-    return locationPermissionGranted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppEventInitial value)? appEventInitial,
-    TResult? Function(AppEventStartListening value)? startListening,
-    TResult? Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult? Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult? Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult? Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult? Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-  }) {
-    return locationPermissionGranted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppEventInitial value)? appEventInitial,
-    TResult Function(AppEventStartListening value)? startListening,
-    TResult Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (locationPermissionGranted != null) {
-      return locationPermissionGranted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AppEventLocationPermissionGranted implements AppEvent {
-  const factory AppEventLocationPermissionGranted() =
-      _$AppEventLocationPermissionGrantedImpl;
-}
-
-/// @nodoc
-abstract class _$$AppEventLocationPermissionDeniedImplCopyWith<$Res> {
-  factory _$$AppEventLocationPermissionDeniedImplCopyWith(
-          _$AppEventLocationPermissionDeniedImpl value,
-          $Res Function(_$AppEventLocationPermissionDeniedImpl) then) =
-      __$$AppEventLocationPermissionDeniedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AppEventLocationPermissionDeniedImplCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$AppEventLocationPermissionDeniedImpl>
-    implements _$$AppEventLocationPermissionDeniedImplCopyWith<$Res> {
-  __$$AppEventLocationPermissionDeniedImplCopyWithImpl(
-      _$AppEventLocationPermissionDeniedImpl _value,
-      $Res Function(_$AppEventLocationPermissionDeniedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AppEventLocationPermissionDeniedImpl
-    implements AppEventLocationPermissionDenied {
-  const _$AppEventLocationPermissionDeniedImpl();
-
-  @override
-  String toString() {
-    return 'AppEvent.locationPermissionDenied()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppEventLocationPermissionDeniedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appEventInitial,
-    required TResult Function() startListening,
-    required TResult Function(RemoteMessage message) appEventShowMessage,
-    required TResult Function() appEventHideMessage,
-    required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
-    required TResult Function() openLocationSettings,
-    required TResult Function() requestNotificationPermission,
-    required TResult Function() checkNotificationPermission,
-  }) {
-    return locationPermissionDenied();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appEventInitial,
-    TResult? Function()? startListening,
-    TResult? Function(RemoteMessage message)? appEventShowMessage,
-    TResult? Function()? appEventHideMessage,
-    TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
-    TResult? Function()? openLocationSettings,
-    TResult? Function()? requestNotificationPermission,
-    TResult? Function()? checkNotificationPermission,
-  }) {
-    return locationPermissionDenied?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appEventInitial,
-    TResult Function()? startListening,
-    TResult Function(RemoteMessage message)? appEventShowMessage,
-    TResult Function()? appEventHideMessage,
-    TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
-    TResult Function()? openLocationSettings,
-    TResult Function()? requestNotificationPermission,
-    TResult Function()? checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (locationPermissionDenied != null) {
-      return locationPermissionDenied();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppEventInitial value) appEventInitial,
-    required TResult Function(AppEventStartListening value) startListening,
-    required TResult Function(AppEventShowMessage value) appEventShowMessage,
-    required TResult Function(AppEventHideMessage value) appEventHideMessage,
-    required TResult Function(AppEventRequestLocationPermission value)
-        requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
-    required TResult Function(AppEventOpenLocationSettings value)
-        openLocationSettings,
-    required TResult Function(AppEventRequestNotificationPermission value)
-        requestNotificationPermission,
-    required TResult Function(AppEventCheckNotificationPermission value)
-        checkNotificationPermission,
-  }) {
-    return locationPermissionDenied(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppEventInitial value)? appEventInitial,
-    TResult? Function(AppEventStartListening value)? startListening,
-    TResult? Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult? Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult? Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult? Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult? Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-  }) {
-    return locationPermissionDenied?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppEventInitial value)? appEventInitial,
-    TResult Function(AppEventStartListening value)? startListening,
-    TResult Function(AppEventShowMessage value)? appEventShowMessage,
-    TResult Function(AppEventHideMessage value)? appEventHideMessage,
-    TResult Function(AppEventRequestLocationPermission value)?
-        requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
-    TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
-    TResult Function(AppEventRequestNotificationPermission value)?
-        requestNotificationPermission,
-    TResult Function(AppEventCheckNotificationPermission value)?
-        checkNotificationPermission,
-    required TResult orElse(),
-  }) {
-    if (locationPermissionDenied != null) {
-      return locationPermissionDenied(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AppEventLocationPermissionDenied implements AppEvent {
-  const factory AppEventLocationPermissionDenied() =
-      _$AppEventLocationPermissionDeniedImpl;
 }
 
 /// @nodoc
@@ -1686,9 +974,6 @@ class _$AppEventOpenLocationSettingsImpl
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -1704,9 +989,6 @@ class _$AppEventOpenLocationSettingsImpl
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -1722,9 +1004,6 @@ class _$AppEventOpenLocationSettingsImpl
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -1745,12 +1024,6 @@ class _$AppEventOpenLocationSettingsImpl
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -1770,12 +1043,6 @@ class _$AppEventOpenLocationSettingsImpl
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -1794,12 +1061,6 @@ class _$AppEventOpenLocationSettingsImpl
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -1870,9 +1131,6 @@ class _$AppEventRequestNotificationPermissionImpl
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -1888,9 +1146,6 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -1906,9 +1161,6 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -1929,12 +1181,6 @@ class _$AppEventRequestNotificationPermissionImpl
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -1954,12 +1200,6 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -1978,12 +1218,6 @@ class _$AppEventRequestNotificationPermissionImpl
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -2054,9 +1288,6 @@ class _$AppEventCheckNotificationPermissionImpl
     required TResult Function(RemoteMessage message) appEventShowMessage,
     required TResult Function() appEventHideMessage,
     required TResult Function() requestLocationPermission,
-    required TResult Function() checkLocationPermission,
-    required TResult Function() locationPermissionGranted,
-    required TResult Function() locationPermissionDenied,
     required TResult Function() openLocationSettings,
     required TResult Function() requestNotificationPermission,
     required TResult Function() checkNotificationPermission,
@@ -2072,9 +1303,6 @@ class _$AppEventCheckNotificationPermissionImpl
     TResult? Function(RemoteMessage message)? appEventShowMessage,
     TResult? Function()? appEventHideMessage,
     TResult? Function()? requestLocationPermission,
-    TResult? Function()? checkLocationPermission,
-    TResult? Function()? locationPermissionGranted,
-    TResult? Function()? locationPermissionDenied,
     TResult? Function()? openLocationSettings,
     TResult? Function()? requestNotificationPermission,
     TResult? Function()? checkNotificationPermission,
@@ -2090,9 +1318,6 @@ class _$AppEventCheckNotificationPermissionImpl
     TResult Function(RemoteMessage message)? appEventShowMessage,
     TResult Function()? appEventHideMessage,
     TResult Function()? requestLocationPermission,
-    TResult Function()? checkLocationPermission,
-    TResult Function()? locationPermissionGranted,
-    TResult Function()? locationPermissionDenied,
     TResult Function()? openLocationSettings,
     TResult Function()? requestNotificationPermission,
     TResult Function()? checkNotificationPermission,
@@ -2113,12 +1338,6 @@ class _$AppEventCheckNotificationPermissionImpl
     required TResult Function(AppEventHideMessage value) appEventHideMessage,
     required TResult Function(AppEventRequestLocationPermission value)
         requestLocationPermission,
-    required TResult Function(AppEventCheckLocationPermission value)
-        checkLocationPermission,
-    required TResult Function(AppEventLocationPermissionGranted value)
-        locationPermissionGranted,
-    required TResult Function(AppEventLocationPermissionDenied value)
-        locationPermissionDenied,
     required TResult Function(AppEventOpenLocationSettings value)
         openLocationSettings,
     required TResult Function(AppEventRequestNotificationPermission value)
@@ -2138,12 +1357,6 @@ class _$AppEventCheckNotificationPermissionImpl
     TResult? Function(AppEventHideMessage value)? appEventHideMessage,
     TResult? Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult? Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult? Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult? Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult? Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult? Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,
@@ -2162,12 +1375,6 @@ class _$AppEventCheckNotificationPermissionImpl
     TResult Function(AppEventHideMessage value)? appEventHideMessage,
     TResult Function(AppEventRequestLocationPermission value)?
         requestLocationPermission,
-    TResult Function(AppEventCheckLocationPermission value)?
-        checkLocationPermission,
-    TResult Function(AppEventLocationPermissionGranted value)?
-        locationPermissionGranted,
-    TResult Function(AppEventLocationPermissionDenied value)?
-        locationPermissionDenied,
     TResult Function(AppEventOpenLocationSettings value)? openLocationSettings,
     TResult Function(AppEventRequestNotificationPermission value)?
         requestNotificationPermission,

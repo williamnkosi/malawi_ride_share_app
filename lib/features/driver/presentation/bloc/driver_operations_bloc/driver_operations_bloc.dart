@@ -18,10 +18,9 @@ class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
   final InitializeUseCase initializeUseCase;
-  final GoOfflineUseCase goOfflineUseCase;
   final GoOnLineUseCase goOnLineUseCase;
+  final GoOfflineUseCase goOfflineUseCase;
   StreamSubscription<Position>? _locationSubscription;
-  StreamSubscription<dynamic>? _onRouteLocationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
   DriverOperationsBloc(

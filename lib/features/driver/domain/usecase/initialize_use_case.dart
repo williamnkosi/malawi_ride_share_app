@@ -3,6 +3,7 @@ import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 
 class InitializeUseCase implements UseCase<void, void> {
   final SocketRepository socketRepository;
@@ -18,7 +19,7 @@ class InitializeUseCase implements UseCase<void, void> {
   @override
   Future<Position?> call(void params) async {
     var isConnected = await socketRepository.connect(
-      namespaces: [.trips, .driver],
+      namespaces: [SocketNamespace.trips, SocketNamespace.driver],
     );
     if (!isConnected) throw Exception('Socket connection failed');
 

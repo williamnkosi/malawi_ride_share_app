@@ -42,16 +42,16 @@ class DriverOperationsBloc
     // _setupTripRequestListener();
   }
 
-  // void _setupTripRequestListener() {
-  //   _tripRequestSubscription = driverOperationsRepository
-  //       .driverTripSocketService
-  //       .on<Map<String, dynamic>>('trip:new_request')
-  //       .listen((data) {
-  //     final tripData = TripRequestNotificationDto.fromJson(data);
-  //     logger.info('🚗 Trip request received from socket: $data');
-  //     add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
-  //   });
-  // }
+  void _setupTripRequestListener() {
+    _tripRequestSubscription = driverOperationsRepository
+        .driverTripSocketService
+        .on<Map<String, dynamic>>('trip:new_request')
+        .listen((data) {
+          final tripData = TripRequestNotificationDto.fromJson(data);
+          logger.info('🚗 Trip request received from socket: $data');
+          add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
+        });
+  }
 
   void _onTripRequestReceived(
     DriverOperationsTripRequestReceived event,

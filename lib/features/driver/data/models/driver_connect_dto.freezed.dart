@@ -12,7 +12,8 @@ part of 'driver_connect_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 DriverConnectDto _$DriverConnectDtoFromJson(Map<String, dynamic> json) {
   return _DriverConnectDto.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$DriverConnectDto {
 /// @nodoc
 abstract class $DriverConnectDtoCopyWith<$Res> {
   factory $DriverConnectDtoCopyWith(
-          DriverConnectDto value, $Res Function(DriverConnectDto) then) =
-      _$DriverConnectDtoCopyWithImpl<$Res, DriverConnectDto>;
+    DriverConnectDto value,
+    $Res Function(DriverConnectDto) then,
+  ) = _$DriverConnectDtoCopyWithImpl<$Res, DriverConnectDto>;
   @useResult
   $Res call({String firebaseId, LocationDto? location});
 
@@ -58,20 +60,22 @@ class _$DriverConnectDtoCopyWithImpl<$Res, $Val extends DriverConnectDto>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? firebaseId = null,
-    Object? location = freezed,
-  }) {
-    return _then(_value.copyWith(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationDto?,
-    ) as $Val);
+  $Res call({Object? firebaseId = null, Object? location = freezed}) {
+    return _then(
+      _value.copyWith(
+            firebaseId:
+                null == firebaseId
+                    ? _value.firebaseId
+                    : firebaseId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            location:
+                freezed == location
+                    ? _value.location
+                    : location // ignore: cast_nullable_to_non_nullable
+                        as LocationDto?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of DriverConnectDto
@@ -92,9 +96,10 @@ class _$DriverConnectDtoCopyWithImpl<$Res, $Val extends DriverConnectDto>
 /// @nodoc
 abstract class _$$DriverConnectDtoImplCopyWith<$Res>
     implements $DriverConnectDtoCopyWith<$Res> {
-  factory _$$DriverConnectDtoImplCopyWith(_$DriverConnectDtoImpl value,
-          $Res Function(_$DriverConnectDtoImpl) then) =
-      __$$DriverConnectDtoImplCopyWithImpl<$Res>;
+  factory _$$DriverConnectDtoImplCopyWith(
+    _$DriverConnectDtoImpl value,
+    $Res Function(_$DriverConnectDtoImpl) then,
+  ) = __$$DriverConnectDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String firebaseId, LocationDto? location});
@@ -107,28 +112,30 @@ abstract class _$$DriverConnectDtoImplCopyWith<$Res>
 class __$$DriverConnectDtoImplCopyWithImpl<$Res>
     extends _$DriverConnectDtoCopyWithImpl<$Res, _$DriverConnectDtoImpl>
     implements _$$DriverConnectDtoImplCopyWith<$Res> {
-  __$$DriverConnectDtoImplCopyWithImpl(_$DriverConnectDtoImpl _value,
-      $Res Function(_$DriverConnectDtoImpl) _then)
-      : super(_value, _then);
+  __$$DriverConnectDtoImplCopyWithImpl(
+    _$DriverConnectDtoImpl _value,
+    $Res Function(_$DriverConnectDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverConnectDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? firebaseId = null,
-    Object? location = freezed,
-  }) {
-    return _then(_$DriverConnectDtoImpl(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationDto?,
-    ));
+  $Res call({Object? firebaseId = null, Object? location = freezed}) {
+    return _then(
+      _$DriverConnectDtoImpl(
+        firebaseId:
+            null == firebaseId
+                ? _value.firebaseId
+                : firebaseId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        location:
+            freezed == location
+                ? _value.location
+                : location // ignore: cast_nullable_to_non_nullable
+                    as LocationDto?,
+      ),
+    );
   }
 }
 
@@ -172,20 +179,21 @@ class _$DriverConnectDtoImpl implements _DriverConnectDto {
   @pragma('vm:prefer-inline')
   _$$DriverConnectDtoImplCopyWith<_$DriverConnectDtoImpl> get copyWith =>
       __$$DriverConnectDtoImplCopyWithImpl<_$DriverConnectDtoImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DriverConnectDtoImplToJson(
-      this,
-    );
+    return _$$DriverConnectDtoImplToJson(this);
   }
 }
 
 abstract class _DriverConnectDto implements DriverConnectDto {
-  const factory _DriverConnectDto(
-      {required final String firebaseId,
-      final LocationDto? location}) = _$DriverConnectDtoImpl;
+  const factory _DriverConnectDto({
+    required final String firebaseId,
+    final LocationDto? location,
+  }) = _$DriverConnectDtoImpl;
 
   factory _DriverConnectDto.fromJson(Map<String, dynamic> json) =
       _$DriverConnectDtoImpl.fromJson;

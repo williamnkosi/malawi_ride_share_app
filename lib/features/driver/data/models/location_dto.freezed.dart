@@ -12,7 +12,8 @@ part of 'location_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LocationDto _$LocationDtoFromJson(Map<String, dynamic> json) {
   return _LocationDto.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$LocationDto {
 /// @nodoc
 abstract class $LocationDtoCopyWith<$Res> {
   factory $LocationDtoCopyWith(
-          LocationDto value, $Res Function(LocationDto) then) =
-      _$LocationDtoCopyWithImpl<$Res, LocationDto>;
+    LocationDto value,
+    $Res Function(LocationDto) then,
+  ) = _$LocationDtoCopyWithImpl<$Res, LocationDto>;
   @useResult
   $Res call({double latitude, double longitude});
 }
@@ -56,20 +58,22 @@ class _$LocationDtoCopyWithImpl<$Res, $Val extends LocationDto>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
-  }) {
-    return _then(_value.copyWith(
-      latitude: null == latitude
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
+  $Res call({Object? latitude = null, Object? longitude = null}) {
+    return _then(
+      _value.copyWith(
+            latitude:
+                null == latitude
+                    ? _value.latitude
+                    : latitude // ignore: cast_nullable_to_non_nullable
+                        as double,
+            longitude:
+                null == longitude
+                    ? _value.longitude
+                    : longitude // ignore: cast_nullable_to_non_nullable
+                        as double,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -77,8 +81,9 @@ class _$LocationDtoCopyWithImpl<$Res, $Val extends LocationDto>
 abstract class _$$LocationDtoImplCopyWith<$Res>
     implements $LocationDtoCopyWith<$Res> {
   factory _$$LocationDtoImplCopyWith(
-          _$LocationDtoImpl value, $Res Function(_$LocationDtoImpl) then) =
-      __$$LocationDtoImplCopyWithImpl<$Res>;
+    _$LocationDtoImpl value,
+    $Res Function(_$LocationDtoImpl) then,
+  ) = __$$LocationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({double latitude, double longitude});
@@ -89,27 +94,29 @@ class __$$LocationDtoImplCopyWithImpl<$Res>
     extends _$LocationDtoCopyWithImpl<$Res, _$LocationDtoImpl>
     implements _$$LocationDtoImplCopyWith<$Res> {
   __$$LocationDtoImplCopyWithImpl(
-      _$LocationDtoImpl _value, $Res Function(_$LocationDtoImpl) _then)
-      : super(_value, _then);
+    _$LocationDtoImpl _value,
+    $Res Function(_$LocationDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LocationDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
-  }) {
-    return _then(_$LocationDtoImpl(
-      latitude: null == latitude
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
+  $Res call({Object? latitude = null, Object? longitude = null}) {
+    return _then(
+      _$LocationDtoImpl(
+        latitude:
+            null == latitude
+                ? _value.latitude
+                : latitude // ignore: cast_nullable_to_non_nullable
+                    as double,
+        longitude:
+            null == longitude
+                ? _value.longitude
+                : longitude // ignore: cast_nullable_to_non_nullable
+                    as double,
+      ),
+    );
   }
 }
 
@@ -156,16 +163,15 @@ class _$LocationDtoImpl implements _LocationDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LocationDtoImplToJson(
-      this,
-    );
+    return _$$LocationDtoImplToJson(this);
   }
 }
 
 abstract class _LocationDto implements LocationDto {
-  const factory _LocationDto(
-      {required final double latitude,
-      required final double longitude}) = _$LocationDtoImpl;
+  const factory _LocationDto({
+    required final double latitude,
+    required final double longitude,
+  }) = _$LocationDtoImpl;
 
   factory _LocationDto.fromJson(Map<String, dynamic> json) =
       _$LocationDtoImpl.fromJson;

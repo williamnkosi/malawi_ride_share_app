@@ -7,17 +7,18 @@ part of 'driver_connect_dto.dart';
 // **************************************************************************
 
 _$DriverConnectDtoImpl _$$DriverConnectDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DriverConnectDtoImpl(
-      firebaseId: json['firebaseId'] as String,
-      location: json['location'] == null
+  Map<String, dynamic> json,
+) => _$DriverConnectDtoImpl(
+  firebaseId: json['firebaseId'] as String,
+  location:
+      json['location'] == null
           ? null
           : LocationDto.fromJson(json['location'] as Map<String, dynamic>),
-    );
+);
 
 Map<String, dynamic> _$$DriverConnectDtoImplToJson(
-        _$DriverConnectDtoImpl instance) =>
-    <String, dynamic>{
-      'firebaseId': instance.firebaseId,
-      'location': instance.location,
-    };
+  _$DriverConnectDtoImpl instance,
+) => <String, dynamic>{
+  'firebaseId': instance.firebaseId,
+  'location': instance.location,
+};

@@ -12,7 +12,8 @@ part of 'driver_operations_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DriverOperationsEvent {
@@ -24,16 +25,15 @@ mixin _$DriverOperationsEvent {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
@@ -46,11 +46,10 @@ mixin _$DriverOperationsEvent {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
@@ -63,32 +62,30 @@ mixin _$DriverOperationsEvent {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
-  }) =>
-      throw _privateConstructorUsedError;
+    updateAvailability,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
@@ -97,16 +94,15 @@ mixin _$DriverOperationsEvent {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
-  }) =>
-      throw _privateConstructorUsedError;
+    updateAvailability,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
@@ -115,29 +111,31 @@ mixin _$DriverOperationsEvent {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DriverOperationsEventCopyWith<$Res> {
-  factory $DriverOperationsEventCopyWith(DriverOperationsEvent value,
-          $Res Function(DriverOperationsEvent) then) =
-      _$DriverOperationsEventCopyWithImpl<$Res, DriverOperationsEvent>;
+  factory $DriverOperationsEventCopyWith(
+    DriverOperationsEvent value,
+    $Res Function(DriverOperationsEvent) then,
+  ) = _$DriverOperationsEventCopyWithImpl<$Res, DriverOperationsEvent>;
 }
 
 /// @nodoc
-class _$DriverOperationsEventCopyWithImpl<$Res,
-        $Val extends DriverOperationsEvent>
+class _$DriverOperationsEventCopyWithImpl<
+  $Res,
+  $Val extends DriverOperationsEvent
+>
     implements $DriverOperationsEventCopyWith<$Res> {
   _$DriverOperationsEventCopyWithImpl(this._value, this._then);
 
@@ -153,20 +151,23 @@ class _$DriverOperationsEventCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$DriverOperationsInitializeImplCopyWith<$Res> {
   factory _$$DriverOperationsInitializeImplCopyWith(
-          _$DriverOperationsInitializeImpl value,
-          $Res Function(_$DriverOperationsInitializeImpl) then) =
-      __$$DriverOperationsInitializeImplCopyWithImpl<$Res>;
+    _$DriverOperationsInitializeImpl value,
+    $Res Function(_$DriverOperationsInitializeImpl) then,
+  ) = __$$DriverOperationsInitializeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsInitializeImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsInitializeImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsInitializeImpl
+        >
     implements _$$DriverOperationsInitializeImplCopyWith<$Res> {
   __$$DriverOperationsInitializeImplCopyWithImpl(
-      _$DriverOperationsInitializeImpl _value,
-      $Res Function(_$DriverOperationsInitializeImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsInitializeImpl _value,
+    $Res Function(_$DriverOperationsInitializeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -201,12 +202,12 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -226,7 +227,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -246,7 +247,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -262,20 +263,20 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return initialize(this);
   }
@@ -289,14 +290,14 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return initialize?.call(this);
   }
@@ -310,14 +311,14 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -334,20 +335,23 @@ abstract class DriverOperationsInitialize implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsNoPermissionsImplCopyWith<$Res> {
   factory _$$DriverOperationsNoPermissionsImplCopyWith(
-          _$DriverOperationsNoPermissionsImpl value,
-          $Res Function(_$DriverOperationsNoPermissionsImpl) then) =
-      __$$DriverOperationsNoPermissionsImplCopyWithImpl<$Res>;
+    _$DriverOperationsNoPermissionsImpl value,
+    $Res Function(_$DriverOperationsNoPermissionsImpl) then,
+  ) = __$$DriverOperationsNoPermissionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsNoPermissionsImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsNoPermissionsImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsNoPermissionsImpl
+        >
     implements _$$DriverOperationsNoPermissionsImplCopyWith<$Res> {
   __$$DriverOperationsNoPermissionsImplCopyWithImpl(
-      _$DriverOperationsNoPermissionsImpl _value,
-      $Res Function(_$DriverOperationsNoPermissionsImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsNoPermissionsImpl _value,
+    $Res Function(_$DriverOperationsNoPermissionsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -383,12 +387,12 @@ class _$DriverOperationsNoPermissionsImpl
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -408,7 +412,7 @@ class _$DriverOperationsNoPermissionsImpl
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -428,7 +432,7 @@ class _$DriverOperationsNoPermissionsImpl
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -444,20 +448,20 @@ class _$DriverOperationsNoPermissionsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return noPermissions(this);
   }
@@ -471,14 +475,14 @@ class _$DriverOperationsNoPermissionsImpl
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return noPermissions?.call(this);
   }
@@ -492,14 +496,14 @@ class _$DriverOperationsNoPermissionsImpl
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (noPermissions != null) {
@@ -517,20 +521,23 @@ abstract class DriverOperationsNoPermissions implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsGoOnlineImplCopyWith<$Res> {
   factory _$$DriverOperationsGoOnlineImplCopyWith(
-          _$DriverOperationsGoOnlineImpl value,
-          $Res Function(_$DriverOperationsGoOnlineImpl) then) =
-      __$$DriverOperationsGoOnlineImplCopyWithImpl<$Res>;
+    _$DriverOperationsGoOnlineImpl value,
+    $Res Function(_$DriverOperationsGoOnlineImpl) then,
+  ) = __$$DriverOperationsGoOnlineImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsGoOnlineImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsGoOnlineImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsGoOnlineImpl
+        >
     implements _$$DriverOperationsGoOnlineImplCopyWith<$Res> {
   __$$DriverOperationsGoOnlineImplCopyWithImpl(
-      _$DriverOperationsGoOnlineImpl _value,
-      $Res Function(_$DriverOperationsGoOnlineImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsGoOnlineImpl _value,
+    $Res Function(_$DriverOperationsGoOnlineImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -565,12 +572,12 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -590,7 +597,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -610,7 +617,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -626,20 +633,20 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return goOnline(this);
   }
@@ -653,14 +660,14 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return goOnline?.call(this);
   }
@@ -674,14 +681,14 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (goOnline != null) {
@@ -698,20 +705,23 @@ abstract class DriverOperationsGoOnline implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsGoOfflineImplCopyWith<$Res> {
   factory _$$DriverOperationsGoOfflineImplCopyWith(
-          _$DriverOperationsGoOfflineImpl value,
-          $Res Function(_$DriverOperationsGoOfflineImpl) then) =
-      __$$DriverOperationsGoOfflineImplCopyWithImpl<$Res>;
+    _$DriverOperationsGoOfflineImpl value,
+    $Res Function(_$DriverOperationsGoOfflineImpl) then,
+  ) = __$$DriverOperationsGoOfflineImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsGoOfflineImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsGoOfflineImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsGoOfflineImpl
+        >
     implements _$$DriverOperationsGoOfflineImplCopyWith<$Res> {
   __$$DriverOperationsGoOfflineImplCopyWithImpl(
-      _$DriverOperationsGoOfflineImpl _value,
-      $Res Function(_$DriverOperationsGoOfflineImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsGoOfflineImpl _value,
+    $Res Function(_$DriverOperationsGoOfflineImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -746,12 +756,12 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -771,7 +781,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -791,7 +801,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -807,20 +817,20 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return goOffline(this);
   }
@@ -834,14 +844,14 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return goOffline?.call(this);
   }
@@ -855,14 +865,14 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (goOffline != null) {
@@ -879,36 +889,39 @@ abstract class DriverOperationsGoOffline implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsLocationUpdatedImplCopyWith<$Res> {
   factory _$$DriverOperationsLocationUpdatedImplCopyWith(
-          _$DriverOperationsLocationUpdatedImpl value,
-          $Res Function(_$DriverOperationsLocationUpdatedImpl) then) =
-      __$$DriverOperationsLocationUpdatedImplCopyWithImpl<$Res>;
+    _$DriverOperationsLocationUpdatedImpl value,
+    $Res Function(_$DriverOperationsLocationUpdatedImpl) then,
+  ) = __$$DriverOperationsLocationUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Position position});
 }
 
 /// @nodoc
 class __$$DriverOperationsLocationUpdatedImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsLocationUpdatedImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsLocationUpdatedImpl
+        >
     implements _$$DriverOperationsLocationUpdatedImplCopyWith<$Res> {
   __$$DriverOperationsLocationUpdatedImplCopyWithImpl(
-      _$DriverOperationsLocationUpdatedImpl _value,
-      $Res Function(_$DriverOperationsLocationUpdatedImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsLocationUpdatedImpl _value,
+    $Res Function(_$DriverOperationsLocationUpdatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? position = null,
-  }) {
-    return _then(_$DriverOperationsLocationUpdatedImpl(
-      null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as Position,
-    ));
+  $Res call({Object? position = null}) {
+    return _then(
+      _$DriverOperationsLocationUpdatedImpl(
+        null == position
+            ? _value.position
+            : position // ignore: cast_nullable_to_non_nullable
+                as Position,
+      ),
+    );
   }
 }
 
@@ -944,9 +957,11 @@ class _$DriverOperationsLocationUpdatedImpl
   @override
   @pragma('vm:prefer-inline')
   _$$DriverOperationsLocationUpdatedImplCopyWith<
-          _$DriverOperationsLocationUpdatedImpl>
-      get copyWith => __$$DriverOperationsLocationUpdatedImplCopyWithImpl<
-          _$DriverOperationsLocationUpdatedImpl>(this, _$identity);
+    _$DriverOperationsLocationUpdatedImpl
+  >
+  get copyWith => __$$DriverOperationsLocationUpdatedImplCopyWithImpl<
+    _$DriverOperationsLocationUpdatedImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -957,12 +972,12 @@ class _$DriverOperationsLocationUpdatedImpl
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -982,7 +997,7 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -1002,7 +1017,7 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -1018,20 +1033,20 @@ class _$DriverOperationsLocationUpdatedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return locationUpdated(this);
   }
@@ -1045,14 +1060,14 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return locationUpdated?.call(this);
   }
@@ -1066,14 +1081,14 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (locationUpdated != null) {
@@ -1094,16 +1109,17 @@ abstract class DriverOperationsLocationUpdated
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DriverOperationsLocationUpdatedImplCopyWith<
-          _$DriverOperationsLocationUpdatedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$DriverOperationsLocationUpdatedImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DriverOperationsTripRequestReceivedImplCopyWith<$Res> {
   factory _$$DriverOperationsTripRequestReceivedImplCopyWith(
-          _$DriverOperationsTripRequestReceivedImpl value,
-          $Res Function(_$DriverOperationsTripRequestReceivedImpl) then) =
-      __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>;
+    _$DriverOperationsTripRequestReceivedImpl value,
+    $Res Function(_$DriverOperationsTripRequestReceivedImpl) then,
+  ) = __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TripRequestNotificationDto tripData});
 
@@ -1112,27 +1128,31 @@ abstract class _$$DriverOperationsTripRequestReceivedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsTripRequestReceivedImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsTripRequestReceivedImpl
+        >
     implements _$$DriverOperationsTripRequestReceivedImplCopyWith<$Res> {
   __$$DriverOperationsTripRequestReceivedImplCopyWithImpl(
-      _$DriverOperationsTripRequestReceivedImpl _value,
-      $Res Function(_$DriverOperationsTripRequestReceivedImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsTripRequestReceivedImpl _value,
+    $Res Function(_$DriverOperationsTripRequestReceivedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? tripData = null,
-  }) {
-    return _then(_$DriverOperationsTripRequestReceivedImpl(
-      tripData: null == tripData
-          ? _value.tripData
-          : tripData // ignore: cast_nullable_to_non_nullable
-              as TripRequestNotificationDto,
-    ));
+  $Res call({Object? tripData = null}) {
+    return _then(
+      _$DriverOperationsTripRequestReceivedImpl(
+        tripData:
+            null == tripData
+                ? _value.tripData
+                : tripData // ignore: cast_nullable_to_non_nullable
+                    as TripRequestNotificationDto,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsEvent
@@ -1178,9 +1198,11 @@ class _$DriverOperationsTripRequestReceivedImpl
   @override
   @pragma('vm:prefer-inline')
   _$$DriverOperationsTripRequestReceivedImplCopyWith<
-          _$DriverOperationsTripRequestReceivedImpl>
-      get copyWith => __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<
-          _$DriverOperationsTripRequestReceivedImpl>(this, _$identity);
+    _$DriverOperationsTripRequestReceivedImpl
+  >
+  get copyWith => __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<
+    _$DriverOperationsTripRequestReceivedImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1191,12 +1213,12 @@ class _$DriverOperationsTripRequestReceivedImpl
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -1216,7 +1238,7 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -1236,7 +1258,7 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -1252,20 +1274,20 @@ class _$DriverOperationsTripRequestReceivedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return tripRequestReceived(this);
   }
@@ -1279,14 +1301,14 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return tripRequestReceived?.call(this);
   }
@@ -1300,14 +1322,14 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (tripRequestReceived != null) {
@@ -1319,9 +1341,9 @@ class _$DriverOperationsTripRequestReceivedImpl
 
 abstract class DriverOperationsTripRequestReceived
     implements DriverOperationsEvent {
-  const factory DriverOperationsTripRequestReceived(
-          {required final TripRequestNotificationDto tripData}) =
-      _$DriverOperationsTripRequestReceivedImpl;
+  const factory DriverOperationsTripRequestReceived({
+    required final TripRequestNotificationDto tripData,
+  }) = _$DriverOperationsTripRequestReceivedImpl;
 
   TripRequestNotificationDto get tripData;
 
@@ -1329,27 +1351,31 @@ abstract class DriverOperationsTripRequestReceived
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DriverOperationsTripRequestReceivedImplCopyWith<
-          _$DriverOperationsTripRequestReceivedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$DriverOperationsTripRequestReceivedImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DriverOperationsAcceptTripImplCopyWith<$Res> {
   factory _$$DriverOperationsAcceptTripImplCopyWith(
-          _$DriverOperationsAcceptTripImpl value,
-          $Res Function(_$DriverOperationsAcceptTripImpl) then) =
-      __$$DriverOperationsAcceptTripImplCopyWithImpl<$Res>;
+    _$DriverOperationsAcceptTripImpl value,
+    $Res Function(_$DriverOperationsAcceptTripImpl) then,
+  ) = __$$DriverOperationsAcceptTripImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsAcceptTripImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsAcceptTripImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsAcceptTripImpl
+        >
     implements _$$DriverOperationsAcceptTripImplCopyWith<$Res> {
   __$$DriverOperationsAcceptTripImplCopyWithImpl(
-      _$DriverOperationsAcceptTripImpl _value,
-      $Res Function(_$DriverOperationsAcceptTripImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsAcceptTripImpl _value,
+    $Res Function(_$DriverOperationsAcceptTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1384,12 +1410,12 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -1409,7 +1435,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -1429,7 +1455,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -1445,20 +1471,20 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return acceptTrip(this);
   }
@@ -1472,14 +1498,14 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return acceptTrip?.call(this);
   }
@@ -1493,14 +1519,14 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (acceptTrip != null) {
@@ -1517,20 +1543,23 @@ abstract class DriverOperationsAcceptTrip implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsRejectTripImplCopyWith<$Res> {
   factory _$$DriverOperationsRejectTripImplCopyWith(
-          _$DriverOperationsRejectTripImpl value,
-          $Res Function(_$DriverOperationsRejectTripImpl) then) =
-      __$$DriverOperationsRejectTripImplCopyWithImpl<$Res>;
+    _$DriverOperationsRejectTripImpl value,
+    $Res Function(_$DriverOperationsRejectTripImpl) then,
+  ) = __$$DriverOperationsRejectTripImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsRejectTripImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsRejectTripImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsRejectTripImpl
+        >
     implements _$$DriverOperationsRejectTripImplCopyWith<$Res> {
   __$$DriverOperationsRejectTripImplCopyWithImpl(
-      _$DriverOperationsRejectTripImpl _value,
-      $Res Function(_$DriverOperationsRejectTripImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsRejectTripImpl _value,
+    $Res Function(_$DriverOperationsRejectTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1565,12 +1594,12 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -1590,7 +1619,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -1610,7 +1639,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -1626,20 +1655,20 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return rejectTrip(this);
   }
@@ -1653,14 +1682,14 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return rejectTrip?.call(this);
   }
@@ -1674,14 +1703,14 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (rejectTrip != null) {
@@ -1698,20 +1727,23 @@ abstract class DriverOperationsRejectTrip implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsStartTripImplCopyWith<$Res> {
   factory _$$DriverOperationsStartTripImplCopyWith(
-          _$DriverOperationsStartTripImpl value,
-          $Res Function(_$DriverOperationsStartTripImpl) then) =
-      __$$DriverOperationsStartTripImplCopyWithImpl<$Res>;
+    _$DriverOperationsStartTripImpl value,
+    $Res Function(_$DriverOperationsStartTripImpl) then,
+  ) = __$$DriverOperationsStartTripImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DriverOperationsStartTripImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsStartTripImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsStartTripImpl
+        >
     implements _$$DriverOperationsStartTripImplCopyWith<$Res> {
   __$$DriverOperationsStartTripImplCopyWithImpl(
-      _$DriverOperationsStartTripImpl _value,
-      $Res Function(_$DriverOperationsStartTripImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsStartTripImpl _value,
+    $Res Function(_$DriverOperationsStartTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1746,12 +1778,12 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -1771,7 +1803,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -1791,7 +1823,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -1807,20 +1839,20 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return startTrip(this);
   }
@@ -1834,14 +1866,14 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return startTrip?.call(this);
   }
@@ -1855,14 +1887,14 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (startTrip != null) {
@@ -1879,41 +1911,45 @@ abstract class DriverOperationsStartTrip implements DriverOperationsEvent {
 /// @nodoc
 abstract class _$$DriverOperationsCompleteTripImplCopyWith<$Res> {
   factory _$$DriverOperationsCompleteTripImplCopyWith(
-          _$DriverOperationsCompleteTripImpl value,
-          $Res Function(_$DriverOperationsCompleteTripImpl) then) =
-      __$$DriverOperationsCompleteTripImplCopyWithImpl<$Res>;
+    _$DriverOperationsCompleteTripImpl value,
+    $Res Function(_$DriverOperationsCompleteTripImpl) then,
+  ) = __$$DriverOperationsCompleteTripImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double totalDistance, Duration totalDuration});
 }
 
 /// @nodoc
 class __$$DriverOperationsCompleteTripImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsCompleteTripImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsCompleteTripImpl
+        >
     implements _$$DriverOperationsCompleteTripImplCopyWith<$Res> {
   __$$DriverOperationsCompleteTripImplCopyWithImpl(
-      _$DriverOperationsCompleteTripImpl _value,
-      $Res Function(_$DriverOperationsCompleteTripImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsCompleteTripImpl _value,
+    $Res Function(_$DriverOperationsCompleteTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? totalDistance = null,
-    Object? totalDuration = null,
-  }) {
-    return _then(_$DriverOperationsCompleteTripImpl(
-      totalDistance: null == totalDistance
-          ? _value.totalDistance
-          : totalDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-      totalDuration: null == totalDuration
-          ? _value.totalDuration
-          : totalDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-    ));
+  $Res call({Object? totalDistance = null, Object? totalDuration = null}) {
+    return _then(
+      _$DriverOperationsCompleteTripImpl(
+        totalDistance:
+            null == totalDistance
+                ? _value.totalDistance
+                : totalDistance // ignore: cast_nullable_to_non_nullable
+                    as double,
+        totalDuration:
+            null == totalDuration
+                ? _value.totalDuration
+                : totalDuration // ignore: cast_nullable_to_non_nullable
+                    as Duration,
+      ),
+    );
   }
 }
 
@@ -1921,8 +1957,10 @@ class __$$DriverOperationsCompleteTripImplCopyWithImpl<$Res>
 
 class _$DriverOperationsCompleteTripImpl
     implements DriverOperationsCompleteTrip {
-  const _$DriverOperationsCompleteTripImpl(
-      {required this.totalDistance, required this.totalDuration});
+  const _$DriverOperationsCompleteTripImpl({
+    required this.totalDistance,
+    required this.totalDuration,
+  });
 
   @override
   final double totalDistance;
@@ -1954,9 +1992,11 @@ class _$DriverOperationsCompleteTripImpl
   @override
   @pragma('vm:prefer-inline')
   _$$DriverOperationsCompleteTripImplCopyWith<
-          _$DriverOperationsCompleteTripImpl>
-      get copyWith => __$$DriverOperationsCompleteTripImplCopyWithImpl<
-          _$DriverOperationsCompleteTripImpl>(this, _$identity);
+    _$DriverOperationsCompleteTripImpl
+  >
+  get copyWith => __$$DriverOperationsCompleteTripImplCopyWithImpl<
+    _$DriverOperationsCompleteTripImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1967,12 +2007,12 @@ class _$DriverOperationsCompleteTripImpl
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -1992,7 +2032,7 @@ class _$DriverOperationsCompleteTripImpl
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -2012,7 +2052,7 @@ class _$DriverOperationsCompleteTripImpl
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -2028,20 +2068,20 @@ class _$DriverOperationsCompleteTripImpl
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return completeTrip(this);
   }
@@ -2055,14 +2095,14 @@ class _$DriverOperationsCompleteTripImpl
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return completeTrip?.call(this);
   }
@@ -2076,14 +2116,14 @@ class _$DriverOperationsCompleteTripImpl
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (completeTrip != null) {
@@ -2094,10 +2134,10 @@ class _$DriverOperationsCompleteTripImpl
 }
 
 abstract class DriverOperationsCompleteTrip implements DriverOperationsEvent {
-  const factory DriverOperationsCompleteTrip(
-          {required final double totalDistance,
-          required final Duration totalDuration}) =
-      _$DriverOperationsCompleteTripImpl;
+  const factory DriverOperationsCompleteTrip({
+    required final double totalDistance,
+    required final Duration totalDuration,
+  }) = _$DriverOperationsCompleteTripImpl;
 
   double get totalDistance;
   Duration get totalDuration;
@@ -2106,43 +2146,47 @@ abstract class DriverOperationsCompleteTrip implements DriverOperationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DriverOperationsCompleteTripImplCopyWith<
-          _$DriverOperationsCompleteTripImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$DriverOperationsCompleteTripImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DriverOperationsCancelTripImplCopyWith<$Res> {
   factory _$$DriverOperationsCancelTripImplCopyWith(
-          _$DriverOperationsCancelTripImpl value,
-          $Res Function(_$DriverOperationsCancelTripImpl) then) =
-      __$$DriverOperationsCancelTripImplCopyWithImpl<$Res>;
+    _$DriverOperationsCancelTripImpl value,
+    $Res Function(_$DriverOperationsCancelTripImpl) then,
+  ) = __$$DriverOperationsCancelTripImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String reason});
 }
 
 /// @nodoc
 class __$$DriverOperationsCancelTripImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsCancelTripImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsCancelTripImpl
+        >
     implements _$$DriverOperationsCancelTripImplCopyWith<$Res> {
   __$$DriverOperationsCancelTripImplCopyWithImpl(
-      _$DriverOperationsCancelTripImpl _value,
-      $Res Function(_$DriverOperationsCancelTripImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsCancelTripImpl _value,
+    $Res Function(_$DriverOperationsCancelTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? reason = null,
-  }) {
-    return _then(_$DriverOperationsCancelTripImpl(
-      null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? reason = null}) {
+    return _then(
+      _$DriverOperationsCancelTripImpl(
+        null == reason
+            ? _value.reason
+            : reason // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -2176,8 +2220,9 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @override
   @pragma('vm:prefer-inline')
   _$$DriverOperationsCancelTripImplCopyWith<_$DriverOperationsCancelTripImpl>
-      get copyWith => __$$DriverOperationsCancelTripImplCopyWithImpl<
-          _$DriverOperationsCancelTripImpl>(this, _$identity);
+  get copyWith => __$$DriverOperationsCancelTripImplCopyWithImpl<
+    _$DriverOperationsCancelTripImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2188,12 +2233,12 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -2213,7 +2258,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -2233,7 +2278,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -2249,20 +2294,20 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return cancelTrip(this);
   }
@@ -2276,14 +2321,14 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return cancelTrip?.call(this);
   }
@@ -2297,14 +2342,14 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (cancelTrip != null) {
@@ -2324,42 +2369,45 @@ abstract class DriverOperationsCancelTrip implements DriverOperationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DriverOperationsCancelTripImplCopyWith<_$DriverOperationsCancelTripImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DriverOperationsUpdateAvailabilityImplCopyWith<$Res> {
   factory _$$DriverOperationsUpdateAvailabilityImplCopyWith(
-          _$DriverOperationsUpdateAvailabilityImpl value,
-          $Res Function(_$DriverOperationsUpdateAvailabilityImpl) then) =
-      __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl<$Res>;
+    _$DriverOperationsUpdateAvailabilityImpl value,
+    $Res Function(_$DriverOperationsUpdateAvailabilityImpl) then,
+  ) = __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isAvailable});
 }
 
 /// @nodoc
 class __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl<$Res>
-    extends _$DriverOperationsEventCopyWithImpl<$Res,
-        _$DriverOperationsUpdateAvailabilityImpl>
+    extends
+        _$DriverOperationsEventCopyWithImpl<
+          $Res,
+          _$DriverOperationsUpdateAvailabilityImpl
+        >
     implements _$$DriverOperationsUpdateAvailabilityImplCopyWith<$Res> {
   __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl(
-      _$DriverOperationsUpdateAvailabilityImpl _value,
-      $Res Function(_$DriverOperationsUpdateAvailabilityImpl) _then)
-      : super(_value, _then);
+    _$DriverOperationsUpdateAvailabilityImpl _value,
+    $Res Function(_$DriverOperationsUpdateAvailabilityImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isAvailable = null,
-  }) {
-    return _then(_$DriverOperationsUpdateAvailabilityImpl(
-      null == isAvailable
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isAvailable = null}) {
+    return _then(
+      _$DriverOperationsUpdateAvailabilityImpl(
+        null == isAvailable
+            ? _value.isAvailable
+            : isAvailable // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
   }
 }
 
@@ -2395,9 +2443,11 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @override
   @pragma('vm:prefer-inline')
   _$$DriverOperationsUpdateAvailabilityImplCopyWith<
-          _$DriverOperationsUpdateAvailabilityImpl>
-      get copyWith => __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl<
-          _$DriverOperationsUpdateAvailabilityImpl>(this, _$identity);
+    _$DriverOperationsUpdateAvailabilityImpl
+  >
+  get copyWith => __$$DriverOperationsUpdateAvailabilityImplCopyWithImpl<
+    _$DriverOperationsUpdateAvailabilityImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2408,12 +2458,12 @@ class _$DriverOperationsUpdateAvailabilityImpl
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
     required TResult Function(TripRequestNotificationDto tripData)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
     required TResult Function() startTrip,
     required TResult Function(double totalDistance, Duration totalDuration)
-        completeTrip,
+    completeTrip,
     required TResult Function(String reason) cancelTrip,
     required TResult Function(bool isAvailable) updateAvailability,
   }) {
@@ -2433,7 +2483,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
     TResult? Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult? Function(String reason)? cancelTrip,
     TResult? Function(bool isAvailable)? updateAvailability,
   }) {
@@ -2453,7 +2503,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
     TResult Function(double totalDistance, Duration totalDuration)?
-        completeTrip,
+    completeTrip,
     TResult Function(String reason)? cancelTrip,
     TResult Function(bool isAvailable)? updateAvailability,
     required TResult orElse(),
@@ -2469,20 +2519,20 @@ class _$DriverOperationsUpdateAvailabilityImpl
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
     required TResult Function(DriverOperationsNoPermissions value)
-        noPermissions,
+    noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
-        locationUpdated,
+    locationUpdated,
     required TResult Function(DriverOperationsTripRequestReceived value)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
     required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
     required TResult Function(DriverOperationsStartTrip value) startTrip,
     required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
     required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
     required TResult Function(DriverOperationsUpdateAvailability value)
-        updateAvailability,
+    updateAvailability,
   }) {
     return updateAvailability(this);
   }
@@ -2496,14 +2546,14 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult? Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult? Function(DriverOperationsStartTrip value)? startTrip,
     TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult? Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
   }) {
     return updateAvailability?.call(this);
   }
@@ -2517,14 +2567,14 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
     TResult Function(DriverOperationsTripRequestReceived value)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
     TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
     TResult Function(DriverOperationsStartTrip value)? startTrip,
     TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
     TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
     TResult Function(DriverOperationsUpdateAvailability value)?
-        updateAvailability,
+    updateAvailability,
     required TResult orElse(),
   }) {
     if (updateAvailability != null) {
@@ -2545,8 +2595,9 @@ abstract class DriverOperationsUpdateAvailability
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DriverOperationsUpdateAvailabilityImplCopyWith<
-          _$DriverOperationsUpdateAvailabilityImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$DriverOperationsUpdateAvailabilityImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2559,47 +2610,59 @@ mixin _$DriverOperationsState {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
-  }) =>
-      throw _privateConstructorUsedError;
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -2608,46 +2671,56 @@ mixin _$DriverOperationsState {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
-  }) =>
-      throw _privateConstructorUsedError;
+    error,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -2656,47 +2729,57 @@ mixin _$DriverOperationsState {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -2712,8 +2795,7 @@ mixin _$DriverOperationsState {
     required TResult Function(_TripCancelled value) tripCancelled,
     required TResult Function(_Unavailable value) unavailable,
     required TResult Function(_StateError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -2729,8 +2811,7 @@ mixin _$DriverOperationsState {
     TResult? Function(_TripCancelled value)? tripCancelled,
     TResult? Function(_Unavailable value)? unavailable,
     TResult? Function(_StateError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -2747,20 +2828,22 @@ mixin _$DriverOperationsState {
     TResult Function(_Unavailable value)? unavailable,
     TResult Function(_StateError value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DriverOperationsStateCopyWith<$Res> {
-  factory $DriverOperationsStateCopyWith(DriverOperationsState value,
-          $Res Function(DriverOperationsState) then) =
-      _$DriverOperationsStateCopyWithImpl<$Res, DriverOperationsState>;
+  factory $DriverOperationsStateCopyWith(
+    DriverOperationsState value,
+    $Res Function(DriverOperationsState) then,
+  ) = _$DriverOperationsStateCopyWithImpl<$Res, DriverOperationsState>;
 }
 
 /// @nodoc
-class _$DriverOperationsStateCopyWithImpl<$Res,
-        $Val extends DriverOperationsState>
+class _$DriverOperationsStateCopyWithImpl<
+  $Res,
+  $Val extends DriverOperationsState
+>
     implements $DriverOperationsStateCopyWith<$Res> {
   _$DriverOperationsStateCopyWithImpl(this._value, this._then);
 
@@ -2776,8 +2859,9 @@ class _$DriverOperationsStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -2785,8 +2869,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -2820,45 +2905,58 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return initial();
   }
@@ -2872,44 +2970,55 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return initial?.call();
   }
@@ -2923,44 +3032,55 @@ class _$InitialImpl implements _Initial {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -3041,8 +3161,9 @@ abstract class _Initial implements DriverOperationsState {
 /// @nodoc
 abstract class _$$NoPermissionImplCopyWith<$Res> {
   factory _$$NoPermissionImplCopyWith(
-          _$NoPermissionImpl value, $Res Function(_$NoPermissionImpl) then) =
-      __$$NoPermissionImplCopyWithImpl<$Res>;
+    _$NoPermissionImpl value,
+    $Res Function(_$NoPermissionImpl) then,
+  ) = __$$NoPermissionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -3050,8 +3171,9 @@ class __$$NoPermissionImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$NoPermissionImpl>
     implements _$$NoPermissionImplCopyWith<$Res> {
   __$$NoPermissionImplCopyWithImpl(
-      _$NoPermissionImpl _value, $Res Function(_$NoPermissionImpl) _then)
-      : super(_value, _then);
+    _$NoPermissionImpl _value,
+    $Res Function(_$NoPermissionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3085,45 +3207,58 @@ class _$NoPermissionImpl implements _NoPermission {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return noPermission();
   }
@@ -3137,44 +3272,55 @@ class _$NoPermissionImpl implements _NoPermission {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return noPermission?.call();
   }
@@ -3188,44 +3334,55 @@ class _$NoPermissionImpl implements _NoPermission {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (noPermission != null) {
@@ -3306,8 +3463,9 @@ abstract class _NoPermission implements DriverOperationsState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -3315,8 +3473,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -3350,45 +3509,58 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return loading();
   }
@@ -3402,44 +3574,55 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return loading?.call();
   }
@@ -3453,44 +3636,55 @@ class _$LoadingImpl implements _Loading {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -3571,8 +3765,9 @@ abstract class _Loading implements DriverOperationsState {
 /// @nodoc
 abstract class _$$OfflineImplCopyWith<$Res> {
   factory _$$OfflineImplCopyWith(
-          _$OfflineImpl value, $Res Function(_$OfflineImpl) then) =
-      __$$OfflineImplCopyWithImpl<$Res>;
+    _$OfflineImpl value,
+    $Res Function(_$OfflineImpl) then,
+  ) = __$$OfflineImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Position? lastKnownLocation});
 }
@@ -3582,22 +3777,24 @@ class __$$OfflineImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$OfflineImpl>
     implements _$$OfflineImplCopyWith<$Res> {
   __$$OfflineImplCopyWithImpl(
-      _$OfflineImpl _value, $Res Function(_$OfflineImpl) _then)
-      : super(_value, _then);
+    _$OfflineImpl _value,
+    $Res Function(_$OfflineImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? lastKnownLocation = freezed,
-  }) {
-    return _then(_$OfflineImpl(
-      lastKnownLocation: freezed == lastKnownLocation
-          ? _value.lastKnownLocation
-          : lastKnownLocation // ignore: cast_nullable_to_non_nullable
-              as Position?,
-    ));
+  $Res call({Object? lastKnownLocation = freezed}) {
+    return _then(
+      _$OfflineImpl(
+        lastKnownLocation:
+            freezed == lastKnownLocation
+                ? _value.lastKnownLocation
+                : lastKnownLocation // ignore: cast_nullable_to_non_nullable
+                    as Position?,
+      ),
+    );
   }
 }
 
@@ -3643,45 +3840,58 @@ class _$OfflineImpl implements _Offline {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return offline(lastKnownLocation);
   }
@@ -3695,44 +3905,55 @@ class _$OfflineImpl implements _Offline {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return offline?.call(lastKnownLocation);
   }
@@ -3746,44 +3967,55 @@ class _$OfflineImpl implements _Offline {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (offline != null) {
@@ -3872,8 +4104,9 @@ abstract class _Offline implements DriverOperationsState {
 /// @nodoc
 abstract class _$$OnlineImplCopyWith<$Res> {
   factory _$$OnlineImplCopyWith(
-          _$OnlineImpl value, $Res Function(_$OnlineImpl) then) =
-      __$$OnlineImplCopyWithImpl<$Res>;
+    _$OnlineImpl value,
+    $Res Function(_$OnlineImpl) then,
+  ) = __$$OnlineImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Position? currentLocation});
 }
@@ -3883,22 +4116,24 @@ class __$$OnlineImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$OnlineImpl>
     implements _$$OnlineImplCopyWith<$Res> {
   __$$OnlineImplCopyWithImpl(
-      _$OnlineImpl _value, $Res Function(_$OnlineImpl) _then)
-      : super(_value, _then);
+    _$OnlineImpl _value,
+    $Res Function(_$OnlineImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? currentLocation = freezed,
-  }) {
-    return _then(_$OnlineImpl(
-      currentLocation: freezed == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position?,
-    ));
+  $Res call({Object? currentLocation = freezed}) {
+    return _then(
+      _$OnlineImpl(
+        currentLocation:
+            freezed == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position?,
+      ),
+    );
   }
 }
 
@@ -3944,45 +4179,58 @@ class _$OnlineImpl implements _Online {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return online(currentLocation);
   }
@@ -3996,44 +4244,55 @@ class _$OnlineImpl implements _Online {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return online?.call(currentLocation);
   }
@@ -4047,44 +4306,55 @@ class _$OnlineImpl implements _Online {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (online != null) {
@@ -4173,9 +4443,10 @@ abstract class _Online implements DriverOperationsState {
 
 /// @nodoc
 abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
-  factory _$$TripRequestReceivedImplCopyWith(_$TripRequestReceivedImpl value,
-          $Res Function(_$TripRequestReceivedImpl) then) =
-      __$$TripRequestReceivedImplCopyWithImpl<$Res>;
+  factory _$$TripRequestReceivedImplCopyWith(
+    _$TripRequestReceivedImpl value,
+    $Res Function(_$TripRequestReceivedImpl) then,
+  ) = __$$TripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TripRequestNotificationDto tripRequest});
 
@@ -4186,23 +4457,25 @@ abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
 class __$$TripRequestReceivedImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$TripRequestReceivedImpl>
     implements _$$TripRequestReceivedImplCopyWith<$Res> {
-  __$$TripRequestReceivedImplCopyWithImpl(_$TripRequestReceivedImpl _value,
-      $Res Function(_$TripRequestReceivedImpl) _then)
-      : super(_value, _then);
+  __$$TripRequestReceivedImplCopyWithImpl(
+    _$TripRequestReceivedImpl _value,
+    $Res Function(_$TripRequestReceivedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? tripRequest = null,
-  }) {
-    return _then(_$TripRequestReceivedImpl(
-      tripRequest: null == tripRequest
-          ? _value.tripRequest
-          : tripRequest // ignore: cast_nullable_to_non_nullable
-              as TripRequestNotificationDto,
-    ));
+  $Res call({Object? tripRequest = null}) {
+    return _then(
+      _$TripRequestReceivedImpl(
+        tripRequest:
+            null == tripRequest
+                ? _value.tripRequest
+                : tripRequest // ignore: cast_nullable_to_non_nullable
+                    as TripRequestNotificationDto,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -4210,8 +4483,9 @@ class __$$TripRequestReceivedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TripRequestNotificationDtoCopyWith<$Res> get tripRequest {
-    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripRequest,
-        (value) {
+    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripRequest, (
+      value,
+    ) {
       return _then(_value.copyWith(tripRequest: value));
     });
   }
@@ -4249,7 +4523,9 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @pragma('vm:prefer-inline')
   _$$TripRequestReceivedImplCopyWith<_$TripRequestReceivedImpl> get copyWith =>
       __$$TripRequestReceivedImplCopyWithImpl<_$TripRequestReceivedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -4260,45 +4536,58 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return tripRequestReceived(tripRequest);
   }
@@ -4312,44 +4601,55 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return tripRequestReceived?.call(tripRequest);
   }
@@ -4363,44 +4663,55 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (tripRequestReceived != null) {
@@ -4475,9 +4786,9 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
 }
 
 abstract class _TripRequestReceived implements DriverOperationsState {
-  const factory _TripRequestReceived(
-          {required final TripRequestNotificationDto tripRequest}) =
-      _$TripRequestReceivedImpl;
+  const factory _TripRequestReceived({
+    required final TripRequestNotificationDto tripRequest,
+  }) = _$TripRequestReceivedImpl;
 
   TripRequestNotificationDto get tripRequest;
 
@@ -4490,16 +4801,18 @@ abstract class _TripRequestReceived implements DriverOperationsState {
 
 /// @nodoc
 abstract class _$$EnRouteToPickupImplCopyWith<$Res> {
-  factory _$$EnRouteToPickupImplCopyWith(_$EnRouteToPickupImpl value,
-          $Res Function(_$EnRouteToPickupImpl) then) =
-      __$$EnRouteToPickupImplCopyWithImpl<$Res>;
+  factory _$$EnRouteToPickupImplCopyWith(
+    _$EnRouteToPickupImpl value,
+    $Res Function(_$EnRouteToPickupImpl) then,
+  ) = __$$EnRouteToPickupImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation,
-      TripRequestNotificationDto activeTrip,
-      DateTime estimatedPickupTime,
-      DateTime onlineTime,
-      List<Position> locationHistory});
+  $Res call({
+    Position currentLocation,
+    TripRequestNotificationDto activeTrip,
+    DateTime estimatedPickupTime,
+    DateTime onlineTime,
+    List<Position> locationHistory,
+  });
 
   $TripRequestNotificationDtoCopyWith<$Res> get activeTrip;
 }
@@ -4509,8 +4822,9 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$EnRouteToPickupImpl>
     implements _$$EnRouteToPickupImplCopyWith<$Res> {
   __$$EnRouteToPickupImplCopyWithImpl(
-      _$EnRouteToPickupImpl _value, $Res Function(_$EnRouteToPickupImpl) _then)
-      : super(_value, _then);
+    _$EnRouteToPickupImpl _value,
+    $Res Function(_$EnRouteToPickupImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4523,28 +4837,35 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
     Object? onlineTime = null,
     Object? locationHistory = null,
   }) {
-    return _then(_$EnRouteToPickupImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      activeTrip: null == activeTrip
-          ? _value.activeTrip
-          : activeTrip // ignore: cast_nullable_to_non_nullable
-              as TripRequestNotificationDto,
-      estimatedPickupTime: null == estimatedPickupTime
-          ? _value.estimatedPickupTime
-          : estimatedPickupTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      onlineTime: null == onlineTime
-          ? _value.onlineTime
-          : onlineTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      locationHistory: null == locationHistory
-          ? _value._locationHistory
-          : locationHistory // ignore: cast_nullable_to_non_nullable
-              as List<Position>,
-    ));
+    return _then(
+      _$EnRouteToPickupImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        activeTrip:
+            null == activeTrip
+                ? _value.activeTrip
+                : activeTrip // ignore: cast_nullable_to_non_nullable
+                    as TripRequestNotificationDto,
+        estimatedPickupTime:
+            null == estimatedPickupTime
+                ? _value.estimatedPickupTime
+                : estimatedPickupTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        onlineTime:
+            null == onlineTime
+                ? _value.onlineTime
+                : onlineTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        locationHistory:
+            null == locationHistory
+                ? _value._locationHistory
+                : locationHistory // ignore: cast_nullable_to_non_nullable
+                    as List<Position>,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -4552,8 +4873,9 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TripRequestNotificationDtoCopyWith<$Res> get activeTrip {
-    return $TripRequestNotificationDtoCopyWith<$Res>(_value.activeTrip,
-        (value) {
+    return $TripRequestNotificationDtoCopyWith<$Res>(_value.activeTrip, (
+      value,
+    ) {
       return _then(_value.copyWith(activeTrip: value));
     });
   }
@@ -4562,13 +4884,13 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EnRouteToPickupImpl implements _EnRouteToPickup {
-  const _$EnRouteToPickupImpl(
-      {required this.currentLocation,
-      required this.activeTrip,
-      required this.estimatedPickupTime,
-      required this.onlineTime,
-      final List<Position> locationHistory = const []})
-      : _locationHistory = locationHistory;
+  const _$EnRouteToPickupImpl({
+    required this.currentLocation,
+    required this.activeTrip,
+    required this.estimatedPickupTime,
+    required this.onlineTime,
+    final List<Position> locationHistory = const [],
+  }) : _locationHistory = locationHistory;
 
   @override
   final Position currentLocation;
@@ -4605,18 +4927,21 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
                 other.estimatedPickupTime == estimatedPickupTime) &&
             (identical(other.onlineTime, onlineTime) ||
                 other.onlineTime == onlineTime) &&
-            const DeepCollectionEquality()
-                .equals(other._locationHistory, _locationHistory));
+            const DeepCollectionEquality().equals(
+              other._locationHistory,
+              _locationHistory,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      currentLocation,
-      activeTrip,
-      estimatedPickupTime,
-      onlineTime,
-      const DeepCollectionEquality().hash(_locationHistory));
+    runtimeType,
+    currentLocation,
+    activeTrip,
+    estimatedPickupTime,
+    onlineTime,
+    const DeepCollectionEquality().hash(_locationHistory),
+  );
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4625,7 +4950,9 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @pragma('vm:prefer-inline')
   _$$EnRouteToPickupImplCopyWith<_$EnRouteToPickupImpl> get copyWith =>
       __$$EnRouteToPickupImplCopyWithImpl<_$EnRouteToPickupImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -4636,48 +4963,66 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
-    return enRouteToPickup(currentLocation, activeTrip, estimatedPickupTime,
-        onlineTime, locationHistory);
+    return enRouteToPickup(
+      currentLocation,
+      activeTrip,
+      estimatedPickupTime,
+      onlineTime,
+      locationHistory,
+    );
   }
 
   @override
@@ -4689,47 +5034,63 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
-    return enRouteToPickup?.call(currentLocation, activeTrip,
-        estimatedPickupTime, onlineTime, locationHistory);
+    return enRouteToPickup?.call(
+      currentLocation,
+      activeTrip,
+      estimatedPickupTime,
+      onlineTime,
+      locationHistory,
+    );
   }
 
   @override
@@ -4741,49 +5102,65 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (enRouteToPickup != null) {
-      return enRouteToPickup(currentLocation, activeTrip, estimatedPickupTime,
-          onlineTime, locationHistory);
+      return enRouteToPickup(
+        currentLocation,
+        activeTrip,
+        estimatedPickupTime,
+        onlineTime,
+        locationHistory,
+      );
     }
     return orElse();
   }
@@ -4854,12 +5231,13 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
 }
 
 abstract class _EnRouteToPickup implements DriverOperationsState {
-  const factory _EnRouteToPickup(
-      {required final Position currentLocation,
-      required final TripRequestNotificationDto activeTrip,
-      required final DateTime estimatedPickupTime,
-      required final DateTime onlineTime,
-      final List<Position> locationHistory}) = _$EnRouteToPickupImpl;
+  const factory _EnRouteToPickup({
+    required final Position currentLocation,
+    required final TripRequestNotificationDto activeTrip,
+    required final DateTime estimatedPickupTime,
+    required final DateTime onlineTime,
+    final List<Position> locationHistory,
+  }) = _$EnRouteToPickupImpl;
 
   Position get currentLocation;
   TripRequestNotificationDto get activeTrip;
@@ -4876,15 +5254,17 @@ abstract class _EnRouteToPickup implements DriverOperationsState {
 
 /// @nodoc
 abstract class _$$WaitingForPassengerImplCopyWith<$Res> {
-  factory _$$WaitingForPassengerImplCopyWith(_$WaitingForPassengerImpl value,
-          $Res Function(_$WaitingForPassengerImpl) then) =
-      __$$WaitingForPassengerImplCopyWithImpl<$Res>;
+  factory _$$WaitingForPassengerImplCopyWith(
+    _$WaitingForPassengerImpl value,
+    $Res Function(_$WaitingForPassengerImpl) then,
+  ) = __$$WaitingForPassengerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation,
-      Trip activeTrip,
-      DateTime arrivalTime,
-      DateTime onlineTime});
+  $Res call({
+    Position currentLocation,
+    Trip activeTrip,
+    DateTime arrivalTime,
+    DateTime onlineTime,
+  });
 
   $TripCopyWith<$Res> get activeTrip;
 }
@@ -4893,9 +5273,10 @@ abstract class _$$WaitingForPassengerImplCopyWith<$Res> {
 class __$$WaitingForPassengerImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$WaitingForPassengerImpl>
     implements _$$WaitingForPassengerImplCopyWith<$Res> {
-  __$$WaitingForPassengerImplCopyWithImpl(_$WaitingForPassengerImpl _value,
-      $Res Function(_$WaitingForPassengerImpl) _then)
-      : super(_value, _then);
+  __$$WaitingForPassengerImplCopyWithImpl(
+    _$WaitingForPassengerImpl _value,
+    $Res Function(_$WaitingForPassengerImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4907,24 +5288,30 @@ class __$$WaitingForPassengerImplCopyWithImpl<$Res>
     Object? arrivalTime = null,
     Object? onlineTime = null,
   }) {
-    return _then(_$WaitingForPassengerImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      activeTrip: null == activeTrip
-          ? _value.activeTrip
-          : activeTrip // ignore: cast_nullable_to_non_nullable
-              as Trip,
-      arrivalTime: null == arrivalTime
-          ? _value.arrivalTime
-          : arrivalTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      onlineTime: null == onlineTime
-          ? _value.onlineTime
-          : onlineTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$WaitingForPassengerImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        activeTrip:
+            null == activeTrip
+                ? _value.activeTrip
+                : activeTrip // ignore: cast_nullable_to_non_nullable
+                    as Trip,
+        arrivalTime:
+            null == arrivalTime
+                ? _value.arrivalTime
+                : arrivalTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        onlineTime:
+            null == onlineTime
+                ? _value.onlineTime
+                : onlineTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -4941,11 +5328,12 @@ class __$$WaitingForPassengerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$WaitingForPassengerImpl implements _WaitingForPassenger {
-  const _$WaitingForPassengerImpl(
-      {required this.currentLocation,
-      required this.activeTrip,
-      required this.arrivalTime,
-      required this.onlineTime});
+  const _$WaitingForPassengerImpl({
+    required this.currentLocation,
+    required this.activeTrip,
+    required this.arrivalTime,
+    required this.onlineTime,
+  });
 
   @override
   final Position currentLocation;
@@ -4978,7 +5366,12 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, currentLocation, activeTrip, arrivalTime, onlineTime);
+    runtimeType,
+    currentLocation,
+    activeTrip,
+    arrivalTime,
+    onlineTime,
+  );
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4987,7 +5380,9 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @pragma('vm:prefer-inline')
   _$$WaitingForPassengerImplCopyWith<_$WaitingForPassengerImpl> get copyWith =>
       __$$WaitingForPassengerImplCopyWithImpl<_$WaitingForPassengerImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -4998,48 +5393,65 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return waitingForPassenger(
-        currentLocation, activeTrip, arrivalTime, onlineTime);
+      currentLocation,
+      activeTrip,
+      arrivalTime,
+      onlineTime,
+    );
   }
 
   @override
@@ -5051,47 +5463,62 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return waitingForPassenger?.call(
-        currentLocation, activeTrip, arrivalTime, onlineTime);
+      currentLocation,
+      activeTrip,
+      arrivalTime,
+      onlineTime,
+    );
   }
 
   @override
@@ -5103,49 +5530,64 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (waitingForPassenger != null) {
       return waitingForPassenger(
-          currentLocation, activeTrip, arrivalTime, onlineTime);
+        currentLocation,
+        activeTrip,
+        arrivalTime,
+        onlineTime,
+      );
     }
     return orElse();
   }
@@ -5216,11 +5658,12 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
 }
 
 abstract class _WaitingForPassenger implements DriverOperationsState {
-  const factory _WaitingForPassenger(
-      {required final Position currentLocation,
-      required final Trip activeTrip,
-      required final DateTime arrivalTime,
-      required final DateTime onlineTime}) = _$WaitingForPassengerImpl;
+  const factory _WaitingForPassenger({
+    required final Position currentLocation,
+    required final Trip activeTrip,
+    required final DateTime arrivalTime,
+    required final DateTime onlineTime,
+  }) = _$WaitingForPassengerImpl;
 
   Position get currentLocation;
   Trip get activeTrip;
@@ -5237,15 +5680,17 @@ abstract class _WaitingForPassenger implements DriverOperationsState {
 /// @nodoc
 abstract class _$$OnTripImplCopyWith<$Res> {
   factory _$$OnTripImplCopyWith(
-          _$OnTripImpl value, $Res Function(_$OnTripImpl) then) =
-      __$$OnTripImplCopyWithImpl<$Res>;
+    _$OnTripImpl value,
+    $Res Function(_$OnTripImpl) then,
+  ) = __$$OnTripImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation,
-      Trip activeTrip,
-      DateTime tripStartTime,
-      DateTime? estimatedDropoffTime,
-      List<Position> tripRoute});
+  $Res call({
+    Position currentLocation,
+    Trip activeTrip,
+    DateTime tripStartTime,
+    DateTime? estimatedDropoffTime,
+    List<Position> tripRoute,
+  });
 
   $TripCopyWith<$Res> get activeTrip;
 }
@@ -5255,8 +5700,9 @@ class __$$OnTripImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$OnTripImpl>
     implements _$$OnTripImplCopyWith<$Res> {
   __$$OnTripImplCopyWithImpl(
-      _$OnTripImpl _value, $Res Function(_$OnTripImpl) _then)
-      : super(_value, _then);
+    _$OnTripImpl _value,
+    $Res Function(_$OnTripImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -5269,28 +5715,35 @@ class __$$OnTripImplCopyWithImpl<$Res>
     Object? estimatedDropoffTime = freezed,
     Object? tripRoute = null,
   }) {
-    return _then(_$OnTripImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      activeTrip: null == activeTrip
-          ? _value.activeTrip
-          : activeTrip // ignore: cast_nullable_to_non_nullable
-              as Trip,
-      tripStartTime: null == tripStartTime
-          ? _value.tripStartTime
-          : tripStartTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      estimatedDropoffTime: freezed == estimatedDropoffTime
-          ? _value.estimatedDropoffTime
-          : estimatedDropoffTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      tripRoute: null == tripRoute
-          ? _value._tripRoute
-          : tripRoute // ignore: cast_nullable_to_non_nullable
-              as List<Position>,
-    ));
+    return _then(
+      _$OnTripImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        activeTrip:
+            null == activeTrip
+                ? _value.activeTrip
+                : activeTrip // ignore: cast_nullable_to_non_nullable
+                    as Trip,
+        tripStartTime:
+            null == tripStartTime
+                ? _value.tripStartTime
+                : tripStartTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        estimatedDropoffTime:
+            freezed == estimatedDropoffTime
+                ? _value.estimatedDropoffTime
+                : estimatedDropoffTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        tripRoute:
+            null == tripRoute
+                ? _value._tripRoute
+                : tripRoute // ignore: cast_nullable_to_non_nullable
+                    as List<Position>,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -5307,13 +5760,13 @@ class __$$OnTripImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OnTripImpl implements _OnTrip {
-  const _$OnTripImpl(
-      {required this.currentLocation,
-      required this.activeTrip,
-      required this.tripStartTime,
-      this.estimatedDropoffTime,
-      final List<Position> tripRoute = const []})
-      : _tripRoute = tripRoute;
+  const _$OnTripImpl({
+    required this.currentLocation,
+    required this.activeTrip,
+    required this.tripStartTime,
+    this.estimatedDropoffTime,
+    final List<Position> tripRoute = const [],
+  }) : _tripRoute = tripRoute;
 
   @override
   final Position currentLocation;
@@ -5350,18 +5803,21 @@ class _$OnTripImpl implements _OnTrip {
                 other.tripStartTime == tripStartTime) &&
             (identical(other.estimatedDropoffTime, estimatedDropoffTime) ||
                 other.estimatedDropoffTime == estimatedDropoffTime) &&
-            const DeepCollectionEquality()
-                .equals(other._tripRoute, _tripRoute));
+            const DeepCollectionEquality().equals(
+              other._tripRoute,
+              _tripRoute,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      currentLocation,
-      activeTrip,
-      tripStartTime,
-      estimatedDropoffTime,
-      const DeepCollectionEquality().hash(_tripRoute));
+    runtimeType,
+    currentLocation,
+    activeTrip,
+    tripStartTime,
+    estimatedDropoffTime,
+    const DeepCollectionEquality().hash(_tripRoute),
+  );
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -5380,48 +5836,66 @@ class _$OnTripImpl implements _OnTrip {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
-    return onTrip(currentLocation, activeTrip, tripStartTime,
-        estimatedDropoffTime, tripRoute);
+    return onTrip(
+      currentLocation,
+      activeTrip,
+      tripStartTime,
+      estimatedDropoffTime,
+      tripRoute,
+    );
   }
 
   @override
@@ -5433,47 +5907,63 @@ class _$OnTripImpl implements _OnTrip {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
-    return onTrip?.call(currentLocation, activeTrip, tripStartTime,
-        estimatedDropoffTime, tripRoute);
+    return onTrip?.call(
+      currentLocation,
+      activeTrip,
+      tripStartTime,
+      estimatedDropoffTime,
+      tripRoute,
+    );
   }
 
   @override
@@ -5485,49 +5975,65 @@ class _$OnTripImpl implements _OnTrip {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (onTrip != null) {
-      return onTrip(currentLocation, activeTrip, tripStartTime,
-          estimatedDropoffTime, tripRoute);
+      return onTrip(
+        currentLocation,
+        activeTrip,
+        tripStartTime,
+        estimatedDropoffTime,
+        tripRoute,
+      );
     }
     return orElse();
   }
@@ -5598,12 +6104,13 @@ class _$OnTripImpl implements _OnTrip {
 }
 
 abstract class _OnTrip implements DriverOperationsState {
-  const factory _OnTrip(
-      {required final Position currentLocation,
-      required final Trip activeTrip,
-      required final DateTime tripStartTime,
-      final DateTime? estimatedDropoffTime,
-      final List<Position> tripRoute}) = _$OnTripImpl;
+  const factory _OnTrip({
+    required final Position currentLocation,
+    required final Trip activeTrip,
+    required final DateTime tripStartTime,
+    final DateTime? estimatedDropoffTime,
+    final List<Position> tripRoute,
+  }) = _$OnTripImpl;
 
   Position get currentLocation;
   Trip get activeTrip;
@@ -5621,16 +6128,18 @@ abstract class _OnTrip implements DriverOperationsState {
 /// @nodoc
 abstract class _$$TripCompletedImplCopyWith<$Res> {
   factory _$$TripCompletedImplCopyWith(
-          _$TripCompletedImpl value, $Res Function(_$TripCompletedImpl) then) =
-      __$$TripCompletedImplCopyWithImpl<$Res>;
+    _$TripCompletedImpl value,
+    $Res Function(_$TripCompletedImpl) then,
+  ) = __$$TripCompletedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation,
-      Trip completedTrip,
-      DateTime completionTime,
-      double tripEarnings,
-      Duration tripDuration,
-      double tripDistance});
+  $Res call({
+    Position currentLocation,
+    Trip completedTrip,
+    DateTime completionTime,
+    double tripEarnings,
+    Duration tripDuration,
+    double tripDistance,
+  });
 
   $TripCopyWith<$Res> get completedTrip;
 }
@@ -5640,8 +6149,9 @@ class __$$TripCompletedImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$TripCompletedImpl>
     implements _$$TripCompletedImplCopyWith<$Res> {
   __$$TripCompletedImplCopyWithImpl(
-      _$TripCompletedImpl _value, $Res Function(_$TripCompletedImpl) _then)
-      : super(_value, _then);
+    _$TripCompletedImpl _value,
+    $Res Function(_$TripCompletedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -5655,32 +6165,40 @@ class __$$TripCompletedImplCopyWithImpl<$Res>
     Object? tripDuration = null,
     Object? tripDistance = null,
   }) {
-    return _then(_$TripCompletedImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      completedTrip: null == completedTrip
-          ? _value.completedTrip
-          : completedTrip // ignore: cast_nullable_to_non_nullable
-              as Trip,
-      completionTime: null == completionTime
-          ? _value.completionTime
-          : completionTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      tripEarnings: null == tripEarnings
-          ? _value.tripEarnings
-          : tripEarnings // ignore: cast_nullable_to_non_nullable
-              as double,
-      tripDuration: null == tripDuration
-          ? _value.tripDuration
-          : tripDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      tripDistance: null == tripDistance
-          ? _value.tripDistance
-          : tripDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
+    return _then(
+      _$TripCompletedImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        completedTrip:
+            null == completedTrip
+                ? _value.completedTrip
+                : completedTrip // ignore: cast_nullable_to_non_nullable
+                    as Trip,
+        completionTime:
+            null == completionTime
+                ? _value.completionTime
+                : completionTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        tripEarnings:
+            null == tripEarnings
+                ? _value.tripEarnings
+                : tripEarnings // ignore: cast_nullable_to_non_nullable
+                    as double,
+        tripDuration:
+            null == tripDuration
+                ? _value.tripDuration
+                : tripDuration // ignore: cast_nullable_to_non_nullable
+                    as Duration,
+        tripDistance:
+            null == tripDistance
+                ? _value.tripDistance
+                : tripDistance // ignore: cast_nullable_to_non_nullable
+                    as double,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -5697,13 +6215,14 @@ class __$$TripCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TripCompletedImpl implements _TripCompleted {
-  const _$TripCompletedImpl(
-      {required this.currentLocation,
-      required this.completedTrip,
-      required this.completionTime,
-      required this.tripEarnings,
-      required this.tripDuration,
-      required this.tripDistance});
+  const _$TripCompletedImpl({
+    required this.currentLocation,
+    required this.completedTrip,
+    required this.completionTime,
+    required this.tripEarnings,
+    required this.tripDuration,
+    required this.tripDistance,
+  });
 
   @override
   final Position currentLocation;
@@ -5743,8 +6262,15 @@ class _$TripCompletedImpl implements _TripCompleted {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentLocation, completedTrip,
-      completionTime, tripEarnings, tripDuration, tripDistance);
+  int get hashCode => Object.hash(
+    runtimeType,
+    currentLocation,
+    completedTrip,
+    completionTime,
+    tripEarnings,
+    tripDuration,
+    tripDistance,
+  );
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -5763,48 +6289,67 @@ class _$TripCompletedImpl implements _TripCompleted {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
-    return tripCompleted(currentLocation, completedTrip, completionTime,
-        tripEarnings, tripDuration, tripDistance);
+    return tripCompleted(
+      currentLocation,
+      completedTrip,
+      completionTime,
+      tripEarnings,
+      tripDuration,
+      tripDistance,
+    );
   }
 
   @override
@@ -5816,47 +6361,64 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
-    return tripCompleted?.call(currentLocation, completedTrip, completionTime,
-        tripEarnings, tripDuration, tripDistance);
+    return tripCompleted?.call(
+      currentLocation,
+      completedTrip,
+      completionTime,
+      tripEarnings,
+      tripDuration,
+      tripDistance,
+    );
   }
 
   @override
@@ -5868,49 +6430,66 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (tripCompleted != null) {
-      return tripCompleted(currentLocation, completedTrip, completionTime,
-          tripEarnings, tripDuration, tripDistance);
+      return tripCompleted(
+        currentLocation,
+        completedTrip,
+        completionTime,
+        tripEarnings,
+        tripDuration,
+        tripDistance,
+      );
     }
     return orElse();
   }
@@ -5981,13 +6560,14 @@ class _$TripCompletedImpl implements _TripCompleted {
 }
 
 abstract class _TripCompleted implements DriverOperationsState {
-  const factory _TripCompleted(
-      {required final Position currentLocation,
-      required final Trip completedTrip,
-      required final DateTime completionTime,
-      required final double tripEarnings,
-      required final Duration tripDuration,
-      required final double tripDistance}) = _$TripCompletedImpl;
+  const factory _TripCompleted({
+    required final Position currentLocation,
+    required final Trip completedTrip,
+    required final DateTime completionTime,
+    required final double tripEarnings,
+    required final Duration tripDuration,
+    required final double tripDistance,
+  }) = _$TripCompletedImpl;
 
   Position get currentLocation;
   Trip get completedTrip;
@@ -6006,15 +6586,17 @@ abstract class _TripCompleted implements DriverOperationsState {
 /// @nodoc
 abstract class _$$TripCancelledImplCopyWith<$Res> {
   factory _$$TripCancelledImplCopyWith(
-          _$TripCancelledImpl value, $Res Function(_$TripCancelledImpl) then) =
-      __$$TripCancelledImplCopyWithImpl<$Res>;
+    _$TripCancelledImpl value,
+    $Res Function(_$TripCancelledImpl) then,
+  ) = __$$TripCancelledImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation,
-      Trip cancelledTrip,
-      String cancellationReason,
-      DateTime cancellationTime,
-      bool wasCancelledByDriver});
+  $Res call({
+    Position currentLocation,
+    Trip cancelledTrip,
+    String cancellationReason,
+    DateTime cancellationTime,
+    bool wasCancelledByDriver,
+  });
 
   $TripCopyWith<$Res> get cancelledTrip;
 }
@@ -6024,8 +6606,9 @@ class __$$TripCancelledImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$TripCancelledImpl>
     implements _$$TripCancelledImplCopyWith<$Res> {
   __$$TripCancelledImplCopyWithImpl(
-      _$TripCancelledImpl _value, $Res Function(_$TripCancelledImpl) _then)
-      : super(_value, _then);
+    _$TripCancelledImpl _value,
+    $Res Function(_$TripCancelledImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -6038,28 +6621,35 @@ class __$$TripCancelledImplCopyWithImpl<$Res>
     Object? cancellationTime = null,
     Object? wasCancelledByDriver = null,
   }) {
-    return _then(_$TripCancelledImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      cancelledTrip: null == cancelledTrip
-          ? _value.cancelledTrip
-          : cancelledTrip // ignore: cast_nullable_to_non_nullable
-              as Trip,
-      cancellationReason: null == cancellationReason
-          ? _value.cancellationReason
-          : cancellationReason // ignore: cast_nullable_to_non_nullable
-              as String,
-      cancellationTime: null == cancellationTime
-          ? _value.cancellationTime
-          : cancellationTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      wasCancelledByDriver: null == wasCancelledByDriver
-          ? _value.wasCancelledByDriver
-          : wasCancelledByDriver // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$TripCancelledImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        cancelledTrip:
+            null == cancelledTrip
+                ? _value.cancelledTrip
+                : cancelledTrip // ignore: cast_nullable_to_non_nullable
+                    as Trip,
+        cancellationReason:
+            null == cancellationReason
+                ? _value.cancellationReason
+                : cancellationReason // ignore: cast_nullable_to_non_nullable
+                    as String,
+        cancellationTime:
+            null == cancellationTime
+                ? _value.cancellationTime
+                : cancellationTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        wasCancelledByDriver:
+            null == wasCancelledByDriver
+                ? _value.wasCancelledByDriver
+                : wasCancelledByDriver // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -6076,12 +6666,13 @@ class __$$TripCancelledImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TripCancelledImpl implements _TripCancelled {
-  const _$TripCancelledImpl(
-      {required this.currentLocation,
-      required this.cancelledTrip,
-      required this.cancellationReason,
-      required this.cancellationTime,
-      required this.wasCancelledByDriver});
+  const _$TripCancelledImpl({
+    required this.currentLocation,
+    required this.cancelledTrip,
+    required this.cancellationReason,
+    required this.cancellationTime,
+    required this.wasCancelledByDriver,
+  });
 
   @override
   final Position currentLocation;
@@ -6117,8 +6708,14 @@ class _$TripCancelledImpl implements _TripCancelled {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentLocation, cancelledTrip,
-      cancellationReason, cancellationTime, wasCancelledByDriver);
+  int get hashCode => Object.hash(
+    runtimeType,
+    currentLocation,
+    cancelledTrip,
+    cancellationReason,
+    cancellationTime,
+    wasCancelledByDriver,
+  );
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -6137,48 +6734,66 @@ class _$TripCancelledImpl implements _TripCancelled {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
-    return tripCancelled(currentLocation, cancelledTrip, cancellationReason,
-        cancellationTime, wasCancelledByDriver);
+    return tripCancelled(
+      currentLocation,
+      cancelledTrip,
+      cancellationReason,
+      cancellationTime,
+      wasCancelledByDriver,
+    );
   }
 
   @override
@@ -6190,47 +6805,63 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
-    return tripCancelled?.call(currentLocation, cancelledTrip,
-        cancellationReason, cancellationTime, wasCancelledByDriver);
+    return tripCancelled?.call(
+      currentLocation,
+      cancelledTrip,
+      cancellationReason,
+      cancellationTime,
+      wasCancelledByDriver,
+    );
   }
 
   @override
@@ -6242,49 +6873,65 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (tripCancelled != null) {
-      return tripCancelled(currentLocation, cancelledTrip, cancellationReason,
-          cancellationTime, wasCancelledByDriver);
+      return tripCancelled(
+        currentLocation,
+        cancelledTrip,
+        cancellationReason,
+        cancellationTime,
+        wasCancelledByDriver,
+      );
     }
     return orElse();
   }
@@ -6355,12 +7002,13 @@ class _$TripCancelledImpl implements _TripCancelled {
 }
 
 abstract class _TripCancelled implements DriverOperationsState {
-  const factory _TripCancelled(
-      {required final Position currentLocation,
-      required final Trip cancelledTrip,
-      required final String cancellationReason,
-      required final DateTime cancellationTime,
-      required final bool wasCancelledByDriver}) = _$TripCancelledImpl;
+  const factory _TripCancelled({
+    required final Position currentLocation,
+    required final Trip cancelledTrip,
+    required final String cancellationReason,
+    required final DateTime cancellationTime,
+    required final bool wasCancelledByDriver,
+  }) = _$TripCancelledImpl;
 
   Position get currentLocation;
   Trip get cancelledTrip;
@@ -6378,11 +7026,15 @@ abstract class _TripCancelled implements DriverOperationsState {
 /// @nodoc
 abstract class _$$UnavailableImplCopyWith<$Res> {
   factory _$$UnavailableImplCopyWith(
-          _$UnavailableImpl value, $Res Function(_$UnavailableImpl) then) =
-      __$$UnavailableImplCopyWithImpl<$Res>;
+    _$UnavailableImpl value,
+    $Res Function(_$UnavailableImpl) then,
+  ) = __$$UnavailableImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Position currentLocation, String reason, DateTime? availableAgainAt});
+  $Res call({
+    Position currentLocation,
+    String reason,
+    DateTime? availableAgainAt,
+  });
 }
 
 /// @nodoc
@@ -6390,8 +7042,9 @@ class __$$UnavailableImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$UnavailableImpl>
     implements _$$UnavailableImplCopyWith<$Res> {
   __$$UnavailableImplCopyWithImpl(
-      _$UnavailableImpl _value, $Res Function(_$UnavailableImpl) _then)
-      : super(_value, _then);
+    _$UnavailableImpl _value,
+    $Res Function(_$UnavailableImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -6402,30 +7055,36 @@ class __$$UnavailableImplCopyWithImpl<$Res>
     Object? reason = null,
     Object? availableAgainAt = freezed,
   }) {
-    return _then(_$UnavailableImpl(
-      currentLocation: null == currentLocation
-          ? _value.currentLocation
-          : currentLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as String,
-      availableAgainAt: freezed == availableAgainAt
-          ? _value.availableAgainAt
-          : availableAgainAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$UnavailableImpl(
+        currentLocation:
+            null == currentLocation
+                ? _value.currentLocation
+                : currentLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        reason:
+            null == reason
+                ? _value.reason
+                : reason // ignore: cast_nullable_to_non_nullable
+                    as String,
+        availableAgainAt:
+            freezed == availableAgainAt
+                ? _value.availableAgainAt
+                : availableAgainAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$UnavailableImpl implements _Unavailable {
-  const _$UnavailableImpl(
-      {required this.currentLocation,
-      required this.reason,
-      this.availableAgainAt});
+  const _$UnavailableImpl({
+    required this.currentLocation,
+    required this.reason,
+    this.availableAgainAt,
+  });
 
   @override
   final Position currentLocation;
@@ -6472,45 +7131,58 @@ class _$UnavailableImpl implements _Unavailable {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return unavailable(currentLocation, reason, availableAgainAt);
   }
@@ -6524,44 +7196,55 @@ class _$UnavailableImpl implements _Unavailable {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return unavailable?.call(currentLocation, reason, availableAgainAt);
   }
@@ -6575,44 +7258,55 @@ class _$UnavailableImpl implements _Unavailable {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (unavailable != null) {
@@ -6687,10 +7381,11 @@ class _$UnavailableImpl implements _Unavailable {
 }
 
 abstract class _Unavailable implements DriverOperationsState {
-  const factory _Unavailable(
-      {required final Position currentLocation,
-      required final String reason,
-      final DateTime? availableAgainAt}) = _$UnavailableImpl;
+  const factory _Unavailable({
+    required final Position currentLocation,
+    required final String reason,
+    final DateTime? availableAgainAt,
+  }) = _$UnavailableImpl;
 
   Position get currentLocation;
   String get reason;
@@ -6706,8 +7401,9 @@ abstract class _Unavailable implements DriverOperationsState {
 /// @nodoc
 abstract class _$$StateErrorImplCopyWith<$Res> {
   factory _$$StateErrorImplCopyWith(
-          _$StateErrorImpl value, $Res Function(_$StateErrorImpl) then) =
-      __$$StateErrorImplCopyWithImpl<$Res>;
+    _$StateErrorImpl value,
+    $Res Function(_$StateErrorImpl) then,
+  ) = __$$StateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message, DriverOperationsState? previousState});
 
@@ -6719,27 +7415,29 @@ class __$$StateErrorImplCopyWithImpl<$Res>
     extends _$DriverOperationsStateCopyWithImpl<$Res, _$StateErrorImpl>
     implements _$$StateErrorImplCopyWith<$Res> {
   __$$StateErrorImplCopyWithImpl(
-      _$StateErrorImpl _value, $Res Function(_$StateErrorImpl) _then)
-      : super(_value, _then);
+    _$StateErrorImpl _value,
+    $Res Function(_$StateErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-    Object? previousState = freezed,
-  }) {
-    return _then(_$StateErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      previousState: freezed == previousState
-          ? _value.previousState
-          : previousState // ignore: cast_nullable_to_non_nullable
-              as DriverOperationsState?,
-    ));
+  $Res call({Object? message = null, Object? previousState = freezed}) {
+    return _then(
+      _$StateErrorImpl(
+        message:
+            null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String,
+        previousState:
+            freezed == previousState
+                ? _value.previousState
+                : previousState // ignore: cast_nullable_to_non_nullable
+                    as DriverOperationsState?,
+      ),
+    );
   }
 
   /// Create a copy of DriverOperationsState
@@ -6802,45 +7500,58 @@ class _$StateErrorImpl implements _StateError {
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
     required TResult Function(TripRequestNotificationDto tripRequest)
-        tripRequestReceived,
+    tripRequestReceived,
     required TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)
-        enRouteToPickup,
-    required TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )
+    enRouteToPickup,
     required TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )
+    waitingForPassenger,
     required TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )
+    onTrip,
     required TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)
-        tripCancelled,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )
+    tripCompleted,
     required TResult Function(
-            Position currentLocation, String reason, DateTime? availableAgainAt)
-        unavailable,
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )
+    tripCancelled,
     required TResult Function(
-            String message, DriverOperationsState? previousState)
-        error,
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )
+    unavailable,
+    required TResult Function(
+      String message,
+      DriverOperationsState? previousState,
+    )
+    error,
   }) {
     return error(message, previousState);
   }
@@ -6854,44 +7565,55 @@ class _$StateErrorImpl implements _StateError {
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
     TResult? Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult? Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult? Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult? Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult? Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult? Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult? Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult? Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult? Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult? Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
   }) {
     return error?.call(message, previousState);
   }
@@ -6905,44 +7627,55 @@ class _$StateErrorImpl implements _StateError {
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
     TResult Function(TripRequestNotificationDto tripRequest)?
-        tripRequestReceived,
+    tripRequestReceived,
     TResult Function(
-            Position currentLocation,
-            TripRequestNotificationDto activeTrip,
-            DateTime estimatedPickupTime,
-            DateTime onlineTime,
-            List<Position> locationHistory)?
-        enRouteToPickup,
-    TResult Function(Position currentLocation, Trip activeTrip,
-            DateTime arrivalTime, DateTime onlineTime)?
-        waitingForPassenger,
+      Position currentLocation,
+      TripRequestNotificationDto activeTrip,
+      DateTime estimatedPickupTime,
+      DateTime onlineTime,
+      List<Position> locationHistory,
+    )?
+    enRouteToPickup,
     TResult Function(
-            Position currentLocation,
-            Trip activeTrip,
-            DateTime tripStartTime,
-            DateTime? estimatedDropoffTime,
-            List<Position> tripRoute)?
-        onTrip,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime arrivalTime,
+      DateTime onlineTime,
+    )?
+    waitingForPassenger,
     TResult Function(
-            Position currentLocation,
-            Trip completedTrip,
-            DateTime completionTime,
-            double tripEarnings,
-            Duration tripDuration,
-            double tripDistance)?
-        tripCompleted,
+      Position currentLocation,
+      Trip activeTrip,
+      DateTime tripStartTime,
+      DateTime? estimatedDropoffTime,
+      List<Position> tripRoute,
+    )?
+    onTrip,
     TResult Function(
-            Position currentLocation,
-            Trip cancelledTrip,
-            String cancellationReason,
-            DateTime cancellationTime,
-            bool wasCancelledByDriver)?
-        tripCancelled,
-    TResult Function(Position currentLocation, String reason,
-            DateTime? availableAgainAt)?
-        unavailable,
+      Position currentLocation,
+      Trip completedTrip,
+      DateTime completionTime,
+      double tripEarnings,
+      Duration tripDuration,
+      double tripDistance,
+    )?
+    tripCompleted,
+    TResult Function(
+      Position currentLocation,
+      Trip cancelledTrip,
+      String cancellationReason,
+      DateTime cancellationTime,
+      bool wasCancelledByDriver,
+    )?
+    tripCancelled,
+    TResult Function(
+      Position currentLocation,
+      String reason,
+      DateTime? availableAgainAt,
+    )?
+    unavailable,
     TResult Function(String message, DriverOperationsState? previousState)?
-        error,
+    error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -7017,9 +7750,10 @@ class _$StateErrorImpl implements _StateError {
 }
 
 abstract class _StateError implements DriverOperationsState {
-  const factory _StateError(
-      {required final String message,
-      final DriverOperationsState? previousState}) = _$StateErrorImpl;
+  const factory _StateError({
+    required final String message,
+    final DriverOperationsState? previousState,
+  }) = _$StateErrorImpl;
 
   String get message;
   DriverOperationsState? get previousState;

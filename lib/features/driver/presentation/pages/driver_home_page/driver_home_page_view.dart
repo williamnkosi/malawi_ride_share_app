@@ -21,7 +21,7 @@ class _DriverHomePageViewState extends State<DriverHomePageView> {
           loading: () => const Center(child: CircularProgressIndicator()),
           orElse: () {
             return Column(
-              crossAxisAlignment: .start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Driver status bar
                 DriverStatusBar(),
@@ -39,9 +39,7 @@ class _DriverHomePageViewState extends State<DriverHomePageView> {
 }
 
 class DriverOptionsBar extends StatelessWidget {
-  const DriverOptionsBar({
-    super.key,
-  });
+  const DriverOptionsBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +60,7 @@ class DriverOptionsBar extends StatelessWidget {
         children: [
           const Text(
             'Waiting for trip requests...',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 12),
           Row(

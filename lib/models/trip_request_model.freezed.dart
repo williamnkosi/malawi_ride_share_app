@@ -12,22 +12,33 @@ part of 'trip_request_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
+TripRequest _$TripRequestFromJson(Map<String, dynamic> json) {
+  return _TripRequest.fromJson(json);
+}
 
 /// @nodoc
 mixin _$TripRequest {
   String get id => throw _privateConstructorUsedError;
   String get passengerId => throw _privateConstructorUsedError;
   String get passengerName => throw _privateConstructorUsedError;
+  @PositionConverter()
   Position get pickupLocation => throw _privateConstructorUsedError;
+  @PositionConverter()
   Position get dropoffLocation => throw _privateConstructorUsedError;
   String get pickupAddress => throw _privateConstructorUsedError;
   String get dropoffAddress => throw _privateConstructorUsedError;
   double get estimatedDistance => throw _privateConstructorUsedError;
+  @DurationConverter()
   Duration get estimatedDuration => throw _privateConstructorUsedError;
   double get estimatedFare => throw _privateConstructorUsedError;
   DateTime get requestTime => throw _privateConstructorUsedError;
   String? get specialInstructions => throw _privateConstructorUsedError;
+
+  /// Serializes this TripRequest to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of TripRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -39,22 +50,24 @@ mixin _$TripRequest {
 /// @nodoc
 abstract class $TripRequestCopyWith<$Res> {
   factory $TripRequestCopyWith(
-          TripRequest value, $Res Function(TripRequest) then) =
-      _$TripRequestCopyWithImpl<$Res, TripRequest>;
+    TripRequest value,
+    $Res Function(TripRequest) then,
+  ) = _$TripRequestCopyWithImpl<$Res, TripRequest>;
   @useResult
-  $Res call(
-      {String id,
-      String passengerId,
-      String passengerName,
-      Position pickupLocation,
-      Position dropoffLocation,
-      String pickupAddress,
-      String dropoffAddress,
-      double estimatedDistance,
-      Duration estimatedDuration,
-      double estimatedFare,
-      DateTime requestTime,
-      String? specialInstructions});
+  $Res call({
+    String id,
+    String passengerId,
+    String passengerName,
+    @PositionConverter() Position pickupLocation,
+    @PositionConverter() Position dropoffLocation,
+    String pickupAddress,
+    String dropoffAddress,
+    double estimatedDistance,
+    @DurationConverter() Duration estimatedDuration,
+    double estimatedFare,
+    DateTime requestTime,
+    String? specialInstructions,
+  });
 }
 
 /// @nodoc
@@ -85,56 +98,71 @@ class _$TripRequestCopyWithImpl<$Res, $Val extends TripRequest>
     Object? requestTime = null,
     Object? specialInstructions = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerId: null == passengerId
-          ? _value.passengerId
-          : passengerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerName: null == passengerName
-          ? _value.passengerName
-          : passengerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      pickupAddress: null == pickupAddress
-          ? _value.pickupAddress
-          : pickupAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      dropoffAddress: null == dropoffAddress
-          ? _value.dropoffAddress
-          : dropoffAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      estimatedDistance: null == estimatedDistance
-          ? _value.estimatedDistance
-          : estimatedDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-      estimatedDuration: null == estimatedDuration
-          ? _value.estimatedDuration
-          : estimatedDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      estimatedFare: null == estimatedFare
-          ? _value.estimatedFare
-          : estimatedFare // ignore: cast_nullable_to_non_nullable
-              as double,
-      requestTime: null == requestTime
-          ? _value.requestTime
-          : requestTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      specialInstructions: freezed == specialInstructions
-          ? _value.specialInstructions
-          : specialInstructions // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            passengerId:
+                null == passengerId
+                    ? _value.passengerId
+                    : passengerId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            passengerName:
+                null == passengerName
+                    ? _value.passengerName
+                    : passengerName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            pickupLocation:
+                null == pickupLocation
+                    ? _value.pickupLocation
+                    : pickupLocation // ignore: cast_nullable_to_non_nullable
+                        as Position,
+            dropoffLocation:
+                null == dropoffLocation
+                    ? _value.dropoffLocation
+                    : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                        as Position,
+            pickupAddress:
+                null == pickupAddress
+                    ? _value.pickupAddress
+                    : pickupAddress // ignore: cast_nullable_to_non_nullable
+                        as String,
+            dropoffAddress:
+                null == dropoffAddress
+                    ? _value.dropoffAddress
+                    : dropoffAddress // ignore: cast_nullable_to_non_nullable
+                        as String,
+            estimatedDistance:
+                null == estimatedDistance
+                    ? _value.estimatedDistance
+                    : estimatedDistance // ignore: cast_nullable_to_non_nullable
+                        as double,
+            estimatedDuration:
+                null == estimatedDuration
+                    ? _value.estimatedDuration
+                    : estimatedDuration // ignore: cast_nullable_to_non_nullable
+                        as Duration,
+            estimatedFare:
+                null == estimatedFare
+                    ? _value.estimatedFare
+                    : estimatedFare // ignore: cast_nullable_to_non_nullable
+                        as double,
+            requestTime:
+                null == requestTime
+                    ? _value.requestTime
+                    : requestTime // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            specialInstructions:
+                freezed == specialInstructions
+                    ? _value.specialInstructions
+                    : specialInstructions // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -142,23 +170,25 @@ class _$TripRequestCopyWithImpl<$Res, $Val extends TripRequest>
 abstract class _$$TripRequestImplCopyWith<$Res>
     implements $TripRequestCopyWith<$Res> {
   factory _$$TripRequestImplCopyWith(
-          _$TripRequestImpl value, $Res Function(_$TripRequestImpl) then) =
-      __$$TripRequestImplCopyWithImpl<$Res>;
+    _$TripRequestImpl value,
+    $Res Function(_$TripRequestImpl) then,
+  ) = __$$TripRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String passengerId,
-      String passengerName,
-      Position pickupLocation,
-      Position dropoffLocation,
-      String pickupAddress,
-      String dropoffAddress,
-      double estimatedDistance,
-      Duration estimatedDuration,
-      double estimatedFare,
-      DateTime requestTime,
-      String? specialInstructions});
+  $Res call({
+    String id,
+    String passengerId,
+    String passengerName,
+    @PositionConverter() Position pickupLocation,
+    @PositionConverter() Position dropoffLocation,
+    String pickupAddress,
+    String dropoffAddress,
+    double estimatedDistance,
+    @DurationConverter() Duration estimatedDuration,
+    double estimatedFare,
+    DateTime requestTime,
+    String? specialInstructions,
+  });
 }
 
 /// @nodoc
@@ -166,8 +196,9 @@ class __$$TripRequestImplCopyWithImpl<$Res>
     extends _$TripRequestCopyWithImpl<$Res, _$TripRequestImpl>
     implements _$$TripRequestImplCopyWith<$Res> {
   __$$TripRequestImplCopyWithImpl(
-      _$TripRequestImpl _value, $Res Function(_$TripRequestImpl) _then)
-      : super(_value, _then);
+    _$TripRequestImpl _value,
+    $Res Function(_$TripRequestImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of TripRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -187,75 +218,93 @@ class __$$TripRequestImplCopyWithImpl<$Res>
     Object? requestTime = null,
     Object? specialInstructions = freezed,
   }) {
-    return _then(_$TripRequestImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerId: null == passengerId
-          ? _value.passengerId
-          : passengerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerName: null == passengerName
-          ? _value.passengerName
-          : passengerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      pickupAddress: null == pickupAddress
-          ? _value.pickupAddress
-          : pickupAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      dropoffAddress: null == dropoffAddress
-          ? _value.dropoffAddress
-          : dropoffAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      estimatedDistance: null == estimatedDistance
-          ? _value.estimatedDistance
-          : estimatedDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-      estimatedDuration: null == estimatedDuration
-          ? _value.estimatedDuration
-          : estimatedDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      estimatedFare: null == estimatedFare
-          ? _value.estimatedFare
-          : estimatedFare // ignore: cast_nullable_to_non_nullable
-              as double,
-      requestTime: null == requestTime
-          ? _value.requestTime
-          : requestTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      specialInstructions: freezed == specialInstructions
-          ? _value.specialInstructions
-          : specialInstructions // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$TripRequestImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        passengerId:
+            null == passengerId
+                ? _value.passengerId
+                : passengerId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        passengerName:
+            null == passengerName
+                ? _value.passengerName
+                : passengerName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        pickupLocation:
+            null == pickupLocation
+                ? _value.pickupLocation
+                : pickupLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        dropoffLocation:
+            null == dropoffLocation
+                ? _value.dropoffLocation
+                : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        pickupAddress:
+            null == pickupAddress
+                ? _value.pickupAddress
+                : pickupAddress // ignore: cast_nullable_to_non_nullable
+                    as String,
+        dropoffAddress:
+            null == dropoffAddress
+                ? _value.dropoffAddress
+                : dropoffAddress // ignore: cast_nullable_to_non_nullable
+                    as String,
+        estimatedDistance:
+            null == estimatedDistance
+                ? _value.estimatedDistance
+                : estimatedDistance // ignore: cast_nullable_to_non_nullable
+                    as double,
+        estimatedDuration:
+            null == estimatedDuration
+                ? _value.estimatedDuration
+                : estimatedDuration // ignore: cast_nullable_to_non_nullable
+                    as Duration,
+        estimatedFare:
+            null == estimatedFare
+                ? _value.estimatedFare
+                : estimatedFare // ignore: cast_nullable_to_non_nullable
+                    as double,
+        requestTime:
+            null == requestTime
+                ? _value.requestTime
+                : requestTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        specialInstructions:
+            freezed == specialInstructions
+                ? _value.specialInstructions
+                : specialInstructions // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$TripRequestImpl implements _TripRequest {
-  const _$TripRequestImpl(
-      {required this.id,
-      required this.passengerId,
-      required this.passengerName,
-      required this.pickupLocation,
-      required this.dropoffLocation,
-      required this.pickupAddress,
-      required this.dropoffAddress,
-      required this.estimatedDistance,
-      required this.estimatedDuration,
-      required this.estimatedFare,
-      required this.requestTime,
-      this.specialInstructions});
+  const _$TripRequestImpl({
+    required this.id,
+    required this.passengerId,
+    required this.passengerName,
+    @PositionConverter() required this.pickupLocation,
+    @PositionConverter() required this.dropoffLocation,
+    required this.pickupAddress,
+    required this.dropoffAddress,
+    required this.estimatedDistance,
+    @DurationConverter() required this.estimatedDuration,
+    required this.estimatedFare,
+    required this.requestTime,
+    this.specialInstructions,
+  });
+
+  factory _$TripRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TripRequestImplFromJson(json);
 
   @override
   final String id;
@@ -264,8 +313,10 @@ class _$TripRequestImpl implements _TripRequest {
   @override
   final String passengerName;
   @override
+  @PositionConverter()
   final Position pickupLocation;
   @override
+  @PositionConverter()
   final Position dropoffLocation;
   @override
   final String pickupAddress;
@@ -274,6 +325,7 @@ class _$TripRequestImpl implements _TripRequest {
   @override
   final double estimatedDistance;
   @override
+  @DurationConverter()
   final Duration estimatedDuration;
   @override
   final double estimatedFare;
@@ -317,21 +369,23 @@ class _$TripRequestImpl implements _TripRequest {
                 other.specialInstructions == specialInstructions));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      passengerId,
-      passengerName,
-      pickupLocation,
-      dropoffLocation,
-      pickupAddress,
-      dropoffAddress,
-      estimatedDistance,
-      estimatedDuration,
-      estimatedFare,
-      requestTime,
-      specialInstructions);
+    runtimeType,
+    id,
+    passengerId,
+    passengerName,
+    pickupLocation,
+    dropoffLocation,
+    pickupAddress,
+    dropoffAddress,
+    estimatedDistance,
+    estimatedDuration,
+    estimatedFare,
+    requestTime,
+    specialInstructions,
+  );
 
   /// Create a copy of TripRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -340,22 +394,31 @@ class _$TripRequestImpl implements _TripRequest {
   @pragma('vm:prefer-inline')
   _$$TripRequestImplCopyWith<_$TripRequestImpl> get copyWith =>
       __$$TripRequestImplCopyWithImpl<_$TripRequestImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TripRequestImplToJson(this);
+  }
 }
 
 abstract class _TripRequest implements TripRequest {
-  const factory _TripRequest(
-      {required final String id,
-      required final String passengerId,
-      required final String passengerName,
-      required final Position pickupLocation,
-      required final Position dropoffLocation,
-      required final String pickupAddress,
-      required final String dropoffAddress,
-      required final double estimatedDistance,
-      required final Duration estimatedDuration,
-      required final double estimatedFare,
-      required final DateTime requestTime,
-      final String? specialInstructions}) = _$TripRequestImpl;
+  const factory _TripRequest({
+    required final String id,
+    required final String passengerId,
+    required final String passengerName,
+    @PositionConverter() required final Position pickupLocation,
+    @PositionConverter() required final Position dropoffLocation,
+    required final String pickupAddress,
+    required final String dropoffAddress,
+    required final double estimatedDistance,
+    @DurationConverter() required final Duration estimatedDuration,
+    required final double estimatedFare,
+    required final DateTime requestTime,
+    final String? specialInstructions,
+  }) = _$TripRequestImpl;
+
+  factory _TripRequest.fromJson(Map<String, dynamic> json) =
+      _$TripRequestImpl.fromJson;
 
   @override
   String get id;
@@ -364,8 +427,10 @@ abstract class _TripRequest implements TripRequest {
   @override
   String get passengerName;
   @override
+  @PositionConverter()
   Position get pickupLocation;
   @override
+  @PositionConverter()
   Position get dropoffLocation;
   @override
   String get pickupAddress;
@@ -374,6 +439,7 @@ abstract class _TripRequest implements TripRequest {
   @override
   double get estimatedDistance;
   @override
+  @DurationConverter()
   Duration get estimatedDuration;
   @override
   double get estimatedFare;

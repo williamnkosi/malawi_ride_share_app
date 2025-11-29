@@ -12,10 +12,12 @@ part of 'update_driver_location_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UpdateDriverLocationDto _$UpdateDriverLocationDtoFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _UpdateDriverLocationDto.fromJson(json);
 }
 
@@ -37,9 +39,10 @@ mixin _$UpdateDriverLocationDto {
 
 /// @nodoc
 abstract class $UpdateDriverLocationDtoCopyWith<$Res> {
-  factory $UpdateDriverLocationDtoCopyWith(UpdateDriverLocationDto value,
-          $Res Function(UpdateDriverLocationDto) then) =
-      _$UpdateDriverLocationDtoCopyWithImpl<$Res, UpdateDriverLocationDto>;
+  factory $UpdateDriverLocationDtoCopyWith(
+    UpdateDriverLocationDto value,
+    $Res Function(UpdateDriverLocationDto) then,
+  ) = _$UpdateDriverLocationDtoCopyWithImpl<$Res, UpdateDriverLocationDto>;
   @useResult
   $Res call({String firebaseId, LocationDto location, DriverStatus status});
 
@@ -47,8 +50,10 @@ abstract class $UpdateDriverLocationDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateDriverLocationDtoCopyWithImpl<$Res,
-        $Val extends UpdateDriverLocationDto>
+class _$UpdateDriverLocationDtoCopyWithImpl<
+  $Res,
+  $Val extends UpdateDriverLocationDto
+>
     implements $UpdateDriverLocationDtoCopyWith<$Res> {
   _$UpdateDriverLocationDtoCopyWithImpl(this._value, this._then);
 
@@ -66,20 +71,26 @@ class _$UpdateDriverLocationDtoCopyWithImpl<$Res,
     Object? location = null,
     Object? status = null,
   }) {
-    return _then(_value.copyWith(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DriverStatus,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            firebaseId:
+                null == firebaseId
+                    ? _value.firebaseId
+                    : firebaseId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            location:
+                null == location
+                    ? _value.location
+                    : location // ignore: cast_nullable_to_non_nullable
+                        as LocationDto,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as DriverStatus,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of UpdateDriverLocationDto
@@ -97,9 +108,9 @@ class _$UpdateDriverLocationDtoCopyWithImpl<$Res,
 abstract class _$$UpdateDriverLocationDtoImplCopyWith<$Res>
     implements $UpdateDriverLocationDtoCopyWith<$Res> {
   factory _$$UpdateDriverLocationDtoImplCopyWith(
-          _$UpdateDriverLocationDtoImpl value,
-          $Res Function(_$UpdateDriverLocationDtoImpl) then) =
-      __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>;
+    _$UpdateDriverLocationDtoImpl value,
+    $Res Function(_$UpdateDriverLocationDtoImpl) then,
+  ) = __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String firebaseId, LocationDto location, DriverStatus status});
@@ -110,13 +121,16 @@ abstract class _$$UpdateDriverLocationDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>
-    extends _$UpdateDriverLocationDtoCopyWithImpl<$Res,
-        _$UpdateDriverLocationDtoImpl>
+    extends
+        _$UpdateDriverLocationDtoCopyWithImpl<
+          $Res,
+          _$UpdateDriverLocationDtoImpl
+        >
     implements _$$UpdateDriverLocationDtoImplCopyWith<$Res> {
   __$$UpdateDriverLocationDtoImplCopyWithImpl(
-      _$UpdateDriverLocationDtoImpl _value,
-      $Res Function(_$UpdateDriverLocationDtoImpl) _then)
-      : super(_value, _then);
+    _$UpdateDriverLocationDtoImpl _value,
+    $Res Function(_$UpdateDriverLocationDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of UpdateDriverLocationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -127,28 +141,36 @@ class __$$UpdateDriverLocationDtoImplCopyWithImpl<$Res>
     Object? location = null,
     Object? status = null,
   }) {
-    return _then(_$UpdateDriverLocationDtoImpl(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DriverStatus,
-    ));
+    return _then(
+      _$UpdateDriverLocationDtoImpl(
+        firebaseId:
+            null == firebaseId
+                ? _value.firebaseId
+                : firebaseId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        location:
+            null == location
+                ? _value.location
+                : location // ignore: cast_nullable_to_non_nullable
+                    as LocationDto,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as DriverStatus,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
-  const _$UpdateDriverLocationDtoImpl(
-      {required this.firebaseId, required this.location, required this.status});
+  const _$UpdateDriverLocationDtoImpl({
+    required this.firebaseId,
+    required this.location,
+    required this.status,
+  });
 
   factory _$UpdateDriverLocationDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateDriverLocationDtoImplFromJson(json);
@@ -187,22 +209,22 @@ class _$UpdateDriverLocationDtoImpl implements _UpdateDriverLocationDto {
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateDriverLocationDtoImplCopyWith<_$UpdateDriverLocationDtoImpl>
-      get copyWith => __$$UpdateDriverLocationDtoImplCopyWithImpl<
-          _$UpdateDriverLocationDtoImpl>(this, _$identity);
+  get copyWith => __$$UpdateDriverLocationDtoImplCopyWithImpl<
+    _$UpdateDriverLocationDtoImpl
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UpdateDriverLocationDtoImplToJson(
-      this,
-    );
+    return _$$UpdateDriverLocationDtoImplToJson(this);
   }
 }
 
 abstract class _UpdateDriverLocationDto implements UpdateDriverLocationDto {
-  const factory _UpdateDriverLocationDto(
-      {required final String firebaseId,
-      required final LocationDto location,
-      required final DriverStatus status}) = _$UpdateDriverLocationDtoImpl;
+  const factory _UpdateDriverLocationDto({
+    required final String firebaseId,
+    required final LocationDto location,
+    required final DriverStatus status,
+  }) = _$UpdateDriverLocationDtoImpl;
 
   factory _UpdateDriverLocationDto.fromJson(Map<String, dynamic> json) =
       _$UpdateDriverLocationDtoImpl.fromJson;
@@ -219,5 +241,5 @@ abstract class _UpdateDriverLocationDto implements UpdateDriverLocationDto {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateDriverLocationDtoImplCopyWith<_$UpdateDriverLocationDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

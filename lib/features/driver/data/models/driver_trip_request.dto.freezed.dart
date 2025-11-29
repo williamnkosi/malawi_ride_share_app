@@ -12,10 +12,12 @@ part of 'driver_trip_request.dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 TripRequestNotificationDto _$TripRequestNotificationDtoFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _TripRequestNotificationDto.fromJson(json);
 }
 
@@ -35,31 +37,38 @@ mixin _$TripRequestNotificationDto {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $TripRequestNotificationDtoCopyWith<TripRequestNotificationDto>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TripRequestNotificationDtoCopyWith<$Res> {
-  factory $TripRequestNotificationDtoCopyWith(TripRequestNotificationDto value,
-          $Res Function(TripRequestNotificationDto) then) =
-      _$TripRequestNotificationDtoCopyWithImpl<$Res,
-          TripRequestNotificationDto>;
+  factory $TripRequestNotificationDtoCopyWith(
+    TripRequestNotificationDto value,
+    $Res Function(TripRequestNotificationDto) then,
+  ) =
+      _$TripRequestNotificationDtoCopyWithImpl<
+        $Res,
+        TripRequestNotificationDto
+      >;
   @useResult
-  $Res call(
-      {String tripId,
-      LocationDto pickupLocation,
-      LocationDto dropoffLocation,
-      int passengerCount,
-      String riderFirstName,
-      String riderLastName});
+  $Res call({
+    String tripId,
+    LocationDto pickupLocation,
+    LocationDto dropoffLocation,
+    int passengerCount,
+    String riderFirstName,
+    String riderLastName,
+  });
 
   $LocationDtoCopyWith<$Res> get pickupLocation;
   $LocationDtoCopyWith<$Res> get dropoffLocation;
 }
 
 /// @nodoc
-class _$TripRequestNotificationDtoCopyWithImpl<$Res,
-        $Val extends TripRequestNotificationDto>
+class _$TripRequestNotificationDtoCopyWithImpl<
+  $Res,
+  $Val extends TripRequestNotificationDto
+>
     implements $TripRequestNotificationDtoCopyWith<$Res> {
   _$TripRequestNotificationDtoCopyWithImpl(this._value, this._then);
 
@@ -80,32 +89,41 @@ class _$TripRequestNotificationDtoCopyWithImpl<$Res,
     Object? riderFirstName = null,
     Object? riderLastName = null,
   }) {
-    return _then(_value.copyWith(
-      tripId: null == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      passengerCount: null == passengerCount
-          ? _value.passengerCount
-          : passengerCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      riderFirstName: null == riderFirstName
-          ? _value.riderFirstName
-          : riderFirstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      riderLastName: null == riderLastName
-          ? _value.riderLastName
-          : riderLastName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            tripId:
+                null == tripId
+                    ? _value.tripId
+                    : tripId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            pickupLocation:
+                null == pickupLocation
+                    ? _value.pickupLocation
+                    : pickupLocation // ignore: cast_nullable_to_non_nullable
+                        as LocationDto,
+            dropoffLocation:
+                null == dropoffLocation
+                    ? _value.dropoffLocation
+                    : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                        as LocationDto,
+            passengerCount:
+                null == passengerCount
+                    ? _value.passengerCount
+                    : passengerCount // ignore: cast_nullable_to_non_nullable
+                        as int,
+            riderFirstName:
+                null == riderFirstName
+                    ? _value.riderFirstName
+                    : riderFirstName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            riderLastName:
+                null == riderLastName
+                    ? _value.riderLastName
+                    : riderLastName // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of TripRequestNotificationDto
@@ -133,18 +151,19 @@ class _$TripRequestNotificationDtoCopyWithImpl<$Res,
 abstract class _$$TripRequestNotificationDtoImplCopyWith<$Res>
     implements $TripRequestNotificationDtoCopyWith<$Res> {
   factory _$$TripRequestNotificationDtoImplCopyWith(
-          _$TripRequestNotificationDtoImpl value,
-          $Res Function(_$TripRequestNotificationDtoImpl) then) =
-      __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>;
+    _$TripRequestNotificationDtoImpl value,
+    $Res Function(_$TripRequestNotificationDtoImpl) then,
+  ) = __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String tripId,
-      LocationDto pickupLocation,
-      LocationDto dropoffLocation,
-      int passengerCount,
-      String riderFirstName,
-      String riderLastName});
+  $Res call({
+    String tripId,
+    LocationDto pickupLocation,
+    LocationDto dropoffLocation,
+    int passengerCount,
+    String riderFirstName,
+    String riderLastName,
+  });
 
   @override
   $LocationDtoCopyWith<$Res> get pickupLocation;
@@ -154,13 +173,16 @@ abstract class _$$TripRequestNotificationDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>
-    extends _$TripRequestNotificationDtoCopyWithImpl<$Res,
-        _$TripRequestNotificationDtoImpl>
+    extends
+        _$TripRequestNotificationDtoCopyWithImpl<
+          $Res,
+          _$TripRequestNotificationDtoImpl
+        >
     implements _$$TripRequestNotificationDtoImplCopyWith<$Res> {
   __$$TripRequestNotificationDtoImplCopyWithImpl(
-      _$TripRequestNotificationDtoImpl _value,
-      $Res Function(_$TripRequestNotificationDtoImpl) _then)
-      : super(_value, _then);
+    _$TripRequestNotificationDtoImpl _value,
+    $Res Function(_$TripRequestNotificationDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of TripRequestNotificationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -174,49 +196,58 @@ class __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>
     Object? riderFirstName = null,
     Object? riderLastName = null,
   }) {
-    return _then(_$TripRequestNotificationDtoImpl(
-      tripId: null == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as LocationDto,
-      passengerCount: null == passengerCount
-          ? _value.passengerCount
-          : passengerCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      riderFirstName: null == riderFirstName
-          ? _value.riderFirstName
-          : riderFirstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      riderLastName: null == riderLastName
-          ? _value.riderLastName
-          : riderLastName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$TripRequestNotificationDtoImpl(
+        tripId:
+            null == tripId
+                ? _value.tripId
+                : tripId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        pickupLocation:
+            null == pickupLocation
+                ? _value.pickupLocation
+                : pickupLocation // ignore: cast_nullable_to_non_nullable
+                    as LocationDto,
+        dropoffLocation:
+            null == dropoffLocation
+                ? _value.dropoffLocation
+                : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                    as LocationDto,
+        passengerCount:
+            null == passengerCount
+                ? _value.passengerCount
+                : passengerCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        riderFirstName:
+            null == riderFirstName
+                ? _value.riderFirstName
+                : riderFirstName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        riderLastName:
+            null == riderLastName
+                ? _value.riderLastName
+                : riderLastName // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
-  const _$TripRequestNotificationDtoImpl(
-      {required this.tripId,
-      required this.pickupLocation,
-      required this.dropoffLocation,
-      required this.passengerCount,
-      required this.riderFirstName,
-      required this.riderLastName});
+  const _$TripRequestNotificationDtoImpl({
+    required this.tripId,
+    required this.pickupLocation,
+    required this.dropoffLocation,
+    required this.passengerCount,
+    required this.riderFirstName,
+    required this.riderLastName,
+  });
 
   factory _$TripRequestNotificationDtoImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$TripRequestNotificationDtoImplFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$$TripRequestNotificationDtoImplFromJson(json);
 
   @override
   final String tripId;
@@ -256,8 +287,15 @@ class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, tripId, pickupLocation,
-      dropoffLocation, passengerCount, riderFirstName, riderLastName);
+  int get hashCode => Object.hash(
+    runtimeType,
+    tripId,
+    pickupLocation,
+    dropoffLocation,
+    passengerCount,
+    riderFirstName,
+    riderLastName,
+  );
 
   /// Create a copy of TripRequestNotificationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -265,26 +303,26 @@ class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
   @override
   @pragma('vm:prefer-inline')
   _$$TripRequestNotificationDtoImplCopyWith<_$TripRequestNotificationDtoImpl>
-      get copyWith => __$$TripRequestNotificationDtoImplCopyWithImpl<
-          _$TripRequestNotificationDtoImpl>(this, _$identity);
+  get copyWith => __$$TripRequestNotificationDtoImplCopyWithImpl<
+    _$TripRequestNotificationDtoImpl
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TripRequestNotificationDtoImplToJson(
-      this,
-    );
+    return _$$TripRequestNotificationDtoImplToJson(this);
   }
 }
 
 abstract class _TripRequestNotificationDto
     implements TripRequestNotificationDto {
-  const factory _TripRequestNotificationDto(
-      {required final String tripId,
-      required final LocationDto pickupLocation,
-      required final LocationDto dropoffLocation,
-      required final int passengerCount,
-      required final String riderFirstName,
-      required final String riderLastName}) = _$TripRequestNotificationDtoImpl;
+  const factory _TripRequestNotificationDto({
+    required final String tripId,
+    required final LocationDto pickupLocation,
+    required final LocationDto dropoffLocation,
+    required final int passengerCount,
+    required final String riderFirstName,
+    required final String riderLastName,
+  }) = _$TripRequestNotificationDtoImpl;
 
   factory _TripRequestNotificationDto.fromJson(Map<String, dynamic> json) =
       _$TripRequestNotificationDtoImpl.fromJson;
@@ -307,5 +345,5 @@ abstract class _TripRequestNotificationDto
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TripRequestNotificationDtoImplCopyWith<_$TripRequestNotificationDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,8 @@ part of 'user_device.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UserDevice _$UserDeviceFromJson(Map<String, dynamic> json) {
   return _UserDevice.fromJson(json);
@@ -37,8 +38,9 @@ mixin _$UserDevice {
 /// @nodoc
 abstract class $UserDeviceCopyWith<$Res> {
   factory $UserDeviceCopyWith(
-          UserDevice value, $Res Function(UserDevice) then) =
-      _$UserDeviceCopyWithImpl<$Res, UserDevice>;
+    UserDevice value,
+    $Res Function(UserDevice) then,
+  ) = _$UserDeviceCopyWithImpl<$Res, UserDevice>;
   @useResult
   $Res call({String fcmToken, DevicePlatform platform, String deviceVersion});
 }
@@ -62,20 +64,26 @@ class _$UserDeviceCopyWithImpl<$Res, $Val extends UserDevice>
     Object? platform = null,
     Object? deviceVersion = null,
   }) {
-    return _then(_value.copyWith(
-      fcmToken: null == fcmToken
-          ? _value.fcmToken
-          : fcmToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      platform: null == platform
-          ? _value.platform
-          : platform // ignore: cast_nullable_to_non_nullable
-              as DevicePlatform,
-      deviceVersion: null == deviceVersion
-          ? _value.deviceVersion
-          : deviceVersion // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            fcmToken:
+                null == fcmToken
+                    ? _value.fcmToken
+                    : fcmToken // ignore: cast_nullable_to_non_nullable
+                        as String,
+            platform:
+                null == platform
+                    ? _value.platform
+                    : platform // ignore: cast_nullable_to_non_nullable
+                        as DevicePlatform,
+            deviceVersion:
+                null == deviceVersion
+                    ? _value.deviceVersion
+                    : deviceVersion // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -83,8 +91,9 @@ class _$UserDeviceCopyWithImpl<$Res, $Val extends UserDevice>
 abstract class _$$UserDeviceImplCopyWith<$Res>
     implements $UserDeviceCopyWith<$Res> {
   factory _$$UserDeviceImplCopyWith(
-          _$UserDeviceImpl value, $Res Function(_$UserDeviceImpl) then) =
-      __$$UserDeviceImplCopyWithImpl<$Res>;
+    _$UserDeviceImpl value,
+    $Res Function(_$UserDeviceImpl) then,
+  ) = __$$UserDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String fcmToken, DevicePlatform platform, String deviceVersion});
@@ -95,8 +104,9 @@ class __$$UserDeviceImplCopyWithImpl<$Res>
     extends _$UserDeviceCopyWithImpl<$Res, _$UserDeviceImpl>
     implements _$$UserDeviceImplCopyWith<$Res> {
   __$$UserDeviceImplCopyWithImpl(
-      _$UserDeviceImpl _value, $Res Function(_$UserDeviceImpl) _then)
-      : super(_value, _then);
+    _$UserDeviceImpl _value,
+    $Res Function(_$UserDeviceImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of UserDevice
   /// with the given fields replaced by the non-null parameter values.
@@ -107,30 +117,36 @@ class __$$UserDeviceImplCopyWithImpl<$Res>
     Object? platform = null,
     Object? deviceVersion = null,
   }) {
-    return _then(_$UserDeviceImpl(
-      fcmToken: null == fcmToken
-          ? _value.fcmToken
-          : fcmToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      platform: null == platform
-          ? _value.platform
-          : platform // ignore: cast_nullable_to_non_nullable
-              as DevicePlatform,
-      deviceVersion: null == deviceVersion
-          ? _value.deviceVersion
-          : deviceVersion // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$UserDeviceImpl(
+        fcmToken:
+            null == fcmToken
+                ? _value.fcmToken
+                : fcmToken // ignore: cast_nullable_to_non_nullable
+                    as String,
+        platform:
+            null == platform
+                ? _value.platform
+                : platform // ignore: cast_nullable_to_non_nullable
+                    as DevicePlatform,
+        deviceVersion:
+            null == deviceVersion
+                ? _value.deviceVersion
+                : deviceVersion // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UserDeviceImpl implements _UserDevice {
-  const _$UserDeviceImpl(
-      {required this.fcmToken,
-      required this.platform,
-      required this.deviceVersion});
+  const _$UserDeviceImpl({
+    required this.fcmToken,
+    required this.platform,
+    required this.deviceVersion,
+  });
 
   factory _$UserDeviceImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserDeviceImplFromJson(json);
@@ -175,17 +191,16 @@ class _$UserDeviceImpl implements _UserDevice {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserDeviceImplToJson(
-      this,
-    );
+    return _$$UserDeviceImplToJson(this);
   }
 }
 
 abstract class _UserDevice implements UserDevice {
-  const factory _UserDevice(
-      {required final String fcmToken,
-      required final DevicePlatform platform,
-      required final String deviceVersion}) = _$UserDeviceImpl;
+  const factory _UserDevice({
+    required final String fcmToken,
+    required final DevicePlatform platform,
+    required final String deviceVersion,
+  }) = _$UserDeviceImpl;
 
   factory _UserDevice.fromJson(Map<String, dynamic> json) =
       _$UserDeviceImpl.fromJson;

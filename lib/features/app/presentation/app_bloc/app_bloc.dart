@@ -24,8 +24,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     required this.openLocationSettingUseCase,
   }) : super(const AppState()) {
     on<AppEventRequestLocationPermission>(_onRequestLocationPermission);
-    on<AppEventLocationPermissionGranted>(_onLocationPermissionGranted);
-    on<AppEventLocationPermissionDenied>(_onLocationPermissionDenied);
     on<AppEventOpenLocationSettings>(_onOpenLocationSettings);
     on<AppEventRequestNotificationPermission>(_onRequestNotificationPermission);
     on<AppEventCheckNotificationPermission>(_onCheckNotificationPermission);
@@ -43,34 +41,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
       if (isGranted) {
         emit(state.copyWith(isLocationPremissionEnabled: true));
-        add(const AppEvent.locationPermissionGranted());
       } else {
         emit(state.copyWith(isLocationPremissionEnabled: false));
-        add(const AppEvent.locationPermissionDenied());
       }
     } catch (e) {
       logger.severe('❌ Error requesting location permission: $e');
       emit(state.copyWith(isLocationPremissionEnabled: false));
-      add(const AppEvent.locationPermissionDenied());
     }
-  }
-
-  /// Handle when location permission is granted
-  Future<void> _onLocationPermissionGranted(
-    AppEventLocationPermissionGranted event,
-    Emitter<AppState> emit,
-  ) async {
-    logger.info('✅ Location permission granted - updating state');
-    emit(state.copyWith(isLocationPremissionEnabled: true));
-  }
-
-  /// Handle when location permission is denied
-  Future<void> _onLocationPermissionDenied(
-    AppEventLocationPermissionDenied event,
-    Emitter<AppState> emit,
-  ) async {
-    logger.warning('❌ Location permission denied - updating state');
-    emit(state.copyWith(isLocationPremissionEnabled: false));
   }
 
   /// Handle opening location settings

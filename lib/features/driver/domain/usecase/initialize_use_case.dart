@@ -16,9 +16,6 @@ class InitializeUseCase implements UseCase<void, void> {
 
   @override
   Future<Position?> call(void params) async {
-    var val = await locationPermissionImpl.isLocationPermissionGranted();
-    if (!val) throw Exception('Location permission not granted');
-
     var isConnected = await socketRepository.connect();
     if (!isConnected) throw Exception('Socket connection failed');
 

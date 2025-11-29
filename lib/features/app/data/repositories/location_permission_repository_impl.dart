@@ -8,6 +8,32 @@ class LocationPermissionRepositoryImpl implements LocationPermissionRepository {
   final logger = Logger('LocationPermissionRepositoryImpl');
 
   @override
+  Future<bool> isLocationServiceEnabled() async {
+    try {
+      logger.info('📡 Checking if location service is enabled...');
+      final isEnabled = await Geolocator.isLocationServiceEnabled();
+      logger.info('📡 Location service enabled: $isEnabled');
+      return isEnabled;
+    } catch (e) {
+      logger.severe('❌ Error checking location service: $e');
+      return false;
+    }
+  }
+
+  @override
+  Future<LocationPermission> getLocationPermissionStatus() async {
+    try {
+      logger.info('🔍 Getting location permission status...');
+      final permission = await Geolocator.checkPermission();
+      logger.info('📱 Location permission status: $permission');
+      return permission;
+    } catch (e) {
+      logger.severe('❌ Error getting permission status: $e');
+      return LocationPermission.denied;
+    }
+  }
+
+  @override
   Future<bool> isLocationPermissionGranted() async {
     try {
       logger.info('🗺️ Checking location permission status...');

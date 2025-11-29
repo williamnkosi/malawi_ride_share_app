@@ -1,6 +1,6 @@
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
 
 class DriverTripRepositoryImp implements DriverTripRepository {
@@ -31,9 +31,9 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   }
 
   @override
-  Stream<TripRequest> listenToTripRequests() {
+  Stream<TripRequestNotificationDto> listenToTripRequests() {
     return socketRepository
         .listen('trip_assiged', SocketNamespace.trips.path)
-        .map((data) => TripRequest.fromJson(data));
+        .map((data) => TripRequestNotificationDto.fromJson(data));
   }
 }

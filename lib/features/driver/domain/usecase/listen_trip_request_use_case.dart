@@ -1,13 +1,14 @@
 import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
-import 'package:malawi_ride_share_app/models/trip_request_model.dart';
 
-class ListenTripRequestUseCase implements StreamUseCase<TripRequest, void> {
+class ListenTripRequestUseCase
+    implements StreamUseCase<TripRequestNotificationDto, void> {
   final DriverTripRepository driverTripRepository;
   ListenTripRequestUseCase(this.driverTripRepository);
 
   @override
-  Stream<TripRequest> call(void _) {
+  Stream<TripRequestNotificationDto> call(void _) {
     return driverTripRepository.listenToTripRequests();
   }
 }

@@ -174,6 +174,7 @@ Future<void> setupDriverOperationsDependencies() async {
       initializeUseCase: getIt<InitializeUseCase>(),
       goOfflineUseCase: getIt<GoOfflineUseCase>(),
       goOnLineUseCase: getIt<GoOnLineUseCase>(),
+      listenTripRequestUseCase: getIt<ListenTripRequestUseCase>(),
     ),
   );
 }

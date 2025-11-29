@@ -8,6 +8,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/listen_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
 
 part 'driver_operations_event.dart';
@@ -20,6 +21,7 @@ class DriverOperationsBloc
   final InitializeUseCase initializeUseCase;
   final GoOnLineUseCase goOnLineUseCase;
   final GoOfflineUseCase goOfflineUseCase;
+  final ListenTripRequestUseCase listenTripRequestUseCase;
   StreamSubscription<Position>? _locationSubscription;
   StreamSubscription<dynamic>? _tripRequestSubscription;
   Timer? _locationUpdateTimer;
@@ -27,6 +29,7 @@ class DriverOperationsBloc
     required this.initializeUseCase,
     required this.goOfflineUseCase,
     required this.goOnLineUseCase,
+    required this.listenTripRequestUseCase,
   }) : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
@@ -37,20 +40,14 @@ class DriverOperationsBloc
     on<DriverOperationsLocationUpdated>(_onLocationUpdated);
     on<DriverOperationsTripRequestReceived>(_onTripRequestReceived);
     //on<DriverOperationsAcceptTrip>(_onTripRequestAccepted);
-
-    // Subscribe to trip request events from socket
-    // _setupTripRequestListener();
   }
 
   void _setupTripRequestListener() {
-    _tripRequestSubscription = driverOperationsRepository
-        .driverTripSocketService
-        .on<Map<String, dynamic>>('trip:new_request')
-        .listen((data) {
-          final tripData = TripRequestNotificationDto.fromJson(data);
-          logger.info('🚗 Trip request received from socket: $data');
-          add(DriverOperationsEvent.tripRequestReceived(tripData: tripData));
-        });
+    _tripRequestSubscription = listenTripRequestUseCase.call(null).listen((
+      onData,
+    ) {
+      add(DriverOperationsEvent.tripRequestReceived(tripData: onData));
+    });
   }
 
   void _onTripRequestReceived(
@@ -143,6 +140,7 @@ class DriverOperationsBloc
       _locationSubscription!.onData((position) {
         add(DriverOperationsLocationUpdated(position));
       });
+      _setupTripRequestListener();
       emit(DriverOperationsState.online(currentLocation: null));
 
       logger.info('Driver went online');

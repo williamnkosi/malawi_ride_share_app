@@ -4,6 +4,8 @@ part of 'driver_operations_bloc.dart';
 class DriverOperationsEvent with _$DriverOperationsEvent {
   // Driver lifecycle events
   const factory DriverOperationsEvent.initialize() = DriverOperationsInitialize;
+  const factory DriverOperationsEvent.noPermissions() =
+      DriverOperationsNoPermissions;
   const factory DriverOperationsEvent.goOnline() = DriverOperationsGoOnline;
   const factory DriverOperationsEvent.goOffline() = DriverOperationsGoOffline;
 

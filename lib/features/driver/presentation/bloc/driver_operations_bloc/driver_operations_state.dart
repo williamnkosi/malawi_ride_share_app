@@ -5,6 +5,8 @@ class DriverOperationsState with _$DriverOperationsState {
   // Initial state when bloc is created
   const factory DriverOperationsState.initial() = _Initial;
 
+  const factory DriverOperationsState.noPermission() = _NoPermission;
+
   // Loading state for any async operations
   const factory DriverOperationsState.loading() = _Loading;
 

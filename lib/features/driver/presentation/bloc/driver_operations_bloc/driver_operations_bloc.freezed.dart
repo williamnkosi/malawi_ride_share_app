@@ -19,6 +19,7 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -36,6 +37,7 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -52,6 +54,7 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -69,6 +72,8 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -87,6 +92,7 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -104,6 +110,7 @@ mixin _$DriverOperationsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -189,6 +196,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -209,6 +217,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -228,6 +237,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -251,6 +261,8 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -272,6 +284,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -292,6 +305,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -315,6 +329,189 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
 
 abstract class DriverOperationsInitialize implements DriverOperationsEvent {
   const factory DriverOperationsInitialize() = _$DriverOperationsInitializeImpl;
+}
+
+/// @nodoc
+abstract class _$$DriverOperationsNoPermissionsImplCopyWith<$Res> {
+  factory _$$DriverOperationsNoPermissionsImplCopyWith(
+          _$DriverOperationsNoPermissionsImpl value,
+          $Res Function(_$DriverOperationsNoPermissionsImpl) then) =
+      __$$DriverOperationsNoPermissionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DriverOperationsNoPermissionsImplCopyWithImpl<$Res>
+    extends _$DriverOperationsEventCopyWithImpl<$Res,
+        _$DriverOperationsNoPermissionsImpl>
+    implements _$$DriverOperationsNoPermissionsImplCopyWith<$Res> {
+  __$$DriverOperationsNoPermissionsImplCopyWithImpl(
+      _$DriverOperationsNoPermissionsImpl _value,
+      $Res Function(_$DriverOperationsNoPermissionsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverOperationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DriverOperationsNoPermissionsImpl
+    implements DriverOperationsNoPermissions {
+  const _$DriverOperationsNoPermissionsImpl();
+
+  @override
+  String toString() {
+    return 'DriverOperationsEvent.noPermissions()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverOperationsNoPermissionsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() noPermissions,
+    required TResult Function() goOnline,
+    required TResult Function() goOffline,
+    required TResult Function(Position position) locationUpdated,
+    required TResult Function(TripRequestNotificationDto tripData)
+        tripRequestReceived,
+    required TResult Function() acceptTrip,
+    required TResult Function() rejectTrip,
+    required TResult Function() startTrip,
+    required TResult Function(double totalDistance, Duration totalDuration)
+        completeTrip,
+    required TResult Function(String reason) cancelTrip,
+    required TResult Function(bool isAvailable) updateAvailability,
+  }) {
+    return noPermissions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
+    TResult? Function()? goOnline,
+    TResult? Function()? goOffline,
+    TResult? Function(Position position)? locationUpdated,
+    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function()? acceptTrip,
+    TResult? Function()? rejectTrip,
+    TResult? Function()? startTrip,
+    TResult? Function(double totalDistance, Duration totalDuration)?
+        completeTrip,
+    TResult? Function(String reason)? cancelTrip,
+    TResult? Function(bool isAvailable)? updateAvailability,
+  }) {
+    return noPermissions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? noPermissions,
+    TResult Function()? goOnline,
+    TResult Function()? goOffline,
+    TResult Function(Position position)? locationUpdated,
+    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function()? acceptTrip,
+    TResult Function()? rejectTrip,
+    TResult Function()? startTrip,
+    TResult Function(double totalDistance, Duration totalDuration)?
+        completeTrip,
+    TResult Function(String reason)? cancelTrip,
+    TResult Function(bool isAvailable)? updateAvailability,
+    required TResult orElse(),
+  }) {
+    if (noPermissions != null) {
+      return noPermissions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
+    required TResult Function(DriverOperationsGoOnline value) goOnline,
+    required TResult Function(DriverOperationsGoOffline value) goOffline,
+    required TResult Function(DriverOperationsLocationUpdated value)
+        locationUpdated,
+    required TResult Function(DriverOperationsTripRequestReceived value)
+        tripRequestReceived,
+    required TResult Function(DriverOperationsAcceptTrip value) acceptTrip,
+    required TResult Function(DriverOperationsRejectTrip value) rejectTrip,
+    required TResult Function(DriverOperationsStartTrip value) startTrip,
+    required TResult Function(DriverOperationsCompleteTrip value) completeTrip,
+    required TResult Function(DriverOperationsCancelTrip value) cancelTrip,
+    required TResult Function(DriverOperationsUpdateAvailability value)
+        updateAvailability,
+  }) {
+    return noPermissions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
+    TResult? Function(DriverOperationsGoOnline value)? goOnline,
+    TResult? Function(DriverOperationsGoOffline value)? goOffline,
+    TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
+    TResult? Function(DriverOperationsTripRequestReceived value)?
+        tripRequestReceived,
+    TResult? Function(DriverOperationsAcceptTrip value)? acceptTrip,
+    TResult? Function(DriverOperationsRejectTrip value)? rejectTrip,
+    TResult? Function(DriverOperationsStartTrip value)? startTrip,
+    TResult? Function(DriverOperationsCompleteTrip value)? completeTrip,
+    TResult? Function(DriverOperationsCancelTrip value)? cancelTrip,
+    TResult? Function(DriverOperationsUpdateAvailability value)?
+        updateAvailability,
+  }) {
+    return noPermissions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
+    TResult Function(DriverOperationsGoOnline value)? goOnline,
+    TResult Function(DriverOperationsGoOffline value)? goOffline,
+    TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
+    TResult Function(DriverOperationsTripRequestReceived value)?
+        tripRequestReceived,
+    TResult Function(DriverOperationsAcceptTrip value)? acceptTrip,
+    TResult Function(DriverOperationsRejectTrip value)? rejectTrip,
+    TResult Function(DriverOperationsStartTrip value)? startTrip,
+    TResult Function(DriverOperationsCompleteTrip value)? completeTrip,
+    TResult Function(DriverOperationsCancelTrip value)? cancelTrip,
+    TResult Function(DriverOperationsUpdateAvailability value)?
+        updateAvailability,
+    required TResult orElse(),
+  }) {
+    if (noPermissions != null) {
+      return noPermissions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DriverOperationsNoPermissions implements DriverOperationsEvent {
+  const factory DriverOperationsNoPermissions() =
+      _$DriverOperationsNoPermissionsImpl;
 }
 
 /// @nodoc
@@ -363,6 +560,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -383,6 +581,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -402,6 +601,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -425,6 +625,8 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -446,6 +648,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -466,6 +669,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -537,6 +741,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -557,6 +762,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -576,6 +782,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -599,6 +806,8 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -620,6 +829,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -640,6 +850,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -741,6 +952,7 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -761,6 +973,7 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -780,6 +993,7 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -803,6 +1017,8 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -824,6 +1040,7 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -844,6 +1061,7 @@ class _$DriverOperationsLocationUpdatedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -968,6 +1186,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -988,6 +1207,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1007,6 +1227,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1030,6 +1251,8 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -1051,6 +1274,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1071,6 +1295,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1154,6 +1379,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -1174,6 +1400,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1193,6 +1420,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1216,6 +1444,8 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -1237,6 +1467,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1257,6 +1488,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1328,6 +1560,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -1348,6 +1581,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1367,6 +1601,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1390,6 +1625,8 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -1411,6 +1648,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1431,6 +1669,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1502,6 +1741,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -1522,6 +1762,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1541,6 +1782,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1564,6 +1806,8 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -1585,6 +1829,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1605,6 +1850,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1716,6 +1962,7 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -1736,6 +1983,7 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1755,6 +2003,7 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1778,6 +2027,8 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -1799,6 +2050,7 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1819,6 +2071,7 @@ class _$DriverOperationsCompleteTripImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -1930,6 +2183,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -1950,6 +2204,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -1969,6 +2224,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -1992,6 +2248,8 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -2013,6 +2271,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -2033,6 +2292,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -2143,6 +2403,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() noPermissions,
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
@@ -2163,6 +2424,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? noPermissions,
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
@@ -2182,6 +2444,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? noPermissions,
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
@@ -2205,6 +2468,8 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverOperationsInitialize value) initialize,
+    required TResult Function(DriverOperationsNoPermissions value)
+        noPermissions,
     required TResult Function(DriverOperationsGoOnline value) goOnline,
     required TResult Function(DriverOperationsGoOffline value) goOffline,
     required TResult Function(DriverOperationsLocationUpdated value)
@@ -2226,6 +2491,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverOperationsInitialize value)? initialize,
+    TResult? Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult? Function(DriverOperationsGoOnline value)? goOnline,
     TResult? Function(DriverOperationsGoOffline value)? goOffline,
     TResult? Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -2246,6 +2512,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverOperationsInitialize value)? initialize,
+    TResult Function(DriverOperationsNoPermissions value)? noPermissions,
     TResult Function(DriverOperationsGoOnline value)? goOnline,
     TResult Function(DriverOperationsGoOffline value)? goOffline,
     TResult Function(DriverOperationsLocationUpdated value)? locationUpdated,
@@ -2287,6 +2554,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -2335,6 +2603,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -2382,6 +2651,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -2430,6 +2700,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -2446,6 +2717,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -2462,6 +2734,7 @@ mixin _$DriverOperationsState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -2542,6 +2815,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -2593,6 +2867,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -2643,6 +2918,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -2697,6 +2973,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -2716,6 +2993,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -2735,6 +3013,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -2757,6 +3036,271 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements DriverOperationsState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$NoPermissionImplCopyWith<$Res> {
+  factory _$$NoPermissionImplCopyWith(
+          _$NoPermissionImpl value, $Res Function(_$NoPermissionImpl) then) =
+      __$$NoPermissionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoPermissionImplCopyWithImpl<$Res>
+    extends _$DriverOperationsStateCopyWithImpl<$Res, _$NoPermissionImpl>
+    implements _$$NoPermissionImplCopyWith<$Res> {
+  __$$NoPermissionImplCopyWithImpl(
+      _$NoPermissionImpl _value, $Res Function(_$NoPermissionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverOperationsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NoPermissionImpl implements _NoPermission {
+  const _$NoPermissionImpl();
+
+  @override
+  String toString() {
+    return 'DriverOperationsState.noPermission()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoPermissionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noPermission,
+    required TResult Function() loading,
+    required TResult Function(Position? lastKnownLocation) offline,
+    required TResult Function(Position? currentLocation) online,
+    required TResult Function(TripRequestNotificationDto tripRequest)
+        tripRequestReceived,
+    required TResult Function(
+            Position currentLocation,
+            TripRequestNotificationDto activeTrip,
+            DateTime estimatedPickupTime,
+            DateTime onlineTime,
+            List<Position> locationHistory)
+        enRouteToPickup,
+    required TResult Function(Position currentLocation, Trip activeTrip,
+            DateTime arrivalTime, DateTime onlineTime)
+        waitingForPassenger,
+    required TResult Function(
+            Position currentLocation,
+            Trip activeTrip,
+            DateTime tripStartTime,
+            DateTime? estimatedDropoffTime,
+            List<Position> tripRoute)
+        onTrip,
+    required TResult Function(
+            Position currentLocation,
+            Trip completedTrip,
+            DateTime completionTime,
+            double tripEarnings,
+            Duration tripDuration,
+            double tripDistance)
+        tripCompleted,
+    required TResult Function(
+            Position currentLocation,
+            Trip cancelledTrip,
+            String cancellationReason,
+            DateTime cancellationTime,
+            bool wasCancelledByDriver)
+        tripCancelled,
+    required TResult Function(
+            Position currentLocation, String reason, DateTime? availableAgainAt)
+        unavailable,
+    required TResult Function(
+            String message, DriverOperationsState? previousState)
+        error,
+  }) {
+    return noPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noPermission,
+    TResult? Function()? loading,
+    TResult? Function(Position? lastKnownLocation)? offline,
+    TResult? Function(Position? currentLocation)? online,
+    TResult? Function(TripRequestNotificationDto tripRequest)?
+        tripRequestReceived,
+    TResult? Function(
+            Position currentLocation,
+            TripRequestNotificationDto activeTrip,
+            DateTime estimatedPickupTime,
+            DateTime onlineTime,
+            List<Position> locationHistory)?
+        enRouteToPickup,
+    TResult? Function(Position currentLocation, Trip activeTrip,
+            DateTime arrivalTime, DateTime onlineTime)?
+        waitingForPassenger,
+    TResult? Function(
+            Position currentLocation,
+            Trip activeTrip,
+            DateTime tripStartTime,
+            DateTime? estimatedDropoffTime,
+            List<Position> tripRoute)?
+        onTrip,
+    TResult? Function(
+            Position currentLocation,
+            Trip completedTrip,
+            DateTime completionTime,
+            double tripEarnings,
+            Duration tripDuration,
+            double tripDistance)?
+        tripCompleted,
+    TResult? Function(
+            Position currentLocation,
+            Trip cancelledTrip,
+            String cancellationReason,
+            DateTime cancellationTime,
+            bool wasCancelledByDriver)?
+        tripCancelled,
+    TResult? Function(Position currentLocation, String reason,
+            DateTime? availableAgainAt)?
+        unavailable,
+    TResult? Function(String message, DriverOperationsState? previousState)?
+        error,
+  }) {
+    return noPermission?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noPermission,
+    TResult Function()? loading,
+    TResult Function(Position? lastKnownLocation)? offline,
+    TResult Function(Position? currentLocation)? online,
+    TResult Function(TripRequestNotificationDto tripRequest)?
+        tripRequestReceived,
+    TResult Function(
+            Position currentLocation,
+            TripRequestNotificationDto activeTrip,
+            DateTime estimatedPickupTime,
+            DateTime onlineTime,
+            List<Position> locationHistory)?
+        enRouteToPickup,
+    TResult Function(Position currentLocation, Trip activeTrip,
+            DateTime arrivalTime, DateTime onlineTime)?
+        waitingForPassenger,
+    TResult Function(
+            Position currentLocation,
+            Trip activeTrip,
+            DateTime tripStartTime,
+            DateTime? estimatedDropoffTime,
+            List<Position> tripRoute)?
+        onTrip,
+    TResult Function(
+            Position currentLocation,
+            Trip completedTrip,
+            DateTime completionTime,
+            double tripEarnings,
+            Duration tripDuration,
+            double tripDistance)?
+        tripCompleted,
+    TResult Function(
+            Position currentLocation,
+            Trip cancelledTrip,
+            String cancellationReason,
+            DateTime cancellationTime,
+            bool wasCancelledByDriver)?
+        tripCancelled,
+    TResult Function(Position currentLocation, String reason,
+            DateTime? availableAgainAt)?
+        unavailable,
+    TResult Function(String message, DriverOperationsState? previousState)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (noPermission != null) {
+      return noPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Offline value) offline,
+    required TResult Function(_Online value) online,
+    required TResult Function(_TripRequestReceived value) tripRequestReceived,
+    required TResult Function(_EnRouteToPickup value) enRouteToPickup,
+    required TResult Function(_WaitingForPassenger value) waitingForPassenger,
+    required TResult Function(_OnTrip value) onTrip,
+    required TResult Function(_TripCompleted value) tripCompleted,
+    required TResult Function(_TripCancelled value) tripCancelled,
+    required TResult Function(_Unavailable value) unavailable,
+    required TResult Function(_StateError value) error,
+  }) {
+    return noPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_Online value)? online,
+    TResult? Function(_TripRequestReceived value)? tripRequestReceived,
+    TResult? Function(_EnRouteToPickup value)? enRouteToPickup,
+    TResult? Function(_WaitingForPassenger value)? waitingForPassenger,
+    TResult? Function(_OnTrip value)? onTrip,
+    TResult? Function(_TripCompleted value)? tripCompleted,
+    TResult? Function(_TripCancelled value)? tripCancelled,
+    TResult? Function(_Unavailable value)? unavailable,
+    TResult? Function(_StateError value)? error,
+  }) {
+    return noPermission?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Offline value)? offline,
+    TResult Function(_Online value)? online,
+    TResult Function(_TripRequestReceived value)? tripRequestReceived,
+    TResult Function(_EnRouteToPickup value)? enRouteToPickup,
+    TResult Function(_WaitingForPassenger value)? waitingForPassenger,
+    TResult Function(_OnTrip value)? onTrip,
+    TResult Function(_TripCompleted value)? tripCompleted,
+    TResult Function(_TripCancelled value)? tripCancelled,
+    TResult Function(_Unavailable value)? unavailable,
+    TResult Function(_StateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (noPermission != null) {
+      return noPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoPermission implements DriverOperationsState {
+  const factory _NoPermission() = _$NoPermissionImpl;
 }
 
 /// @nodoc
@@ -2801,6 +3345,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -2852,6 +3397,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -2902,6 +3448,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -2956,6 +3503,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -2975,6 +3523,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -2994,6 +3543,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -3088,6 +3638,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -3139,6 +3690,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -3189,6 +3741,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -3243,6 +3796,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -3262,6 +3816,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -3281,6 +3836,7 @@ class _$OfflineImpl implements _Offline {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -3383,6 +3939,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -3434,6 +3991,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -3484,6 +4042,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -3538,6 +4097,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -3557,6 +4117,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -3576,6 +4137,7 @@ class _$OnlineImpl implements _Online {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -3693,6 +4255,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -3744,6 +4307,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -3794,6 +4358,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -3848,6 +4413,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -3867,6 +4433,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -3886,6 +4453,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -4063,6 +4631,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -4115,6 +4684,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -4166,6 +4736,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -4221,6 +4792,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -4240,6 +4812,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -4259,6 +4832,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -4419,6 +4993,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -4471,6 +5046,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -4522,6 +5098,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -4577,6 +5154,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -4596,6 +5174,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -4615,6 +5194,7 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -4795,6 +5375,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -4847,6 +5428,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -4898,6 +5480,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -4953,6 +5536,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -4972,6 +5556,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -4991,6 +5576,7 @@ class _$OnTripImpl implements _OnTrip {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -5172,6 +5758,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -5224,6 +5811,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -5275,6 +5863,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -5330,6 +5919,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -5349,6 +5939,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -5368,6 +5959,7 @@ class _$TripCompletedImpl implements _TripCompleted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -5540,6 +6132,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -5592,6 +6185,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -5643,6 +6237,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -5698,6 +6293,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -5717,6 +6313,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -5736,6 +6333,7 @@ class _$TripCancelledImpl implements _TripCancelled {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -5869,6 +6467,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -5920,6 +6519,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -5970,6 +6570,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -6024,6 +6625,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -6043,6 +6645,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -6062,6 +6665,7 @@ class _$UnavailableImpl implements _Unavailable {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,
@@ -6193,6 +6797,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noPermission,
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
@@ -6244,6 +6849,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noPermission,
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
@@ -6294,6 +6900,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noPermission,
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
@@ -6348,6 +6955,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoPermission value) noPermission,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Offline value) offline,
     required TResult Function(_Online value) online,
@@ -6367,6 +6975,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoPermission value)? noPermission,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Offline value)? offline,
     TResult? Function(_Online value)? online,
@@ -6386,6 +6995,7 @@ class _$StateErrorImpl implements _StateError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoPermission value)? noPermission,
     TResult Function(_Loading value)? loading,
     TResult Function(_Offline value)? offline,
     TResult Function(_Online value)? online,

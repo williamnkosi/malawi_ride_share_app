@@ -2,7 +2,7 @@ import 'package:malawi_ride_share_app/features/driver/data/models/location_dto.d
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 
 class DriverLocationTrackingRepositoryImpl
     implements DriverLocationTrackingRepository {
@@ -15,7 +15,7 @@ class DriverLocationTrackingRepositoryImpl
     required DriverStatus status,
   }) async {
     socketRepository.emit(
-      SocketConstants.driverLocationUpdate,
+      LocationEvents.locationUpdate,
       SocketNamespace.location.path,
       {"location": location.toJson(), "status": status.toString()},
     );

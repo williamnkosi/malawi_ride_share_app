@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/core/models/socket_auth.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
@@ -50,7 +50,7 @@ class SocketRepositoryImpl implements SocketRepository {
     }
 
     try {
-      final socketUrl = SocketConstants.socketUrl;
+      final socketUrl = SocketConfig.socketUrl;
       final namespaceUrl = '$socketUrl$namespace';
 
       _logger.info('Connecting to namespace: $namespace');
@@ -60,7 +60,7 @@ class SocketRepositoryImpl implements SocketRepository {
         io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
-            .setTimeout(SocketConstants.connectionTimeout.inMilliseconds)
+            .setTimeout(SocketConfig.connectionTimeout.inMilliseconds)
             .setAuth({
               'token': auth.token,
               'userType': auth.userType.name.toLowerCase(),

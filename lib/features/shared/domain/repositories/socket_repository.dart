@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:malawi_ride_share_app/core/models/socket_auth.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 
 abstract class SocketRepository {
   // Connection lifecycle - specify namespaces upfront

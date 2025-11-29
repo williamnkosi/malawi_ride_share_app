@@ -6,7 +6,7 @@ import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 
 class InitializeUseCase implements UseCase<Position?, void> {
   final SocketRepository socketRepository;

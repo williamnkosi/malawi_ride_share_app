@@ -1,7 +1,7 @@
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_constants.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 
 class DriverTripRepositoryImp implements DriverTripRepository {
   final SocketRepository socketRepository;

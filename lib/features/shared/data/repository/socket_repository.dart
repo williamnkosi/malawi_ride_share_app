@@ -170,16 +170,28 @@ class SocketRepositoryImpl implements SocketRepository {
   void emit(String event, String namespace, [dynamic data]) {
     try {
       final socket = _namespaceSockets[namespace];
-      if (socket?.connected != true) {
-        _logger.warning(
-          'Socket not connected to $namespace, cannot emit: $event',
-        );
+
+      _logger.info(
+        '🔍 Attempting to emit: event="$event", namespace="$namespace"',
+      );
+      _logger.info(
+        '🔍 Available namespaces: ${_namespaceSockets.keys.toList()}',
+      );
+
+      if (socket == null) {
+        _logger.severe('❌ Socket not found for namespace: $namespace');
+        throw Exception('No socket registered for namespace: $namespace');
+      }
+
+      if (!socket.connected) {
+        _logger.warning('⚠️ Socket exists but not connected to $namespace');
         throw Exception('Socket not connected to namespace: $namespace');
       }
-      socket!.emit(event, data);
-      _logger.fine('📤 Emitted: $event to $namespace');
+
+      socket.emit(event, data);
+      _logger.info('✅ Emitted: $event to $namespace with data: $data');
     } catch (e) {
-      _logger.severe('Failed to emit $event to $namespace: $e');
+      _logger.severe('❌ Failed to emit $event to $namespace: $e');
       rethrow;
     }
   }

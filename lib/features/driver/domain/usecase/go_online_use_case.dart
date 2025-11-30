@@ -8,7 +8,7 @@ import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_o
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
 
-class GoOnLineUseCase implements UseCase<StreamSubscription<Position>, void> {
+class GoOnLineUseCase implements StreamUseCase<Position, void> {
   final LocationRepository locationRepositoryImp;
   final FirebaseRepository firebaseRepository;
   final DriverLocationTrackingRepository driverLocationTrackingRepository;
@@ -19,22 +19,23 @@ class GoOnLineUseCase implements UseCase<StreamSubscription<Position>, void> {
     this.driverLocationTrackingRepository,
   );
   @override
-  Future<StreamSubscription<Position>> call(void _) async {
+  Stream<Position> call(void _) async* {
     var id = firebaseRepository.getFirebaseId();
     if (id == null) {
       throw Exception('User not authenticated');
     }
 
-    var stream = locationRepositoryImp.getLocationStream().listen((position) {
+    await for (var position in locationRepositoryImp.getLocationStream()) {
       var location = LocationDto(
         latitude: position.latitude,
         longitude: position.longitude,
       );
+      print(location);
       driverLocationTrackingRepository.startTrackingLocation(
         location: location,
         status: DriverStatus.online,
       );
-    });
-    return stream;
+      yield position;
+    }
   }
 }

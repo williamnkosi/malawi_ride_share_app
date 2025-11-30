@@ -11,11 +11,15 @@ class LocationRepositoryImpl implements LocationRepository {
       logger.info('📍 Getting current location...');
 
       final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
+        desiredAccuracy: LocationAccuracy.bestForNavigation,
+        timeLimit: const Duration(
+          seconds: 60,
+        ), // Increased timeout for simulator
       );
 
       logger.info(
-          '✅ Current location: ${position.latitude}, ${position.longitude}');
+        '✅ Current location: ${position.latitude}, ${position.longitude}',
+      );
       return position;
     } catch (e) {
       logger.severe('❌ Error getting current location: $e');
@@ -30,10 +34,12 @@ class LocationRepositoryImpl implements LocationRepository {
     return Geolocator.getPositionStream(
       locationSettings: const LocationSettings(
         accuracy: LocationAccuracy.high,
-        distanceFilter: 10, // Update when moved 10 meters
-        timeLimit: Duration(seconds: 30), // Timeout after 30 seconds
+        distanceFilter: 0, // Update on every change (good for testing)
+        timeLimit: Duration(seconds: 60),
       ),
-    );
+    ).handleError((error) {
+      logger.severe('❌ Location stream error: $error');
+    });
   }
 
   @override

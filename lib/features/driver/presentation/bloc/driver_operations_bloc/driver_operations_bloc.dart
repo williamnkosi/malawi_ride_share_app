@@ -136,10 +136,9 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
 
-      _locationSubscription = await goOnLineUseCase.call(null);
-      _locationSubscription!.onData((position) {
-        add(DriverOperationsLocationUpdated(position));
-      });
+      _locationSubscription = goOnLineUseCase
+          .call(null)
+          .listen((position) => add(DriverOperationsLocationUpdated(position)));
       _setupTripRequestListener();
       emit(DriverOperationsState.online(currentLocation: null));
 

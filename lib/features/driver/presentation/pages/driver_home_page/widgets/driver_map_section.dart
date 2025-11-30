@@ -12,8 +12,14 @@ class DriverMapsSection extends StatelessWidget {
     return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (currentLocation) => MapView(location: currentLocation),
-          offline: (lastKnownLocation) => MapView(location: lastKnownLocation),
+          online: (currentLocation) => MapView(
+            key: const ValueKey('driver_map'),
+            location: currentLocation,
+          ),
+          offline: (lastKnownLocation) => MapView(
+            key: const ValueKey('driver_map'),
+            location: lastKnownLocation,
+          ),
           orElse: () => Expanded(child: ErrorSection()),
         );
       },
@@ -67,20 +73,43 @@ class MapView extends StatefulWidget {
 
 class _MapViewState extends State<MapView> {
   GoogleMapController? _mapController;
+  Position? _lastPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastPosition = widget.location;
+  }
+
+  void _updateCameraPosition(Position? newPosition) {
+    if (newPosition == null || _mapController == null) return;
+
+    if (_lastPosition == null ||
+        _lastPosition!.latitude != newPosition.latitude ||
+        _lastPosition!.longitude != newPosition.longitude) {
+      print(
+        'ANIMATING CAMERA TO: ${newPosition.latitude}, ${newPosition.longitude}',
+      );
+      _mapController!.animateCamera(
+        CameraUpdate.newLatLng(
+          LatLng(newPosition.latitude, newPosition.longitude),
+        ),
+      );
+      _lastPosition = newPosition;
+    }
+  }
 
   @override
   void didUpdateWidget(MapView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // When location updates, animate camera to new position
-    if (widget.location != null &&
-        oldWidget.location != widget.location &&
-        _mapController != null) {
-      _mapController!.animateCamera(
-        CameraUpdate.newLatLng(
-          LatLng(widget.location!.latitude, widget.location!.longitude),
-        ),
-      );
-    }
+    print('didUpdateWidget called');
+    print(
+      'Old location: ${oldWidget.location?.latitude}, ${oldWidget.location?.longitude}',
+    );
+    print(
+      'New location: ${widget.location?.latitude}, ${widget.location?.longitude}',
+    );
+    _updateCameraPosition(widget.location);
   }
 
   @override
@@ -91,25 +120,44 @@ class _MapViewState extends State<MapView> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GoogleMap(
-        onMapCreated: (GoogleMapController controller) {
-          _mapController = controller;
-        },
-        initialCameraPosition: CameraPosition(
-          target: LatLng(widget.location!.latitude, widget.location!.longitude),
-          zoom: 15.0,
+    return BlocListener<DriverOperationsBloc, DriverOperationsState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          online: (currentLocation) {
+            print('BlocListener - online: $currentLocation');
+            _updateCameraPosition(currentLocation);
+          },
+          offline: (lastKnownLocation) {
+            print('BlocListener - offline: $lastKnownLocation');
+            _updateCameraPosition(lastKnownLocation);
+          },
+          orElse: () {},
+        );
+      },
+      child: Expanded(
+        child: GoogleMap(
+          onMapCreated: (GoogleMapController controller) {
+            print('Map created, controller ready');
+            _mapController = controller;
+            _updateCameraPosition(widget.location);
+          },
+          initialCameraPosition: CameraPosition(
+            target: LatLng(
+              widget.location?.latitude ?? 0,
+              widget.location?.longitude ?? 0,
+            ),
+            zoom: 15.0,
+          ),
+          myLocationEnabled: true,
+          myLocationButtonEnabled: true,
+          compassEnabled: true,
+          mapToolbarEnabled: false,
+          zoomControlsEnabled: true,
+          mapType: MapType.normal,
+          onTap: (LatLng position) {
+            // TODO: Handle map tap if needed
+          },
         ),
-
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
-        compassEnabled: true,
-        mapToolbarEnabled: false,
-        zoomControlsEnabled: true,
-        mapType: MapType.normal,
-        onTap: (LatLng position) {
-          // TODO: Handle map tap if needed
-        },
       ),
     );
   }

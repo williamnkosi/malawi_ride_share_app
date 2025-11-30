@@ -25,12 +25,13 @@ class GoOnLineUseCase implements StreamUseCase<Position, void> {
       throw Exception('User not authenticated');
     }
 
-    await for (var position in locationRepositoryImp.getLocationStream()) {
+    await for (var position in locationRepositoryImp.getLocationStream(
+      locationAccuracy: LocationAccuracy.high,
+    )) {
       var location = LocationDto(
         latitude: position.latitude,
         longitude: position.longitude,
       );
-      print(location);
       driverLocationTrackingRepository.startTrackingLocation(
         location: location,
         status: DriverStatus.online,

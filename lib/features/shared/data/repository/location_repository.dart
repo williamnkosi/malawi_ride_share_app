@@ -28,14 +28,16 @@ class LocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  Stream<Position> getLocationStream() {
+  Stream<Position> getLocationStream({
+    required LocationAccuracy locationAccuracy,
+  }) {
     logger.info('👂 Starting location stream...');
 
     return Geolocator.getPositionStream(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.high,
+      locationSettings: LocationSettings(
+        accuracy: locationAccuracy,
         distanceFilter: 0, // Update on every change (good for testing)
-        timeLimit: Duration(seconds: 60),
+        timeLimit: const Duration(seconds: 60),
       ),
     ).handleError((error) {
       logger.severe('❌ Location stream error: $error');

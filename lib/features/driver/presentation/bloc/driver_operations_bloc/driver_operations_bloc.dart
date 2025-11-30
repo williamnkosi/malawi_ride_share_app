@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/get_current_location.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -22,14 +23,17 @@ class DriverOperationsBloc
   final GoOnLineUseCase goOnLineUseCase;
   final GoOfflineUseCase goOfflineUseCase;
   final ListenTripRequestUseCase listenTripRequestUseCase;
-  StreamSubscription<Position>? _locationSubscription;
+  final GetCurrentLocationUseCase getCurrentLocation;
+
   StreamSubscription<dynamic>? _tripRequestSubscription;
-  Timer? _locationUpdateTimer;
+  StreamSubscription<Position>? _locationSubscription;
+
   DriverOperationsBloc({
     required this.initializeUseCase,
     required this.goOfflineUseCase,
     required this.goOnLineUseCase,
     required this.listenTripRequestUseCase,
+    required this.getCurrentLocation,
   }) : super(const DriverOperationsState.initial()) {
     on<DriverOperationsEvent>((event, emit) {
       // TODO: implement event handler
@@ -71,6 +75,11 @@ class DriverOperationsBloc
       var currentLocation = await initializeUseCase.call(null);
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline(lastKnownLocation: currentLocation));
+
+      await _locationSubscription?.cancel();
+      _locationSubscription = goOfflineUseCase
+          .call(null)
+          .listen((position) => add(DriverOperationsLocationUpdated(position)));
     } catch (e) {
       logger.severe('Error during driver operations initialization: $e');
       emit(DriverOperationsState.error(message: 'Failed to connect to server'));
@@ -113,10 +122,15 @@ class DriverOperationsBloc
     Emitter<DriverOperationsState> emit,
   ) async {
     try {
-      // Stop location tracking
-      await _stopLocationTracking();
-      var current = await goOfflineUseCase.call(null);
-      emit(DriverOperationsState.offline(lastKnownLocation: current));
+      // Get initial location
+      var lastKnownLocation = await getCurrentLocation.call(null);
+      emit(DriverOperationsState.offline(lastKnownLocation: lastKnownLocation));
+
+      // Continue listening for location updates even when offline
+      await _locationSubscription?.cancel();
+      _locationSubscription = goOfflineUseCase
+          .call(null)
+          .listen((position) => add(DriverOperationsLocationUpdated(position)));
 
       logger.info('Driver went offline');
     } catch (e) {
@@ -134,13 +148,14 @@ class DriverOperationsBloc
     Emitter<DriverOperationsState> emit,
   ) async {
     try {
-      emit(const DriverOperationsState.loading());
+      var currentLocation = await getCurrentLocation.call(null);
+      emit(DriverOperationsState.online(currentLocation: currentLocation));
 
+      await _locationSubscription?.cancel();
       _locationSubscription = goOnLineUseCase
           .call(null)
           .listen((position) => add(DriverOperationsLocationUpdated(position)));
       _setupTripRequestListener();
-      emit(DriverOperationsState.online(currentLocation: null));
 
       logger.info('Driver went online');
     } catch (e) {
@@ -159,12 +174,10 @@ class DriverOperationsBloc
   ) {
     state.maybeWhen(
       online: (currentLocation) {
-        emit(
-          DriverOperationsState.online(
-            currentLocation: event
-                .position, // Note: use event.position, not event.currentLocation
-          ),
-        );
+        emit(DriverOperationsState.online(currentLocation: event.position));
+      },
+      offline: (lastKnownLocation) {
+        emit(DriverOperationsState.offline(lastKnownLocation: event.position));
       },
       orElse: () {
         logger.warning(
@@ -174,22 +187,10 @@ class DriverOperationsBloc
     );
   }
 
-  Future<void> _stopLocationTracking() async {
-    try {
-      await _locationSubscription?.cancel();
-      _locationSubscription = null;
-
-      _locationUpdateTimer?.cancel();
-      _locationUpdateTimer = null;
-    } catch (e) {
-      logger.severe('Error stopping location tracking: $e');
-    }
-  }
-
   @override
   Future<void> close() {
-    _stopLocationTracking();
     _tripRequestSubscription?.cancel();
+    _locationSubscription?.cancel();
     return super.close();
   }
 }

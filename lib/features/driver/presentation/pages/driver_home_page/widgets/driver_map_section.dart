@@ -12,15 +12,8 @@ class DriverMapsSection extends StatelessWidget {
     return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (
-            currentLocation,
-          ) =>
-              MapView(
-            location: currentLocation,
-          ),
-          offline: (lastKnownLocation) => MapView(
-            location: lastKnownLocation,
-          ),
+          online: (currentLocation) => MapView(location: currentLocation),
+          offline: (lastKnownLocation) => MapView(location: lastKnownLocation),
           orElse: () => Expanded(child: ErrorSection()),
         );
       },
@@ -40,18 +33,11 @@ class ErrorSection extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.error_outline,
-              size: 64,
-              color: Colors.red,
-            ),
+            Icon(Icons.error_outline, size: 64, color: Colors.red),
             SizedBox(height: 16),
             Text(
               'Something went wrong',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
             if (message != null)
@@ -60,10 +46,7 @@ class ErrorSection extends StatelessWidget {
                 child: Text(
                   message!,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
               ),
           ],
@@ -73,39 +56,51 @@ class ErrorSection extends StatelessWidget {
   }
 }
 
-class MapView extends StatelessWidget {
+class MapView extends StatefulWidget {
   final Position? location;
-  // Hardcoded location for Lilongwe, Malawi (Capital city)
-  static const LatLng _lilongweCenter = LatLng(-13.9626, 33.7741);
 
   const MapView({super.key, this.location});
+
+  @override
+  State<MapView> createState() => _MapViewState();
+}
+
+class _MapViewState extends State<MapView> {
+  GoogleMapController? _mapController;
+
+  @override
+  void didUpdateWidget(MapView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // When location updates, animate camera to new position
+    if (widget.location != null &&
+        oldWidget.location != widget.location &&
+        _mapController != null) {
+      _mapController!.animateCamera(
+        CameraUpdate.newLatLng(
+          LatLng(widget.location!.latitude, widget.location!.longitude),
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _mapController?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GoogleMap(
         onMapCreated: (GoogleMapController controller) {
-          // Map controller ready - can be used later for programmatic control
+          _mapController = controller;
         },
         initialCameraPosition: CameraPosition(
-          target: location != null
-              ? LatLng(location!.latitude, location!.longitude)
-              : _lilongweCenter,
+          target: LatLng(widget.location!.latitude, widget.location!.longitude),
           zoom: 15.0,
         ),
-        markers: {
-          Marker(
-            markerId: MarkerId('driver_location'),
-            position: location != null
-                ? LatLng(location!.latitude, location!.longitude)
-                : _lilongweCenter,
-            infoWindow: InfoWindow(
-              title: 'Your Location',
-              snippet: 'Driver current position',
-            ),
-            icon: BitmapDescriptor.defaultMarker,
-          )
-        },
+
         myLocationEnabled: true,
         myLocationButtonEnabled: true,
         compassEnabled: true,

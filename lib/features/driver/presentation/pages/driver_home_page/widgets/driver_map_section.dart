@@ -3,24 +3,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
+import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
+import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 
 class DriverMapsSection extends StatelessWidget {
   const DriverMapsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
+    return BlocBuilder<LocationBloc, LocationState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (currentLocation) => MapView(
-            key: const ValueKey('driver_map'),
-            location: currentLocation,
-          ),
-          offline: (lastKnownLocation) => MapView(
-            key: const ValueKey('driver_map'),
-            location: lastKnownLocation,
-          ),
-          orElse: () => Expanded(child: ErrorSection()),
+          active: (location) =>
+              MapView(key: const ValueKey('driver_map'), location: location),
+          errors: (striing, location) => Expanded(child: ErrorSection()),
+          orElse: () {
+            return const Expanded(
+              child: Center(child: CircularProgressIndicator()),
+            );
+          },
         );
       },
     );
@@ -63,7 +64,7 @@ class ErrorSection extends StatelessWidget {
 }
 
 class MapView extends StatefulWidget {
-  final Position? location;
+  final LocationEntity? location;
 
   const MapView({super.key, this.location});
 
@@ -73,7 +74,7 @@ class MapView extends StatefulWidget {
 
 class _MapViewState extends State<MapView> {
   GoogleMapController? _mapController;
-  Position? _lastPosition;
+  LocationEntity? _lastPosition;
 
   @override
   void initState() {
@@ -81,7 +82,7 @@ class _MapViewState extends State<MapView> {
     _lastPosition = widget.location;
   }
 
-  void _updateCameraPosition(Position? newPosition) {
+  void _updateCameraPosition(LocationEntity? newPosition) {
     if (newPosition == null || _mapController == null) return;
 
     if (_lastPosition == null ||
@@ -120,17 +121,14 @@ class _MapViewState extends State<MapView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<DriverOperationsBloc, DriverOperationsState>(
+    return BlocListener<LocationBloc, LocationState>(
       listener: (context, state) {
         state.maybeWhen(
-          online: (currentLocation) {
+          active: (currentLocation) {
             print('BlocListener - online: $currentLocation');
             _updateCameraPosition(currentLocation);
           },
-          offline: (lastKnownLocation) {
-            print('BlocListener - offline: $lastKnownLocation');
-            _updateCameraPosition(lastKnownLocation);
-          },
+
           orElse: () {},
         );
       },

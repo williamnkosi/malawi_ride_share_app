@@ -4,6 +4,7 @@ import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_blo
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
+import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
 class DriverHomePage extends StatefulWidget {
@@ -28,10 +29,18 @@ class _DriverHomePageState extends State<DriverHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<DriverOperationsBloc>()
-            ..add(const DriverOperationsEvent.initialize()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<DriverOperationsBloc>()
+                ..add(const DriverOperationsEvent.initialize()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<LocationBloc>()..add(const LocationEvent.startTracking()),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(title: const Text('Driver Home Page')),
         body: MultiBlocListener(

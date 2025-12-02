@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
 

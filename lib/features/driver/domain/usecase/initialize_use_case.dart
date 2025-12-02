@@ -4,7 +4,7 @@ import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
-import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/location/domain/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 

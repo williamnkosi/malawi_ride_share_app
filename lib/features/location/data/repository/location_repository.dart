@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/location/domain/repository/location_repository.dart';
 
 class LocationRepositoryImpl implements LocationRepository {
   final logger = Logger('LocationRepository');

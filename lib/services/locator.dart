@@ -26,10 +26,10 @@ import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/
 import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
-import 'package:malawi_ride_share_app/features/shared/domain/repositories/location_repository.dart';
+import 'package:malawi_ride_share_app/features/location/domain/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/repository/image_repository.dart';
-import 'package:malawi_ride_share_app/features/shared/data/repository/location_repository.dart';
+import 'package:malawi_ride_share_app/features/location/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 
 GetIt getIt = GetIt.instance;

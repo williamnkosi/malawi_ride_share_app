@@ -50,6 +50,7 @@ class DriverOperationsBloc
     _tripRequestSubscription = listenTripRequestUseCase.call(null).listen((
       onData,
     ) {
+      logger.info('Trip request received: $onData');
       add(DriverOperationsEvent.tripRequestReceived(tripData: onData));
     });
   }
@@ -81,7 +82,25 @@ class DriverOperationsBloc
       await _locationSubscription?.cancel();
       _locationSubscription = goOfflineUseCase
           .call(null)
-          .listen((position) => add(DriverOperationsLocationUpdated(position)));
+          .listen(
+            (position) {
+              if (!isClosed) {
+                add(DriverOperationsLocationUpdated(position));
+              }
+            },
+            onError: (error) {
+              logger.severe(
+                'Location stream error during initialization: $error',
+              );
+              if (!isClosed) {
+                emit(
+                  DriverOperationsState.error(
+                    message: 'Location tracking failed',
+                  ),
+                );
+              }
+            },
+          );
     } catch (e) {
       logger.severe('Error during driver operations initialization: $e');
       emit(DriverOperationsState.error(message: 'Failed to connect to server'));

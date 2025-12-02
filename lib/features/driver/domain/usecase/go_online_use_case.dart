@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:malawi_ride_share_app/core/usecase/usecase.dart';
-import 'package:malawi_ride_share_app/features/driver/data/models/location_dto.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/location/location_dto.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';

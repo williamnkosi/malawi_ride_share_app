@@ -23,6 +23,8 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
+import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
@@ -50,6 +52,7 @@ Future<void> setupGetIt() async {
 
   await setupSharedDependencies();
   await setupAppFeatureDependencies();
+  await setupLocationFeatureDependencies();
 
   logger.info('=====================================');
 
@@ -132,6 +135,21 @@ Future<void> setupAuthFeatureDependencies() async {
       signUpUserUseCase: getIt<SignUpUserUseCase>(),
       signOutUserUseCase: getIt<SignOutUserUseCase>(),
     ),
+  );
+}
+
+Future<void> setupLocationFeatureDependencies() async {
+  // Repositories
+  getIt.registerSingleton<LocationRepository>(LocationRepositoryImpl());
+
+  // Use cases
+  getIt.registerSingleton<GetCurrentLocationUseCase>(
+    GetCurrentLocationUseCase(getIt<LocationRepository>()),
+  );
+
+  // Blocs
+  getIt.registerFactory<LocationBloc>(
+    () => LocationBloc(getLocationUseCase: getIt<GetLocationUseCase>()),
   );
 }
 

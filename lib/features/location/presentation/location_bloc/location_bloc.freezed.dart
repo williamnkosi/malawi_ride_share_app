@@ -19,7 +19,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LocationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() startTracking,
     required TResult Function(
       String accuracy,
@@ -27,12 +26,9 @@ mixin _$LocationEvent {
       int timeIntervalMs,
     )
     updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? startTracking,
     TResult? Function(
       String accuracy,
@@ -40,12 +36,9 @@ mixin _$LocationEvent {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? startTracking,
     TResult Function(
       String accuracy,
@@ -53,33 +46,22 @@ mixin _$LocationEvent {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
     required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
     TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -104,146 +86,6 @@ class _$LocationEventCopyWithImpl<$Res, $Val extends LocationEvent>
 
   /// Create a copy of LocationEvent
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$LocationInitialImplCopyWith<$Res> {
-  factory _$$LocationInitialImplCopyWith(
-    _$LocationInitialImpl value,
-    $Res Function(_$LocationInitialImpl) then,
-  ) = __$$LocationInitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationInitialImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationInitialImpl>
-    implements _$$LocationInitialImplCopyWith<$Res> {
-  __$$LocationInitialImplCopyWithImpl(
-    _$LocationInitialImpl _value,
-    $Res Function(_$LocationInitialImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationInitialImpl implements LocationInitial {
-  const _$LocationInitialImpl();
-
-  @override
-  String toString() {
-    return 'LocationEvent.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LocationInitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() startTracking,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? startTracking,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? startTracking,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationInitial implements LocationEvent {
-  const factory LocationInitial() = _$LocationInitialImpl;
 }
 
 /// @nodoc
@@ -290,7 +132,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() startTracking,
     required TResult Function(
       String accuracy,
@@ -298,8 +139,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
       int timeIntervalMs,
     )
     updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
   }) {
     return startTracking();
   }
@@ -307,7 +146,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? startTracking,
     TResult? Function(
       String accuracy,
@@ -315,8 +153,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
   }) {
     return startTracking?.call();
   }
@@ -324,7 +160,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? startTracking,
     TResult Function(
       String accuracy,
@@ -332,8 +167,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
     required TResult orElse(),
   }) {
     if (startTracking != null) {
@@ -345,11 +178,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
     required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
   }) {
     return startTracking(this);
   }
@@ -357,11 +187,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
   }) {
     return startTracking?.call(this);
   }
@@ -369,11 +196,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
     TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
     required TResult orElse(),
   }) {
     if (startTracking != null) {
@@ -490,7 +314,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() startTracking,
     required TResult Function(
       String accuracy,
@@ -498,8 +321,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
       int timeIntervalMs,
     )
     updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
   }) {
     return updateSettings(accuracy, distanceFilterMeters, timeIntervalMs);
   }
@@ -507,7 +328,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? startTracking,
     TResult? Function(
       String accuracy,
@@ -515,8 +335,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
   }) {
     return updateSettings?.call(accuracy, distanceFilterMeters, timeIntervalMs);
   }
@@ -524,7 +342,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? startTracking,
     TResult Function(
       String accuracy,
@@ -532,8 +349,6 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
       int timeIntervalMs,
     )?
     updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
     required TResult orElse(),
   }) {
     if (updateSettings != null) {
@@ -545,11 +360,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
     required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
   }) {
     return updateSettings(this);
   }
@@ -557,11 +369,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
   }) {
     return updateSettings?.call(this);
   }
@@ -569,11 +378,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
     TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
     required TResult orElse(),
   }) {
     if (updateSettings != null) {
@@ -602,410 +408,38 @@ abstract class LocationUpdateSettings implements LocationEvent {
 }
 
 /// @nodoc
-abstract class _$$LocationReceivedImplCopyWith<$Res> {
-  factory _$$LocationReceivedImplCopyWith(
-    _$LocationReceivedImpl value,
-    $Res Function(_$LocationReceivedImpl) then,
-  ) = __$$LocationReceivedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Position position});
-}
-
-/// @nodoc
-class __$$LocationReceivedImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationReceivedImpl>
-    implements _$$LocationReceivedImplCopyWith<$Res> {
-  __$$LocationReceivedImplCopyWithImpl(
-    _$LocationReceivedImpl _value,
-    $Res Function(_$LocationReceivedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? position = null}) {
-    return _then(
-      _$LocationReceivedImpl(
-        null == position
-            ? _value.position
-            : position // ignore: cast_nullable_to_non_nullable
-                as Position,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$LocationReceivedImpl implements LocationReceived {
-  const _$LocationReceivedImpl(this.position);
-
-  @override
-  final Position position;
-
-  @override
-  String toString() {
-    return 'LocationEvent.locationReceived(position: $position)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationReceivedImpl &&
-            (identical(other.position, position) ||
-                other.position == position));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, position);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationReceivedImplCopyWith<_$LocationReceivedImpl> get copyWith =>
-      __$$LocationReceivedImplCopyWithImpl<_$LocationReceivedImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() startTracking,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return locationReceived(position);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? startTracking,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return locationReceived?.call(position);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? startTracking,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (locationReceived != null) {
-      return locationReceived(position);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return locationReceived(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return locationReceived?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (locationReceived != null) {
-      return locationReceived(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationReceived implements LocationEvent {
-  const factory LocationReceived(final Position position) =
-      _$LocationReceivedImpl;
-
-  Position get position;
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocationReceivedImplCopyWith<_$LocationReceivedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LocationErrorImplCopyWith<$Res> {
-  factory _$$LocationErrorImplCopyWith(
-    _$LocationErrorImpl value,
-    $Res Function(_$LocationErrorImpl) then,
-  ) = __$$LocationErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$LocationErrorImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationErrorImpl>
-    implements _$$LocationErrorImplCopyWith<$Res> {
-  __$$LocationErrorImplCopyWithImpl(
-    _$LocationErrorImpl _value,
-    $Res Function(_$LocationErrorImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? error = null}) {
-    return _then(
-      _$LocationErrorImpl(
-        null == error
-            ? _value.error
-            : error // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$LocationErrorImpl implements LocationError {
-  const _$LocationErrorImpl(this.error);
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'LocationEvent.locationError(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationErrorImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationErrorImplCopyWith<_$LocationErrorImpl> get copyWith =>
-      __$$LocationErrorImplCopyWithImpl<_$LocationErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() startTracking,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return locationError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? startTracking,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return locationError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? startTracking,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (locationError != null) {
-      return locationError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return locationError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return locationError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (locationError != null) {
-      return locationError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationError implements LocationEvent {
-  const factory LocationError(final String error) = _$LocationErrorImpl;
-
-  String get error;
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocationErrorImplCopyWith<_$LocationErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
@@ -1013,7 +447,7 @@ mixin _$LocationState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
@@ -1021,7 +455,7 @@ mixin _$LocationState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
@@ -1095,15 +529,9 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) {
@@ -1114,15 +542,10 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) {
     return start?.call();
@@ -1132,15 +555,9 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
@@ -1154,7 +571,7 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
@@ -1166,7 +583,7 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
@@ -1178,7 +595,7 @@ class _$LocationStartImpl implements LocationStart {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
@@ -1196,61 +613,36 @@ abstract class LocationStart implements LocationState {
 }
 
 /// @nodoc
-abstract class _$$LocationTrackingImplCopyWith<$Res> {
-  factory _$$LocationTrackingImplCopyWith(
-    _$LocationTrackingImpl value,
-    $Res Function(_$LocationTrackingImpl) then,
-  ) = __$$LocationTrackingImplCopyWithImpl<$Res>;
+abstract class _$$LocationActiveImplCopyWith<$Res> {
+  factory _$$LocationActiveImplCopyWith(
+    _$LocationActiveImpl value,
+    $Res Function(_$LocationActiveImpl) then,
+  ) = __$$LocationActiveImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    Position currentPosition,
-    DateTime lastUpdate,
-    String accuracy,
-    int? satelliteCount,
-  });
+  $Res call({LocationEntity currentPosition});
 }
 
 /// @nodoc
-class __$$LocationTrackingImplCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$LocationTrackingImpl>
-    implements _$$LocationTrackingImplCopyWith<$Res> {
-  __$$LocationTrackingImplCopyWithImpl(
-    _$LocationTrackingImpl _value,
-    $Res Function(_$LocationTrackingImpl) _then,
+class __$$LocationActiveImplCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$LocationActiveImpl>
+    implements _$$LocationActiveImplCopyWith<$Res> {
+  __$$LocationActiveImplCopyWithImpl(
+    _$LocationActiveImpl _value,
+    $Res Function(_$LocationActiveImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? currentPosition = null,
-    Object? lastUpdate = null,
-    Object? accuracy = null,
-    Object? satelliteCount = freezed,
-  }) {
+  $Res call({Object? currentPosition = null}) {
     return _then(
-      _$LocationTrackingImpl(
+      _$LocationActiveImpl(
         currentPosition:
             null == currentPosition
                 ? _value.currentPosition
                 : currentPosition // ignore: cast_nullable_to_non_nullable
-                    as Position,
-        lastUpdate:
-            null == lastUpdate
-                ? _value.lastUpdate
-                : lastUpdate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        accuracy:
-            null == accuracy
-                ? _value.accuracy
-                : accuracy // ignore: cast_nullable_to_non_nullable
-                    as String,
-        satelliteCount:
-            freezed == satelliteCount
-                ? _value.satelliteCount
-                : satelliteCount // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as LocationEntity,
       ),
     );
   }
@@ -1258,59 +650,36 @@ class __$$LocationTrackingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LocationTrackingImpl implements LocationTracking {
-  const _$LocationTrackingImpl({
-    required this.currentPosition,
-    required this.lastUpdate,
-    required this.accuracy,
-    this.satelliteCount,
-  });
+class _$LocationActiveImpl implements LocationActive {
+  const _$LocationActiveImpl({required this.currentPosition});
 
   @override
-  final Position currentPosition;
-  @override
-  final DateTime lastUpdate;
-  @override
-  final String accuracy;
-  @override
-  final int? satelliteCount;
+  final LocationEntity currentPosition;
 
   @override
   String toString() {
-    return 'LocationState.tracking(currentPosition: $currentPosition, lastUpdate: $lastUpdate, accuracy: $accuracy, satelliteCount: $satelliteCount)';
+    return 'LocationState.active(currentPosition: $currentPosition)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LocationTrackingImpl &&
+            other is _$LocationActiveImpl &&
             (identical(other.currentPosition, currentPosition) ||
-                other.currentPosition == currentPosition) &&
-            (identical(other.lastUpdate, lastUpdate) ||
-                other.lastUpdate == lastUpdate) &&
-            (identical(other.accuracy, accuracy) ||
-                other.accuracy == accuracy) &&
-            (identical(other.satelliteCount, satelliteCount) ||
-                other.satelliteCount == satelliteCount));
+                other.currentPosition == currentPosition));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    currentPosition,
-    lastUpdate,
-    accuracy,
-    satelliteCount,
-  );
+  int get hashCode => Object.hash(runtimeType, currentPosition);
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LocationTrackingImplCopyWith<_$LocationTrackingImpl> get copyWith =>
-      __$$LocationTrackingImplCopyWithImpl<_$LocationTrackingImpl>(
+  _$$LocationActiveImplCopyWith<_$LocationActiveImpl> get copyWith =>
+      __$$LocationActiveImplCopyWithImpl<_$LocationActiveImpl>(
         this,
         _$identity,
       );
@@ -1319,62 +688,40 @@ class _$LocationTrackingImpl implements LocationTracking {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) {
-    return tracking(currentPosition, lastUpdate, accuracy, satelliteCount);
+    return active(currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) {
-    return tracking?.call(
-      currentPosition,
-      lastUpdate,
-      accuracy,
-      satelliteCount,
-    );
+    return active?.call(currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
-    if (tracking != null) {
-      return tracking(currentPosition, lastUpdate, accuracy, satelliteCount);
+    if (active != null) {
+      return active(currentPosition);
     }
     return orElse();
   }
@@ -1383,60 +730,54 @@ class _$LocationTrackingImpl implements LocationTracking {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
   }) {
-    return tracking(this);
+    return active(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
   }) {
-    return tracking?.call(this);
+    return active?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
     required TResult orElse(),
   }) {
-    if (tracking != null) {
-      return tracking(this);
+    if (active != null) {
+      return active(this);
     }
     return orElse();
   }
 }
 
-abstract class LocationTracking implements LocationState {
-  const factory LocationTracking({
-    required final Position currentPosition,
-    required final DateTime lastUpdate,
-    required final String accuracy,
-    final int? satelliteCount,
-  }) = _$LocationTrackingImpl;
+abstract class LocationActive implements LocationState {
+  const factory LocationActive({
+    required final LocationEntity currentPosition,
+  }) = _$LocationActiveImpl;
 
-  Position get currentPosition;
-  DateTime get lastUpdate;
-  String get accuracy;
-  int? get satelliteCount;
+  LocationEntity get currentPosition;
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocationTrackingImplCopyWith<_$LocationTrackingImpl> get copyWith =>
+  _$$LocationActiveImplCopyWith<_$LocationActiveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1447,7 +788,7 @@ abstract class _$$LocationStoppedImplCopyWith<$Res> {
     $Res Function(_$LocationStoppedImpl) then,
   ) = __$$LocationStoppedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Position? lastKnownPosition});
+  $Res call({LocationEntity? lastKnownPosition});
 }
 
 /// @nodoc
@@ -1470,7 +811,7 @@ class __$$LocationStoppedImplCopyWithImpl<$Res>
             freezed == lastKnownPosition
                 ? _value.lastKnownPosition
                 : lastKnownPosition // ignore: cast_nullable_to_non_nullable
-                    as Position?,
+                    as LocationEntity?,
       ),
     );
   }
@@ -1482,7 +823,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   const _$LocationStoppedImpl({this.lastKnownPosition});
 
   @override
-  final Position? lastKnownPosition;
+  final LocationEntity? lastKnownPosition;
 
   @override
   String toString() {
@@ -1516,15 +857,9 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) {
@@ -1535,15 +870,10 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) {
     return stopped?.call(lastKnownPosition);
@@ -1553,15 +883,9 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
@@ -1575,7 +899,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
@@ -1587,7 +911,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
@@ -1599,7 +923,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
@@ -1613,10 +937,10 @@ class _$LocationStoppedImpl implements LocationStopped {
 }
 
 abstract class LocationStopped implements LocationState {
-  const factory LocationStopped({final Position? lastKnownPosition}) =
+  const factory LocationStopped({final LocationEntity? lastKnownPosition}) =
       _$LocationStoppedImpl;
 
-  Position? get lastKnownPosition;
+  LocationEntity? get lastKnownPosition;
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
@@ -1632,7 +956,7 @@ abstract class _$$LocationErrorsImplCopyWith<$Res> {
     $Res Function(_$LocationErrorsImpl) then,
   ) = __$$LocationErrorsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message, Position? lastKnownPosition});
+  $Res call({String message, LocationEntity? lastKnownPosition});
 }
 
 /// @nodoc
@@ -1660,7 +984,7 @@ class __$$LocationErrorsImplCopyWithImpl<$Res>
             freezed == lastKnownPosition
                 ? _value.lastKnownPosition
                 : lastKnownPosition // ignore: cast_nullable_to_non_nullable
-                    as Position?,
+                    as LocationEntity?,
       ),
     );
   }
@@ -1674,7 +998,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   final String message;
   @override
-  final Position? lastKnownPosition;
+  final LocationEntity? lastKnownPosition;
 
   @override
   String toString() {
@@ -1709,15 +1033,9 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) {
@@ -1728,15 +1046,10 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) {
     return errors?.call(message, lastKnownPosition);
@@ -1746,15 +1059,9 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
@@ -1768,7 +1075,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
@@ -1780,7 +1087,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
@@ -1792,7 +1099,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
@@ -1808,11 +1115,11 @@ class _$LocationErrorsImpl implements LocationErrors {
 abstract class LocationErrors implements LocationState {
   const factory LocationErrors({
     required final String message,
-    final Position? lastKnownPosition,
+    final LocationEntity? lastKnownPosition,
   }) = _$LocationErrorsImpl;
 
   String get message;
-  Position? get lastKnownPosition;
+  LocationEntity? get lastKnownPosition;
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
@@ -1896,15 +1203,9 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
+    required TResult Function(LocationEntity currentPosition) active,
+    required TResult Function(LocationEntity? lastKnownPosition) stopped,
+    required TResult Function(String message, LocationEntity? lastKnownPosition)
     errors,
     required TResult Function(String? message) loading,
   }) {
@@ -1915,15 +1216,10 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
+    TResult? Function(LocationEntity currentPosition)? active,
+    TResult? Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult? Function(String message, LocationEntity? lastKnownPosition)?
+    errors,
     TResult? Function(String? message)? loading,
   }) {
     return loading?.call(message);
@@ -1933,15 +1229,9 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
+    TResult Function(LocationEntity currentPosition)? active,
+    TResult Function(LocationEntity? lastKnownPosition)? stopped,
+    TResult Function(String message, LocationEntity? lastKnownPosition)? errors,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
@@ -1955,7 +1245,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LocationStart value) start,
-    required TResult Function(LocationTracking value) tracking,
+    required TResult Function(LocationActive value) active,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
@@ -1967,7 +1257,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LocationStart value)? start,
-    TResult? Function(LocationTracking value)? tracking,
+    TResult? Function(LocationActive value)? active,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
@@ -1979,7 +1269,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LocationStart value)? start,
-    TResult Function(LocationTracking value)? tracking,
+    TResult Function(LocationActive value)? active,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,

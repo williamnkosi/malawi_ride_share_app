@@ -6,7 +6,6 @@ import 'package:malawi_ride_share_app/features/driver/data/repository/driver_loc
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
-import 'package:malawi_ride_share_app/features/driver/domain/usecase/get_current_location.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -143,8 +142,8 @@ Future<void> setupLocationFeatureDependencies() async {
   getIt.registerSingleton<LocationRepository>(LocationRepositoryImpl());
 
   // Use cases
-  getIt.registerSingleton<GetCurrentLocationUseCase>(
-    GetCurrentLocationUseCase(getIt<LocationRepository>()),
+  getIt.registerSingleton<GetLocationUseCase>(
+    GetLocationUseCase(getIt<LocationRepositoryImpl>()),
   );
 
   // Blocs

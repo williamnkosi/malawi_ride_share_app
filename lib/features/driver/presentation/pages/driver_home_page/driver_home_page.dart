@@ -158,18 +158,18 @@ class _DriverHomePageState extends State<DriverHomePage> {
             TextButton(
               onPressed: () {
                 Navigator.of(dialogContext).pop();
-                context.read<DriverOperationsBloc>().add(
-                  const DriverOperationsEvent.rejectTrip(),
-                );
+                // context.read<DriverOperationsBloc>().add(
+                //   const DriverOperationsEvent.rejectTrip(),
+                // );
               },
               child: const Text('Reject'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(dialogContext).pop();
-                context.read<DriverOperationsBloc>().add(
-                  DriverOperationsEvent.acceptTrip(),
-                );
+                // context.read<DriverOperationsBloc>().add(
+                //   DriverOperationsEvent.acceptTrip(),
+                // );
               },
               child: const Text('Accept'),
             ),

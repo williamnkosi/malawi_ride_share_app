@@ -6,17 +6,15 @@ class DriverStatusBar extends StatelessWidget {
   final String goOnlineText = 'Go Online';
   final String goOfflineText = 'Go Offline';
 
-  const DriverStatusBar({
-    super.key,
-  });
+  const DriverStatusBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DriverOperationsBloc, DriverOperationsState>(
       builder: (context, state) {
         return state.maybeWhen(
-          online: (position) => StatusBarUI(isOnline: true),
-          offline: (_) => StatusBarUI(isOnline: false),
+          online: () => StatusBarUI(isOnline: true),
+          offline: () => StatusBarUI(isOnline: false),
           // Add other cases if needed, or fallback
           orElse: () => const SizedBox.shrink(),
         );
@@ -31,10 +29,7 @@ class StatusBarUI extends StatelessWidget {
   final String goOfflineText = 'Go Offline';
   final String goOnlineText = 'Go Online';
   final bool isOnline;
-  const StatusBarUI({
-    super.key,
-    required this.isOnline,
-  });
+  const StatusBarUI({super.key, required this.isOnline});
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +39,11 @@ class StatusBarUI extends StatelessWidget {
       color: isOnline ? Colors.green.shade50 : Colors.red.shade50,
       child: Row(
         children: [
-          Icon(Icons.circle,
-              color: isOnline ? Colors.green : Colors.red, size: 12),
+          Icon(
+            Icons.circle,
+            color: isOnline ? Colors.green : Colors.red,
+            size: 12,
+          ),
           const SizedBox(width: 8),
           Text(
             isOnline
@@ -61,11 +59,11 @@ class StatusBarUI extends StatelessWidget {
             onPressed: () {
               isOnline
                   ? context.read<DriverOperationsBloc>().add(
-                        const DriverOperationsEvent.goOffline(),
-                      )
+                      const DriverOperationsEvent.goOffline(),
+                    )
                   : context.read<DriverOperationsBloc>().add(
-                        const DriverOperationsEvent.goOnline(),
-                      );
+                      const DriverOperationsEvent.goOnline(),
+                    );
             },
             icon: Icon(
               isOnline ? Icons.power_settings_new : Icons.play_arrow,

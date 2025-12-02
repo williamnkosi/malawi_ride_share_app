@@ -22,11 +22,5 @@ class GoOfflineUseCase implements StreamUseCase<Position, void> {
       throw Exception('User not authenticated');
     }
     driverLocationTrackingRepository.stopTrackingLocation();
-    await for (var position in locationRepositoryImp.getLocationStream(
-      locationAccuracy: LocationAccuracy.bestForNavigation,
-    )) {
-      print('Offline position: $position');
-      yield position;
-    }
   }
 }

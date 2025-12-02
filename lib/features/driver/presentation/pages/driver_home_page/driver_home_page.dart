@@ -33,12 +33,12 @@ class _DriverHomePageState extends State<DriverHomePage> {
       providers: [
         BlocProvider(
           create: (context) =>
-              getIt<DriverOperationsBloc>()
-                ..add(const DriverOperationsEvent.initialize()),
+              getIt<LocationBloc>()..add(const LocationEvent.startTracking()),
         ),
         BlocProvider(
           create: (context) =>
-              getIt<LocationBloc>()..add(const LocationEvent.startTracking()),
+              getIt<DriverOperationsBloc>()
+                ..add(const DriverOperationsEvent.initialize()),
         ),
       ],
       child: Scaffold(

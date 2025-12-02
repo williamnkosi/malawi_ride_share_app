@@ -9,7 +9,6 @@ import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_t
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
-import 'package:malawi_ride_share_app/features/driver/domain/usecase/listen_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/location_permission_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/app/data/repositories/notification_permission_repository_impl.dart';
@@ -29,7 +28,6 @@ import 'package:malawi_ride_share_app/features/shared/data/repository/socket_rep
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/location/domain/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/features/location/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 
@@ -49,31 +47,21 @@ Future<void> setupGetIt() async {
   await getIt.isReady<ApiService>();
   logger.info('ApiService registered');
 
-  await setupSharedDependencies();
-  await setupAppFeatureDependencies();
-  await setupLocationFeatureDependencies();
-
   logger.info('=====================================');
 
   getIt.registerSingleton<FirebaseAuthRepositoryImp>(
     FirebaseAuthRepositoryImp(apiService: getIt<ApiService>()),
   );
-  logger.info('AuthRepository registered');
-  getIt.registerSingleton<ImageRepository>(ImageRepository());
-  logger.info('ImageRepository registered');
-  logger.info('LocationRepository registered');
-
-  logger.info('DriverOperationsRepository registered');
-  logger.info('===================================== /n');
-
+  await setupSharedDependencies();
+  await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
+  await setupLocationFeatureDependencies();
   await setupDriverOperationsDependencies();
 }
 
 Future<void> setupSharedDependencies() async {
   // Shared Repositories
   getIt.registerSingleton<SocketRepository>(SocketRepositoryImpl());
-  getIt.registerSingleton<LocationRepository>(LocationRepositoryImpl());
   getIt.registerSingleton<FirebaseRepository>(
     FirebaseRepositoryImpl(apiService: getIt<ApiService>()),
   );
@@ -143,7 +131,7 @@ Future<void> setupLocationFeatureDependencies() async {
 
   // Use cases
   getIt.registerSingleton<GetLocationUseCase>(
-    GetLocationUseCase(getIt<LocationRepositoryImpl>()),
+    GetLocationUseCase(getIt<LocationRepository>()),
   );
 
   // Blocs
@@ -164,21 +152,12 @@ Future<void> setupDriverOperationsDependencies() async {
 
   // Use cases
 
-  getIt.registerSingleton<GetCurrentLocationUseCase>(
-    GetCurrentLocationUseCase(getIt<LocationRepository>()),
-  );
   getIt.registerSingleton<InitializeUseCase>(
-    InitializeUseCase(
-      getIt<SocketRepository>(),
-      getIt<FirebaseRepository>(),
-      getIt<LocationPermissionRepository>(),
-      getIt<LocationRepository>(),
-    ),
+    InitializeUseCase(getIt<SocketRepository>(), getIt<FirebaseRepository>()),
   );
 
   getIt.registerSingleton<GoOnLineUseCase>(
     GoOnLineUseCase(
-      getIt<LocationRepository>(),
       getIt<FirebaseRepository>(),
       getIt<DriverLocationTrackingRepository>(),
     ),
@@ -186,14 +165,9 @@ Future<void> setupDriverOperationsDependencies() async {
 
   getIt.registerSingleton<GoOfflineUseCase>(
     GoOfflineUseCase(
-      getIt<LocationRepository>(),
       getIt<FirebaseRepository>(),
       getIt<DriverLocationTrackingRepository>(),
     ),
-  );
-
-  getIt.registerSingleton<ListenTripRequestUseCase>(
-    ListenTripRequestUseCase(getIt<DriverTripRepository>()),
   );
 
   getIt.registerFactory<DriverOperationsBloc>(
@@ -201,8 +175,6 @@ Future<void> setupDriverOperationsDependencies() async {
       initializeUseCase: getIt<InitializeUseCase>(),
       goOfflineUseCase: getIt<GoOfflineUseCase>(),
       goOnLineUseCase: getIt<GoOnLineUseCase>(),
-      listenTripRequestUseCase: getIt<ListenTripRequestUseCase>(),
-      getCurrentLocation: getIt<GetCurrentLocationUseCase>(),
     ),
   );
 }

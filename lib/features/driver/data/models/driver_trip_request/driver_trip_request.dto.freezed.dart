@@ -15,14 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-TripRequestNotificationDto _$TripRequestNotificationDtoFromJson(
-  Map<String, dynamic> json,
-) {
-  return _TripRequestNotificationDto.fromJson(json);
+DriverTripRequestDto _$DriverTripRequestDtoFromJson(Map<String, dynamic> json) {
+  return _DriverTripRequestDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TripRequestNotificationDto {
+mixin _$DriverTripRequestDto {
   String get tripId => throw _privateConstructorUsedError;
   LocationDto get pickupLocation => throw _privateConstructorUsedError;
   LocationDto get dropoffLocation => throw _privateConstructorUsedError;
@@ -30,26 +28,22 @@ mixin _$TripRequestNotificationDto {
   String get riderFirstName => throw _privateConstructorUsedError;
   String get riderLastName => throw _privateConstructorUsedError;
 
-  /// Serializes this TripRequestNotificationDto to a JSON map.
+  /// Serializes this DriverTripRequestDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TripRequestNotificationDtoCopyWith<TripRequestNotificationDto>
-  get copyWith => throw _privateConstructorUsedError;
+  $DriverTripRequestDtoCopyWith<DriverTripRequestDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TripRequestNotificationDtoCopyWith<$Res> {
-  factory $TripRequestNotificationDtoCopyWith(
-    TripRequestNotificationDto value,
-    $Res Function(TripRequestNotificationDto) then,
-  ) =
-      _$TripRequestNotificationDtoCopyWithImpl<
-        $Res,
-        TripRequestNotificationDto
-      >;
+abstract class $DriverTripRequestDtoCopyWith<$Res> {
+  factory $DriverTripRequestDtoCopyWith(
+    DriverTripRequestDto value,
+    $Res Function(DriverTripRequestDto) then,
+  ) = _$DriverTripRequestDtoCopyWithImpl<$Res, DriverTripRequestDto>;
   @useResult
   $Res call({
     String tripId,
@@ -65,19 +59,19 @@ abstract class $TripRequestNotificationDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TripRequestNotificationDtoCopyWithImpl<
+class _$DriverTripRequestDtoCopyWithImpl<
   $Res,
-  $Val extends TripRequestNotificationDto
+  $Val extends DriverTripRequestDto
 >
-    implements $TripRequestNotificationDtoCopyWith<$Res> {
-  _$TripRequestNotificationDtoCopyWithImpl(this._value, this._then);
+    implements $DriverTripRequestDtoCopyWith<$Res> {
+  _$DriverTripRequestDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -126,7 +120,7 @@ class _$TripRequestNotificationDtoCopyWithImpl<
     );
   }
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -136,7 +130,7 @@ class _$TripRequestNotificationDtoCopyWithImpl<
     });
   }
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -148,12 +142,12 @@ class _$TripRequestNotificationDtoCopyWithImpl<
 }
 
 /// @nodoc
-abstract class _$$TripRequestNotificationDtoImplCopyWith<$Res>
-    implements $TripRequestNotificationDtoCopyWith<$Res> {
-  factory _$$TripRequestNotificationDtoImplCopyWith(
-    _$TripRequestNotificationDtoImpl value,
-    $Res Function(_$TripRequestNotificationDtoImpl) then,
-  ) = __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>;
+abstract class _$$DriverTripRequestDtoImplCopyWith<$Res>
+    implements $DriverTripRequestDtoCopyWith<$Res> {
+  factory _$$DriverTripRequestDtoImplCopyWith(
+    _$DriverTripRequestDtoImpl value,
+    $Res Function(_$DriverTripRequestDtoImpl) then,
+  ) = __$$DriverTripRequestDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -172,19 +166,15 @@ abstract class _$$TripRequestNotificationDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>
-    extends
-        _$TripRequestNotificationDtoCopyWithImpl<
-          $Res,
-          _$TripRequestNotificationDtoImpl
-        >
-    implements _$$TripRequestNotificationDtoImplCopyWith<$Res> {
-  __$$TripRequestNotificationDtoImplCopyWithImpl(
-    _$TripRequestNotificationDtoImpl _value,
-    $Res Function(_$TripRequestNotificationDtoImpl) _then,
+class __$$DriverTripRequestDtoImplCopyWithImpl<$Res>
+    extends _$DriverTripRequestDtoCopyWithImpl<$Res, _$DriverTripRequestDtoImpl>
+    implements _$$DriverTripRequestDtoImplCopyWith<$Res> {
+  __$$DriverTripRequestDtoImplCopyWithImpl(
+    _$DriverTripRequestDtoImpl _value,
+    $Res Function(_$DriverTripRequestDtoImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -197,7 +187,7 @@ class __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>
     Object? riderLastName = null,
   }) {
     return _then(
-      _$TripRequestNotificationDtoImpl(
+      _$DriverTripRequestDtoImpl(
         tripId:
             null == tripId
                 ? _value.tripId
@@ -235,19 +225,18 @@ class __$$TripRequestNotificationDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
-  const _$TripRequestNotificationDtoImpl({
+class _$DriverTripRequestDtoImpl extends _DriverTripRequestDto {
+  const _$DriverTripRequestDtoImpl({
     required this.tripId,
     required this.pickupLocation,
     required this.dropoffLocation,
     required this.passengerCount,
     required this.riderFirstName,
     required this.riderLastName,
-  });
+  }) : super._();
 
-  factory _$TripRequestNotificationDtoImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$TripRequestNotificationDtoImplFromJson(json);
+  factory _$DriverTripRequestDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DriverTripRequestDtoImplFromJson(json);
 
   @override
   final String tripId;
@@ -264,14 +253,14 @@ class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
 
   @override
   String toString() {
-    return 'TripRequestNotificationDto(tripId: $tripId, pickupLocation: $pickupLocation, dropoffLocation: $dropoffLocation, passengerCount: $passengerCount, riderFirstName: $riderFirstName, riderLastName: $riderLastName)';
+    return 'DriverTripRequestDto(tripId: $tripId, pickupLocation: $pickupLocation, dropoffLocation: $dropoffLocation, passengerCount: $passengerCount, riderFirstName: $riderFirstName, riderLastName: $riderLastName)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TripRequestNotificationDtoImpl &&
+            other is _$DriverTripRequestDtoImpl &&
             (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.pickupLocation, pickupLocation) ||
                 other.pickupLocation == pickupLocation) &&
@@ -297,35 +286,37 @@ class _$TripRequestNotificationDtoImpl implements _TripRequestNotificationDto {
     riderLastName,
   );
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TripRequestNotificationDtoImplCopyWith<_$TripRequestNotificationDtoImpl>
-  get copyWith => __$$TripRequestNotificationDtoImplCopyWithImpl<
-    _$TripRequestNotificationDtoImpl
-  >(this, _$identity);
+  _$$DriverTripRequestDtoImplCopyWith<_$DriverTripRequestDtoImpl>
+  get copyWith =>
+      __$$DriverTripRequestDtoImplCopyWithImpl<_$DriverTripRequestDtoImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TripRequestNotificationDtoImplToJson(this);
+    return _$$DriverTripRequestDtoImplToJson(this);
   }
 }
 
-abstract class _TripRequestNotificationDto
-    implements TripRequestNotificationDto {
-  const factory _TripRequestNotificationDto({
+abstract class _DriverTripRequestDto extends DriverTripRequestDto {
+  const factory _DriverTripRequestDto({
     required final String tripId,
     required final LocationDto pickupLocation,
     required final LocationDto dropoffLocation,
     required final int passengerCount,
     required final String riderFirstName,
     required final String riderLastName,
-  }) = _$TripRequestNotificationDtoImpl;
+  }) = _$DriverTripRequestDtoImpl;
+  const _DriverTripRequestDto._() : super._();
 
-  factory _TripRequestNotificationDto.fromJson(Map<String, dynamic> json) =
-      _$TripRequestNotificationDtoImpl.fromJson;
+  factory _DriverTripRequestDto.fromJson(Map<String, dynamic> json) =
+      _$DriverTripRequestDtoImpl.fromJson;
 
   @override
   String get tripId;
@@ -340,10 +331,10 @@ abstract class _TripRequestNotificationDto
   @override
   String get riderLastName;
 
-  /// Create a copy of TripRequestNotificationDto
+  /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TripRequestNotificationDtoImplCopyWith<_$TripRequestNotificationDtoImpl>
+  _$$DriverTripRequestDtoImplCopyWith<_$DriverTripRequestDtoImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

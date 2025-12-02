@@ -17,7 +17,7 @@ class DriverLocationTrackingRepositoryImpl
     socketRepository.emit(
       LocationEvents.locationUpdate,
       SocketNamespace.location.path,
-      {"location": location.toJson(), "status": status.toString()},
+      {"location": location.toJson(), "status": status.name.toLowerCase()},
     );
   }
 

@@ -24,7 +24,7 @@ mixin _$DriverOperationsEvent {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -41,7 +41,7 @@ mixin _$DriverOperationsEvent {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -57,7 +57,7 @@ mixin _$DriverOperationsEvent {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -201,7 +201,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -222,7 +222,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -242,7 +242,7 @@ class _$DriverOperationsInitializeImpl implements DriverOperationsInitialize {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -386,7 +386,7 @@ class _$DriverOperationsNoPermissionsImpl
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -407,7 +407,7 @@ class _$DriverOperationsNoPermissionsImpl
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -427,7 +427,7 @@ class _$DriverOperationsNoPermissionsImpl
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -571,7 +571,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -592,7 +592,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -612,7 +612,7 @@ class _$DriverOperationsGoOnlineImpl implements DriverOperationsGoOnline {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -755,7 +755,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -776,7 +776,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -796,7 +796,7 @@ class _$DriverOperationsGoOfflineImpl implements DriverOperationsGoOffline {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -971,7 +971,7 @@ class _$DriverOperationsLocationUpdatedImpl
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -992,7 +992,7 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -1012,7 +1012,7 @@ class _$DriverOperationsLocationUpdatedImpl
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -1121,9 +1121,7 @@ abstract class _$$DriverOperationsTripRequestReceivedImplCopyWith<$Res> {
     $Res Function(_$DriverOperationsTripRequestReceivedImpl) then,
   ) = __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({TripRequestNotificationDto tripData});
-
-  $TripRequestNotificationDtoCopyWith<$Res> get tripData;
+  $Res call({DriverTripRequestEntity tripData});
 }
 
 /// @nodoc
@@ -1150,19 +1148,9 @@ class __$$DriverOperationsTripRequestReceivedImplCopyWithImpl<$Res>
             null == tripData
                 ? _value.tripData
                 : tripData // ignore: cast_nullable_to_non_nullable
-                    as TripRequestNotificationDto,
+                    as DriverTripRequestEntity,
       ),
     );
-  }
-
-  /// Create a copy of DriverOperationsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TripRequestNotificationDtoCopyWith<$Res> get tripData {
-    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripData, (value) {
-      return _then(_value.copyWith(tripData: value));
-    });
   }
 }
 
@@ -1173,7 +1161,7 @@ class _$DriverOperationsTripRequestReceivedImpl
   const _$DriverOperationsTripRequestReceivedImpl({required this.tripData});
 
   @override
-  final TripRequestNotificationDto tripData;
+  final DriverTripRequestEntity tripData;
 
   @override
   String toString() {
@@ -1212,7 +1200,7 @@ class _$DriverOperationsTripRequestReceivedImpl
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -1233,7 +1221,7 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -1253,7 +1241,7 @@ class _$DriverOperationsTripRequestReceivedImpl
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -1342,10 +1330,10 @@ class _$DriverOperationsTripRequestReceivedImpl
 abstract class DriverOperationsTripRequestReceived
     implements DriverOperationsEvent {
   const factory DriverOperationsTripRequestReceived({
-    required final TripRequestNotificationDto tripData,
+    required final DriverTripRequestEntity tripData,
   }) = _$DriverOperationsTripRequestReceivedImpl;
 
-  TripRequestNotificationDto get tripData;
+  DriverTripRequestEntity get tripData;
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1409,7 +1397,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -1430,7 +1418,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -1450,7 +1438,7 @@ class _$DriverOperationsAcceptTripImpl implements DriverOperationsAcceptTrip {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -1593,7 +1581,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -1614,7 +1602,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -1634,7 +1622,7 @@ class _$DriverOperationsRejectTripImpl implements DriverOperationsRejectTrip {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -1777,7 +1765,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -1798,7 +1786,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -1818,7 +1806,7 @@ class _$DriverOperationsStartTripImpl implements DriverOperationsStartTrip {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -2006,7 +1994,7 @@ class _$DriverOperationsCompleteTripImpl
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -2027,7 +2015,7 @@ class _$DriverOperationsCompleteTripImpl
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -2047,7 +2035,7 @@ class _$DriverOperationsCompleteTripImpl
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -2232,7 +2220,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -2253,7 +2241,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -2273,7 +2261,7 @@ class _$DriverOperationsCancelTripImpl implements DriverOperationsCancelTrip {
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -2457,7 +2445,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
     required TResult Function() goOnline,
     required TResult Function() goOffline,
     required TResult Function(Position position) locationUpdated,
-    required TResult Function(TripRequestNotificationDto tripData)
+    required TResult Function(DriverTripRequestEntity tripData)
     tripRequestReceived,
     required TResult Function() acceptTrip,
     required TResult Function() rejectTrip,
@@ -2478,7 +2466,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult? Function()? goOnline,
     TResult? Function()? goOffline,
     TResult? Function(Position position)? locationUpdated,
-    TResult? Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult? Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult? Function()? acceptTrip,
     TResult? Function()? rejectTrip,
     TResult? Function()? startTrip,
@@ -2498,7 +2486,7 @@ class _$DriverOperationsUpdateAvailabilityImpl
     TResult Function()? goOnline,
     TResult Function()? goOffline,
     TResult Function(Position position)? locationUpdated,
-    TResult Function(TripRequestNotificationDto tripData)? tripRequestReceived,
+    TResult Function(DriverTripRequestEntity tripData)? tripRequestReceived,
     TResult Function()? acceptTrip,
     TResult Function()? rejectTrip,
     TResult Function()? startTrip,
@@ -2609,11 +2597,11 @@ mixin _$DriverOperationsState {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -2670,11 +2658,11 @@ mixin _$DriverOperationsState {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -2728,11 +2716,11 @@ mixin _$DriverOperationsState {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -2904,11 +2892,11 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -2969,11 +2957,11 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3031,11 +3019,11 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3206,11 +3194,11 @@ class _$NoPermissionImpl implements _NoPermission {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3271,11 +3259,11 @@ class _$NoPermissionImpl implements _NoPermission {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3333,11 +3321,11 @@ class _$NoPermissionImpl implements _NoPermission {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3508,11 +3496,11 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3573,11 +3561,11 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3635,11 +3623,11 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3839,11 +3827,11 @@ class _$OfflineImpl implements _Offline {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3904,11 +3892,11 @@ class _$OfflineImpl implements _Offline {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -3966,11 +3954,11 @@ class _$OfflineImpl implements _Offline {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4178,11 +4166,11 @@ class _$OnlineImpl implements _Online {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4243,11 +4231,11 @@ class _$OnlineImpl implements _Online {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4305,11 +4293,11 @@ class _$OnlineImpl implements _Online {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4448,9 +4436,7 @@ abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
     $Res Function(_$TripRequestReceivedImpl) then,
   ) = __$$TripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({TripRequestNotificationDto tripRequest});
-
-  $TripRequestNotificationDtoCopyWith<$Res> get tripRequest;
+  $Res call({DriverTripRequestEntity driverTripRequest});
 }
 
 /// @nodoc
@@ -4466,42 +4452,30 @@ class __$$TripRequestReceivedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? tripRequest = null}) {
+  $Res call({Object? driverTripRequest = null}) {
     return _then(
       _$TripRequestReceivedImpl(
-        tripRequest:
-            null == tripRequest
-                ? _value.tripRequest
-                : tripRequest // ignore: cast_nullable_to_non_nullable
-                    as TripRequestNotificationDto,
+        driverTripRequest:
+            null == driverTripRequest
+                ? _value.driverTripRequest
+                : driverTripRequest // ignore: cast_nullable_to_non_nullable
+                    as DriverTripRequestEntity,
       ),
     );
-  }
-
-  /// Create a copy of DriverOperationsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TripRequestNotificationDtoCopyWith<$Res> get tripRequest {
-    return $TripRequestNotificationDtoCopyWith<$Res>(_value.tripRequest, (
-      value,
-    ) {
-      return _then(_value.copyWith(tripRequest: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$TripRequestReceivedImpl implements _TripRequestReceived {
-  const _$TripRequestReceivedImpl({required this.tripRequest});
+  const _$TripRequestReceivedImpl({required this.driverTripRequest});
 
   @override
-  final TripRequestNotificationDto tripRequest;
+  final DriverTripRequestEntity driverTripRequest;
 
   @override
   String toString() {
-    return 'DriverOperationsState.tripRequestReceived(tripRequest: $tripRequest)';
+    return 'DriverOperationsState.tripRequestReceived(driverTripRequest: $driverTripRequest)';
   }
 
   @override
@@ -4509,12 +4483,12 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TripRequestReceivedImpl &&
-            (identical(other.tripRequest, tripRequest) ||
-                other.tripRequest == tripRequest));
+            (identical(other.driverTripRequest, driverTripRequest) ||
+                other.driverTripRequest == driverTripRequest));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tripRequest);
+  int get hashCode => Object.hash(runtimeType, driverTripRequest);
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4535,11 +4509,11 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4589,7 +4563,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     )
     error,
   }) {
-    return tripRequestReceived(tripRequest);
+    return tripRequestReceived(driverTripRequest);
   }
 
   @override
@@ -4600,11 +4574,11 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4651,7 +4625,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
-    return tripRequestReceived?.call(tripRequest);
+    return tripRequestReceived?.call(driverTripRequest);
   }
 
   @override
@@ -4662,11 +4636,11 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -4715,7 +4689,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     required TResult orElse(),
   }) {
     if (tripRequestReceived != null) {
-      return tripRequestReceived(tripRequest);
+      return tripRequestReceived(driverTripRequest);
     }
     return orElse();
   }
@@ -4787,10 +4761,10 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
 
 abstract class _TripRequestReceived implements DriverOperationsState {
   const factory _TripRequestReceived({
-    required final TripRequestNotificationDto tripRequest,
+    required final DriverTripRequestEntity driverTripRequest,
   }) = _$TripRequestReceivedImpl;
 
-  TripRequestNotificationDto get tripRequest;
+  DriverTripRequestEntity get driverTripRequest;
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -4808,13 +4782,11 @@ abstract class _$$EnRouteToPickupImplCopyWith<$Res> {
   @useResult
   $Res call({
     Position currentLocation,
-    TripRequestNotificationDto activeTrip,
+    DriverTripRequestEntity activeTrip,
     DateTime estimatedPickupTime,
     DateTime onlineTime,
     List<Position> locationHistory,
   });
-
-  $TripRequestNotificationDtoCopyWith<$Res> get activeTrip;
 }
 
 /// @nodoc
@@ -4848,7 +4820,7 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
             null == activeTrip
                 ? _value.activeTrip
                 : activeTrip // ignore: cast_nullable_to_non_nullable
-                    as TripRequestNotificationDto,
+                    as DriverTripRequestEntity,
         estimatedPickupTime:
             null == estimatedPickupTime
                 ? _value.estimatedPickupTime
@@ -4867,18 +4839,6 @@ class __$$EnRouteToPickupImplCopyWithImpl<$Res>
       ),
     );
   }
-
-  /// Create a copy of DriverOperationsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TripRequestNotificationDtoCopyWith<$Res> get activeTrip {
-    return $TripRequestNotificationDtoCopyWith<$Res>(_value.activeTrip, (
-      value,
-    ) {
-      return _then(_value.copyWith(activeTrip: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -4895,7 +4855,7 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
   @override
   final Position currentLocation;
   @override
-  final TripRequestNotificationDto activeTrip;
+  final DriverTripRequestEntity activeTrip;
   @override
   final DateTime estimatedPickupTime;
   @override
@@ -4962,11 +4922,11 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5033,11 +4993,11 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5101,11 +5061,11 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5233,14 +5193,14 @@ class _$EnRouteToPickupImpl implements _EnRouteToPickup {
 abstract class _EnRouteToPickup implements DriverOperationsState {
   const factory _EnRouteToPickup({
     required final Position currentLocation,
-    required final TripRequestNotificationDto activeTrip,
+    required final DriverTripRequestEntity activeTrip,
     required final DateTime estimatedPickupTime,
     required final DateTime onlineTime,
     final List<Position> locationHistory,
   }) = _$EnRouteToPickupImpl;
 
   Position get currentLocation;
-  TripRequestNotificationDto get activeTrip;
+  DriverTripRequestEntity get activeTrip;
   DateTime get estimatedPickupTime;
   DateTime get onlineTime;
   List<Position> get locationHistory;
@@ -5392,11 +5352,11 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5462,11 +5422,11 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5529,11 +5489,11 @@ class _$WaitingForPassengerImpl implements _WaitingForPassenger {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5835,11 +5795,11 @@ class _$OnTripImpl implements _OnTrip {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5906,11 +5866,11 @@ class _$OnTripImpl implements _OnTrip {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -5974,11 +5934,11 @@ class _$OnTripImpl implements _OnTrip {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6288,11 +6248,11 @@ class _$TripCompletedImpl implements _TripCompleted {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6360,11 +6320,11 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6429,11 +6389,11 @@ class _$TripCompletedImpl implements _TripCompleted {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6733,11 +6693,11 @@ class _$TripCancelledImpl implements _TripCancelled {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6804,11 +6764,11 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -6872,11 +6832,11 @@ class _$TripCancelledImpl implements _TripCancelled {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7130,11 +7090,11 @@ class _$UnavailableImpl implements _Unavailable {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7195,11 +7155,11 @@ class _$UnavailableImpl implements _Unavailable {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7257,11 +7217,11 @@ class _$UnavailableImpl implements _Unavailable {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7499,11 +7459,11 @@ class _$StateErrorImpl implements _StateError {
     required TResult Function() loading,
     required TResult Function(Position? lastKnownLocation) offline,
     required TResult Function(Position? currentLocation) online,
-    required TResult Function(TripRequestNotificationDto tripRequest)
+    required TResult Function(DriverTripRequestEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7564,11 +7524,11 @@ class _$StateErrorImpl implements _StateError {
     TResult? Function()? loading,
     TResult? Function(Position? lastKnownLocation)? offline,
     TResult? Function(Position? currentLocation)? online,
-    TResult? Function(TripRequestNotificationDto tripRequest)?
+    TResult? Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult? Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,
@@ -7626,11 +7586,11 @@ class _$StateErrorImpl implements _StateError {
     TResult Function()? loading,
     TResult Function(Position? lastKnownLocation)? offline,
     TResult Function(Position? currentLocation)? online,
-    TResult Function(TripRequestNotificationDto tripRequest)?
+    TResult Function(DriverTripRequestEntity driverTripRequest)?
     tripRequestReceived,
     TResult Function(
       Position currentLocation,
-      TripRequestNotificationDto activeTrip,
+      DriverTripRequestEntity activeTrip,
       DateTime estimatedPickupTime,
       DateTime onlineTime,
       List<Position> locationHistory,

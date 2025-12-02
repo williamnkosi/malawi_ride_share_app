@@ -4,11 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/get_current_location.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
-import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/listen_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/models/trip_model.dart';
 
@@ -61,7 +61,9 @@ class DriverOperationsBloc
     logger.info('Handling trip request in BLoC: ${event.tripData}');
     // Handle the trip request - update state, show notification, etc.
     emit(
-      DriverOperationsState.tripRequestReceived(tripRequest: event.tripData),
+      DriverOperationsState.tripRequestReceived(
+        driverTripRequest: event.tripData,
+      ),
     );
   }
 

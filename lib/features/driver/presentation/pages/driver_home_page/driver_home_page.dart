@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
-import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
 class DriverHomePage extends StatefulWidget {
-  const DriverHomePage({
-    super.key,
-  });
+  const DriverHomePage({super.key});
 
   @override
   State<DriverHomePage> createState() => _DriverHomePageState();
@@ -22,23 +20,20 @@ class _DriverHomePageState extends State<DriverHomePage> {
     // Request location and notification permissions when landing on the driver home page
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AppBloc>().add(const AppEvent.requestLocationPermission());
-      context
-          .read<AppBloc>()
-          .add(const AppEvent.requestNotificationPermission());
+      context.read<AppBloc>().add(
+        const AppEvent.requestNotificationPermission(),
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<DriverOperationsBloc>()
-        ..add(
-          const DriverOperationsEvent.initialize(),
-        ),
+      create: (context) =>
+          getIt<DriverOperationsBloc>()
+            ..add(const DriverOperationsEvent.initialize()),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Driver Home Page'),
-        ),
+        appBar: AppBar(title: const Text('Driver Home Page')),
         body: MultiBlocListener(
           listeners: [
             BlocListener<AppBloc, AppState>(
@@ -98,8 +93,8 @@ class _DriverHomePageState extends State<DriverHomePage> {
                 Navigator.of(context).pop();
                 // Request location permission
                 context.read<AppBloc>().add(
-                      const AppEvent.requestLocationPermission(),
-                    );
+                  const AppEvent.requestLocationPermission(),
+                );
               },
               child: const Text('Grant Permission'),
             ),
@@ -108,8 +103,8 @@ class _DriverHomePageState extends State<DriverHomePage> {
                 Navigator.of(context).pop();
                 // Open location settings
                 context.read<AppBloc>().add(
-                      const AppEvent.openLocationSettings(),
-                    );
+                  const AppEvent.openLocationSettings(),
+                );
               },
               child: const Text('Open Settings'),
             ),
@@ -120,7 +115,9 @@ class _DriverHomePageState extends State<DriverHomePage> {
   }
 
   void _showTripRequestDialog(
-      BuildContext context, TripRequestNotificationDto tripRequest) {
+    BuildContext context,
+    DriverTripRequestEntity tripRequest,
+  ) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -134,15 +131,18 @@ class _DriverHomePageState extends State<DriverHomePage> {
               Text('Trip ID: ${tripRequest.tripId}'),
               const SizedBox(height: 8),
               Text(
-                  'Passenger: ${tripRequest.riderFirstName} ${tripRequest.riderLastName}'),
+                'Passenger: ${tripRequest.riderFirstName} ${tripRequest.riderLastName}',
+              ),
               const SizedBox(height: 8),
               Text('Passenger Count: ${tripRequest.passengerCount}'),
               const SizedBox(height: 8),
               Text(
-                  'Pickup Location: ${tripRequest.pickupLocation.latitude.toStringAsFixed(6)}, ${tripRequest.pickupLocation.longitude.toStringAsFixed(6)}'),
+                'Pickup Location: ${tripRequest.pickupLocation.latitude.toStringAsFixed(6)}, ${tripRequest.pickupLocation.longitude.toStringAsFixed(6)}',
+              ),
               const SizedBox(height: 8),
               Text(
-                  'Dropoff Location: ${tripRequest.dropoffLocation.latitude.toStringAsFixed(6)}, ${tripRequest.dropoffLocation.longitude.toStringAsFixed(6)}'),
+                'Dropoff Location: ${tripRequest.dropoffLocation.latitude.toStringAsFixed(6)}, ${tripRequest.dropoffLocation.longitude.toStringAsFixed(6)}',
+              ),
             ],
           ),
           actions: [
@@ -150,8 +150,8 @@ class _DriverHomePageState extends State<DriverHomePage> {
               onPressed: () {
                 Navigator.of(dialogContext).pop();
                 context.read<DriverOperationsBloc>().add(
-                      const DriverOperationsEvent.rejectTrip(),
-                    );
+                  const DriverOperationsEvent.rejectTrip(),
+                );
               },
               child: const Text('Reject'),
             ),
@@ -159,8 +159,8 @@ class _DriverHomePageState extends State<DriverHomePage> {
               onPressed: () {
                 Navigator.of(dialogContext).pop();
                 context.read<DriverOperationsBloc>().add(
-                      DriverOperationsEvent.acceptTrip(),
-                    );
+                  DriverOperationsEvent.acceptTrip(),
+                );
               },
               child: const Text('Accept'),
             ),
@@ -183,13 +183,16 @@ class SettingsView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           OutlinedButton(
-              onPressed: () {
-                context
-                    .read<AppBloc>()
-                    .add(const AppEvent.openLocationSettings());
-              },
-              child: Text('Go to Settings',
-                  style: TextStyle(fontSize: 20, color: Colors.black))),
+            onPressed: () {
+              context.read<AppBloc>().add(
+                const AppEvent.openLocationSettings(),
+              );
+            },
+            child: Text(
+              'Go to Settings',
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ),
+          ),
           SizedBox(height: 20),
           Text('Enable location services to receive trip requests.'),
         ],

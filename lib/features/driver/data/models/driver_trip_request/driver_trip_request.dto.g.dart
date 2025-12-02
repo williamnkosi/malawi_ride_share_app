@@ -6,9 +6,9 @@ part of 'driver_trip_request.dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TripRequestNotificationDtoImpl _$$TripRequestNotificationDtoImplFromJson(
+_$DriverTripRequestDtoImpl _$$DriverTripRequestDtoImplFromJson(
   Map<String, dynamic> json,
-) => _$TripRequestNotificationDtoImpl(
+) => _$DriverTripRequestDtoImpl(
   tripId: json['tripId'] as String,
   pickupLocation: LocationDto.fromJson(
     json['pickupLocation'] as Map<String, dynamic>,
@@ -21,8 +21,8 @@ _$TripRequestNotificationDtoImpl _$$TripRequestNotificationDtoImplFromJson(
   riderLastName: json['riderLastName'] as String,
 );
 
-Map<String, dynamic> _$$TripRequestNotificationDtoImplToJson(
-  _$TripRequestNotificationDtoImpl instance,
+Map<String, dynamic> _$$DriverTripRequestDtoImplToJson(
+  _$DriverTripRequestDtoImpl instance,
 ) => <String, dynamic>{
   'tripId': instance.tripId,
   'pickupLocation': instance.pickupLocation,

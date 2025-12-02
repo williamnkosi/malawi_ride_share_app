@@ -11,9 +11,8 @@ class DriverOperationsState with _$DriverOperationsState {
   const factory DriverOperationsState.loading() = _Loading;
 
   // Driver is offline
-  const factory DriverOperationsState.offline({
-    Position? lastKnownLocation,
-  }) = _Offline;
+  const factory DriverOperationsState.offline({Position? lastKnownLocation}) =
+      _Offline;
 
   // Driver is online and available for trips
   const factory DriverOperationsState.online({
@@ -22,13 +21,13 @@ class DriverOperationsState with _$DriverOperationsState {
 
   // Driver received a trip request
   const factory DriverOperationsState.tripRequestReceived({
-    required TripRequestNotificationDto tripRequest,
+    required DriverTripRequestEntity driverTripRequest,
   }) = _TripRequestReceived;
 
   // Driver is en route to pickup passenger
   const factory DriverOperationsState.enRouteToPickup({
     required Position currentLocation,
-    required TripRequestNotificationDto activeTrip,
+    required DriverTripRequestEntity activeTrip,
     required DateTime estimatedPickupTime,
     required DateTime onlineTime,
     @Default([]) List<Position> locationHistory,

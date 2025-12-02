@@ -11,6 +11,8 @@ class LocationDto with _$LocationDto {
     required double longitude,
   }) = _LocationDto;
 
+  const LocationDto._();
+
   factory LocationDto.fromJson(Map<String, dynamic> json) =>
       _$LocationDtoFromJson(json);
 

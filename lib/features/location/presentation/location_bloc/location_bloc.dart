@@ -7,6 +7,20 @@ part 'location_state.dart';
 part 'location_bloc.freezed.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  LocationBloc(super.initialState);
-  // Bloc implementation
+  LocationBloc() : super(const LocationState.start()) {
+    on<LocationInitial>(_onInitial);
+    on<LocationStartTracking>(_onStartTracking);
+    on<LocationUpdateSettings>(_onUpdateSettings);
+    on<LocationReceived>(_onLocationReceived);
+    on<LocationError>(_onLocationError);
+  }
+
+  _onInitial(LocationInitial event, Emitter<LocationState> emit) {}
+  _onStartTracking(LocationStartTracking event, Emitter<LocationState> emit) {}
+  _onUpdateSettings(
+    LocationUpdateSettings event,
+    Emitter<LocationState> emit,
+  ) {}
+  _onLocationReceived(LocationReceived event, Emitter<LocationState> emit) {}
+  _onLocationError(LocationError event, Emitter<LocationState> emit) {}
 }

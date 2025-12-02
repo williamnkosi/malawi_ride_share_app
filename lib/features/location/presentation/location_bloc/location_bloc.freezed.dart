@@ -19,11 +19,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LocationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
     required TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -35,11 +32,8 @@ mixin _$LocationEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
     TResult? Function(
       String accuracy,
       int distanceFilterMeters,
@@ -51,11 +45,8 @@ mixin _$LocationEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
     TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -68,36 +59,24 @@ mixin _$LocationEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
     required TResult Function(LocationUpdateSettings value) updateSettings,
     required TResult Function(LocationReceived value) locationReceived,
     required TResult Function(LocationError value) locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
     TResult? Function(LocationReceived value)? locationReceived,
     TResult? Function(LocationError value)? locationError,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult Function(LocationUpdateSettings value)? updateSettings,
     TResult Function(LocationReceived value)? locationReceived,
     TResult Function(LocationError value)? locationError,
@@ -125,6 +104,146 @@ class _$LocationEventCopyWithImpl<$Res, $Val extends LocationEvent>
 
   /// Create a copy of LocationEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$LocationInitialImplCopyWith<$Res> {
+  factory _$$LocationInitialImplCopyWith(
+    _$LocationInitialImpl value,
+    $Res Function(_$LocationInitialImpl) then,
+  ) = __$$LocationInitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LocationInitialImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$LocationInitialImpl>
+    implements _$$LocationInitialImplCopyWith<$Res> {
+  __$$LocationInitialImplCopyWithImpl(
+    _$LocationInitialImpl _value,
+    $Res Function(_$LocationInitialImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LocationInitialImpl implements LocationInitial {
+  const _$LocationInitialImpl();
+
+  @override
+  String toString() {
+    return 'LocationEvent.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LocationInitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() startTracking,
+    required TResult Function(
+      String accuracy,
+      int distanceFilterMeters,
+      int timeIntervalMs,
+    )
+    updateSettings,
+    required TResult Function(Position position) locationReceived,
+    required TResult Function(String error) locationError,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? startTracking,
+    TResult? Function(
+      String accuracy,
+      int distanceFilterMeters,
+      int timeIntervalMs,
+    )?
+    updateSettings,
+    TResult? Function(Position position)? locationReceived,
+    TResult? Function(String error)? locationError,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? startTracking,
+    TResult Function(
+      String accuracy,
+      int distanceFilterMeters,
+      int timeIntervalMs,
+    )?
+    updateSettings,
+    TResult Function(Position position)? locationReceived,
+    TResult Function(String error)? locationError,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
+    required TResult Function(LocationStartTracking value) startTracking,
+    required TResult Function(LocationUpdateSettings value) updateSettings,
+    required TResult Function(LocationReceived value) locationReceived,
+    required TResult Function(LocationError value) locationError,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
+    TResult? Function(LocationStartTracking value)? startTracking,
+    TResult? Function(LocationUpdateSettings value)? updateSettings,
+    TResult? Function(LocationReceived value)? locationReceived,
+    TResult? Function(LocationError value)? locationError,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
+    TResult Function(LocationStartTracking value)? startTracking,
+    TResult Function(LocationUpdateSettings value)? updateSettings,
+    TResult Function(LocationReceived value)? locationReceived,
+    TResult Function(LocationError value)? locationError,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationInitial implements LocationEvent {
+  const factory LocationInitial() = _$LocationInitialImpl;
 }
 
 /// @nodoc
@@ -171,11 +290,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
     required TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -191,11 +307,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
     TResult? Function(
       String accuracy,
       int distanceFilterMeters,
@@ -211,11 +324,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
     TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -235,14 +345,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
     required TResult Function(LocationUpdateSettings value) updateSettings,
     required TResult Function(LocationReceived value) locationReceived,
     required TResult Function(LocationError value) locationError,
@@ -253,11 +357,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
     TResult? Function(LocationReceived value)? locationReceived,
     TResult? Function(LocationError value)? locationError,
@@ -268,11 +369,8 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult Function(LocationUpdateSettings value)? updateSettings,
     TResult Function(LocationReceived value)? locationReceived,
     TResult Function(LocationError value)? locationError,
@@ -287,654 +385,6 @@ class _$LocationStartTrackingImpl implements LocationStartTracking {
 
 abstract class LocationStartTracking implements LocationEvent {
   const factory LocationStartTracking() = _$LocationStartTrackingImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationStopTrackingImplCopyWith<$Res> {
-  factory _$$LocationStopTrackingImplCopyWith(
-    _$LocationStopTrackingImpl value,
-    $Res Function(_$LocationStopTrackingImpl) then,
-  ) = __$$LocationStopTrackingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationStopTrackingImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationStopTrackingImpl>
-    implements _$$LocationStopTrackingImplCopyWith<$Res> {
-  __$$LocationStopTrackingImplCopyWithImpl(
-    _$LocationStopTrackingImpl _value,
-    $Res Function(_$LocationStopTrackingImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationStopTrackingImpl implements LocationStopTracking {
-  const _$LocationStopTrackingImpl();
-
-  @override
-  String toString() {
-    return 'LocationEvent.stopTracking()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationStopTrackingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return stopTracking();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return stopTracking?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (stopTracking != null) {
-      return stopTracking();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return stopTracking(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return stopTracking?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (stopTracking != null) {
-      return stopTracking(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationStopTracking implements LocationEvent {
-  const factory LocationStopTracking() = _$LocationStopTrackingImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationRequestPermissionsImplCopyWith<$Res> {
-  factory _$$LocationRequestPermissionsImplCopyWith(
-    _$LocationRequestPermissionsImpl value,
-    $Res Function(_$LocationRequestPermissionsImpl) then,
-  ) = __$$LocationRequestPermissionsImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationRequestPermissionsImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationRequestPermissionsImpl>
-    implements _$$LocationRequestPermissionsImplCopyWith<$Res> {
-  __$$LocationRequestPermissionsImplCopyWithImpl(
-    _$LocationRequestPermissionsImpl _value,
-    $Res Function(_$LocationRequestPermissionsImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationRequestPermissionsImpl implements LocationRequestPermissions {
-  const _$LocationRequestPermissionsImpl();
-
-  @override
-  String toString() {
-    return 'LocationEvent.requestPermissions()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationRequestPermissionsImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return requestPermissions();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return requestPermissions?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (requestPermissions != null) {
-      return requestPermissions();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return requestPermissions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return requestPermissions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (requestPermissions != null) {
-      return requestPermissions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationRequestPermissions implements LocationEvent {
-  const factory LocationRequestPermissions() = _$LocationRequestPermissionsImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationPermissionsDeniedImplCopyWith<$Res> {
-  factory _$$LocationPermissionsDeniedImplCopyWith(
-    _$LocationPermissionsDeniedImpl value,
-    $Res Function(_$LocationPermissionsDeniedImpl) then,
-  ) = __$$LocationPermissionsDeniedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationPermissionsDeniedImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationPermissionsDeniedImpl>
-    implements _$$LocationPermissionsDeniedImplCopyWith<$Res> {
-  __$$LocationPermissionsDeniedImplCopyWithImpl(
-    _$LocationPermissionsDeniedImpl _value,
-    $Res Function(_$LocationPermissionsDeniedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationPermissionsDeniedImpl implements LocationPermissionsDenied {
-  const _$LocationPermissionsDeniedImpl();
-
-  @override
-  String toString() {
-    return 'LocationEvent.permissionsDenied()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationPermissionsDeniedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return permissionsDenied();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return permissionsDenied?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (permissionsDenied != null) {
-      return permissionsDenied();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return permissionsDenied(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return permissionsDenied?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (permissionsDenied != null) {
-      return permissionsDenied(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationPermissionsDenied implements LocationEvent {
-  const factory LocationPermissionsDenied() = _$LocationPermissionsDeniedImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationPermissionsGrantedImplCopyWith<$Res> {
-  factory _$$LocationPermissionsGrantedImplCopyWith(
-    _$LocationPermissionsGrantedImpl value,
-    $Res Function(_$LocationPermissionsGrantedImpl) then,
-  ) = __$$LocationPermissionsGrantedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationPermissionsGrantedImplCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LocationPermissionsGrantedImpl>
-    implements _$$LocationPermissionsGrantedImplCopyWith<$Res> {
-  __$$LocationPermissionsGrantedImplCopyWithImpl(
-    _$LocationPermissionsGrantedImpl _value,
-    $Res Function(_$LocationPermissionsGrantedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationPermissionsGrantedImpl implements LocationPermissionsGranted {
-  const _$LocationPermissionsGrantedImpl();
-
-  @override
-  String toString() {
-    return 'LocationEvent.permissionsGranted()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationPermissionsGrantedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
-    required TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )
-    updateSettings,
-    required TResult Function(Position position) locationReceived,
-    required TResult Function(String error) locationError,
-  }) {
-    return permissionsGranted();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
-    TResult? Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult? Function(Position position)? locationReceived,
-    TResult? Function(String error)? locationError,
-  }) {
-    return permissionsGranted?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
-    TResult Function(
-      String accuracy,
-      int distanceFilterMeters,
-      int timeIntervalMs,
-    )?
-    updateSettings,
-    TResult Function(Position position)? locationReceived,
-    TResult Function(String error)? locationError,
-    required TResult orElse(),
-  }) {
-    if (permissionsGranted != null) {
-      return permissionsGranted();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
-    required TResult Function(LocationUpdateSettings value) updateSettings,
-    required TResult Function(LocationReceived value) locationReceived,
-    required TResult Function(LocationError value) locationError,
-  }) {
-    return permissionsGranted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult? Function(LocationUpdateSettings value)? updateSettings,
-    TResult? Function(LocationReceived value)? locationReceived,
-    TResult? Function(LocationError value)? locationError,
-  }) {
-    return permissionsGranted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
-    TResult Function(LocationUpdateSettings value)? updateSettings,
-    TResult Function(LocationReceived value)? locationReceived,
-    TResult Function(LocationError value)? locationError,
-    required TResult orElse(),
-  }) {
-    if (permissionsGranted != null) {
-      return permissionsGranted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationPermissionsGranted implements LocationEvent {
-  const factory LocationPermissionsGranted() = _$LocationPermissionsGrantedImpl;
 }
 
 /// @nodoc
@@ -1040,11 +490,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
     required TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1060,11 +507,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
     TResult? Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1080,11 +524,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
     TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1104,14 +545,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
     required TResult Function(LocationUpdateSettings value) updateSettings,
     required TResult Function(LocationReceived value) locationReceived,
     required TResult Function(LocationError value) locationError,
@@ -1122,11 +557,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
     TResult? Function(LocationReceived value)? locationReceived,
     TResult? Function(LocationError value)? locationError,
@@ -1137,11 +569,8 @@ class _$LocationUpdateSettingsImpl implements LocationUpdateSettings {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult Function(LocationUpdateSettings value)? updateSettings,
     TResult Function(LocationReceived value)? locationReceived,
     TResult Function(LocationError value)? locationError,
@@ -1246,11 +675,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
     required TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1266,11 +692,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
     TResult? Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1286,11 +709,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
     TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1310,14 +730,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
     required TResult Function(LocationUpdateSettings value) updateSettings,
     required TResult Function(LocationReceived value) locationReceived,
     required TResult Function(LocationError value) locationError,
@@ -1328,11 +742,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
     TResult? Function(LocationReceived value)? locationReceived,
     TResult? Function(LocationError value)? locationError,
@@ -1343,11 +754,8 @@ class _$LocationReceivedImpl implements LocationReceived {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult Function(LocationUpdateSettings value)? updateSettings,
     TResult Function(LocationReceived value)? locationReceived,
     TResult Function(LocationError value)? locationError,
@@ -1443,11 +851,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() startTracking,
-    required TResult Function() stopTracking,
-    required TResult Function() requestPermissions,
-    required TResult Function() permissionsDenied,
-    required TResult Function() permissionsGranted,
     required TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1463,11 +868,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? startTracking,
-    TResult? Function()? stopTracking,
-    TResult? Function()? requestPermissions,
-    TResult? Function()? permissionsDenied,
-    TResult? Function()? permissionsGranted,
     TResult? Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1483,11 +885,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? startTracking,
-    TResult Function()? stopTracking,
-    TResult Function()? requestPermissions,
-    TResult Function()? permissionsDenied,
-    TResult Function()? permissionsGranted,
     TResult Function(
       String accuracy,
       int distanceFilterMeters,
@@ -1507,14 +906,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LocationInitial value) initial,
     required TResult Function(LocationStartTracking value) startTracking,
-    required TResult Function(LocationStopTracking value) stopTracking,
-    required TResult Function(LocationRequestPermissions value)
-    requestPermissions,
-    required TResult Function(LocationPermissionsDenied value)
-    permissionsDenied,
-    required TResult Function(LocationPermissionsGranted value)
-    permissionsGranted,
     required TResult Function(LocationUpdateSettings value) updateSettings,
     required TResult Function(LocationReceived value) locationReceived,
     required TResult Function(LocationError value) locationError,
@@ -1525,11 +918,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LocationInitial value)? initial,
     TResult? Function(LocationStartTracking value)? startTracking,
-    TResult? Function(LocationStopTracking value)? stopTracking,
-    TResult? Function(LocationRequestPermissions value)? requestPermissions,
-    TResult? Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult? Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult? Function(LocationUpdateSettings value)? updateSettings,
     TResult? Function(LocationReceived value)? locationReceived,
     TResult? Function(LocationError value)? locationError,
@@ -1540,11 +930,8 @@ class _$LocationErrorImpl implements LocationError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocationInitial value)? initial,
     TResult Function(LocationStartTracking value)? startTracking,
-    TResult Function(LocationStopTracking value)? stopTracking,
-    TResult Function(LocationRequestPermissions value)? requestPermissions,
-    TResult Function(LocationPermissionsDenied value)? permissionsDenied,
-    TResult Function(LocationPermissionsGranted value)? permissionsGranted,
     TResult Function(LocationUpdateSettings value)? updateSettings,
     TResult Function(LocationReceived value)? locationReceived,
     TResult Function(LocationError value)? locationError,
@@ -1573,9 +960,7 @@ abstract class LocationError implements LocationEvent {
 mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1590,9 +975,7 @@ mixin _$LocationState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1606,9 +989,7 @@ mixin _$LocationState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1623,10 +1004,7 @@ mixin _$LocationState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
@@ -1634,9 +1012,7 @@ mixin _$LocationState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
@@ -1644,9 +1020,7 @@ mixin _$LocationState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
@@ -1678,20 +1052,20 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
 }
 
 /// @nodoc
-abstract class _$$LocationInitialImplCopyWith<$Res> {
-  factory _$$LocationInitialImplCopyWith(
-    _$LocationInitialImpl value,
-    $Res Function(_$LocationInitialImpl) then,
-  ) = __$$LocationInitialImplCopyWithImpl<$Res>;
+abstract class _$$LocationStartImplCopyWith<$Res> {
+  factory _$$LocationStartImplCopyWith(
+    _$LocationStartImpl value,
+    $Res Function(_$LocationStartImpl) then,
+  ) = __$$LocationStartImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LocationInitialImplCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$LocationInitialImpl>
-    implements _$$LocationInitialImplCopyWith<$Res> {
-  __$$LocationInitialImplCopyWithImpl(
-    _$LocationInitialImpl _value,
-    $Res Function(_$LocationInitialImpl) _then,
+class __$$LocationStartImplCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$LocationStartImpl>
+    implements _$$LocationStartImplCopyWith<$Res> {
+  __$$LocationStartImplCopyWithImpl(
+    _$LocationStartImpl _value,
+    $Res Function(_$LocationStartImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of LocationState
@@ -1700,18 +1074,18 @@ class __$$LocationInitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LocationInitialImpl implements LocationInitial {
-  const _$LocationInitialImpl();
+class _$LocationStartImpl implements LocationStart {
+  const _$LocationStartImpl();
 
   @override
   String toString() {
-    return 'LocationState.initial()';
+    return 'LocationState.start()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LocationInitialImpl);
+        (other.runtimeType == runtimeType && other is _$LocationStartImpl);
   }
 
   @override
@@ -1720,9 +1094,7 @@ class _$LocationInitialImpl implements LocationInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1735,15 +1107,13 @@ class _$LocationInitialImpl implements LocationInitial {
     errors,
     required TResult Function(String? message) loading,
   }) {
-    return initial();
+    return start();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1755,15 +1125,13 @@ class _$LocationInitialImpl implements LocationInitial {
     TResult? Function(String message, Position? lastKnownPosition)? errors,
     TResult? Function(String? message)? loading,
   }) {
-    return initial?.call();
+    return start?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -1776,8 +1144,8 @@ class _$LocationInitialImpl implements LocationInitial {
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (start != null) {
+      return start();
     }
     return orElse();
   }
@@ -1785,407 +1153,46 @@ class _$LocationInitialImpl implements LocationInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
     required TResult Function(LocationLoading value) loading,
   }) {
-    return initial(this);
+    return start(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
     TResult? Function(LocationLoading value)? loading,
   }) {
-    return initial?.call(this);
+    return start?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
     TResult Function(LocationLoading value)? loading,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (start != null) {
+      return start(this);
     }
     return orElse();
   }
 }
 
-abstract class LocationInitial implements LocationState {
-  const factory LocationInitial() = _$LocationInitialImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationPermissionRequiredImplCopyWith<$Res> {
-  factory _$$LocationPermissionRequiredImplCopyWith(
-    _$LocationPermissionRequiredImpl value,
-    $Res Function(_$LocationPermissionRequiredImpl) then,
-  ) = __$$LocationPermissionRequiredImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LocationPermissionRequiredImplCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$LocationPermissionRequiredImpl>
-    implements _$$LocationPermissionRequiredImplCopyWith<$Res> {
-  __$$LocationPermissionRequiredImplCopyWithImpl(
-    _$LocationPermissionRequiredImpl _value,
-    $Res Function(_$LocationPermissionRequiredImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LocationPermissionRequiredImpl implements LocationPermissionRequired {
-  const _$LocationPermissionRequiredImpl();
-
-  @override
-  String toString() {
-    return 'LocationState.permissionRequired()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationPermissionRequiredImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
-    errors,
-    required TResult Function(String? message) loading,
-  }) {
-    return permissionRequired();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
-    TResult? Function(String? message)? loading,
-  }) {
-    return permissionRequired?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
-    TResult Function(String? message)? loading,
-    required TResult orElse(),
-  }) {
-    if (permissionRequired != null) {
-      return permissionRequired();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
-    required TResult Function(LocationTracking value) tracking,
-    required TResult Function(LocationStopped value) stopped,
-    required TResult Function(LocationErrors value) errors,
-    required TResult Function(LocationLoading value) loading,
-  }) {
-    return permissionRequired(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
-    TResult? Function(LocationTracking value)? tracking,
-    TResult? Function(LocationStopped value)? stopped,
-    TResult? Function(LocationErrors value)? errors,
-    TResult? Function(LocationLoading value)? loading,
-  }) {
-    return permissionRequired?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
-    TResult Function(LocationTracking value)? tracking,
-    TResult Function(LocationStopped value)? stopped,
-    TResult Function(LocationErrors value)? errors,
-    TResult Function(LocationLoading value)? loading,
-    required TResult orElse(),
-  }) {
-    if (permissionRequired != null) {
-      return permissionRequired(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationPermissionRequired implements LocationState {
-  const factory LocationPermissionRequired() = _$LocationPermissionRequiredImpl;
-}
-
-/// @nodoc
-abstract class _$$LocationPermissionDeniedImplCopyWith<$Res> {
-  factory _$$LocationPermissionDeniedImplCopyWith(
-    _$LocationPermissionDeniedImpl value,
-    $Res Function(_$LocationPermissionDeniedImpl) then,
-  ) = __$$LocationPermissionDeniedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$LocationPermissionDeniedImplCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$LocationPermissionDeniedImpl>
-    implements _$$LocationPermissionDeniedImplCopyWith<$Res> {
-  __$$LocationPermissionDeniedImplCopyWithImpl(
-    _$LocationPermissionDeniedImpl _value,
-    $Res Function(_$LocationPermissionDeniedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LocationState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$LocationPermissionDeniedImpl(
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$LocationPermissionDeniedImpl implements LocationPermissionDenied {
-  const _$LocationPermissionDeniedImpl({required this.message});
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'LocationState.permissionDenied(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationPermissionDeniedImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of LocationState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationPermissionDeniedImplCopyWith<_$LocationPermissionDeniedImpl>
-  get copyWith => __$$LocationPermissionDeniedImplCopyWithImpl<
-    _$LocationPermissionDeniedImpl
-  >(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
-    required TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )
-    tracking,
-    required TResult Function(Position? lastKnownPosition) stopped,
-    required TResult Function(String message, Position? lastKnownPosition)
-    errors,
-    required TResult Function(String? message) loading,
-  }) {
-    return permissionDenied(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
-    TResult? Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult? Function(Position? lastKnownPosition)? stopped,
-    TResult? Function(String message, Position? lastKnownPosition)? errors,
-    TResult? Function(String? message)? loading,
-  }) {
-    return permissionDenied?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
-    TResult Function(
-      Position currentPosition,
-      DateTime lastUpdate,
-      String accuracy,
-      int? satelliteCount,
-    )?
-    tracking,
-    TResult Function(Position? lastKnownPosition)? stopped,
-    TResult Function(String message, Position? lastKnownPosition)? errors,
-    TResult Function(String? message)? loading,
-    required TResult orElse(),
-  }) {
-    if (permissionDenied != null) {
-      return permissionDenied(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
-    required TResult Function(LocationTracking value) tracking,
-    required TResult Function(LocationStopped value) stopped,
-    required TResult Function(LocationErrors value) errors,
-    required TResult Function(LocationLoading value) loading,
-  }) {
-    return permissionDenied(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
-    TResult? Function(LocationTracking value)? tracking,
-    TResult? Function(LocationStopped value)? stopped,
-    TResult? Function(LocationErrors value)? errors,
-    TResult? Function(LocationLoading value)? loading,
-  }) {
-    return permissionDenied?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
-    TResult Function(LocationTracking value)? tracking,
-    TResult Function(LocationStopped value)? stopped,
-    TResult Function(LocationErrors value)? errors,
-    TResult Function(LocationLoading value)? loading,
-    required TResult orElse(),
-  }) {
-    if (permissionDenied != null) {
-      return permissionDenied(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationPermissionDenied implements LocationState {
-  const factory LocationPermissionDenied({required final String message}) =
-      _$LocationPermissionDeniedImpl;
-
-  String get message;
-
-  /// Create a copy of LocationState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocationPermissionDeniedImplCopyWith<_$LocationPermissionDeniedImpl>
-  get copyWith => throw _privateConstructorUsedError;
+abstract class LocationStart implements LocationState {
+  const factory LocationStart() = _$LocationStartImpl;
 }
 
 /// @nodoc
@@ -2311,9 +1318,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2332,9 +1337,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2357,9 +1360,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2381,10 +1382,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
@@ -2396,9 +1394,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
@@ -2410,9 +1406,7 @@ class _$LocationTrackingImpl implements LocationTracking {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
@@ -2521,9 +1515,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2542,9 +1534,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2562,9 +1552,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2586,10 +1574,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
@@ -2601,9 +1586,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
@@ -2615,9 +1598,7 @@ class _$LocationStoppedImpl implements LocationStopped {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
@@ -2727,9 +1708,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2748,9 +1727,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2768,9 +1745,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2792,10 +1767,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
@@ -2807,9 +1779,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
@@ -2821,9 +1791,7 @@ class _$LocationErrorsImpl implements LocationErrors {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,
@@ -2927,9 +1895,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() permissionRequired,
-    required TResult Function(String message) permissionDenied,
+    required TResult Function() start,
     required TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2948,9 +1914,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? permissionRequired,
-    TResult? Function(String message)? permissionDenied,
+    TResult? Function()? start,
     TResult? Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2968,9 +1932,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? permissionRequired,
-    TResult Function(String message)? permissionDenied,
+    TResult Function()? start,
     TResult Function(
       Position currentPosition,
       DateTime lastUpdate,
@@ -2992,10 +1954,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LocationInitial value) initial,
-    required TResult Function(LocationPermissionRequired value)
-    permissionRequired,
-    required TResult Function(LocationPermissionDenied value) permissionDenied,
+    required TResult Function(LocationStart value) start,
     required TResult Function(LocationTracking value) tracking,
     required TResult Function(LocationStopped value) stopped,
     required TResult Function(LocationErrors value) errors,
@@ -3007,9 +1966,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LocationInitial value)? initial,
-    TResult? Function(LocationPermissionRequired value)? permissionRequired,
-    TResult? Function(LocationPermissionDenied value)? permissionDenied,
+    TResult? Function(LocationStart value)? start,
     TResult? Function(LocationTracking value)? tracking,
     TResult? Function(LocationStopped value)? stopped,
     TResult? Function(LocationErrors value)? errors,
@@ -3021,9 +1978,7 @@ class _$LocationLoadingImpl implements LocationLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LocationInitial value)? initial,
-    TResult Function(LocationPermissionRequired value)? permissionRequired,
-    TResult Function(LocationPermissionDenied value)? permissionDenied,
+    TResult Function(LocationStart value)? start,
     TResult Function(LocationTracking value)? tracking,
     TResult Function(LocationStopped value)? stopped,
     TResult Function(LocationErrors value)? errors,

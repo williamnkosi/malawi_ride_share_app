@@ -3,12 +3,7 @@ part of 'location_bloc.dart';
 @freezed
 class LocationState with _$LocationState {
   // Initial state
-  const factory LocationState.initial() = LocationInitial;
-
-  // Permission states
-  const factory LocationState.permissionRequired() = LocationPermissionRequired;
-  const factory LocationState.permissionDenied({required String message}) =
-      LocationPermissionDenied;
+  const factory LocationState.start() = LocationStart;
 
   // Tracking states
   const factory LocationState.tracking({

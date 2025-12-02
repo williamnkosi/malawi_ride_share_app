@@ -1,6 +1,6 @@
 // lib/features/driver/domain/entity/driver_trip_request.dart
 
-import 'package:malawi_ride_share_app/features/location/data/models/location.dart';
+import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 
 class DriverTripRequestEntity {
   final String tripId;

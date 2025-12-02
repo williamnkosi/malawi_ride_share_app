@@ -1,5 +1,5 @@
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_request.dto.dart';
-import 'package:malawi_ride_share_app/features/driver/data/models/location/location_mapper.dart';
+import 'package:malawi_ride_share_app/features/location/data/models/location_mapper.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
 
 class DriverTripRequestMapper {

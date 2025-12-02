@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:malawi_ride_share_app/features/driver/data/models/location/location_dto.dart';
+import 'package:malawi_ride_share_app/features/location/data/models/location_dto.dart';
 
 part 'driver_connect_dto.freezed.dart';
 part 'driver_connect_dto.g.dart';

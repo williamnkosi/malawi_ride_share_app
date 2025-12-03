@@ -10,5 +10,12 @@ part 'driver_trip_bloc.freezed.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final logger = Logger('DriverTripBloc');
-  DriverTripBloc(super.initialState);
+  DriverTripBloc() : super(const DriverTripState.idle()) {
+    on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
+  }
+
+  _onDriverTripRequestReceived(
+    DriverTripRequestReceived event,
+    Emitter<DriverTripState> emit,
+  ) async {}
 }

@@ -491,11 +491,11 @@ class __$$DriverOperationsUpdateLocationImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? location = freezed}) {
+  $Res call({Object? location = null}) {
     return _then(
       _$DriverOperationsUpdateLocationImpl(
         location:
-            freezed == location
+            null == location
                 ? _value.location
                 : location // ignore: cast_nullable_to_non_nullable
                     as LocationEntity,
@@ -523,12 +523,12 @@ class _$DriverOperationsUpdateLocationImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DriverOperationsUpdateLocationImpl &&
-            const DeepCollectionEquality().equals(other.location, location));
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(location));
+  int get hashCode => Object.hash(runtimeType, location);
 
   /// Create a copy of DriverOperationsEvent
   /// with the given fields replaced by the non-null parameter values.

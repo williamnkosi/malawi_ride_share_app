@@ -5,7 +5,6 @@ class DriverTripEvent with _$DriverTripEvent {
   // Trip request events
   const factory DriverTripEvent.tripRequestReceived({
     required DriverTripEntity trip,
-    required DriverTripEntity tripRequest,
   }) = DriverTripRequestReceived;
 
   const factory DriverTripEvent.acceptTrip({required DriverTripEntity trip}) =

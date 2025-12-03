@@ -33,7 +33,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   }
 
   @override
-  Stream<DriverTripRequestEntity> listenToTripRequests() {
+  Stream<DriverTripEntity> listenToTripRequests() {
     return socketRepository
         .listen('trip_assiged', SocketNamespace.trips.path)
         .map((data) {

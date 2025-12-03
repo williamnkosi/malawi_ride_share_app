@@ -2,7 +2,7 @@
 
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 
-class DriverTripRequestEntity {
+class DriverTripEntity {
   final String tripId;
   final LocationEntity pickupLocation;
   final LocationEntity dropoffLocation;
@@ -10,7 +10,7 @@ class DriverTripRequestEntity {
   final String riderFirstName;
   final String riderLastName;
 
-  DriverTripRequestEntity({
+  DriverTripEntity({
     required this.tripId,
     required this.pickupLocation,
     required this.dropoffLocation,

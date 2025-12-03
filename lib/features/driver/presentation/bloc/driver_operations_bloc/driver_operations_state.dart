@@ -16,7 +16,7 @@ class DriverOperationsState with _$DriverOperationsState {
 
   // Driver received a trip request
   const factory DriverOperationsState.tripRequestReceived({
-    required DriverTripRequestEntity driverTripRequest,
+    required DriverTripEntity driverTripRequest,
   }) = _TripRequestReceived;
 
   // Error state

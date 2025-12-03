@@ -125,7 +125,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
 
   void _showTripRequestDialog(
     BuildContext context,
-    DriverTripRequestEntity tripRequest,
+    DriverTripEntity tripRequest,
   ) {
     showDialog(
       context: context,

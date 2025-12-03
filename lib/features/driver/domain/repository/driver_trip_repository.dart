@@ -1,8 +1,8 @@
-import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 
 abstract class DriverTripRepository {
   // Listen to incoming trip requests
-  Stream<DriverTripRequestEntity> listenToTripRequests();
+  Stream<DriverTripEntity> listenToTripRequests();
 
   // Listen to trip cancellations
   Stream<String> listenToTripCancellations(); // Returns tripId

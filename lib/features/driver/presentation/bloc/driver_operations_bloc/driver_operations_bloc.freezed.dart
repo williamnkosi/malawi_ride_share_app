@@ -444,7 +444,7 @@ mixin _$DriverOperationsState {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -458,8 +458,7 @@ mixin _$DriverOperationsState {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) => throw _privateConstructorUsedError;
@@ -469,8 +468,7 @@ mixin _$DriverOperationsState {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -577,7 +575,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -595,8 +593,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -610,8 +607,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -717,7 +713,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -735,8 +731,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -750,8 +745,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -857,7 +851,7 @@ class _$OfflineImpl implements _Offline {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -875,8 +869,7 @@ class _$OfflineImpl implements _Offline {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -890,8 +883,7 @@ class _$OfflineImpl implements _Offline {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -997,7 +989,7 @@ class _$OnlineImpl implements _Online {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -1015,8 +1007,7 @@ class _$OnlineImpl implements _Online {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -1030,8 +1021,7 @@ class _$OnlineImpl implements _Online {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -1097,7 +1087,7 @@ abstract class _$$TripRequestReceivedImplCopyWith<$Res> {
     $Res Function(_$TripRequestReceivedImpl) then,
   ) = __$$TripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DriverTripRequestEntity driverTripRequest});
+  $Res call({DriverTripEntity driverTripRequest});
 }
 
 /// @nodoc
@@ -1120,7 +1110,7 @@ class __$$TripRequestReceivedImplCopyWithImpl<$Res>
             null == driverTripRequest
                 ? _value.driverTripRequest
                 : driverTripRequest // ignore: cast_nullable_to_non_nullable
-                    as DriverTripRequestEntity,
+                    as DriverTripEntity,
       ),
     );
   }
@@ -1132,7 +1122,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
   const _$TripRequestReceivedImpl({required this.driverTripRequest});
 
   @override
-  final DriverTripRequestEntity driverTripRequest;
+  final DriverTripEntity driverTripRequest;
 
   @override
   String toString() {
@@ -1169,7 +1159,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -1187,8 +1177,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -1202,8 +1191,7 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),
@@ -1260,10 +1248,10 @@ class _$TripRequestReceivedImpl implements _TripRequestReceived {
 
 abstract class _TripRequestReceived implements DriverOperationsState {
   const factory _TripRequestReceived({
-    required final DriverTripRequestEntity driverTripRequest,
+    required final DriverTripEntity driverTripRequest,
   }) = _$TripRequestReceivedImpl;
 
-  DriverTripRequestEntity get driverTripRequest;
+  DriverTripEntity get driverTripRequest;
 
   /// Create a copy of DriverOperationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1372,7 +1360,7 @@ class _$StateErrorImpl implements _StateError {
     required TResult Function() loading,
     required TResult Function() offline,
     required TResult Function() online,
-    required TResult Function(DriverTripRequestEntity driverTripRequest)
+    required TResult Function(DriverTripEntity driverTripRequest)
     tripRequestReceived,
     required TResult Function(
       String message,
@@ -1390,8 +1378,7 @@ class _$StateErrorImpl implements _StateError {
     TResult? Function()? loading,
     TResult? Function()? offline,
     TResult? Function()? online,
-    TResult? Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult? Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult? Function(String message, DriverOperationsState? previousState)?
     error,
   }) {
@@ -1405,8 +1392,7 @@ class _$StateErrorImpl implements _StateError {
     TResult Function()? loading,
     TResult Function()? offline,
     TResult Function()? online,
-    TResult Function(DriverTripRequestEntity driverTripRequest)?
-    tripRequestReceived,
+    TResult Function(DriverTripEntity driverTripRequest)? tripRequestReceived,
     TResult Function(String message, DriverOperationsState? previousState)?
     error,
     required TResult orElse(),

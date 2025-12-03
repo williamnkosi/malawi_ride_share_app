@@ -14,11 +14,6 @@ class DriverOperationsState with _$DriverOperationsState {
   // Driver is online and available for trips
   const factory DriverOperationsState.online() = _Online;
 
-  // Driver received a trip request
-  const factory DriverOperationsState.tripRequestReceived({
-    required DriverTripEntity driverTripRequest,
-  }) = _TripRequestReceived;
-
   // Error state
   const factory DriverOperationsState.error({
     required String message,

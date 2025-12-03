@@ -33,7 +33,7 @@ class DriverOperationsBloc
   ) async {
     try {
       emit(const DriverOperationsState.loading());
-
+      await initializeUseCase.call(null);
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline());
     } catch (e) {
@@ -48,6 +48,7 @@ class DriverOperationsBloc
   ) async {
     try {
       logger.info('Driver went offline');
+      emit(const DriverOperationsState.offline());
     } catch (e) {
       logger.severe('Error going offline: $e');
       emit(
@@ -64,6 +65,7 @@ class DriverOperationsBloc
   ) async {
     try {
       logger.info('Driver went online');
+      emit(const DriverOperationsState.online());
     } catch (e) {
       logger.severe('Error going online: $e');
       emit(

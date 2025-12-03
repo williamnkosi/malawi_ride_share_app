@@ -1,5 +1,5 @@
 import 'package:malawi_ride_share_app/features/location/data/models/location_dto.dart';
-import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_repository/models/driver_status.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_operations_repository/models/driver_status.dart';
 
 abstract class DriverLocationTrackingRepository {
   Future<void> startTrackingLocation({

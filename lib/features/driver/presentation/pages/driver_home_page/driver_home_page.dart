@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
-import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';

@@ -1,6 +1,6 @@
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_request_mapper.dart';
-import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_request.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';

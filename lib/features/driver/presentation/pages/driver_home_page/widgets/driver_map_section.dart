@@ -86,9 +86,6 @@ class _MapViewState extends State<MapView> {
     if (_lastPosition == null ||
         _lastPosition!.latitude != newPosition.latitude ||
         _lastPosition!.longitude != newPosition.longitude) {
-      print(
-        'ANIMATING CAMERA TO: ${newPosition.latitude}, ${newPosition.longitude}',
-      );
       _mapController!.animateCamera(
         CameraUpdate.newLatLng(
           LatLng(newPosition.latitude, newPosition.longitude),
@@ -101,13 +98,6 @@ class _MapViewState extends State<MapView> {
   @override
   void didUpdateWidget(MapView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print('didUpdateWidget called');
-    print(
-      'Old location: ${oldWidget.location?.latitude}, ${oldWidget.location?.longitude}',
-    );
-    print(
-      'New location: ${widget.location?.latitude}, ${widget.location?.longitude}',
-    );
     _updateCameraPosition(widget.location);
   }
 
@@ -123,7 +113,6 @@ class _MapViewState extends State<MapView> {
       listener: (context, state) {
         state.maybeWhen(
           active: (currentLocation) {
-            print('BlocListener - online: $currentLocation');
             _updateCameraPosition(currentLocation);
           },
 
@@ -133,7 +122,6 @@ class _MapViewState extends State<MapView> {
       child: Expanded(
         child: GoogleMap(
           onMapCreated: (GoogleMapController controller) {
-            print('Map created, controller ready');
             _mapController = controller;
             _updateCameraPosition(widget.location);
           },

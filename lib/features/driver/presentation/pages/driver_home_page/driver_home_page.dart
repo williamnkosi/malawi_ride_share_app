@@ -31,10 +31,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) =>
-              getIt<LocationBloc>()..add(const LocationEvent.startTracking()),
-        ),
+        BlocProvider(create: (context) => getIt<LocationBloc>()),
         BlocProvider(
           create: (context) =>
               getIt<DriverOperationsBloc>()
@@ -52,6 +49,11 @@ class _DriverHomePageState extends State<DriverHomePage> {
               listener: (context, state) {
                 if (!state.isLocationPremissionEnabled) {
                   _showLocationPermissionDialog(context);
+                } else {
+                  // Start location tracking when permission is granted
+                  context.read<LocationBloc>().add(
+                    const LocationEvent.startTracking(),
+                  );
                 }
               },
             ),
@@ -66,8 +68,19 @@ class _DriverHomePageState extends State<DriverHomePage> {
                       ),
                     );
                   },
-                  tripRequestReceived: (tripRequest) {
-                    _showTripRequestDialog(context, tripRequest);
+
+                  orElse: () {},
+                );
+              },
+            ),
+
+            BlocListener<LocationBloc, LocationState>(
+              listener: (context, state) {
+                state.maybeWhen(
+                  active: (location) {
+                    context.read<DriverOperationsBloc>().add(
+                      DriverOperationsEvent.updateLocation(location: location),
+                    );
                   },
                   orElse: () {},
                 );

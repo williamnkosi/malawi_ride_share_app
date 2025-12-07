@@ -10,7 +10,7 @@ class DriverTripState with _$DriverTripState {
     required DriverTripEntity tripRequest,
     required DateTime receivedAt,
     int? timeoutSeconds,
-  }) = DriverTripRequestIncoming;
+  }) = DrivverTripRequestReceived;
 
   const factory DriverTripState.requestExpired({
     required DriverTripEntity expiredRequest,

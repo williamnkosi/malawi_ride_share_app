@@ -38,6 +38,7 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
       await initializeUseCase.call(null);
+      driverTripBloc.add(DriverTripInitialize());
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline());
     } catch (e) {

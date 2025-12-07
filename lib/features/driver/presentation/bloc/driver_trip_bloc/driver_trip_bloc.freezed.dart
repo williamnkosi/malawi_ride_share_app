@@ -1858,7 +1858,7 @@ mixin _$DriverTripState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -1873,7 +1873,7 @@ mixin _$DriverTripState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -1888,7 +1888,7 @@ mixin _$DriverTripState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2172,7 +2172,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -2191,7 +2191,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2210,7 +2210,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2235,11 +2235,11 @@ abstract class DriverTripIdle implements DriverTripState {
 }
 
 /// @nodoc
-abstract class _$$DriverTripRequestIncomingImplCopyWith<$Res> {
-  factory _$$DriverTripRequestIncomingImplCopyWith(
-    _$DriverTripRequestIncomingImpl value,
-    $Res Function(_$DriverTripRequestIncomingImpl) then,
-  ) = __$$DriverTripRequestIncomingImplCopyWithImpl<$Res>;
+abstract class _$$DrivverTripRequestReceivedImplCopyWith<$Res> {
+  factory _$$DrivverTripRequestReceivedImplCopyWith(
+    _$DrivverTripRequestReceivedImpl value,
+    $Res Function(_$DrivverTripRequestReceivedImpl) then,
+  ) = __$$DrivverTripRequestReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({
     DriverTripEntity tripRequest,
@@ -2249,12 +2249,13 @@ abstract class _$$DriverTripRequestIncomingImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DriverTripRequestIncomingImplCopyWithImpl<$Res>
-    extends _$DriverTripStateCopyWithImpl<$Res, _$DriverTripRequestIncomingImpl>
-    implements _$$DriverTripRequestIncomingImplCopyWith<$Res> {
-  __$$DriverTripRequestIncomingImplCopyWithImpl(
-    _$DriverTripRequestIncomingImpl _value,
-    $Res Function(_$DriverTripRequestIncomingImpl) _then,
+class __$$DrivverTripRequestReceivedImplCopyWithImpl<$Res>
+    extends
+        _$DriverTripStateCopyWithImpl<$Res, _$DrivverTripRequestReceivedImpl>
+    implements _$$DrivverTripRequestReceivedImplCopyWith<$Res> {
+  __$$DrivverTripRequestReceivedImplCopyWithImpl(
+    _$DrivverTripRequestReceivedImpl _value,
+    $Res Function(_$DrivverTripRequestReceivedImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of DriverTripState
@@ -2267,7 +2268,7 @@ class __$$DriverTripRequestIncomingImplCopyWithImpl<$Res>
     Object? timeoutSeconds = freezed,
   }) {
     return _then(
-      _$DriverTripRequestIncomingImpl(
+      _$DrivverTripRequestReceivedImpl(
         tripRequest:
             null == tripRequest
                 ? _value.tripRequest
@@ -2290,8 +2291,8 @@ class __$$DriverTripRequestIncomingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
-  const _$DriverTripRequestIncomingImpl({
+class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
+  const _$DrivverTripRequestReceivedImpl({
     required this.tripRequest,
     required this.receivedAt,
     this.timeoutSeconds,
@@ -2313,7 +2314,7 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DriverTripRequestIncomingImpl &&
+            other is _$DrivverTripRequestReceivedImpl &&
             (identical(other.tripRequest, tripRequest) ||
                 other.tripRequest == tripRequest) &&
             (identical(other.receivedAt, receivedAt) ||
@@ -2331,9 +2332,9 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DriverTripRequestIncomingImplCopyWith<_$DriverTripRequestIncomingImpl>
-  get copyWith => __$$DriverTripRequestIncomingImplCopyWithImpl<
-    _$DriverTripRequestIncomingImpl
+  _$$DrivverTripRequestReceivedImplCopyWith<_$DrivverTripRequestReceivedImpl>
+  get copyWith => __$$DrivverTripRequestReceivedImplCopyWithImpl<
+    _$DrivverTripRequestReceivedImpl
   >(this, _$identity);
 
   @override
@@ -2543,7 +2544,7 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -2562,7 +2563,7 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2581,7 +2582,7 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2601,12 +2602,12 @@ class _$DriverTripRequestIncomingImpl implements DriverTripRequestIncoming {
   }
 }
 
-abstract class DriverTripRequestIncoming implements DriverTripState {
-  const factory DriverTripRequestIncoming({
+abstract class DrivverTripRequestReceived implements DriverTripState {
+  const factory DrivverTripRequestReceived({
     required final DriverTripEntity tripRequest,
     required final DateTime receivedAt,
     final int? timeoutSeconds,
-  }) = _$DriverTripRequestIncomingImpl;
+  }) = _$DrivverTripRequestReceivedImpl;
 
   DriverTripEntity get tripRequest;
   DateTime get receivedAt;
@@ -2615,7 +2616,7 @@ abstract class DriverTripRequestIncoming implements DriverTripState {
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DriverTripRequestIncomingImplCopyWith<_$DriverTripRequestIncomingImpl>
+  _$$DrivverTripRequestReceivedImplCopyWith<_$DrivverTripRequestReceivedImpl>
   get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2897,7 +2898,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -2916,7 +2917,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -2935,7 +2936,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -3310,7 +3311,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -3329,7 +3330,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -3348,7 +3349,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -3697,7 +3698,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -3716,7 +3717,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -3735,7 +3736,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -4148,7 +4149,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -4167,7 +4168,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -4186,7 +4187,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -4578,7 +4579,7 @@ class _$DriverTripArrivedAtDestinationImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -4597,7 +4598,7 @@ class _$DriverTripArrivedAtDestinationImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -4616,7 +4617,7 @@ class _$DriverTripArrivedAtDestinationImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5015,7 +5016,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -5034,7 +5035,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5053,7 +5054,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5421,7 +5422,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -5440,7 +5441,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5459,7 +5460,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5803,7 +5804,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -5822,7 +5823,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -5841,7 +5842,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -6168,7 +6169,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripIdle value) idle,
-    required TResult Function(DriverTripRequestIncoming value) requestReceived,
+    required TResult Function(DrivverTripRequestReceived value) requestReceived,
     required TResult Function(DriverTripRequestExpired value) requestExpired,
     required TResult Function(DriverTripEnRouteToPickup value) enRouteToPickup,
     required TResult Function(DriverTripArrivedAtPickup value) arrivedAtPickup,
@@ -6187,7 +6188,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripIdle value)? idle,
-    TResult? Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult? Function(DrivverTripRequestReceived value)? requestReceived,
     TResult? Function(DriverTripRequestExpired value)? requestExpired,
     TResult? Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult? Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,
@@ -6206,7 +6207,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripIdle value)? idle,
-    TResult Function(DriverTripRequestIncoming value)? requestReceived,
+    TResult Function(DrivverTripRequestReceived value)? requestReceived,
     TResult Function(DriverTripRequestExpired value)? requestExpired,
     TResult Function(DriverTripEnRouteToPickup value)? enRouteToPickup,
     TResult Function(DriverTripArrivedAtPickup value)? arrivedAtPickup,

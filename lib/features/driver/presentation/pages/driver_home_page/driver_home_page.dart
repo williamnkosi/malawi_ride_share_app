@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
@@ -16,6 +17,7 @@ class DriverHomePage extends StatefulWidget {
 }
 
 class _DriverHomePageState extends State<DriverHomePage> {
+  final Logger logger = Logger('DriverHomePage');
   @override
   void initState() {
     super.initState();
@@ -71,7 +73,9 @@ class _DriverHomePageState extends State<DriverHomePage> {
                     );
                   },
 
-                  orElse: () {},
+                  orElse: () {
+                    logger.info('DriverOperationsBloc state changed: $state');
+                  },
                 );
               },
             ),
@@ -84,29 +88,65 @@ class _DriverHomePageState extends State<DriverHomePage> {
                       DriverOperationsEvent.updateLocation(location: location),
                     );
                   },
-                  orElse: () {},
+                  orElse: () {
+                    logger.info('LocationBloc state changed: $state');
+                  },
                 );
               },
             ),
 
             BlocListener<DriverTripBloc, DriverTripState>(
               listener: (context, state) {
+                logger.info('=== BLOC LISTENER TRIGGERED ===');
+                logger.info(
+                  'DriverTripBloc state changed: ${state.runtimeType}',
+                );
+                logger.info('State details: $state');
+
                 state.maybeWhen(
                   requestReceived: (trip, date, timeout) {
+                    logger.info('=== REQUEST RECEIVED IN LISTENER ===');
+                    logger.info('Trip ID: ${trip.tripId}');
                     _showTripRequestDialog(context, trip);
                   },
+                  idle: () {
+                    logger.info('State is idle');
+                  },
 
-                  orElse: () {},
+                  orElse: () {
+                    logger.info(
+                      'State is unhandled type: ${state.runtimeType}',
+                    );
+                  },
                 );
               },
             ),
           ],
-          child: BlocBuilder<AppBloc, AppState>(
-            builder: (context, state) {
-              return state.isLocationPremissionEnabled
-                  ? const DriverHomePageView()
-                  : const SettingsView();
-            },
+          child: Column(
+            children: [
+              // Debug widget to show DriverTripBloc state
+              BlocBuilder<DriverTripBloc, DriverTripState>(
+                builder: (context, tripState) {
+                  print(
+                    'BlocBuilder - DriverTripState: ${tripState.runtimeType}',
+                  );
+                  return Container(
+                    color: Colors.yellow,
+                    padding: EdgeInsets.all(8),
+                    child: Text('DriverTrip State: ${tripState.runtimeType}'),
+                  );
+                },
+              ),
+              Expanded(
+                child: BlocBuilder<AppBloc, AppState>(
+                  builder: (context, state) {
+                    return state.isLocationPremissionEnabled
+                        ? const DriverHomePageView()
+                        : const SettingsView();
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),

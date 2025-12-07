@@ -35,10 +35,27 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   @override
   Stream<DriverTripEntity> listenToTripRequests() {
     return socketRepository
-        .listen('trip_assiged', SocketNamespace.trips.path)
+        .listen('trip:request', SocketNamespace.trips.path)
         .map((data) {
-          var response = DriverTripRequestDto.fromJson(data);
-          return DriverTripRequestMapper.toEntity(response);
+          // Add null safety checks
+          if (data == null) {
+            throw Exception('Received null data from socket');
+          }
+
+          final requestData = data['data'];
+          if (requestData == null) {
+            throw Exception('Trip request data is null');
+          }
+
+          try {
+            print('Trip request data: $requestData');
+            final response = DriverTripRequestDto.fromJson(requestData);
+            return DriverTripRequestMapper.toEntity(response);
+          } catch (e) {
+            throw Exception(
+              'Failed to parse trip request: $e. Raw data: $requestData',
+            );
+          }
         });
   }
 }

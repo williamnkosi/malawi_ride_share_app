@@ -185,7 +185,7 @@ Future<void> setupDriverOperationsDependencies() async {
     ),
   );
 
-  getIt.registerFactory<DriverTripBloc>(
-    () => DriverTripBloc(listenForEvents: getIt<ListenForEvents>()),
+  getIt.registerSingleton<DriverTripBloc>(
+    DriverTripBloc(listenForEvents: getIt<ListenForEvents>()),
   );
 }

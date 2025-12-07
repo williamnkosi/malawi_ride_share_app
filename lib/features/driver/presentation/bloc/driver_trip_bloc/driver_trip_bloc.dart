@@ -19,6 +19,9 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     on<DriverTripInitialize>(_onDriverTripInitialize);
+
+    // Start listening automatically when bloc is created
+    add(const DriverTripInitialize());
   }
 
   _onDriverTripInitialize(
@@ -31,8 +34,14 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
         .call(null)
         .listen(
           (driverTrip) {
+            logger.info('=== STREAM LISTENER TRIGGERED ===');
             logger.info('Trip request received: ${driverTrip.toString()}');
-            add(DriverTripRequestReceived(trip: driverTrip));
+            logger.info('Current bloc state: ${state.runtimeType}');
+
+            final event = DriverTripRequestReceived(trip: driverTrip);
+            logger.info('Adding event: ${event.runtimeType}');
+            add(event);
+            logger.info('Event added to bloc');
           },
           onError: (error) {
             logger.severe('Error listening for trip events: $error');
@@ -50,15 +59,21 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     DriverTripRequestReceived event,
     Emitter<DriverTripState> emit,
   ) async {
+    logger.info('=== EVENT HANDLER CALLED ===');
+    logger.info('Current state before emit: ${state.runtimeType}');
+
     try {
-      emit(
-        DriverTripState.requestReceived(
-          tripRequest: event.trip,
-          receivedAt: DateTime.now(),
-        ),
+      final newState = DriverTripState.requestReceived(
+        tripRequest: event.trip,
+        receivedAt: DateTime.now(),
       );
-    } catch (e) {
-      logger.severe('Error handling trip request: $e');
+
+      logger.info('About to emit state: ${newState.runtimeType}');
+      emit(newState);
+      logger.info('State emitted successfully: ${state.runtimeType}');
+      logger.info('Emitted trip request state for trip: ${event.trip.tripId}');
+    } catch (e, stackTrace) {
+      logger.severe('Error handling trip request: $e', e, stackTrace);
       emit(DriverTripState.error(message: 'Failed to handle trip request'));
     }
   }

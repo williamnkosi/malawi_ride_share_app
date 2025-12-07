@@ -2,6 +2,7 @@ part of 'driver_trip_bloc.dart';
 
 @freezed
 class DriverTripEvent with _$DriverTripEvent {
+  const factory DriverTripEvent.initialize() = DriverTripInitialize;
   // Trip request events
   const factory DriverTripEvent.tripRequestReceived({
     required DriverTripEntity trip,

@@ -8,7 +8,7 @@ class ListenForEvents implements StreamUseCase<DriverTripEntity, void> {
   ListenForEvents(this.driverTripRepository);
 
   @override
-  Stream<DriverTripEntity> call(void params) {
+  Stream<DriverTripEntity> call(void _) {
     return driverTripRepository.listenToTripRequests();
   }
 }

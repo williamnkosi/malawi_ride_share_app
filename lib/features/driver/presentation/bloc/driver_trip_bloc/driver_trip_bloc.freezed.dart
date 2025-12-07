@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -35,6 +36,7 @@ mixin _$DriverTripEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -46,6 +48,7 @@ mixin _$DriverTripEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -58,6 +61,7 @@ mixin _$DriverTripEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -69,6 +73,7 @@ mixin _$DriverTripEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -79,6 +84,7 @@ mixin _$DriverTripEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -110,6 +116,159 @@ class _$DriverTripEventCopyWithImpl<$Res, $Val extends DriverTripEvent>
 
   /// Create a copy of DriverTripEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$DriverTripInitializeImplCopyWith<$Res> {
+  factory _$$DriverTripInitializeImplCopyWith(
+    _$DriverTripInitializeImpl value,
+    $Res Function(_$DriverTripInitializeImpl) then,
+  ) = __$$DriverTripInitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DriverTripInitializeImplCopyWithImpl<$Res>
+    extends _$DriverTripEventCopyWithImpl<$Res, _$DriverTripInitializeImpl>
+    implements _$$DriverTripInitializeImplCopyWith<$Res> {
+  __$$DriverTripInitializeImplCopyWithImpl(
+    _$DriverTripInitializeImpl _value,
+    $Res Function(_$DriverTripInitializeImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DriverTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DriverTripInitializeImpl implements DriverTripInitialize {
+  const _$DriverTripInitializeImpl();
+
+  @override
+  String toString() {
+    return 'DriverTripEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverTripInitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(DriverTripEntity trip) tripRequestReceived,
+    required TResult Function(DriverTripEntity trip) acceptTrip,
+    required TResult Function(DriverTripEntity tripId, String? reason)
+    declineTrip,
+    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function(DriverTripEntity trip, double finalFare)
+    completeTrip,
+    required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
+    required TResult Function(
+      DriverTripEntity trip,
+      LocationEntity currentLocation,
+    )
+    updateLocation,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult? Function(DriverTripEntity trip)? acceptTrip,
+    TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
+    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
+    TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult Function(DriverTripEntity trip)? acceptTrip,
+    TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
+    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
+    TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripRequestReceived value)
+    tripRequestReceived,
+    required TResult Function(DriverTripAcceptTrip value) acceptTrip,
+    required TResult Function(DriverTripDeclineTrip value) declineTrip,
+    required TResult Function(DriverTripStart value) startTrip,
+    required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCancel value) cancelTrip,
+    required TResult Function(DriverTripUpdateLocation value) updateLocation,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult? Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult? Function(DriverTripStart value)? startTrip,
+    TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCancel value)? cancelTrip,
+    TResult? Function(DriverTripUpdateLocation value)? updateLocation,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult Function(DriverTripStart value)? startTrip,
+    TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCancel value)? cancelTrip,
+    TResult Function(DriverTripUpdateLocation value)? updateLocation,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DriverTripInitialize implements DriverTripEvent {
+  const factory DriverTripInitialize() = _$DriverTripInitializeImpl;
 }
 
 /// @nodoc
@@ -185,6 +344,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -205,6 +365,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -220,6 +381,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -239,6 +401,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -254,6 +417,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -268,6 +432,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -373,6 +538,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -393,6 +559,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -408,6 +575,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -427,6 +595,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -442,6 +611,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -456,6 +626,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -568,6 +739,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -588,6 +760,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -603,6 +776,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -622,6 +796,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -637,6 +812,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -651,6 +827,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -757,6 +934,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -777,6 +955,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -792,6 +971,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -811,6 +991,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -826,6 +1007,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -840,6 +1022,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -952,6 +1135,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -972,6 +1156,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -987,6 +1172,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -1006,6 +1192,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -1021,6 +1208,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -1035,6 +1223,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -1149,6 +1338,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -1169,6 +1359,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -1184,6 +1375,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -1203,6 +1395,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -1218,6 +1411,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -1232,6 +1426,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,
@@ -1349,6 +1544,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity tripId, String? reason)
@@ -1369,6 +1565,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -1384,6 +1581,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity tripId, String? reason)? declineTrip,
@@ -1403,6 +1601,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
     required TResult Function(DriverTripAcceptTrip value) acceptTrip,
@@ -1418,6 +1617,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult? Function(DriverTripDeclineTrip value)? declineTrip,
@@ -1432,6 +1632,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptTrip value)? acceptTrip,
     TResult Function(DriverTripDeclineTrip value)? declineTrip,

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
@@ -37,6 +38,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
               getIt<DriverOperationsBloc>()
                 ..add(const DriverOperationsEvent.initialize()),
         ),
+        BlocProvider(create: (context) => getIt<DriverTripBloc>()),
       ],
       child: Scaffold(
         appBar: AppBar(title: const Text('Driver Home Page')),
@@ -82,6 +84,18 @@ class _DriverHomePageState extends State<DriverHomePage> {
                       DriverOperationsEvent.updateLocation(location: location),
                     );
                   },
+                  orElse: () {},
+                );
+              },
+            ),
+
+            BlocListener<DriverTripBloc, DriverTripState>(
+              listener: (context, state) {
+                state.maybeWhen(
+                  requestReceived: (trip, date, timeout) {
+                    _showTripRequestDialog(context, trip);
+                  },
+
                   orElse: () {},
                 );
               },

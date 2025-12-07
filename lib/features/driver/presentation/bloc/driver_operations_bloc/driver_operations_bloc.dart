@@ -4,6 +4,7 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 
 part 'driver_operations_event.dart';
@@ -13,12 +14,13 @@ part 'driver_operations_bloc.freezed.dart';
 class DriverOperationsBloc
     extends Bloc<DriverOperationsEvent, DriverOperationsState> {
   final logger = Logger('DriverOperationsBloc');
-
+  final DriverTripBloc driverTripBloc;
   final InitializeUseCase initializeUseCase;
   final GoOnLineUseCase goOnLineUseCase;
   final GoOfflineUseCase goOfflineUseCase;
 
   DriverOperationsBloc({
+    required this.driverTripBloc,
     required this.initializeUseCase,
     required this.goOfflineUseCase,
     required this.goOnLineUseCase,

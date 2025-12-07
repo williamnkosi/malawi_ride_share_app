@@ -6,6 +6,7 @@ import 'package:malawi_ride_share_app/features/driver/data/repository/driver_loc
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -21,6 +22,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
@@ -170,11 +172,20 @@ Future<void> setupDriverOperationsDependencies() async {
     ),
   );
 
+  getIt.registerSingleton<ListenForEvents>(
+    ListenForEvents(getIt<DriverTripRepository>()),
+  );
+
   getIt.registerFactory<DriverOperationsBloc>(
     () => DriverOperationsBloc(
+      driverTripBloc: getIt<DriverTripBloc>(),
       initializeUseCase: getIt<InitializeUseCase>(),
       goOfflineUseCase: getIt<GoOfflineUseCase>(),
       goOnLineUseCase: getIt<GoOnLineUseCase>(),
     ),
+  );
+
+  getIt.registerFactory<DriverTripBloc>(
+    () => DriverTripBloc(listenForEvents: getIt<ListenForEvents>()),
   );
 }

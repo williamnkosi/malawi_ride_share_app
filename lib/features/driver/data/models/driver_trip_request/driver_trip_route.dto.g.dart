@@ -11,10 +11,11 @@ _$DriverTripRouteDtoImpl _$$DriverTripRouteDtoImplFromJson(
 ) => _$DriverTripRouteDtoImpl(
   distanceKm: (json['distanceKm'] as num).toDouble(),
   durationMin: (json['durationMin'] as num).toDouble(),
-  polylineEncoded: json['polylineEncoded'] as String,
-  routesStepsDto: RoutesStepsDto.fromJson(
-    json['routesStepsDto'] as Map<String, dynamic>,
-  ),
+  polyline: json['polyline'] as String,
+  steps:
+      (json['steps'] as List<dynamic>)
+          .map((e) => RoutesStepsDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
 );
 
 Map<String, dynamic> _$$DriverTripRouteDtoImplToJson(
@@ -22,6 +23,6 @@ Map<String, dynamic> _$$DriverTripRouteDtoImplToJson(
 ) => <String, dynamic>{
   'distanceKm': instance.distanceKm,
   'durationMin': instance.durationMin,
-  'polylineEncoded': instance.polylineEncoded,
-  'routesStepsDto': instance.routesStepsDto,
+  'polyline': instance.polyline,
+  'steps': instance.steps,
 };

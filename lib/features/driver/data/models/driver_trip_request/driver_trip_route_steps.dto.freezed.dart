@@ -24,7 +24,6 @@ mixin _$RoutesStepsDto {
   double get distanceKm => throw _privateConstructorUsedError;
   double get durationMin => throw _privateConstructorUsedError;
   String get instruction => throw _privateConstructorUsedError;
-  String get polylineEncoded => throw _privateConstructorUsedError;
 
   /// Serializes this RoutesStepsDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,12 +42,7 @@ abstract class $RoutesStepsDtoCopyWith<$Res> {
     $Res Function(RoutesStepsDto) then,
   ) = _$RoutesStepsDtoCopyWithImpl<$Res, RoutesStepsDto>;
   @useResult
-  $Res call({
-    double distanceKm,
-    double durationMin,
-    String instruction,
-    String polylineEncoded,
-  });
+  $Res call({double distanceKm, double durationMin, String instruction});
 }
 
 /// @nodoc
@@ -69,7 +63,6 @@ class _$RoutesStepsDtoCopyWithImpl<$Res, $Val extends RoutesStepsDto>
     Object? distanceKm = null,
     Object? durationMin = null,
     Object? instruction = null,
-    Object? polylineEncoded = null,
   }) {
     return _then(
       _value.copyWith(
@@ -88,11 +81,6 @@ class _$RoutesStepsDtoCopyWithImpl<$Res, $Val extends RoutesStepsDto>
                     ? _value.instruction
                     : instruction // ignore: cast_nullable_to_non_nullable
                         as String,
-            polylineEncoded:
-                null == polylineEncoded
-                    ? _value.polylineEncoded
-                    : polylineEncoded // ignore: cast_nullable_to_non_nullable
-                        as String,
           )
           as $Val,
     );
@@ -108,12 +96,7 @@ abstract class _$$RoutesStepsDtoImplCopyWith<$Res>
   ) = __$$RoutesStepsDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    double distanceKm,
-    double durationMin,
-    String instruction,
-    String polylineEncoded,
-  });
+  $Res call({double distanceKm, double durationMin, String instruction});
 }
 
 /// @nodoc
@@ -133,7 +116,6 @@ class __$$RoutesStepsDtoImplCopyWithImpl<$Res>
     Object? distanceKm = null,
     Object? durationMin = null,
     Object? instruction = null,
-    Object? polylineEncoded = null,
   }) {
     return _then(
       _$RoutesStepsDtoImpl(
@@ -152,11 +134,6 @@ class __$$RoutesStepsDtoImplCopyWithImpl<$Res>
                 ? _value.instruction
                 : instruction // ignore: cast_nullable_to_non_nullable
                     as String,
-        polylineEncoded:
-            null == polylineEncoded
-                ? _value.polylineEncoded
-                : polylineEncoded // ignore: cast_nullable_to_non_nullable
-                    as String,
       ),
     );
   }
@@ -169,7 +146,6 @@ class _$RoutesStepsDtoImpl extends _RoutesStepsDto {
     required this.distanceKm,
     required this.durationMin,
     required this.instruction,
-    required this.polylineEncoded,
   }) : super._();
 
   factory _$RoutesStepsDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -181,12 +157,10 @@ class _$RoutesStepsDtoImpl extends _RoutesStepsDto {
   final double durationMin;
   @override
   final String instruction;
-  @override
-  final String polylineEncoded;
 
   @override
   String toString() {
-    return 'RoutesStepsDto(distanceKm: $distanceKm, durationMin: $durationMin, instruction: $instruction, polylineEncoded: $polylineEncoded)';
+    return 'RoutesStepsDto(distanceKm: $distanceKm, durationMin: $durationMin, instruction: $instruction)';
   }
 
   @override
@@ -199,20 +173,13 @@ class _$RoutesStepsDtoImpl extends _RoutesStepsDto {
             (identical(other.durationMin, durationMin) ||
                 other.durationMin == durationMin) &&
             (identical(other.instruction, instruction) ||
-                other.instruction == instruction) &&
-            (identical(other.polylineEncoded, polylineEncoded) ||
-                other.polylineEncoded == polylineEncoded));
+                other.instruction == instruction));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    distanceKm,
-    durationMin,
-    instruction,
-    polylineEncoded,
-  );
+  int get hashCode =>
+      Object.hash(runtimeType, distanceKm, durationMin, instruction);
 
   /// Create a copy of RoutesStepsDto
   /// with the given fields replaced by the non-null parameter values.
@@ -236,7 +203,6 @@ abstract class _RoutesStepsDto extends RoutesStepsDto {
     required final double distanceKm,
     required final double durationMin,
     required final String instruction,
-    required final String polylineEncoded,
   }) = _$RoutesStepsDtoImpl;
   const _RoutesStepsDto._() : super._();
 
@@ -249,8 +215,6 @@ abstract class _RoutesStepsDto extends RoutesStepsDto {
   double get durationMin;
   @override
   String get instruction;
-  @override
-  String get polylineEncoded;
 
   /// Create a copy of RoutesStepsDto
   /// with the given fields replaced by the non-null parameter values.

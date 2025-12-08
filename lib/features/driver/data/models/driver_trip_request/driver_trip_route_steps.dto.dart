@@ -9,7 +9,6 @@ class RoutesStepsDto with _$RoutesStepsDto {
     required double distanceKm,
     required double durationMin,
     required String instruction,
-    required String polylineEncoded,
   }) = _RoutesStepsDto;
 
   const RoutesStepsDto._();

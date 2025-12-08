@@ -9,8 +9,8 @@ class DriverTripRouteDto with _$DriverTripRouteDto {
   const factory DriverTripRouteDto({
     required double distanceKm,
     required double durationMin,
-    required String polylineEncoded,
-    required RoutesStepsDto routesStepsDto,
+    required String polyline,
+    required List<RoutesStepsDto> steps,
   }) = _DriverTripRouteDto;
 
   const DriverTripRouteDto._();

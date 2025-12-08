@@ -11,7 +11,6 @@ _$RoutesStepsDtoImpl _$$RoutesStepsDtoImplFromJson(Map<String, dynamic> json) =>
       distanceKm: (json['distanceKm'] as num).toDouble(),
       durationMin: (json['durationMin'] as num).toDouble(),
       instruction: json['instruction'] as String,
-      polylineEncoded: json['polylineEncoded'] as String,
     );
 
 Map<String, dynamic> _$$RoutesStepsDtoImplToJson(
@@ -20,5 +19,4 @@ Map<String, dynamic> _$$RoutesStepsDtoImplToJson(
   'distanceKm': instance.distanceKm,
   'durationMin': instance.durationMin,
   'instruction': instance.instruction,
-  'polylineEncoded': instance.polylineEncoded,
 };

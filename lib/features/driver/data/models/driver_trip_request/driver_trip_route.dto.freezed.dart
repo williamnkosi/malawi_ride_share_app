@@ -23,8 +23,8 @@ DriverTripRouteDto _$DriverTripRouteDtoFromJson(Map<String, dynamic> json) {
 mixin _$DriverTripRouteDto {
   double get distanceKm => throw _privateConstructorUsedError;
   double get durationMin => throw _privateConstructorUsedError;
-  String get polylineEncoded => throw _privateConstructorUsedError;
-  RoutesStepsDto get routesStepsDto => throw _privateConstructorUsedError;
+  String get polyline => throw _privateConstructorUsedError;
+  List<RoutesStepsDto> get steps => throw _privateConstructorUsedError;
 
   /// Serializes this DriverTripRouteDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,11 +46,9 @@ abstract class $DriverTripRouteDtoCopyWith<$Res> {
   $Res call({
     double distanceKm,
     double durationMin,
-    String polylineEncoded,
-    RoutesStepsDto routesStepsDto,
+    String polyline,
+    List<RoutesStepsDto> steps,
   });
-
-  $RoutesStepsDtoCopyWith<$Res> get routesStepsDto;
 }
 
 /// @nodoc
@@ -70,8 +68,8 @@ class _$DriverTripRouteDtoCopyWithImpl<$Res, $Val extends DriverTripRouteDto>
   $Res call({
     Object? distanceKm = null,
     Object? durationMin = null,
-    Object? polylineEncoded = null,
-    Object? routesStepsDto = null,
+    Object? polyline = null,
+    Object? steps = null,
   }) {
     return _then(
       _value.copyWith(
@@ -85,29 +83,19 @@ class _$DriverTripRouteDtoCopyWithImpl<$Res, $Val extends DriverTripRouteDto>
                     ? _value.durationMin
                     : durationMin // ignore: cast_nullable_to_non_nullable
                         as double,
-            polylineEncoded:
-                null == polylineEncoded
-                    ? _value.polylineEncoded
-                    : polylineEncoded // ignore: cast_nullable_to_non_nullable
+            polyline:
+                null == polyline
+                    ? _value.polyline
+                    : polyline // ignore: cast_nullable_to_non_nullable
                         as String,
-            routesStepsDto:
-                null == routesStepsDto
-                    ? _value.routesStepsDto
-                    : routesStepsDto // ignore: cast_nullable_to_non_nullable
-                        as RoutesStepsDto,
+            steps:
+                null == steps
+                    ? _value.steps
+                    : steps // ignore: cast_nullable_to_non_nullable
+                        as List<RoutesStepsDto>,
           )
           as $Val,
     );
-  }
-
-  /// Create a copy of DriverTripRouteDto
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RoutesStepsDtoCopyWith<$Res> get routesStepsDto {
-    return $RoutesStepsDtoCopyWith<$Res>(_value.routesStepsDto, (value) {
-      return _then(_value.copyWith(routesStepsDto: value) as $Val);
-    });
   }
 }
 
@@ -123,12 +111,9 @@ abstract class _$$DriverTripRouteDtoImplCopyWith<$Res>
   $Res call({
     double distanceKm,
     double durationMin,
-    String polylineEncoded,
-    RoutesStepsDto routesStepsDto,
+    String polyline,
+    List<RoutesStepsDto> steps,
   });
-
-  @override
-  $RoutesStepsDtoCopyWith<$Res> get routesStepsDto;
 }
 
 /// @nodoc
@@ -147,8 +132,8 @@ class __$$DriverTripRouteDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? distanceKm = null,
     Object? durationMin = null,
-    Object? polylineEncoded = null,
-    Object? routesStepsDto = null,
+    Object? polyline = null,
+    Object? steps = null,
   }) {
     return _then(
       _$DriverTripRouteDtoImpl(
@@ -162,16 +147,16 @@ class __$$DriverTripRouteDtoImplCopyWithImpl<$Res>
                 ? _value.durationMin
                 : durationMin // ignore: cast_nullable_to_non_nullable
                     as double,
-        polylineEncoded:
-            null == polylineEncoded
-                ? _value.polylineEncoded
-                : polylineEncoded // ignore: cast_nullable_to_non_nullable
+        polyline:
+            null == polyline
+                ? _value.polyline
+                : polyline // ignore: cast_nullable_to_non_nullable
                     as String,
-        routesStepsDto:
-            null == routesStepsDto
-                ? _value.routesStepsDto
-                : routesStepsDto // ignore: cast_nullable_to_non_nullable
-                    as RoutesStepsDto,
+        steps:
+            null == steps
+                ? _value._steps
+                : steps // ignore: cast_nullable_to_non_nullable
+                    as List<RoutesStepsDto>,
       ),
     );
   }
@@ -183,9 +168,10 @@ class _$DriverTripRouteDtoImpl extends _DriverTripRouteDto {
   const _$DriverTripRouteDtoImpl({
     required this.distanceKm,
     required this.durationMin,
-    required this.polylineEncoded,
-    required this.routesStepsDto,
-  }) : super._();
+    required this.polyline,
+    required final List<RoutesStepsDto> steps,
+  }) : _steps = steps,
+       super._();
 
   factory _$DriverTripRouteDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$DriverTripRouteDtoImplFromJson(json);
@@ -195,13 +181,18 @@ class _$DriverTripRouteDtoImpl extends _DriverTripRouteDto {
   @override
   final double durationMin;
   @override
-  final String polylineEncoded;
+  final String polyline;
+  final List<RoutesStepsDto> _steps;
   @override
-  final RoutesStepsDto routesStepsDto;
+  List<RoutesStepsDto> get steps {
+    if (_steps is EqualUnmodifiableListView) return _steps;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_steps);
+  }
 
   @override
   String toString() {
-    return 'DriverTripRouteDto(distanceKm: $distanceKm, durationMin: $durationMin, polylineEncoded: $polylineEncoded, routesStepsDto: $routesStepsDto)';
+    return 'DriverTripRouteDto(distanceKm: $distanceKm, durationMin: $durationMin, polyline: $polyline, steps: $steps)';
   }
 
   @override
@@ -213,10 +204,9 @@ class _$DriverTripRouteDtoImpl extends _DriverTripRouteDto {
                 other.distanceKm == distanceKm) &&
             (identical(other.durationMin, durationMin) ||
                 other.durationMin == durationMin) &&
-            (identical(other.polylineEncoded, polylineEncoded) ||
-                other.polylineEncoded == polylineEncoded) &&
-            (identical(other.routesStepsDto, routesStepsDto) ||
-                other.routesStepsDto == routesStepsDto));
+            (identical(other.polyline, polyline) ||
+                other.polyline == polyline) &&
+            const DeepCollectionEquality().equals(other._steps, _steps));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -225,8 +215,8 @@ class _$DriverTripRouteDtoImpl extends _DriverTripRouteDto {
     runtimeType,
     distanceKm,
     durationMin,
-    polylineEncoded,
-    routesStepsDto,
+    polyline,
+    const DeepCollectionEquality().hash(_steps),
   );
 
   /// Create a copy of DriverTripRouteDto
@@ -250,8 +240,8 @@ abstract class _DriverTripRouteDto extends DriverTripRouteDto {
   const factory _DriverTripRouteDto({
     required final double distanceKm,
     required final double durationMin,
-    required final String polylineEncoded,
-    required final RoutesStepsDto routesStepsDto,
+    required final String polyline,
+    required final List<RoutesStepsDto> steps,
   }) = _$DriverTripRouteDtoImpl;
   const _DriverTripRouteDto._() : super._();
 
@@ -263,9 +253,9 @@ abstract class _DriverTripRouteDto extends DriverTripRouteDto {
   @override
   double get durationMin;
   @override
-  String get polylineEncoded;
+  String get polyline;
   @override
-  RoutesStepsDto get routesStepsDto;
+  List<RoutesStepsDto> get steps;
 
   /// Create a copy of DriverTripRouteDto
   /// with the given fields replaced by the non-null parameter values.

@@ -10,8 +10,10 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   DriverTripRepositoryImp(this.socketRepository);
   @override
   Future<void> acceptTrip(String tripId) {
-    // TODO: implement acceptTrip
-    throw UnimplementedError();
+    return socketRepository.request('trip:accept', SocketNamespace.trips.path, {
+      "tripId",
+      tripId,
+    });
   }
 
   @override
@@ -22,8 +24,11 @@ class DriverTripRepositoryImp implements DriverTripRepository {
 
   @override
   Future<void> declineTrip(String tripId) {
-    // TODO: implement declineTrip
-    throw UnimplementedError();
+    return socketRepository.request(
+      'trip:decline',
+      SocketNamespace.trips.path,
+      {"tripId", tripId},
+    );
   }
 
   @override

@@ -6,6 +6,8 @@ import 'package:malawi_ride_share_app/features/driver/data/repository/driver_loc
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
@@ -59,6 +61,7 @@ Future<void> setupGetIt() async {
   await setupAuthFeatureDependencies();
   await setupLocationFeatureDependencies();
   await setupDriverOperationsDependencies();
+  await setupDriverTripUseCases();
 }
 
 Future<void> setupSharedDependencies() async {
@@ -184,8 +187,20 @@ Future<void> setupDriverOperationsDependencies() async {
       goOnLineUseCase: getIt<GoOnLineUseCase>(),
     ),
   );
+}
 
+Future<void> setupDriverTripUseCases() async {
+  getIt.registerSingleton<AcceptTripUseCase>(
+    AcceptTripUseCase(getIt<DriverTripRepository>()),
+  );
+  getIt.registerSingleton<DeclineTripUseCase>(
+    DeclineTripUseCase(getIt<DriverTripRepository>()),
+  );
   getIt.registerSingleton<DriverTripBloc>(
-    DriverTripBloc(listenForEvents: getIt<ListenForEvents>()),
+    DriverTripBloc(
+      listenForEvents: getIt<ListenForEvents>(),
+      acceptTripUseCase: getIt<AcceptTripUseCase>(),
+      declineTripUseCase: getIt<DeclineTripUseCase>(),
+    ),
   );
 }

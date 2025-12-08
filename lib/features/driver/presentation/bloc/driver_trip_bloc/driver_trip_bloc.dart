@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 
@@ -14,11 +16,18 @@ part 'driver_trip_bloc.freezed.dart';
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final logger = Logger('DriverTripBloc');
   final ListenForEvents listenForEvents;
+  final AcceptTripUseCase acceptTripUseCase;
+  final DeclineTripUseCase declineTripUseCase;
   StreamSubscription? _tripRequestSubscription;
-  DriverTripBloc({required this.listenForEvents})
-    : super(const DriverTripState.idle()) {
+  DriverTripBloc({
+    required this.listenForEvents,
+    required this.acceptTripUseCase,
+    required this.declineTripUseCase,
+  }) : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     on<DriverTripInitialize>(_onDriverTripInitialize);
+    on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
+    on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
   }
 
   _onDriverTripInitialize(
@@ -73,6 +82,22 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       logger.severe('Error handling trip request: $e', e, stackTrace);
       emit(DriverTripState.error(message: 'Failed to handle trip request'));
     }
+  }
+
+  _onDriverTripAcceptTrip(
+    DriverTripAcceptTrip event,
+    Emitter<DriverTripState> emit,
+  ) async {
+    logger.info('Trip accepted: ${event.trip.tripId}');
+    // Additional logic for accepting the trip can be added here
+  }
+
+  _onDriverTripDeclineTrip(
+    DriverTripDeclineTrip event,
+    Emitter<DriverTripState> emit,
+  ) async {
+    logger.info('Trip declined: ${event.tripId}');
+    // Additional logic for declining the trip can be added here
   }
 
   @override

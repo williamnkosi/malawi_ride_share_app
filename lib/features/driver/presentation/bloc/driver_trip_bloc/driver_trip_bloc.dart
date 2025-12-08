@@ -96,7 +96,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     DriverTripDeclineTrip event,
     Emitter<DriverTripState> emit,
   ) async {
-    logger.info('Trip declined: ${event.tripId}');
+    logger.info('Trip declined: ${event.trip}');
     // Additional logic for declining the trip can be added here
   }
 

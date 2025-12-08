@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_polyline_algorithm/google_polyline_algorithm.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 
 void showDriverTripBottomSheet({
   required DriverTripEntity trip,
@@ -14,20 +16,23 @@ void showDriverTripBottomSheet({
     ),
     backgroundColor: Colors.white,
     isScrollControlled: true,
-    builder: (BuildContext context) {
-      return Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.8,
-          width: double.infinity,
-          child: Column(
-            children: [
-              MapRequestSection(trip: trip),
-              TripRequestInfomation(trip: trip),
-              TripRequestActions(),
-            ],
+    builder: (BuildContext modalContext) {
+      return BlocProvider.value(
+        value: context.read<DriverTripBloc>(),
+        child: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
+            width: double.infinity,
+            child: Column(
+              children: [
+                MapRequestSection(trip: trip),
+                TripRequestInfomation(trip: trip),
+                TripRequestActions(trip: trip),
+              ],
+            ),
           ),
         ),
       );
@@ -178,15 +183,31 @@ class TripRequestInfomation extends StatelessWidget {
 }
 
 class TripRequestActions extends StatelessWidget {
-  const TripRequestActions({super.key});
+  final DriverTripEntity trip;
+  const TripRequestActions({super.key, required this.trip});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        ElevatedButton(onPressed: null, child: Text('Accept')),
-        ElevatedButton(onPressed: null, child: Text('Decline')),
+        ElevatedButton(
+          onPressed: () {
+            BlocProvider.of<DriverTripBloc>(
+              context,
+            ).add(DriverTripAcceptTrip(trip: trip));
+          },
+          child: Text('Accept'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            BlocProvider.of<DriverTripBloc>(
+              context,
+            ).add(DriverTripDeclineTrip(trip: trip));
+          },
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+          child: Text('Decline'),
+        ),
       ],
     );
   }

@@ -11,10 +11,8 @@ class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.acceptTrip({required DriverTripEntity trip}) =
       DriverTripAcceptTrip;
 
-  const factory DriverTripEvent.declineTrip({
-    required DriverTripEntity tripId,
-    String? reason,
-  }) = DriverTripDeclineTrip;
+  const factory DriverTripEvent.declineTrip({required DriverTripEntity trip}) =
+      DriverTripDeclineTrip;
 
   // Trip lifecycle events
   const factory DriverTripEvent.startTrip({required DriverTripEntity trip}) =

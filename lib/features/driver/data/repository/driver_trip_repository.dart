@@ -48,7 +48,6 @@ class DriverTripRepositoryImp implements DriverTripRepository {
           }
 
           try {
-            print('Trip request data: $requestData');
             final response = DriverTripRequestDto.fromJson(requestData);
             return DriverTripRequestMapper.toEntity(response);
           } catch (e) {

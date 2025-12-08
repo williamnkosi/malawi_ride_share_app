@@ -19,9 +19,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     on<DriverTripInitialize>(_onDriverTripInitialize);
-
-    // Start listening automatically when bloc is created
-    add(const DriverTripInitialize());
   }
 
   _onDriverTripInitialize(

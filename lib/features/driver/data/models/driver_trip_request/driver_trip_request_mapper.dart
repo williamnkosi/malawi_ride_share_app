@@ -11,6 +11,7 @@ class DriverTripRequestMapper {
       passengerCount: model.passengerCount,
       riderFirstName: model.riderFirstName,
       riderLastName: model.riderLastName,
+      route: model.route,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_route.dto.dart';
 import 'package:malawi_ride_share_app/features/location/data/models/location_dto.dart';
 
 part 'driver_trip_request.dto.freezed.dart';
@@ -13,6 +14,7 @@ class DriverTripRequestDto with _$DriverTripRequestDto {
     required int passengerCount,
     required String riderFirstName,
     required String riderLastName,
+    required DriverTripRouteDto route,
   }) = _DriverTripRequestDto;
 
   const DriverTripRequestDto._();

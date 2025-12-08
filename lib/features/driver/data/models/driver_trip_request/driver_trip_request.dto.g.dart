@@ -19,6 +19,7 @@ _$DriverTripRequestDtoImpl _$$DriverTripRequestDtoImplFromJson(
   passengerCount: (json['passengerCount'] as num).toInt(),
   riderFirstName: json['riderFirstName'] as String,
   riderLastName: json['riderLastName'] as String,
+  route: DriverTripRouteDto.fromJson(json['route'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$$DriverTripRequestDtoImplToJson(
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$DriverTripRequestDtoImplToJson(
   'passengerCount': instance.passengerCount,
   'riderFirstName': instance.riderFirstName,
   'riderLastName': instance.riderLastName,
+  'route': instance.route,
 };

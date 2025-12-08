@@ -27,6 +27,7 @@ mixin _$DriverTripRequestDto {
   int get passengerCount => throw _privateConstructorUsedError;
   String get riderFirstName => throw _privateConstructorUsedError;
   String get riderLastName => throw _privateConstructorUsedError;
+  DriverTripRouteDto get route => throw _privateConstructorUsedError;
 
   /// Serializes this DriverTripRequestDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,10 +53,12 @@ abstract class $DriverTripRequestDtoCopyWith<$Res> {
     int passengerCount,
     String riderFirstName,
     String riderLastName,
+    DriverTripRouteDto route,
   });
 
   $LocationDtoCopyWith<$Res> get pickupLocation;
   $LocationDtoCopyWith<$Res> get dropoffLocation;
+  $DriverTripRouteDtoCopyWith<$Res> get route;
 }
 
 /// @nodoc
@@ -82,6 +85,7 @@ class _$DriverTripRequestDtoCopyWithImpl<
     Object? passengerCount = null,
     Object? riderFirstName = null,
     Object? riderLastName = null,
+    Object? route = null,
   }) {
     return _then(
       _value.copyWith(
@@ -115,6 +119,11 @@ class _$DriverTripRequestDtoCopyWithImpl<
                     ? _value.riderLastName
                     : riderLastName // ignore: cast_nullable_to_non_nullable
                         as String,
+            route:
+                null == route
+                    ? _value.route
+                    : route // ignore: cast_nullable_to_non_nullable
+                        as DriverTripRouteDto,
           )
           as $Val,
     );
@@ -139,6 +148,16 @@ class _$DriverTripRequestDtoCopyWithImpl<
       return _then(_value.copyWith(dropoffLocation: value) as $Val);
     });
   }
+
+  /// Create a copy of DriverTripRequestDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DriverTripRouteDtoCopyWith<$Res> get route {
+    return $DriverTripRouteDtoCopyWith<$Res>(_value.route, (value) {
+      return _then(_value.copyWith(route: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -157,12 +176,15 @@ abstract class _$$DriverTripRequestDtoImplCopyWith<$Res>
     int passengerCount,
     String riderFirstName,
     String riderLastName,
+    DriverTripRouteDto route,
   });
 
   @override
   $LocationDtoCopyWith<$Res> get pickupLocation;
   @override
   $LocationDtoCopyWith<$Res> get dropoffLocation;
+  @override
+  $DriverTripRouteDtoCopyWith<$Res> get route;
 }
 
 /// @nodoc
@@ -185,6 +207,7 @@ class __$$DriverTripRequestDtoImplCopyWithImpl<$Res>
     Object? passengerCount = null,
     Object? riderFirstName = null,
     Object? riderLastName = null,
+    Object? route = null,
   }) {
     return _then(
       _$DriverTripRequestDtoImpl(
@@ -218,6 +241,11 @@ class __$$DriverTripRequestDtoImplCopyWithImpl<$Res>
                 ? _value.riderLastName
                 : riderLastName // ignore: cast_nullable_to_non_nullable
                     as String,
+        route:
+            null == route
+                ? _value.route
+                : route // ignore: cast_nullable_to_non_nullable
+                    as DriverTripRouteDto,
       ),
     );
   }
@@ -233,6 +261,7 @@ class _$DriverTripRequestDtoImpl extends _DriverTripRequestDto {
     required this.passengerCount,
     required this.riderFirstName,
     required this.riderLastName,
+    required this.route,
   }) : super._();
 
   factory _$DriverTripRequestDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -250,10 +279,12 @@ class _$DriverTripRequestDtoImpl extends _DriverTripRequestDto {
   final String riderFirstName;
   @override
   final String riderLastName;
+  @override
+  final DriverTripRouteDto route;
 
   @override
   String toString() {
-    return 'DriverTripRequestDto(tripId: $tripId, pickupLocation: $pickupLocation, dropoffLocation: $dropoffLocation, passengerCount: $passengerCount, riderFirstName: $riderFirstName, riderLastName: $riderLastName)';
+    return 'DriverTripRequestDto(tripId: $tripId, pickupLocation: $pickupLocation, dropoffLocation: $dropoffLocation, passengerCount: $passengerCount, riderFirstName: $riderFirstName, riderLastName: $riderLastName, route: $route)';
   }
 
   @override
@@ -271,7 +302,8 @@ class _$DriverTripRequestDtoImpl extends _DriverTripRequestDto {
             (identical(other.riderFirstName, riderFirstName) ||
                 other.riderFirstName == riderFirstName) &&
             (identical(other.riderLastName, riderLastName) ||
-                other.riderLastName == riderLastName));
+                other.riderLastName == riderLastName) &&
+            (identical(other.route, route) || other.route == route));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -284,6 +316,7 @@ class _$DriverTripRequestDtoImpl extends _DriverTripRequestDto {
     passengerCount,
     riderFirstName,
     riderLastName,
+    route,
   );
 
   /// Create a copy of DriverTripRequestDto
@@ -312,6 +345,7 @@ abstract class _DriverTripRequestDto extends DriverTripRequestDto {
     required final int passengerCount,
     required final String riderFirstName,
     required final String riderLastName,
+    required final DriverTripRouteDto route,
   }) = _$DriverTripRequestDtoImpl;
   const _DriverTripRequestDto._() : super._();
 
@@ -330,6 +364,8 @@ abstract class _DriverTripRequestDto extends DriverTripRequestDto {
   String get riderFirstName;
   @override
   String get riderLastName;
+  @override
+  DriverTripRouteDto get route;
 
   /// Create a copy of DriverTripRequestDto
   /// with the given fields replaced by the non-null parameter values.

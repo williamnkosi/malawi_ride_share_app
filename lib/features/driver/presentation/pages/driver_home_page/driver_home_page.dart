@@ -6,6 +6,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/driver_home_page_view.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_home_page/widgets/driver_trip_bottom_sheet.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 
@@ -107,7 +108,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
                   requestReceived: (trip, date, timeout) {
                     logger.info('=== REQUEST RECEIVED IN LISTENER ===');
                     logger.info('Trip ID: ${trip.tripId}');
-                    _showTripRequestDialog(context, trip);
+                    showDriverTripBottomSheet(trip: trip, context: context);
                   },
                   idle: () {
                     logger.info('State is idle');

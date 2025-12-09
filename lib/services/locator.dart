@@ -152,7 +152,10 @@ Future<void> setupDriverOperationsDependencies() async {
   );
 
   getIt.registerSingleton<DriverTripRepository>(
-    DriverTripRepositoryImp(getIt<SocketRepository>()),
+    DriverTripRepositoryImp(
+      getIt<SocketRepository>(),
+      getIt<FirebaseRepository>(),
+    ),
   );
 
   // Use cases

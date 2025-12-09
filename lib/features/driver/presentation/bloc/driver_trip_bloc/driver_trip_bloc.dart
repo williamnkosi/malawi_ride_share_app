@@ -89,7 +89,25 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     Emitter<DriverTripState> emit,
   ) async {
     logger.info('Trip accepted: ${event.trip.tripId}');
-    // Additional logic for accepting the trip can be added here
+    try {
+      await acceptTripUseCase.call(event.trip.tripId);
+
+      emit(
+        DriverTripState.enRouteToPickup(
+          activeTrip: event.trip,
+          currentLocation: LocationEntity(latitude: 0.0, longitude: 0.0),
+          estimatedArrival: const Duration(minutes: 5),
+        ),
+      );
+      logger.info('Successfully accepted trip: ${event.trip.tripId}');
+    } catch (e, stackTrace) {
+      logger.severe(
+        'Error accepting trip ${event.trip.tripId}: $e',
+        e,
+        stackTrace,
+      );
+      emit(DriverTripState.error(message: 'Failed to accept trip'));
+    }
   }
 
   _onDriverTripDeclineTrip(

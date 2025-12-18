@@ -196,6 +196,7 @@ class TripRequestActions extends StatelessWidget {
             BlocProvider.of<DriverTripBloc>(
               context,
             ).add(DriverTripAcceptTrip(trip: trip));
+            Navigator.of(context).pop();
           },
           child: Text('Accept'),
         ),
@@ -204,6 +205,7 @@ class TripRequestActions extends StatelessWidget {
             BlocProvider.of<DriverTripBloc>(
               context,
             ).add(DriverTripDeclineTrip(trip: trip));
+            Navigator.of(context).pop();
           },
           style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
           child: Text('Decline'),

@@ -67,114 +67,143 @@ class DriverTripRepositoryImp implements DriverTripRepository {
         });
   }
 
-  /// Multi-event listener for all trip-related events
+  /// Multi-event listener using Stream Merging Pattern
+  /// Listens to multiple trip-related events and merges them into a single stream
   Stream<TripEventData> listenToAllTripEvents() {
     // Define all events we want to listen to
     final eventsToListen = [
       'trip:request',
       'trip:accepted',
-      'trip:declined', 
+      'trip:declined',
       'trip:cancelled',
       'trip:started',
       'trip:completed',
       'trip:updated',
     ];
 
-    // Create a single stream that merges all event streams
+    // Create individual streams for each event
     final List<Stream<TripEventData>> eventStreams = eventsToListen
-        .map((eventName) => socketRepository
-            .listen(eventName, SocketNamespace.trips.path)
-            .map((data) => TripEventData(
+        .map(
+          (eventName) => socketRepository
+              .listen(eventName, SocketNamespace.trips.path)
+              .map(
+                (data) => TripEventData(
                   eventType: eventName,
                   data: data,
                   timestamp: DateTime.now(),
-                )))
+                ),
+              ),
+        )
         .toList();
 
-    // Merge all streams into one
+    // Create a broadcast stream controller to merge all streams
     late StreamController<TripEventData> controller;
+    List<StreamSubscription> subscriptions = [];
+
     controller = StreamController<TripEventData>.broadcast(
       onListen: () {
-        // Subscribe to all event streams
+        // Subscribe to all event streams when someone starts listening
         for (final stream in eventStreams) {
-          stream.listen(
-            (eventData) => controller.add(eventData),
-            onError: (error) => controller.addError(error),
+          final subscription = stream.listen(
+            (eventData) {
+              if (!controller.isClosed) {
+                controller.add(eventData);
+              }
+            },
+            onError: (error) {
+              if (!controller.isClosed) {
+                controller.addError(error);
+              }
+            },
           );
+          subscriptions.add(subscription);
         }
+      },
+      onCancel: () {
+        // Clean up all subscriptions when the stream is cancelled
+        for (final subscription in subscriptions) {
+          subscription.cancel();
+        }
+        subscriptions.clear();
       },
     );
 
     return controller.stream;
   }
 
-  /// Process different trip events with appropriate handlers
-  void handleTripEvent(TripEventData eventData) {
+  /// Convenience method to handle events with type-safe switching
+  void processEvent(TripEventData eventData) {
     switch (eventData.eventType) {
       case 'trip:request':
-        _handleTripRequest(eventData.data);
+        _handleTripRequest(eventData);
         break;
-      case 'trip:accepted':
-        _handleTripAccepted(eventData.data);
+      case 'trip:initiated':
+        _handleTripInitiated(eventData);
         break;
       case 'trip:declined':
-        _handleTripDeclined(eventData.data);
+        _handleTripDeclined(eventData);
         break;
       case 'trip:cancelled':
-        _handleTripCancelled(eventData.data);
+        _handleTripCancelled(eventData);
         break;
       case 'trip:started':
-        _handleTripStarted(eventData.data);
+        _handleTripStarted(eventData);
         break;
       case 'trip:completed':
-        _handleTripCompleted(eventData.data);
+        _handleTripCompleted(eventData);
         break;
       case 'trip:updated':
-        _handleTripUpdated(eventData.data);
+        _handleTripUpdated(eventData);
         break;
       default:
-        print('Unknown event type: ${eventData.eventType}');
+        // Handle unknown events
+        _handleUnknownEvent(eventData);
     }
   }
 
-  // Private event handlers
-  void _handleTripRequest(dynamic data) {
-    print('New trip request: $data');
-    // Process trip request
+  // Event-specific handlers - implement your logic here
+  void _handleTripRequest(TripEventData eventData) {
+    // Handle new trip request
+    print('Processing trip request: ${eventData.data}');
   }
 
-  void _handleTripAccepted(dynamic data) {
-    print('Trip accepted: $data');
-    // Process trip acceptance
+  void _handleTripInitiated(TripEventData eventData) {
+    // Handle trip acceptance confirmation
+    print('Trip initiated: ${eventData.data}');
   }
 
-  void _handleTripDeclined(dynamic data) {
-    print('Trip declined: $data');
-    // Process trip decline
+  void _handleTripDeclined(TripEventData eventData) {
+    // Handle trip decline confirmation
+    print('Trip declined: ${eventData.data}');
   }
 
-  void _handleTripCancelled(dynamic data) {
-    print('Trip cancelled: $data');
-    // Process trip cancellation
+  void _handleTripCancelled(TripEventData eventData) {
+    // Handle trip cancellation
+    print('Trip cancelled: ${eventData.data}');
   }
 
-  void _handleTripStarted(dynamic data) {
-    print('Trip started: $data');
-    // Process trip start
+  void _handleTripStarted(TripEventData eventData) {
+    // Handle trip start
+    print('Trip started: ${eventData.data}');
   }
 
-  void _handleTripCompleted(dynamic data) {
-    print('Trip completed: $data');
-    // Process trip completion
+  void _handleTripCompleted(TripEventData eventData) {
+    // Handle trip completion
+    print('Trip completed: ${eventData.data}');
   }
 
-  void _handleTripUpdated(dynamic data) {
-    print('Trip updated: $data');
-    // Process trip update
+  void _handleTripUpdated(TripEventData eventData) {
+    // Handle trip updates
+    print('Trip updated: ${eventData.data}');
+  }
+
+  void _handleUnknownEvent(TripEventData eventData) {
+    // Handle unknown events
+    print('Unknown event: ${eventData.eventType}');
   }
 }
 
-/// Data class for trip events
+/// Data class to wrap events with metadata
 class TripEventData {
   final String eventType;
   final dynamic data;
@@ -188,6 +217,18 @@ class TripEventData {
 
   @override
   String toString() {
-    return 'TripEventData(eventType: $eventType, data: $data, timestamp: $timestamp)';
+    return 'TripEventData(eventType: $eventType, timestamp: $timestamp, data: $data)';
+  }
+
+  /// Helper method to check if this is a specific event type
+  bool isEventType(String type) => eventType == type;
+
+  /// Helper method to safely cast data to a specific type
+  T? getDataAs<T>() {
+    try {
+      return data as T;
+    } catch (e) {
+      return null;
+    }
   }
 }

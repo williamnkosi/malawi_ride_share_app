@@ -36,12 +36,12 @@ class _DriverHomePageState extends State<DriverHomePage> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => getIt<LocationBloc>()),
+        BlocProvider(create: (context) => getIt<DriverTripBloc>()),
         BlocProvider(
           create: (context) =>
               getIt<DriverOperationsBloc>()
                 ..add(const DriverOperationsEvent.initialize()),
         ),
-        BlocProvider(create: (context) => getIt<DriverTripBloc>()),
       ],
       child: Scaffold(
         appBar: AppBar(title: const Text('Driver Home Page')),

@@ -137,7 +137,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
       case 'trip:request':
         _handleTripRequest(eventData);
         break;
-      case 'trip:initiated':
+      case 'trip:accepted_confirmation':
         _handleTripInitiated(eventData);
         break;
       case 'trip:declined':

@@ -16,6 +16,7 @@ class DriverOperationsBloc
   final logger = Logger('DriverOperationsBloc');
   final DriverTripBloc driverTripBloc;
   final InitializeUseCase initializeUseCase;
+
   final GoOnLineUseCase goOnLineUseCase;
   final GoOfflineUseCase goOfflineUseCase;
 
@@ -38,7 +39,7 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
       await initializeUseCase.call(null);
-      driverTripBloc.add(DriverTripInitialize());
+      driverTripBloc.add(const DriverTripEvent.initialize());
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline());
     } catch (e) {

@@ -60,8 +60,9 @@ Future<void> setupGetIt() async {
   await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
   await setupLocationFeatureDependencies();
+
+  await setupDriverTripDependencies();
   await setupDriverOperationsDependencies();
-  await setupDriverTripUseCases();
 }
 
 Future<void> setupSharedDependencies() async {
@@ -151,13 +152,6 @@ Future<void> setupDriverOperationsDependencies() async {
     DriverLocationTrackingRepositoryImpl(getIt<SocketRepository>()),
   );
 
-  getIt.registerSingleton<DriverTripRepository>(
-    DriverTripRepositoryImp(
-      getIt<SocketRepository>(),
-      getIt<FirebaseRepository>(),
-    ),
-  );
-
   // Use cases
 
   getIt.registerSingleton<InitializeUseCase>(
@@ -178,10 +172,6 @@ Future<void> setupDriverOperationsDependencies() async {
     ),
   );
 
-  getIt.registerSingleton<ListenForEvents>(
-    ListenForEvents(getIt<DriverTripRepository>()),
-  );
-
   getIt.registerFactory<DriverOperationsBloc>(
     () => DriverOperationsBloc(
       driverTripBloc: getIt<DriverTripBloc>(),
@@ -192,7 +182,16 @@ Future<void> setupDriverOperationsDependencies() async {
   );
 }
 
-Future<void> setupDriverTripUseCases() async {
+Future<void> setupDriverTripDependencies() async {
+  getIt.registerSingleton<DriverTripRepository>(
+    DriverTripRepositoryImp(
+      getIt<SocketRepository>(),
+      getIt<FirebaseRepository>(),
+    ),
+  );
+  getIt.registerSingleton<ListenForEvents>(
+    ListenForEvents(getIt<DriverTripRepository>()),
+  );
   getIt.registerSingleton<AcceptTripUseCase>(
     AcceptTripUseCase(getIt<DriverTripRepository>()),
   );

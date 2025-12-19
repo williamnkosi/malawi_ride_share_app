@@ -1,11 +1,15 @@
 import 'dart:async';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_confirmation/driver_trip_confirmation.dart';
+import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_confirmation/driver_trip_confirmation_mapper.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_request.dto.dart';
 import 'package:malawi_ride_share_app/features/driver/data/models/driver_trip_request/driver_trip_request_mapper.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/constants/trip_events.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart'
+    hide TripEvents;
 
 class DriverTripRepositoryImp implements DriverTripRepository {
   final SocketRepository socketRepository;
@@ -14,10 +18,11 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   @override
   Future<void> acceptTrip(String tripId) {
     var driverId = firebaseRepository.getFirebaseId();
-    return socketRepository.request('trip:accept', SocketNamespace.trips.path, {
-      "driverId": driverId,
-      "tripId": tripId,
-    });
+    return socketRepository.request(
+      TripEvents.acceptTrip,
+      SocketNamespace.trips.path,
+      {"driverId": driverId, "tripId": tripId},
+    );
   }
 
   @override
@@ -29,7 +34,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   @override
   Future<void> declineTrip(String tripId) {
     return socketRepository.request(
-      'trip:decline',
+      TripEvents.declineTrip,
       SocketNamespace.trips.path,
       {"tripId": tripId},
     );
@@ -44,7 +49,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   @override
   Stream<DriverTripEntity> listenToTripRequests() {
     return socketRepository
-        .listen('trip:request', SocketNamespace.trips.path)
+        .listen(TripEvents.tripRequest, SocketNamespace.trips.path)
         .map((data) {
           // Add null safety checks
           if (data == null) {
@@ -71,15 +76,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   /// Listens to multiple trip-related events and merges them into a single stream
   Stream<TripEventData> listenToAllTripEvents() {
     // Define all events we want to listen to
-    final eventsToListen = [
-      'trip:request',
-      'trip:accepted_confirmation',
-      'trip:declined',
-      'trip:cancelled',
-      'trip:started',
-      'trip:completed',
-      'trip:updated',
-    ];
+    final eventsToListen = TripEvents.allIncomingEvents;
 
     // Create individual streams for each event
     final List<Stream<TripEventData>> eventStreams = eventsToListen
@@ -89,7 +86,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
               .map(
                 (data) => TripEventData(
                   eventType: eventName,
-                  data: data,
+                  data: processEventData(eventType: eventName, eventData: data),
                   timestamp: DateTime.now(),
                 ),
               ),
@@ -131,82 +128,31 @@ class DriverTripRepositoryImp implements DriverTripRepository {
     return controller.stream;
   }
 
-  /// Convenience method to handle events with type-safe switching
-  void processEvent(TripEventData eventData) {
-    switch (eventData.eventType) {
-      case 'trip:request':
-        _handleTripRequest(eventData);
-        break;
-      case 'trip:accepted_confirmation':
-        _handleTripInitiated(eventData);
-        break;
-      case 'trip:declined':
-        _handleTripDeclined(eventData);
-        break;
-      case 'trip:cancelled':
-        _handleTripCancelled(eventData);
-        break;
-      case 'trip:started':
-        _handleTripStarted(eventData);
-        break;
-      case 'trip:completed':
-        _handleTripCompleted(eventData);
-        break;
-      case 'trip:updated':
-        _handleTripUpdated(eventData);
-        break;
+  T processEventData<T>({
+    required String eventType,
+    required dynamic eventData,
+  }) {
+    // Process the event data based on its type
+    switch (eventType) {
+      case TripEvents.tripAcceptedConfirmation:
+        final requestData = eventData.data['data'];
+        final dto = DriverTripConfirmation.fromJson(requestData);
+        return DriverTripConfirmationMapper.toEntity(dto) as T;
+      case TripEvents.tripRequest:
+        final requestData = eventData.data['data'];
+        final dto = DriverTripRequestDto.fromJson(requestData);
+        return DriverTripRequestMapper.toEntity(dto) as T;
+      // Add more cases for other event types as needed
       default:
-        // Handle unknown events
-        _handleUnknownEvent(eventData);
+        throw Exception('Unhandled event type: ${eventData.eventType}');
     }
-  }
-
-  // Event-specific handlers - implement your logic here
-  void _handleTripRequest(TripEventData eventData) {
-    // Handle new trip request
-    print('Processing trip request: ${eventData.data}');
-  }
-
-  void _handleTripInitiated(TripEventData eventData) {
-    // Handle trip acceptance confirmation
-    print('Trip initiated: ${eventData.data}');
-  }
-
-  void _handleTripDeclined(TripEventData eventData) {
-    // Handle trip decline confirmation
-    print('Trip declined: ${eventData.data}');
-  }
-
-  void _handleTripCancelled(TripEventData eventData) {
-    // Handle trip cancellation
-    print('Trip cancelled: ${eventData.data}');
-  }
-
-  void _handleTripStarted(TripEventData eventData) {
-    // Handle trip start
-    print('Trip started: ${eventData.data}');
-  }
-
-  void _handleTripCompleted(TripEventData eventData) {
-    // Handle trip completion
-    print('Trip completed: ${eventData.data}');
-  }
-
-  void _handleTripUpdated(TripEventData eventData) {
-    // Handle trip updates
-    print('Trip updated: ${eventData.data}');
-  }
-
-  void _handleUnknownEvent(TripEventData eventData) {
-    // Handle unknown events
-    print('Unknown event: ${eventData.eventType}');
   }
 }
 
 /// Data class to wrap events with metadata
-class TripEventData {
+class TripEventData<T> {
   final String eventType;
-  final dynamic data;
+  final T data;
   final DateTime timestamp;
 
   TripEventData({
@@ -222,13 +168,4 @@ class TripEventData {
 
   /// Helper method to check if this is a specific event type
   bool isEventType(String type) => eventType == type;
-
-  /// Helper method to safely cast data to a specific type
-  T? getDataAs<T>() {
-    try {
-      return data as T;
-    } catch (e) {
-      return null;
-    }
-  }
 }

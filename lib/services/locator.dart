@@ -8,6 +8,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_l
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
@@ -189,8 +190,14 @@ Future<void> setupDriverTripDependencies() async {
       getIt<FirebaseRepository>(),
     ),
   );
-  getIt.registerSingleton<ListenForEvents>(
-    ListenForEvents(getIt<DriverTripRepository>()),
+  getIt.registerSingleton<ListenForTripEvents>(
+    ListenForTripEvents(getIt<DriverTripRepository>()),
+  );
+
+  getIt.registerSingleton<ListenForMultiEventsUseCase>(
+    ListenForMultiEventsUseCase(
+      driverTripRepository: getIt<DriverTripRepository>(),
+    ),
   );
   getIt.registerSingleton<AcceptTripUseCase>(
     AcceptTripUseCase(getIt<DriverTripRepository>()),
@@ -200,7 +207,8 @@ Future<void> setupDriverTripDependencies() async {
   );
   getIt.registerSingleton<DriverTripBloc>(
     DriverTripBloc(
-      listenForEvents: getIt<ListenForEvents>(),
+      listenForEvents: getIt<ListenForTripEvents>(),
+      listenForMultiEvents: getIt<ListenForMultiEventsUseCase>(),
       acceptTripUseCase: getIt<AcceptTripUseCase>(),
       declineTripUseCase: getIt<DeclineTripUseCase>(),
     ),

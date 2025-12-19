@@ -6,6 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 
@@ -15,12 +16,14 @@ part 'driver_trip_bloc.freezed.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final logger = Logger('DriverTripBloc');
-  final ListenForEvents listenForEvents;
+  final ListenForTripEvents listenForEvents;
+  final ListenForMultiEventsUseCase listenForMultiEvents;
   final AcceptTripUseCase acceptTripUseCase;
   final DeclineTripUseCase declineTripUseCase;
   StreamSubscription? _tripRequestSubscription;
   DriverTripBloc({
     required this.listenForEvents,
+    required this.listenForMultiEvents,
     required this.acceptTripUseCase,
     required this.declineTripUseCase,
   }) : super(const DriverTripState.idle()) {

@@ -73,7 +73,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
     // Define all events we want to listen to
     final eventsToListen = [
       'trip:request',
-      'trip:accepted',
+      'trip:accepted_confirmation',
       'trip:declined',
       'trip:cancelled',
       'trip:started',

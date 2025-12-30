@@ -6,7 +6,7 @@ class AcceptTripUseCase extends UseCase<void, String> {
   AcceptTripUseCase(this.driverTripRepository);
 
   @override
-  Future<void> call(String tripId) {
-    return driverTripRepository.acceptTrip(tripId);
+  Future<void> call(String tripId) async {
+    driverTripRepository.acceptTrip(tripId);
   }
 }

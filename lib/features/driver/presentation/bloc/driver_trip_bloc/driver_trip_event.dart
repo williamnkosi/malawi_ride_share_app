@@ -8,6 +8,10 @@ class DriverTripEvent with _$DriverTripEvent {
     required DriverTripEntity trip,
   }) = DriverTripRequestReceived;
 
+  const factory DriverTripEvent.tripAcceptedConfirmation({
+    required DriverTripConfirmationEntity confirmationTrip,
+  }) = DriverTripAcceptedConfirmation;
+
   const factory DriverTripEvent.acceptTrip({required DriverTripEntity trip}) =
       DriverTripAcceptTrip;
 

@@ -18,9 +18,7 @@ class DriverTripState with _$DriverTripState {
 
   // Trip accepted - en route to pickup
   const factory DriverTripState.enRouteToPickup({
-    required DriverTripEntity activeTrip,
-    required LocationEntity currentLocation,
-    required Duration estimatedArrival,
+    required DriverTripConfirmationEntity activeTrip,
     double? distanceToPickup,
   }) = DriverTripEnRouteToPickup;
 

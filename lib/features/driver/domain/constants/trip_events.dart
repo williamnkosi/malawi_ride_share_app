@@ -22,7 +22,7 @@ class TripEvents {
 
   /// All incoming events that drivers should listen to
   static const List<String> allIncomingEvents = [
-    tripRequest,
+    // tripRequest,
     tripAcceptedConfirmation,
     tripDeclined,
     tripCancelled,
@@ -43,8 +43,8 @@ class TripEvents {
   /// Get display name for event (for UI/logging)
   static String getDisplayName(String event) {
     switch (event) {
-      case tripRequest:
-        return 'Trip Request';
+      // case tripRequest:
+      //   return 'Trip Request';
       case tripAcceptedConfirmation:
         return 'Trip Accepted';
       case tripDeclined:

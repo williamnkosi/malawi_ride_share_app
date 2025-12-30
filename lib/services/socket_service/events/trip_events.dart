@@ -5,6 +5,7 @@ class TripEvents {
   // ========================
   // Incoming events (server to driver)
   static const String tripRequestReceived = 'trip:request_received';
+  static const String tripAcceptedConfirmation = 'trip:accepted_confirmation';
   static const String tripCancelled = 'trip:cancelled';
   static const String tripUpdated = 'trip:updated';
 

@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_confirmation.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
+import 'package:malawi_ride_share_app/services/socket_service/events/trip_events.dart';
 
 part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
@@ -21,6 +23,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final AcceptTripUseCase acceptTripUseCase;
   final DeclineTripUseCase declineTripUseCase;
   StreamSubscription? _tripRequestSubscription;
+  StreamSubscription? _multiEventSubscription;
   DriverTripBloc({
     required this.listenForEvents,
     required this.listenForMultiEvents,
@@ -28,6 +31,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     required this.declineTripUseCase,
   }) : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
+    on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
     on<DriverTripInitialize>(_onDriverTripInitialize);
     on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
@@ -62,6 +66,44 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
           },
         );
     logger.info('DriverTripBloc initialized and listening for trips.');
+
+    _multiEventSubscription = listenForMultiEvents
+        .call(null)
+        .listen(
+          (tripEventData) {
+            logger.info('=== MULTI EVENT STREAM LISTENER TRIGGERED ===');
+            logger.info('Trip event received: ${tripEventData.toString()}');
+            logger.info('Current bloc state: ${state.runtimeType}');
+
+            if (tripEventData.eventType ==
+                TripEvents.tripAcceptedConfirmation) {
+              logger.info('Processing trip accepted confirmation event');
+              // Handle trip accepted confirmation event
+              // You can add a specific event to the bloc if needed
+              return;
+            }
+            // Handle different types of trip events here
+            // For example:
+            // if (tripEventData is TripRequestEvent) {
+            //   add(DriverTripRequestReceived(trip: tripEventData.trip));
+            // } else if (tripEventData is TripCancellationEvent) {
+            //   add(DriverTripCancelled(tripId: tripEventData.tripId));
+            // }
+
+            logger.info('Trip event processed: ${tripEventData.toString()}');
+          },
+          onError: (error) {
+            logger.severe('Error listening for multi trip events: $error');
+            // Can't emit state directly from stream listener
+            // Consider adding an error event if needed
+          },
+          onDone: () {
+            logger.info('Multi trip events stream completed');
+          },
+        );
+    logger.info(
+      'DriverTripBloc initialized and listening for multi trip events.',
+    );
   }
 
   _onDriverTripRequestReceived(
@@ -87,6 +129,19 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     }
   }
 
+  _onDriverTripAcceptedConfirmation(
+    DriverTripAcceptedConfirmation event,
+    Emitter<DriverTripState> emit,
+  ) async {
+    logger.info(
+      'Trip accepted confirmation received for trip: ${event.confirmationTrip.tripId}',
+    );
+
+    emit(DriverTripState.enRouteToPickup(activeTrip: event.confirmationTrip));
+    // Handle the trip accepted confirmation logic here
+    // You might want to update the state or notify the driver
+  }
+
   _onDriverTripAcceptTrip(
     DriverTripAcceptTrip event,
     Emitter<DriverTripState> emit,
@@ -95,13 +150,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     try {
       await acceptTripUseCase.call(event.trip.tripId);
 
-      emit(
-        DriverTripState.enRouteToPickup(
-          activeTrip: event.trip,
-          currentLocation: LocationEntity(latitude: 0.0, longitude: 0.0),
-          estimatedArrival: const Duration(minutes: 5),
-        ),
-      );
       logger.info('Successfully accepted trip: ${event.trip.tripId}');
     } catch (e, stackTrace) {
       logger.severe(
@@ -124,6 +172,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   @override
   Future<void> close() {
     _tripRequestSubscription?.cancel();
+    _multiEventSubscription?.cancel();
     return super.close();
   }
 }

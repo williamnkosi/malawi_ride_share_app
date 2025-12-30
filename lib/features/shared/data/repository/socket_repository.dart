@@ -222,10 +222,15 @@ class SocketRepositoryImpl implements SocketRepository {
         throw Exception('Socket not connected to namespace: $namespace');
       }
 
+      _logger.info('🚀 Sending request: $event to $namespace with data: $data');
+
       final completer = Completer<T?>();
-      final timeout = Timer(const Duration(seconds: 10), () {
+      final timeout = Timer(const Duration(seconds: 30), () {
         if (!completer.isCompleted) {
-          completer.completeError(TimeoutException('Request timeout'));
+          _logger.warning('⏰ Request timeout for $event after 30 seconds');
+          completer.completeError(
+            TimeoutException('Request timeout after 30 seconds'),
+          );
         }
       });
 
@@ -234,6 +239,7 @@ class SocketRepositoryImpl implements SocketRepository {
         data,
         ack: (response) {
           if (!completer.isCompleted) {
+            _logger.info('✅ Received acknowledgment for $event: $response');
             timeout.cancel();
             completer.complete(response as T?);
           }
@@ -242,7 +248,7 @@ class SocketRepositoryImpl implements SocketRepository {
 
       return await completer.future;
     } catch (e) {
-      _logger.severe('Request failed for $event on $namespace: $e');
+      _logger.severe('❌ Request failed for $event on $namespace: $e');
       rethrow;
     }
   }

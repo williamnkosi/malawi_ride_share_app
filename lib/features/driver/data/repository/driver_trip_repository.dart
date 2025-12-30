@@ -16,12 +16,12 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   final FirebaseRepository firebaseRepository;
   DriverTripRepositoryImp(this.socketRepository, this.firebaseRepository);
   @override
-  Future<void> acceptTrip(String tripId) {
+  void acceptTrip(String tripId) {
     var driverId = firebaseRepository.getFirebaseId();
-    return socketRepository.request(
-      TripEvents.acceptTrip,
+    socketRepository.emit(
+      TripEvents.tripAcceptedConfirmation,
       SocketNamespace.trips.path,
-      {"driverId": driverId, "tripId": tripId},
+      {"tripId": tripId, "driverId": driverId},
     );
   }
 
@@ -74,6 +74,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
 
   /// Multi-event listener using Stream Merging Pattern
   /// Listens to multiple trip-related events and merges them into a single stream
+  @override
   Stream<TripEventData> listenToAllTripEvents() {
     // Define all events we want to listen to
     final eventsToListen = TripEvents.allIncomingEvents;
@@ -135,16 +136,16 @@ class DriverTripRepositoryImp implements DriverTripRepository {
     // Process the event data based on its type
     switch (eventType) {
       case TripEvents.tripAcceptedConfirmation:
-        final requestData = eventData.data['data'];
+        final requestData = eventData;
         final dto = DriverTripConfirmation.fromJson(requestData);
         return DriverTripConfirmationMapper.toEntity(dto) as T;
-      case TripEvents.tripRequest:
-        final requestData = eventData.data['data'];
-        final dto = DriverTripRequestDto.fromJson(requestData);
-        return DriverTripRequestMapper.toEntity(dto) as T;
+
+      // final requestData = eventData.data['data'];
+      // final dto = DriverTripRequestDto.fromJson(requestData);
+      // return DriverTripRequestMapper.toEntity(dto) as T;
       // Add more cases for other event types as needed
       default:
-        throw Exception('Unhandled event type: ${eventData.eventType}');
+        throw Exception('Unhandled event type: $eventType');
     }
   }
 }

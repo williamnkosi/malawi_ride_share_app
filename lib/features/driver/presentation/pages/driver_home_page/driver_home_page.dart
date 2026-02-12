@@ -113,6 +113,11 @@ class _DriverHomePageState extends State<DriverHomePage> {
                   idle: () {
                     logger.info('State is idle');
                   },
+                  requestExpired: () {
+                    // Close the bottom sheet if it's open
+                    Navigator.of(context).pop();
+                    logger.info('Trip request expired ');
+                  },
 
                   orElse: () {
                     logger.info(

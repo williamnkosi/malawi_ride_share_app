@@ -10,6 +10,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/process_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -205,12 +206,16 @@ Future<void> setupDriverTripDependencies() async {
   getIt.registerSingleton<DeclineTripUseCase>(
     DeclineTripUseCase(getIt<DriverTripRepository>()),
   );
+  getIt.registerSingleton<ProcessTripRequestUseCase>(
+    ProcessTripRequestUseCase(getIt<DriverTripRepository>()),
+  );
   getIt.registerSingleton<DriverTripBloc>(
     DriverTripBloc(
       listenForEvents: getIt<ListenForTripEvents>(),
       listenForMultiEvents: getIt<ListenForMultiEventsUseCase>(),
       acceptTripUseCase: getIt<AcceptTripUseCase>(),
       declineTripUseCase: getIt<DeclineTripUseCase>(),
+      processTripRequestUseCase: getIt<ProcessTripRequestUseCase>(),
     ),
   );
 }

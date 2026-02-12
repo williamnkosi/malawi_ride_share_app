@@ -2,7 +2,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 export 'socket_namespaces.dart';
 export 'events/location_events.dart';
-export 'events/trip_events.dart';
 
 /// Socket.IO connection configuration
 class SocketConfig {
@@ -12,8 +11,8 @@ class SocketConfig {
 
   // Connection timeout from environment
   static Duration get connectionTimeout => Duration(
-        seconds: int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10'),
-      );
+    seconds: int.parse(dotenv.env['SOCKET_TIMEOUT_SECONDS'] ?? '10'),
+  );
 
   // Reconnection settings
   static Duration get reconnectDelay =>

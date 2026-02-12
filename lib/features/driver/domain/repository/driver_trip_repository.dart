@@ -14,4 +14,9 @@ abstract class DriverTripRepository {
   void acceptTrip(String tripId);
   Future<void> declineTrip(String tripId);
   Future<void> completeTrip(String tripId);
+
+  dynamic processTripData({
+    required String eventType,
+    required dynamic tripData,
+  });
 }

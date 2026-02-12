@@ -18,6 +18,8 @@ class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.declineTrip({required DriverTripEntity trip}) =
       DriverTripDeclineTrip;
 
+  const factory DriverTripEvent.tripExpired() = DriverTripExpired;
+
   // Trip lifecycle events
   const factory DriverTripEvent.startTrip({required DriverTripEntity trip}) =
       DriverTripStart;

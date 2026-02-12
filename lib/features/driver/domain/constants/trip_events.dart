@@ -12,6 +12,7 @@ class TripEvents {
   static const String tripStarted = 'trip:started';
   static const String tripCompleted = 'trip:completed';
   static const String tripUpdated = 'trip:updated';
+  static const String tripTimeout = 'trip:timeout';
 
   // Outgoing events to server
   static const String acceptTrip = 'trip:accept';
@@ -22,13 +23,14 @@ class TripEvents {
 
   /// All incoming events that drivers should listen to
   static const List<String> allIncomingEvents = [
-    // tripRequest,
+    tripRequest,
     tripAcceptedConfirmation,
     tripDeclined,
     tripCancelled,
     tripStarted,
     tripCompleted,
     tripUpdated,
+    tripTimeout,
   ];
 
   /// All outgoing events that drivers can send

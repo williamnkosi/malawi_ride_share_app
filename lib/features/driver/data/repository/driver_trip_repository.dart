@@ -87,7 +87,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
               .map(
                 (data) => TripEventData(
                   eventType: eventName,
-                  data: processEventData(eventType: eventName, eventData: data),
+                  data: processTripData(eventType: eventName, tripData: data),
                   timestamp: DateTime.now(),
                 ),
               ),
@@ -146,6 +146,61 @@ class DriverTripRepositoryImp implements DriverTripRepository {
       // Add more cases for other event types as needed
       default:
         throw Exception('Unhandled event type: $eventType');
+    }
+  }
+
+  @override
+  dynamic processTripData({
+    required String eventType,
+    required dynamic tripData,
+  }) {
+    try {
+      // Extract the nested 'data' object if present
+      final requestData = tripData is Map && tripData.containsKey('data')
+          ? tripData['data']
+          : tripData;
+      final data = Map<String, dynamic>.from(requestData);
+
+      switch (eventType) {
+        case TripEvents.tripRequest:
+          final response = DriverTripRequestDto.fromJson(data);
+          return DriverTripRequestMapper.toEntity(response);
+
+        case TripEvents.tripAcceptedConfirmation:
+          final dto = DriverTripConfirmation.fromJson(data);
+          return DriverTripConfirmationMapper.toEntity(dto);
+
+        case TripEvents.tripDeclined:
+          // TODO: Create proper DTO and mapper for declined trips
+          return data;
+
+        case TripEvents.tripCancelled:
+          // TODO: Create proper DTO and mapper for cancelled trips
+          return data;
+
+        case TripEvents.tripStarted:
+          // TODO: Create proper DTO and mapper for started trips
+          return data;
+
+        case TripEvents.tripCompleted:
+          // TODO: Create proper DTO and mapper for completed trips
+          return data;
+
+        case TripEvents.tripUpdated:
+          // TODO: Create proper DTO and mapper for updated trips
+          return data;
+
+        case TripEvents.tripTimeout:
+          // Timeout events may not have data, return as-is
+          return data;
+
+        default:
+          throw Exception('Unhandled event type: $eventType');
+      }
+    } catch (e) {
+      throw Exception(
+        'Failed to parse trip data for event $eventType: $e. Raw data: $tripData',
+      );
     }
   }
 }

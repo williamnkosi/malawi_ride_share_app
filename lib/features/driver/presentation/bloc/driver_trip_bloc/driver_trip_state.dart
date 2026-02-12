@@ -12,9 +12,7 @@ class DriverTripState with _$DriverTripState {
     int? timeoutSeconds,
   }) = DrivverTripRequestReceived;
 
-  const factory DriverTripState.requestExpired({
-    required DriverTripEntity expiredRequest,
-  }) = DriverTripRequestExpired;
+  const factory DriverTripState.requestExpired() = DriverTripRequestExpired;
 
   // Trip accepted - en route to pickup
   const factory DriverTripState.enRouteToPickup({

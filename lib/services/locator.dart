@@ -143,7 +143,7 @@ Future<void> setupLocationFeatureDependencies() async {
   );
 
   // Blocs
-  getIt.registerFactory<LocationBloc>(
+  getIt.registerLazySingleton<LocationBloc>(
     () => LocationBloc(getLocationUseCase: getIt<GetLocationUseCase>()),
   );
 }

@@ -12,7 +12,8 @@ part of 'auth_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthEvent {
@@ -20,16 +21,15 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    authEventSetAuthenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authEventInitial,
@@ -39,9 +39,8 @@ mixin _$AuthEvent {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    authEventSetAuthenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authEventInitial,
@@ -51,10 +50,9 @@ mixin _$AuthEvent {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthEventInitial value) authEventInitial,
@@ -63,11 +61,10 @@ mixin _$AuthEvent {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    authEventSetAuthenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthEventInitial value)? authEventInitial,
@@ -76,11 +73,10 @@ mixin _$AuthEvent {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    authEventSetAuthenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthEventInitial value)? authEventInitial,
@@ -89,12 +85,11 @@ mixin _$AuthEvent {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -119,18 +114,20 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 
 /// @nodoc
 abstract class _$$AuthEventInitialImplCopyWith<$Res> {
-  factory _$$AuthEventInitialImplCopyWith(_$AuthEventInitialImpl value,
-          $Res Function(_$AuthEventInitialImpl) then) =
-      __$$AuthEventInitialImplCopyWithImpl<$Res>;
+  factory _$$AuthEventInitialImplCopyWith(
+    _$AuthEventInitialImpl value,
+    $Res Function(_$AuthEventInitialImpl) then,
+  ) = __$$AuthEventInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$AuthEventInitialImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthEventInitialImpl>
     implements _$$AuthEventInitialImplCopyWith<$Res> {
-  __$$AuthEventInitialImplCopyWithImpl(_$AuthEventInitialImpl _value,
-      $Res Function(_$AuthEventInitialImpl) _then)
-      : super(_value, _then);
+  __$$AuthEventInitialImplCopyWithImpl(
+    _$AuthEventInitialImpl _value,
+    $Res Function(_$AuthEventInitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -160,14 +157,14 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventInitial();
   }
@@ -182,7 +179,7 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventInitial?.call();
   }
@@ -197,7 +194,7 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -215,9 +212,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventInitial(this);
   }
@@ -231,9 +228,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventInitial?.call(this);
   }
@@ -247,9 +244,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -265,9 +262,10 @@ abstract class AuthEventInitial implements AuthEvent {
 
 /// @nodoc
 abstract class _$$AuthRiderEventLoginImplCopyWith<$Res> {
-  factory _$$AuthRiderEventLoginImplCopyWith(_$AuthRiderEventLoginImpl value,
-          $Res Function(_$AuthRiderEventLoginImpl) then) =
-      __$$AuthRiderEventLoginImplCopyWithImpl<$Res>;
+  factory _$$AuthRiderEventLoginImplCopyWith(
+    _$AuthRiderEventLoginImpl value,
+    $Res Function(_$AuthRiderEventLoginImpl) then,
+  ) = __$$AuthRiderEventLoginImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
@@ -276,36 +274,40 @@ abstract class _$$AuthRiderEventLoginImplCopyWith<$Res> {
 class __$$AuthRiderEventLoginImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthRiderEventLoginImpl>
     implements _$$AuthRiderEventLoginImplCopyWith<$Res> {
-  __$$AuthRiderEventLoginImplCopyWithImpl(_$AuthRiderEventLoginImpl _value,
-      $Res Function(_$AuthRiderEventLoginImpl) _then)
-      : super(_value, _then);
+  __$$AuthRiderEventLoginImplCopyWithImpl(
+    _$AuthRiderEventLoginImpl _value,
+    $Res Function(_$AuthRiderEventLoginImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$AuthRiderEventLoginImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null, Object? password = null}) {
+    return _then(
+      _$AuthRiderEventLoginImpl(
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        password:
+            null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
-  const _$AuthRiderEventLoginImpl(
-      {required this.email, required this.password});
+  const _$AuthRiderEventLoginImpl({
+    required this.email,
+    required this.password,
+  });
 
   @override
   final String email;
@@ -337,21 +339,23 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
   @pragma('vm:prefer-inline')
   _$$AuthRiderEventLoginImplCopyWith<_$AuthRiderEventLoginImpl> get copyWith =>
       __$$AuthRiderEventLoginImplCopyWithImpl<_$AuthRiderEventLoginImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authRiderEventlogin(email, password);
   }
@@ -366,7 +370,7 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authRiderEventlogin?.call(email, password);
   }
@@ -381,7 +385,7 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -399,9 +403,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authRiderEventlogin(this);
   }
@@ -415,9 +419,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authRiderEventlogin?.call(this);
   }
@@ -431,9 +435,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -444,9 +448,10 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
 }
 
 abstract class AuthRiderEventLogin implements AuthEvent {
-  const factory AuthRiderEventLogin(
-      {required final String email,
-      required final String password}) = _$AuthRiderEventLoginImpl;
+  const factory AuthRiderEventLogin({
+    required final String email,
+    required final String password,
+  }) = _$AuthRiderEventLoginImpl;
 
   String get email;
   String get password;
@@ -460,9 +465,10 @@ abstract class AuthRiderEventLogin implements AuthEvent {
 
 /// @nodoc
 abstract class _$$AuthDriverEventLoginImplCopyWith<$Res> {
-  factory _$$AuthDriverEventLoginImplCopyWith(_$AuthDriverEventLoginImpl value,
-          $Res Function(_$AuthDriverEventLoginImpl) then) =
-      __$$AuthDriverEventLoginImplCopyWithImpl<$Res>;
+  factory _$$AuthDriverEventLoginImplCopyWith(
+    _$AuthDriverEventLoginImpl value,
+    $Res Function(_$AuthDriverEventLoginImpl) then,
+  ) = __$$AuthDriverEventLoginImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
@@ -471,36 +477,40 @@ abstract class _$$AuthDriverEventLoginImplCopyWith<$Res> {
 class __$$AuthDriverEventLoginImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthDriverEventLoginImpl>
     implements _$$AuthDriverEventLoginImplCopyWith<$Res> {
-  __$$AuthDriverEventLoginImplCopyWithImpl(_$AuthDriverEventLoginImpl _value,
-      $Res Function(_$AuthDriverEventLoginImpl) _then)
-      : super(_value, _then);
+  __$$AuthDriverEventLoginImplCopyWithImpl(
+    _$AuthDriverEventLoginImpl _value,
+    $Res Function(_$AuthDriverEventLoginImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$AuthDriverEventLoginImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null, Object? password = null}) {
+    return _then(
+      _$AuthDriverEventLoginImpl(
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        password:
+            null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
-  const _$AuthDriverEventLoginImpl(
-      {required this.email, required this.password});
+  const _$AuthDriverEventLoginImpl({
+    required this.email,
+    required this.password,
+  });
 
   @override
   final String email;
@@ -531,23 +541,25 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
   @override
   @pragma('vm:prefer-inline')
   _$$AuthDriverEventLoginImplCopyWith<_$AuthDriverEventLoginImpl>
-      get copyWith =>
-          __$$AuthDriverEventLoginImplCopyWithImpl<_$AuthDriverEventLoginImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$AuthDriverEventLoginImplCopyWithImpl<_$AuthDriverEventLoginImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventDriverlogin(email, password);
   }
@@ -562,7 +574,7 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventDriverlogin?.call(email, password);
   }
@@ -577,7 +589,7 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -595,9 +607,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventDriverlogin(this);
   }
@@ -611,9 +623,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventDriverlogin?.call(this);
   }
@@ -627,9 +639,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -640,9 +652,10 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
 }
 
 abstract class AuthDriverEventLogin implements AuthEvent {
-  const factory AuthDriverEventLogin(
-      {required final String email,
-      required final String password}) = _$AuthDriverEventLoginImpl;
+  const factory AuthDriverEventLogin({
+    required final String email,
+    required final String password,
+  }) = _$AuthDriverEventLoginImpl;
 
   String get email;
   String get password;
@@ -651,14 +664,15 @@ abstract class AuthDriverEventLogin implements AuthEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthDriverEventLoginImplCopyWith<_$AuthDriverEventLoginImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AuthEventSignUpImplCopyWith<$Res> {
-  factory _$$AuthEventSignUpImplCopyWith(_$AuthEventSignUpImpl value,
-          $Res Function(_$AuthEventSignUpImpl) then) =
-      __$$AuthEventSignUpImplCopyWithImpl<$Res>;
+  factory _$$AuthEventSignUpImplCopyWith(
+    _$AuthEventSignUpImpl value,
+    $Res Function(_$AuthEventSignUpImpl) then,
+  ) = __$$AuthEventSignUpImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
@@ -668,27 +682,29 @@ class __$$AuthEventSignUpImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSignUpImpl>
     implements _$$AuthEventSignUpImplCopyWith<$Res> {
   __$$AuthEventSignUpImplCopyWithImpl(
-      _$AuthEventSignUpImpl _value, $Res Function(_$AuthEventSignUpImpl) _then)
-      : super(_value, _then);
+    _$AuthEventSignUpImpl _value,
+    $Res Function(_$AuthEventSignUpImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$AuthEventSignUpImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null, Object? password = null}) {
+    return _then(
+      _$AuthEventSignUpImpl(
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        password:
+            null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -727,21 +743,23 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
   @pragma('vm:prefer-inline')
   _$$AuthEventSignUpImplCopyWith<_$AuthEventSignUpImpl> get copyWith =>
       __$$AuthEventSignUpImplCopyWithImpl<_$AuthEventSignUpImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignUp(email, password);
   }
@@ -756,7 +774,7 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignUp?.call(email, password);
   }
@@ -771,7 +789,7 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -789,9 +807,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignUp(this);
   }
@@ -805,9 +823,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignUp?.call(this);
   }
@@ -821,9 +839,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -834,9 +852,10 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
 }
 
 abstract class AuthEventSignUp implements AuthEvent {
-  const factory AuthEventSignUp(
-      {required final String email,
-      required final String password}) = _$AuthEventSignUpImpl;
+  const factory AuthEventSignUp({
+    required final String email,
+    required final String password,
+  }) = _$AuthEventSignUpImpl;
 
   String get email;
   String get password;
@@ -850,18 +869,20 @@ abstract class AuthEventSignUp implements AuthEvent {
 
 /// @nodoc
 abstract class _$$AuthEventSignOutImplCopyWith<$Res> {
-  factory _$$AuthEventSignOutImplCopyWith(_$AuthEventSignOutImpl value,
-          $Res Function(_$AuthEventSignOutImpl) then) =
-      __$$AuthEventSignOutImplCopyWithImpl<$Res>;
+  factory _$$AuthEventSignOutImplCopyWith(
+    _$AuthEventSignOutImpl value,
+    $Res Function(_$AuthEventSignOutImpl) then,
+  ) = __$$AuthEventSignOutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$AuthEventSignOutImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSignOutImpl>
     implements _$$AuthEventSignOutImplCopyWith<$Res> {
-  __$$AuthEventSignOutImplCopyWithImpl(_$AuthEventSignOutImpl _value,
-      $Res Function(_$AuthEventSignOutImpl) _then)
-      : super(_value, _then);
+  __$$AuthEventSignOutImplCopyWithImpl(
+    _$AuthEventSignOutImpl _value,
+    $Res Function(_$AuthEventSignOutImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -891,14 +912,14 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignOut();
   }
@@ -913,7 +934,7 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignOut?.call();
   }
@@ -928,7 +949,7 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -946,9 +967,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignOut(this);
   }
@@ -962,9 +983,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventsignOut?.call(this);
   }
@@ -978,9 +999,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -997,9 +1018,9 @@ abstract class AuthEventSignOut implements AuthEvent {
 /// @nodoc
 abstract class _$$AuthEventSetToUnauthenticatedImplCopyWith<$Res> {
   factory _$$AuthEventSetToUnauthenticatedImplCopyWith(
-          _$AuthEventSetToUnauthenticatedImpl value,
-          $Res Function(_$AuthEventSetToUnauthenticatedImpl) then) =
-      __$$AuthEventSetToUnauthenticatedImplCopyWithImpl<$Res>;
+    _$AuthEventSetToUnauthenticatedImpl value,
+    $Res Function(_$AuthEventSetToUnauthenticatedImpl) then,
+  ) = __$$AuthEventSetToUnauthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1007,9 +1028,9 @@ class __$$AuthEventSetToUnauthenticatedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSetToUnauthenticatedImpl>
     implements _$$AuthEventSetToUnauthenticatedImplCopyWith<$Res> {
   __$$AuthEventSetToUnauthenticatedImplCopyWithImpl(
-      _$AuthEventSetToUnauthenticatedImpl _value,
-      $Res Function(_$AuthEventSetToUnauthenticatedImpl) _then)
-      : super(_value, _then);
+    _$AuthEventSetToUnauthenticatedImpl _value,
+    $Res Function(_$AuthEventSetToUnauthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1041,14 +1062,14 @@ class _$AuthEventSetToUnauthenticatedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetToUnauthenticated();
   }
@@ -1063,7 +1084,7 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetToUnauthenticated?.call();
   }
@@ -1078,7 +1099,7 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1096,9 +1117,9 @@ class _$AuthEventSetToUnauthenticatedImpl
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetToUnauthenticated(this);
   }
@@ -1112,9 +1133,9 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetToUnauthenticated?.call(this);
   }
@@ -1128,9 +1149,9 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1148,9 +1169,9 @@ abstract class AuthEventSetToUnauthenticated implements AuthEvent {
 /// @nodoc
 abstract class _$$AuthEventSetAuthenticatedImplCopyWith<$Res> {
   factory _$$AuthEventSetAuthenticatedImplCopyWith(
-          _$AuthEventSetAuthenticatedImpl value,
-          $Res Function(_$AuthEventSetAuthenticatedImpl) then) =
-      __$$AuthEventSetAuthenticatedImplCopyWithImpl<$Res>;
+    _$AuthEventSetAuthenticatedImpl value,
+    $Res Function(_$AuthEventSetAuthenticatedImpl) then,
+  ) = __$$AuthEventSetAuthenticatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserCredential userCredential, UserType userType});
 }
@@ -1160,36 +1181,39 @@ class __$$AuthEventSetAuthenticatedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthEventSetAuthenticatedImpl>
     implements _$$AuthEventSetAuthenticatedImplCopyWith<$Res> {
   __$$AuthEventSetAuthenticatedImplCopyWithImpl(
-      _$AuthEventSetAuthenticatedImpl _value,
-      $Res Function(_$AuthEventSetAuthenticatedImpl) _then)
-      : super(_value, _then);
+    _$AuthEventSetAuthenticatedImpl _value,
+    $Res Function(_$AuthEventSetAuthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userCredential = null,
-    Object? userType = null,
-  }) {
-    return _then(_$AuthEventSetAuthenticatedImpl(
-      userCredential: null == userCredential
-          ? _value.userCredential
-          : userCredential // ignore: cast_nullable_to_non_nullable
-              as UserCredential,
-      userType: null == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
-    ));
+  $Res call({Object? userCredential = null, Object? userType = null}) {
+    return _then(
+      _$AuthEventSetAuthenticatedImpl(
+        userCredential:
+            null == userCredential
+                ? _value.userCredential
+                : userCredential // ignore: cast_nullable_to_non_nullable
+                    as UserCredential,
+        userType:
+            null == userType
+                ? _value.userType
+                : userType // ignore: cast_nullable_to_non_nullable
+                    as UserType,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
-  const _$AuthEventSetAuthenticatedImpl(
-      {required this.userCredential, required this.userType});
+  const _$AuthEventSetAuthenticatedImpl({
+    required this.userCredential,
+    required this.userType,
+  });
 
   @override
   final UserCredential userCredential;
@@ -1221,22 +1245,23 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
   @override
   @pragma('vm:prefer-inline')
   _$$AuthEventSetAuthenticatedImplCopyWith<_$AuthEventSetAuthenticatedImpl>
-      get copyWith => __$$AuthEventSetAuthenticatedImplCopyWithImpl<
-          _$AuthEventSetAuthenticatedImpl>(this, _$identity);
+  get copyWith => __$$AuthEventSetAuthenticatedImplCopyWithImpl<
+    _$AuthEventSetAuthenticatedImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authEventInitial,
     required TResult Function(String email, String password)
-        authRiderEventlogin,
+    authRiderEventlogin,
     required TResult Function(String email, String password)
-        authEventDriverlogin,
+    authEventDriverlogin,
     required TResult Function(String email, String password) authEventsignUp,
     required TResult Function() authEventsignOut,
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetAuthenticated(userCredential, userType);
   }
@@ -1251,7 +1276,7 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult? Function()? authEventsignOut,
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetAuthenticated?.call(userCredential, userType);
   }
@@ -1266,7 +1291,7 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult Function()? authEventsignOut,
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1284,9 +1309,9 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     required TResult Function(AuthEventSignUp value) authEventsignUp,
     required TResult Function(AuthEventSignOut value) authEventsignOut,
     required TResult Function(AuthEventSetToUnauthenticated value)
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetAuthenticated(this);
   }
@@ -1300,9 +1325,9 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult? Function(AuthEventSignUp value)? authEventsignUp,
     TResult? Function(AuthEventSignOut value)? authEventsignOut,
     TResult? Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
   }) {
     return authEventSetAuthenticated?.call(this);
   }
@@ -1316,9 +1341,9 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult Function(AuthEventSignUp value)? authEventsignUp,
     TResult Function(AuthEventSignOut value)? authEventsignOut,
     TResult Function(AuthEventSetToUnauthenticated value)?
-        authEventSetToUnauthenticated,
+    authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
-        authEventSetAuthenticated,
+    authEventSetAuthenticated,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1329,9 +1354,10 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
 }
 
 abstract class AuthEventSetAuthenticated implements AuthEvent {
-  const factory AuthEventSetAuthenticated(
-      {required final UserCredential userCredential,
-      required final UserType userType}) = _$AuthEventSetAuthenticatedImpl;
+  const factory AuthEventSetAuthenticated({
+    required final UserCredential userCredential,
+    required final UserType userType,
+  }) = _$AuthEventSetAuthenticatedImpl;
 
   UserCredential get userCredential;
   UserType get userType;
@@ -1340,7 +1366,7 @@ abstract class AuthEventSetAuthenticated implements AuthEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthEventSetAuthenticatedImplCopyWith<_$AuthEventSetAuthenticatedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1350,32 +1376,29 @@ mixin _$AuthState {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Start value) start,
@@ -1383,8 +1406,7 @@ mixin _$AuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Start value)? start,
@@ -1392,8 +1414,7 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Start value)? start,
@@ -1402,8 +1423,7 @@ mixin _$AuthState {
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1429,8 +1449,9 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 /// @nodoc
 abstract class _$$StartImplCopyWith<$Res> {
   factory _$$StartImplCopyWith(
-          _$StartImpl value, $Res Function(_$StartImpl) then) =
-      __$$StartImplCopyWithImpl<$Res>;
+    _$StartImpl value,
+    $Res Function(_$StartImpl) then,
+  ) = __$$StartImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1438,8 +1459,9 @@ class __$$StartImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$StartImpl>
     implements _$$StartImplCopyWith<$Res> {
   __$$StartImplCopyWithImpl(
-      _$StartImpl _value, $Res Function(_$StartImpl) _then)
-      : super(_value, _then);
+    _$StartImpl _value,
+    $Res Function(_$StartImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1470,7 +1492,7 @@ class _$StartImpl implements _Start {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1483,7 +1505,7 @@ class _$StartImpl implements _Start {
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1496,7 +1518,7 @@ class _$StartImpl implements _Start {
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1555,8 +1577,9 @@ abstract class _Start implements AuthState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1564,8 +1587,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1596,7 +1620,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1609,7 +1633,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1622,7 +1646,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1681,8 +1705,9 @@ abstract class _Loading implements AuthState {
 /// @nodoc
 abstract class _$$AuthenticatedImplCopyWith<$Res> {
   factory _$$AuthenticatedImplCopyWith(
-          _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
-      __$$AuthenticatedImplCopyWithImpl<$Res>;
+    _$AuthenticatedImpl value,
+    $Res Function(_$AuthenticatedImpl) then,
+  ) = __$$AuthenticatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserCredential userCredential, UserType userType});
 }
@@ -1692,27 +1717,27 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedImpl>
     implements _$$AuthenticatedImplCopyWith<$Res> {
   __$$AuthenticatedImplCopyWithImpl(
-      _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
-      : super(_value, _then);
+    _$AuthenticatedImpl _value,
+    $Res Function(_$AuthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userCredential = null,
-    Object? userType = null,
-  }) {
-    return _then(_$AuthenticatedImpl(
-      null == userCredential
-          ? _value.userCredential
-          : userCredential // ignore: cast_nullable_to_non_nullable
-              as UserCredential,
-      null == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
-    ));
+  $Res call({Object? userCredential = null, Object? userType = null}) {
+    return _then(
+      _$AuthenticatedImpl(
+        null == userCredential
+            ? _value.userCredential
+            : userCredential // ignore: cast_nullable_to_non_nullable
+                as UserCredential,
+        null == userType
+            ? _value.userType
+            : userType // ignore: cast_nullable_to_non_nullable
+                as UserType,
+      ),
+    );
   }
 }
 
@@ -1759,7 +1784,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1772,7 +1797,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1785,7 +1810,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1839,8 +1864,9 @@ class _$AuthenticatedImpl implements _Authenticated {
 
 abstract class _Authenticated implements AuthState {
   const factory _Authenticated(
-          final UserCredential userCredential, final UserType userType) =
-      _$AuthenticatedImpl;
+    final UserCredential userCredential,
+    final UserType userType,
+  ) = _$AuthenticatedImpl;
 
   UserCredential get userCredential;
   UserType get userType;
@@ -1854,9 +1880,10 @@ abstract class _Authenticated implements AuthState {
 
 /// @nodoc
 abstract class _$$UnauthenticatedImplCopyWith<$Res> {
-  factory _$$UnauthenticatedImplCopyWith(_$UnauthenticatedImpl value,
-          $Res Function(_$UnauthenticatedImpl) then) =
-      __$$UnauthenticatedImplCopyWithImpl<$Res>;
+  factory _$$UnauthenticatedImplCopyWith(
+    _$UnauthenticatedImpl value,
+    $Res Function(_$UnauthenticatedImpl) then,
+  ) = __$$UnauthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1864,8 +1891,9 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
     implements _$$UnauthenticatedImplCopyWith<$Res> {
   __$$UnauthenticatedImplCopyWithImpl(
-      _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
-      : super(_value, _then);
+    _$UnauthenticatedImpl _value,
+    $Res Function(_$UnauthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1896,7 +1924,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1909,7 +1937,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1922,7 +1950,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1981,8 +2009,9 @@ abstract class _Unauthenticated implements AuthState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -1992,22 +2021,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -2049,7 +2079,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() start,
     required TResult Function() loading,
     required TResult Function(UserCredential userCredential, UserType userType)
-        authenticated,
+    authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -2062,7 +2092,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? start,
     TResult? Function()? loading,
     TResult? Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -2075,7 +2105,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? start,
     TResult Function()? loading,
     TResult Function(UserCredential userCredential, UserType userType)?
-        authenticated,
+    authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),

@@ -12,7 +12,8 @@ part of 'signup_user_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SignupUserState {
@@ -20,69 +21,69 @@ mixin _$SignupUserState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
     required TResult Function(String message) error,
     required TResult Function(String message) permissionError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
     TResult? Function(String message)? error,
     TResult? Function(String message)? permissionError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
     TResult Function(String message)? error,
     TResult Function(String message)? permissionError,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignupUserInitialState value) initial,
@@ -92,9 +93,8 @@ mixin _$SignupUserState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
-  }) =>
-      throw _privateConstructorUsedError;
+    permissionError,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignupUserInitialState value)? initial,
@@ -104,8 +104,7 @@ mixin _$SignupUserState {
     TResult? Function(SignupUserSuccessState value)? success,
     TResult? Function(SignupUserErrorState value)? error,
     TResult? Function(SignupUserPermissionErrorState value)? permissionError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupUserInitialState value)? initial,
@@ -116,15 +115,15 @@ mixin _$SignupUserState {
     TResult Function(SignupUserErrorState value)? error,
     TResult Function(SignupUserPermissionErrorState value)? permissionError,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SignupUserStateCopyWith<$Res> {
   factory $SignupUserStateCopyWith(
-          SignupUserState value, $Res Function(SignupUserState) then) =
-      _$SignupUserStateCopyWithImpl<$Res, SignupUserState>;
+    SignupUserState value,
+    $Res Function(SignupUserState) then,
+  ) = _$SignupUserStateCopyWithImpl<$Res, SignupUserState>;
 }
 
 /// @nodoc
@@ -144,9 +143,9 @@ class _$SignupUserStateCopyWithImpl<$Res, $Val extends SignupUserState>
 /// @nodoc
 abstract class _$$SignupUserInitialStateImplCopyWith<$Res> {
   factory _$$SignupUserInitialStateImplCopyWith(
-          _$SignupUserInitialStateImpl value,
-          $Res Function(_$SignupUserInitialStateImpl) then) =
-      __$$SignupUserInitialStateImplCopyWithImpl<$Res>;
+    _$SignupUserInitialStateImpl value,
+    $Res Function(_$SignupUserInitialStateImpl) then,
+  ) = __$$SignupUserInitialStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -154,9 +153,9 @@ class __$$SignupUserInitialStateImplCopyWithImpl<$Res>
     extends _$SignupUserStateCopyWithImpl<$Res, _$SignupUserInitialStateImpl>
     implements _$$SignupUserInitialStateImplCopyWith<$Res> {
   __$$SignupUserInitialStateImplCopyWithImpl(
-      _$SignupUserInitialStateImpl _value,
-      $Res Function(_$SignupUserInitialStateImpl) _then)
-      : super(_value, _then);
+    _$SignupUserInitialStateImpl _value,
+    $Res Function(_$SignupUserInitialStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
@@ -187,17 +186,18 @@ class _$SignupUserInitialStateImpl implements SignupUserInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -212,17 +212,18 @@ class _$SignupUserInitialStateImpl implements SignupUserInitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -237,17 +238,18 @@ class _$SignupUserInitialStateImpl implements SignupUserInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -271,7 +273,7 @@ class _$SignupUserInitialStateImpl implements SignupUserInitialState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return initial(this);
   }
@@ -315,30 +317,33 @@ abstract class SignupUserInitialState implements SignupUserState {
 
 /// @nodoc
 abstract class _$$SignupUserFormStateImplCopyWith<$Res> {
-  factory _$$SignupUserFormStateImplCopyWith(_$SignupUserFormStateImpl value,
-          $Res Function(_$SignupUserFormStateImpl) then) =
-      __$$SignupUserFormStateImplCopyWithImpl<$Res>;
+  factory _$$SignupUserFormStateImplCopyWith(
+    _$SignupUserFormStateImpl value,
+    $Res Function(_$SignupUserFormStateImpl) then,
+  ) = __$$SignupUserFormStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String? firstName,
-      String? lastName,
-      String? email,
-      String? phoneNumber,
-      DateTime? dateOfBirth,
-      Gender? gender,
-      String? password,
-      String? confirmPassword,
-      File? profileImage,
-      bool? isFormValid});
+  $Res call({
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? phoneNumber,
+    DateTime? dateOfBirth,
+    Gender? gender,
+    String? password,
+    String? confirmPassword,
+    File? profileImage,
+    bool? isFormValid,
+  });
 }
 
 /// @nodoc
 class __$$SignupUserFormStateImplCopyWithImpl<$Res>
     extends _$SignupUserStateCopyWithImpl<$Res, _$SignupUserFormStateImpl>
     implements _$$SignupUserFormStateImplCopyWith<$Res> {
-  __$$SignupUserFormStateImplCopyWithImpl(_$SignupUserFormStateImpl _value,
-      $Res Function(_$SignupUserFormStateImpl) _then)
-      : super(_value, _then);
+  __$$SignupUserFormStateImplCopyWithImpl(
+    _$SignupUserFormStateImpl _value,
+    $Res Function(_$SignupUserFormStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
@@ -356,65 +361,78 @@ class __$$SignupUserFormStateImplCopyWithImpl<$Res>
     Object? profileImage = freezed,
     Object? isFormValid = freezed,
   }) {
-    return _then(_$SignupUserFormStateImpl(
-      firstName: freezed == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastName: freezed == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateOfBirth: freezed == dateOfBirth
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender?,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      confirmPassword: freezed == confirmPassword
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as String?,
-      profileImage: freezed == profileImage
-          ? _value.profileImage
-          : profileImage // ignore: cast_nullable_to_non_nullable
-              as File?,
-      isFormValid: freezed == isFormValid
-          ? _value.isFormValid
-          : isFormValid // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
+    return _then(
+      _$SignupUserFormStateImpl(
+        firstName:
+            freezed == firstName
+                ? _value.firstName
+                : firstName // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        lastName:
+            freezed == lastName
+                ? _value.lastName
+                : lastName // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        email:
+            freezed == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        phoneNumber:
+            freezed == phoneNumber
+                ? _value.phoneNumber
+                : phoneNumber // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        dateOfBirth:
+            freezed == dateOfBirth
+                ? _value.dateOfBirth
+                : dateOfBirth // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        gender:
+            freezed == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                    as Gender?,
+        password:
+            freezed == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        confirmPassword:
+            freezed == confirmPassword
+                ? _value.confirmPassword
+                : confirmPassword // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        profileImage:
+            freezed == profileImage
+                ? _value.profileImage
+                : profileImage // ignore: cast_nullable_to_non_nullable
+                    as File?,
+        isFormValid:
+            freezed == isFormValid
+                ? _value.isFormValid
+                : isFormValid // ignore: cast_nullable_to_non_nullable
+                    as bool?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$SignupUserFormStateImpl implements SignupUserFormState {
-  const _$SignupUserFormStateImpl(
-      {this.firstName,
-      this.lastName,
-      this.email,
-      this.phoneNumber,
-      this.dateOfBirth,
-      this.gender,
-      this.password,
-      this.confirmPassword,
-      this.profileImage,
-      this.isFormValid});
+  const _$SignupUserFormStateImpl({
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.phoneNumber,
+    this.dateOfBirth,
+    this.gender,
+    this.password,
+    this.confirmPassword,
+    this.profileImage,
+    this.isFormValid,
+  });
 
   @override
   final String? firstName;
@@ -469,7 +487,54 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
+    runtimeType,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    dateOfBirth,
+    gender,
+    password,
+    confirmPassword,
+    profileImage,
+    isFormValid,
+  );
+
+  /// Create a copy of SignupUserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignupUserFormStateImplCopyWith<_$SignupUserFormStateImpl> get copyWith =>
+      __$$SignupUserFormStateImplCopyWithImpl<_$SignupUserFormStateImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
+    required TResult Function() imageLoading,
+    required TResult Function() loading,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
+    required TResult Function(String message) permissionError,
+  }) {
+    return formUpdate(
       firstName,
       lastName,
       email,
@@ -479,41 +544,8 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
       password,
       confirmPassword,
       profileImage,
-      isFormValid);
-
-  /// Create a copy of SignupUserState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignupUserFormStateImplCopyWith<_$SignupUserFormStateImpl> get copyWith =>
-      __$$SignupUserFormStateImplCopyWithImpl<_$SignupUserFormStateImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
-    required TResult Function() imageLoading,
-    required TResult Function() loading,
-    required TResult Function(String message) success,
-    required TResult Function(String message) error,
-    required TResult Function(String message) permissionError,
-  }) {
-    return formUpdate(firstName, lastName, email, phoneNumber, dateOfBirth,
-        gender, password, confirmPassword, profileImage, isFormValid);
+      isFormValid,
+    );
   }
 
   @override
@@ -521,17 +553,18 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -539,6 +572,45 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
     TResult? Function(String message)? permissionError,
   }) {
     return formUpdate?.call(
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      dateOfBirth,
+      gender,
+      password,
+      confirmPassword,
+      profileImage,
+      isFormValid,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
+    TResult Function()? imageLoading,
+    TResult Function()? loading,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    TResult Function(String message)? permissionError,
+    required TResult orElse(),
+  }) {
+    if (formUpdate != null) {
+      return formUpdate(
         firstName,
         lastName,
         email,
@@ -548,35 +620,8 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
         password,
         confirmPassword,
         profileImage,
-        isFormValid);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
-    TResult Function()? imageLoading,
-    TResult Function()? loading,
-    TResult Function(String message)? success,
-    TResult Function(String message)? error,
-    TResult Function(String message)? permissionError,
-    required TResult orElse(),
-  }) {
-    if (formUpdate != null) {
-      return formUpdate(firstName, lastName, email, phoneNumber, dateOfBirth,
-          gender, password, confirmPassword, profileImage, isFormValid);
+        isFormValid,
+      );
     }
     return orElse();
   }
@@ -591,7 +636,7 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return formUpdate(this);
   }
@@ -630,17 +675,18 @@ class _$SignupUserFormStateImpl implements SignupUserFormState {
 }
 
 abstract class SignupUserFormState implements SignupUserState {
-  const factory SignupUserFormState(
-      {final String? firstName,
-      final String? lastName,
-      final String? email,
-      final String? phoneNumber,
-      final DateTime? dateOfBirth,
-      final Gender? gender,
-      final String? password,
-      final String? confirmPassword,
-      final File? profileImage,
-      final bool? isFormValid}) = _$SignupUserFormStateImpl;
+  const factory SignupUserFormState({
+    final String? firstName,
+    final String? lastName,
+    final String? email,
+    final String? phoneNumber,
+    final DateTime? dateOfBirth,
+    final Gender? gender,
+    final String? password,
+    final String? confirmPassword,
+    final File? profileImage,
+    final bool? isFormValid,
+  }) = _$SignupUserFormStateImpl;
 
   String? get firstName;
   String? get lastName;
@@ -663,20 +709,20 @@ abstract class SignupUserFormState implements SignupUserState {
 /// @nodoc
 abstract class _$$SignupUserImageLoadingStateImplCopyWith<$Res> {
   factory _$$SignupUserImageLoadingStateImplCopyWith(
-          _$SignupUserImageLoadingStateImpl value,
-          $Res Function(_$SignupUserImageLoadingStateImpl) then) =
-      __$$SignupUserImageLoadingStateImplCopyWithImpl<$Res>;
+    _$SignupUserImageLoadingStateImpl value,
+    $Res Function(_$SignupUserImageLoadingStateImpl) then,
+  ) = __$$SignupUserImageLoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$SignupUserImageLoadingStateImplCopyWithImpl<$Res>
-    extends _$SignupUserStateCopyWithImpl<$Res,
-        _$SignupUserImageLoadingStateImpl>
+    extends
+        _$SignupUserStateCopyWithImpl<$Res, _$SignupUserImageLoadingStateImpl>
     implements _$$SignupUserImageLoadingStateImplCopyWith<$Res> {
   __$$SignupUserImageLoadingStateImplCopyWithImpl(
-      _$SignupUserImageLoadingStateImpl _value,
-      $Res Function(_$SignupUserImageLoadingStateImpl) _then)
-      : super(_value, _then);
+    _$SignupUserImageLoadingStateImpl _value,
+    $Res Function(_$SignupUserImageLoadingStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
@@ -707,17 +753,18 @@ class _$SignupUserImageLoadingStateImpl implements SignupUserImageLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -732,17 +779,18 @@ class _$SignupUserImageLoadingStateImpl implements SignupUserImageLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -757,17 +805,18 @@ class _$SignupUserImageLoadingStateImpl implements SignupUserImageLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -791,7 +840,7 @@ class _$SignupUserImageLoadingStateImpl implements SignupUserImageLoadingState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return imageLoading(this);
   }
@@ -837,9 +886,9 @@ abstract class SignupUserImageLoadingState implements SignupUserState {
 /// @nodoc
 abstract class _$$SignupUserLoadingStateImplCopyWith<$Res> {
   factory _$$SignupUserLoadingStateImplCopyWith(
-          _$SignupUserLoadingStateImpl value,
-          $Res Function(_$SignupUserLoadingStateImpl) then) =
-      __$$SignupUserLoadingStateImplCopyWithImpl<$Res>;
+    _$SignupUserLoadingStateImpl value,
+    $Res Function(_$SignupUserLoadingStateImpl) then,
+  ) = __$$SignupUserLoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -847,9 +896,9 @@ class __$$SignupUserLoadingStateImplCopyWithImpl<$Res>
     extends _$SignupUserStateCopyWithImpl<$Res, _$SignupUserLoadingStateImpl>
     implements _$$SignupUserLoadingStateImplCopyWith<$Res> {
   __$$SignupUserLoadingStateImplCopyWithImpl(
-      _$SignupUserLoadingStateImpl _value,
-      $Res Function(_$SignupUserLoadingStateImpl) _then)
-      : super(_value, _then);
+    _$SignupUserLoadingStateImpl _value,
+    $Res Function(_$SignupUserLoadingStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
@@ -880,17 +929,18 @@ class _$SignupUserLoadingStateImpl implements SignupUserLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -905,17 +955,18 @@ class _$SignupUserLoadingStateImpl implements SignupUserLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -930,17 +981,18 @@ class _$SignupUserLoadingStateImpl implements SignupUserLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -964,7 +1016,7 @@ class _$SignupUserLoadingStateImpl implements SignupUserLoadingState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return loading(this);
   }
@@ -1009,9 +1061,9 @@ abstract class SignupUserLoadingState implements SignupUserState {
 /// @nodoc
 abstract class _$$SignupUserSuccessStateImplCopyWith<$Res> {
   factory _$$SignupUserSuccessStateImplCopyWith(
-          _$SignupUserSuccessStateImpl value,
-          $Res Function(_$SignupUserSuccessStateImpl) then) =
-      __$$SignupUserSuccessStateImplCopyWithImpl<$Res>;
+    _$SignupUserSuccessStateImpl value,
+    $Res Function(_$SignupUserSuccessStateImpl) then,
+  ) = __$$SignupUserSuccessStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -1021,23 +1073,23 @@ class __$$SignupUserSuccessStateImplCopyWithImpl<$Res>
     extends _$SignupUserStateCopyWithImpl<$Res, _$SignupUserSuccessStateImpl>
     implements _$$SignupUserSuccessStateImplCopyWith<$Res> {
   __$$SignupUserSuccessStateImplCopyWithImpl(
-      _$SignupUserSuccessStateImpl _value,
-      $Res Function(_$SignupUserSuccessStateImpl) _then)
-      : super(_value, _then);
+    _$SignupUserSuccessStateImpl _value,
+    $Res Function(_$SignupUserSuccessStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SignupUserSuccessStateImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SignupUserSuccessStateImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1071,25 +1123,29 @@ class _$SignupUserSuccessStateImpl implements SignupUserSuccessState {
   @override
   @pragma('vm:prefer-inline')
   _$$SignupUserSuccessStateImplCopyWith<_$SignupUserSuccessStateImpl>
-      get copyWith => __$$SignupUserSuccessStateImplCopyWithImpl<
-          _$SignupUserSuccessStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$SignupUserSuccessStateImplCopyWithImpl<_$SignupUserSuccessStateImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -1104,17 +1160,18 @@ class _$SignupUserSuccessStateImpl implements SignupUserSuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -1129,17 +1186,18 @@ class _$SignupUserSuccessStateImpl implements SignupUserSuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -1163,7 +1221,7 @@ class _$SignupUserSuccessStateImpl implements SignupUserSuccessState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return success(this);
   }
@@ -1211,14 +1269,15 @@ abstract class SignupUserSuccessState implements SignupUserState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignupUserSuccessStateImplCopyWith<_$SignupUserSuccessStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SignupUserErrorStateImplCopyWith<$Res> {
-  factory _$$SignupUserErrorStateImplCopyWith(_$SignupUserErrorStateImpl value,
-          $Res Function(_$SignupUserErrorStateImpl) then) =
-      __$$SignupUserErrorStateImplCopyWithImpl<$Res>;
+  factory _$$SignupUserErrorStateImplCopyWith(
+    _$SignupUserErrorStateImpl value,
+    $Res Function(_$SignupUserErrorStateImpl) then,
+  ) = __$$SignupUserErrorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -1227,23 +1286,24 @@ abstract class _$$SignupUserErrorStateImplCopyWith<$Res> {
 class __$$SignupUserErrorStateImplCopyWithImpl<$Res>
     extends _$SignupUserStateCopyWithImpl<$Res, _$SignupUserErrorStateImpl>
     implements _$$SignupUserErrorStateImplCopyWith<$Res> {
-  __$$SignupUserErrorStateImplCopyWithImpl(_$SignupUserErrorStateImpl _value,
-      $Res Function(_$SignupUserErrorStateImpl) _then)
-      : super(_value, _then);
+  __$$SignupUserErrorStateImplCopyWithImpl(
+    _$SignupUserErrorStateImpl _value,
+    $Res Function(_$SignupUserErrorStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SignupUserErrorStateImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SignupUserErrorStateImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1277,26 +1337,29 @@ class _$SignupUserErrorStateImpl implements SignupUserErrorState {
   @override
   @pragma('vm:prefer-inline')
   _$$SignupUserErrorStateImplCopyWith<_$SignupUserErrorStateImpl>
-      get copyWith =>
-          __$$SignupUserErrorStateImplCopyWithImpl<_$SignupUserErrorStateImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$SignupUserErrorStateImplCopyWithImpl<_$SignupUserErrorStateImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -1311,17 +1374,18 @@ class _$SignupUserErrorStateImpl implements SignupUserErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -1336,17 +1400,18 @@ class _$SignupUserErrorStateImpl implements SignupUserErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -1370,7 +1435,7 @@ class _$SignupUserErrorStateImpl implements SignupUserErrorState {
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return error(this);
   }
@@ -1418,42 +1483,45 @@ abstract class SignupUserErrorState implements SignupUserState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignupUserErrorStateImplCopyWith<_$SignupUserErrorStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SignupUserPermissionErrorStateImplCopyWith<$Res> {
   factory _$$SignupUserPermissionErrorStateImplCopyWith(
-          _$SignupUserPermissionErrorStateImpl value,
-          $Res Function(_$SignupUserPermissionErrorStateImpl) then) =
-      __$$SignupUserPermissionErrorStateImplCopyWithImpl<$Res>;
+    _$SignupUserPermissionErrorStateImpl value,
+    $Res Function(_$SignupUserPermissionErrorStateImpl) then,
+  ) = __$$SignupUserPermissionErrorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$SignupUserPermissionErrorStateImplCopyWithImpl<$Res>
-    extends _$SignupUserStateCopyWithImpl<$Res,
-        _$SignupUserPermissionErrorStateImpl>
+    extends
+        _$SignupUserStateCopyWithImpl<
+          $Res,
+          _$SignupUserPermissionErrorStateImpl
+        >
     implements _$$SignupUserPermissionErrorStateImplCopyWith<$Res> {
   __$$SignupUserPermissionErrorStateImplCopyWithImpl(
-      _$SignupUserPermissionErrorStateImpl _value,
-      $Res Function(_$SignupUserPermissionErrorStateImpl) _then)
-      : super(_value, _then);
+    _$SignupUserPermissionErrorStateImpl _value,
+    $Res Function(_$SignupUserPermissionErrorStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SignupUserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SignupUserPermissionErrorStateImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SignupUserPermissionErrorStateImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1488,26 +1556,29 @@ class _$SignupUserPermissionErrorStateImpl
   @override
   @pragma('vm:prefer-inline')
   _$$SignupUserPermissionErrorStateImplCopyWith<
-          _$SignupUserPermissionErrorStateImpl>
-      get copyWith => __$$SignupUserPermissionErrorStateImplCopyWithImpl<
-          _$SignupUserPermissionErrorStateImpl>(this, _$identity);
+    _$SignupUserPermissionErrorStateImpl
+  >
+  get copyWith => __$$SignupUserPermissionErrorStateImplCopyWithImpl<
+    _$SignupUserPermissionErrorStateImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )
+    formUpdate,
     required TResult Function() imageLoading,
     required TResult Function() loading,
     required TResult Function(String message) success,
@@ -1522,17 +1593,18 @@ class _$SignupUserPermissionErrorStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult? Function()? imageLoading,
     TResult? Function()? loading,
     TResult? Function(String message)? success,
@@ -1547,17 +1619,18 @@ class _$SignupUserPermissionErrorStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(
-            String? firstName,
-            String? lastName,
-            String? email,
-            String? phoneNumber,
-            DateTime? dateOfBirth,
-            Gender? gender,
-            String? password,
-            String? confirmPassword,
-            File? profileImage,
-            bool? isFormValid)?
-        formUpdate,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      DateTime? dateOfBirth,
+      Gender? gender,
+      String? password,
+      String? confirmPassword,
+      File? profileImage,
+      bool? isFormValid,
+    )?
+    formUpdate,
     TResult Function()? imageLoading,
     TResult Function()? loading,
     TResult Function(String message)? success,
@@ -1581,7 +1654,7 @@ class _$SignupUserPermissionErrorStateImpl
     required TResult Function(SignupUserSuccessState value) success,
     required TResult Function(SignupUserErrorState value) error,
     required TResult Function(SignupUserPermissionErrorState value)
-        permissionError,
+    permissionError,
   }) {
     return permissionError(this);
   }
@@ -1629,6 +1702,7 @@ abstract class SignupUserPermissionErrorState implements SignupUserState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignupUserPermissionErrorStateImplCopyWith<
-          _$SignupUserPermissionErrorStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$SignupUserPermissionErrorStateImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }

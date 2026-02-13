@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/config/routes/router.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
@@ -113,6 +115,12 @@ class _DriverHomePageState extends State<DriverHomePage> {
                   idle: () {
                     logger.info('State is idle');
                   },
+                  enRouteToPickup: (trip, distance) {
+                    // Close the bottom sheet first
+                    Navigator.of(context).pop();
+                    // Navigate to active trip page using go_router
+                    context.push(AppRoutes.driverActiveTripPage, extra: trip);
+                  },
                   requestExpired: () {
                     // Close the bottom sheet if it's open
                     Navigator.of(context).pop();
@@ -130,19 +138,6 @@ class _DriverHomePageState extends State<DriverHomePage> {
           ],
           child: Column(
             children: [
-              // Debug widget to show DriverTripBloc state
-              BlocBuilder<DriverTripBloc, DriverTripState>(
-                builder: (context, tripState) {
-                  print(
-                    'BlocBuilder - DriverTripState: ${tripState.runtimeType}',
-                  );
-                  return Container(
-                    color: Colors.yellow,
-                    padding: EdgeInsets.all(8),
-                    child: Text('DriverTrip State: ${tripState.runtimeType}'),
-                  );
-                },
-              ),
               Expanded(
                 child: BlocBuilder<AppBloc, AppState>(
                   builder: (context, state) {

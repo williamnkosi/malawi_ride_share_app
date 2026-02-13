@@ -7,11 +7,11 @@ import 'package:malawi_ride_share_app/config/theme/app_theme.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/login_page/login_page.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 import 'package:malawi_ride_share_app/config/routes/router.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_active_trip_page/driver_active_trip.dart';
 
 class AppRouter extends StatelessWidget {
-  AppRouter({
-    super.key,
-  });
+  AppRouter({super.key});
 
   final List<String> publicRoutes = [
     AppRoutes.loginPage,
@@ -59,13 +59,17 @@ class AppRouter extends StatelessWidget {
               builder: (context, state) =>
                   SignupUserPage(), // Unauthenticated experience
             ),
+            GoRoute(
+              path: AppRoutes.driverActiveTripPage,
+              builder: (context, state) {
+                final trip = state.extra as DriverTripEntity;
+                return DriverActiveTrip(trip: trip);
+              },
+            ),
           ],
         );
 
-        return MaterialApp.router(
-          theme: buildAppTheme(),
-          routerConfig: router,
-        );
+        return MaterialApp.router(theme: buildAppTheme(), routerConfig: router);
       },
     );
   }

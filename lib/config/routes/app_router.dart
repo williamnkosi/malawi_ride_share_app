@@ -13,6 +13,11 @@ import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_
 class AppRouter extends StatelessWidget {
   AppRouter({super.key});
 
+  final List<String> privateRoutes = [
+    AppRoutes.homePage,
+    AppRoutes.driverActiveTripPage,
+  ];
+
   final List<String> publicRoutes = [
     AppRoutes.loginPage,
     AppRoutes.authSignUpPage,
@@ -30,8 +35,13 @@ class AppRouter extends StatelessWidget {
               start: (_) =>
                   AppRoutes.loginPage, // Redirect logic for the initial state
               loading: (_) => null, // Do nothing, remain on the same screen
-              authenticated: (_) =>
-                  AppRoutes.homePage, // Navigate to the home page
+              authenticated: (_) {
+                if (privateRoutes.contains(routerState.matchedLocation)) {
+                  return null; // Stay on the current route
+                }
+                return AppRoutes.homePage; // Navigate to the home page
+              },
+
               unauthenticated: (_) {
                 if (publicRoutes.contains(routerState.matchedLocation)) {
                   return null;

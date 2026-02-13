@@ -116,8 +116,6 @@ class _DriverHomePageState extends State<DriverHomePage> {
                     logger.info('State is idle');
                   },
                   enRouteToPickup: (trip, distance) {
-                    // Close the bottom sheet first
-                    Navigator.of(context).pop();
                     // Navigate to active trip page using go_router
                     context.push(AppRoutes.driverActiveTripPage, extra: trip);
                   },

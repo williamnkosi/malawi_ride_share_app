@@ -34,7 +34,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     required this.processTripRequestUseCase,
   }) : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
-    on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
+    // on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
     on<DriverTripInitialize>(_onDriverTripInitialize);
     on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
@@ -120,19 +120,6 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     }
   }
 
-  _onDriverTripAcceptedConfirmation(
-    DriverTripAcceptedConfirmation event,
-    Emitter<DriverTripState> emit,
-  ) async {
-    logger.info(
-      'Trip accepted confirmation received for trip: ${event.confirmationTrip.tripId}',
-    );
-
-    emit(DriverTripState.enRouteToPickup(activeTrip: event.confirmationTrip));
-    // Handle the trip accepted confirmation logic here
-    // You might want to update the state or notify the driver
-  }
-
   _onDriverTripAcceptTrip(
     DriverTripAcceptTrip event,
     Emitter<DriverTripState> emit,
@@ -140,7 +127,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     logger.info('Trip accepted: ${event.trip.tripId}');
     try {
       await acceptTripUseCase.call(event.trip.tripId);
-
+      emit(DriverTripState.enRouteToPickup(activeTrip: event.trip));
       logger.info('Successfully accepted trip: ${event.trip.tripId}');
     } catch (e, stackTrace) {
       logger.severe(

@@ -2208,7 +2208,7 @@ mixin _$DriverTripState {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -2268,10 +2268,7 @@ mixin _$DriverTripState {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -2328,10 +2325,7 @@ mixin _$DriverTripState {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -2501,7 +2495,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -2565,10 +2559,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -2629,10 +2620,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -2867,7 +2855,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -2931,10 +2919,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -2995,10 +2980,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -3185,7 +3167,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -3249,10 +3231,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -3313,10 +3292,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -3443,10 +3419,7 @@ abstract class _$$DriverTripEnRouteToPickupImplCopyWith<$Res> {
     $Res Function(_$DriverTripEnRouteToPickupImpl) then,
   ) = __$$DriverTripEnRouteToPickupImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    DriverTripConfirmationEntity activeTrip,
-    double? distanceToPickup,
-  });
+  $Res call({DriverTripEntity activeTrip, double? distanceToPickup});
 }
 
 /// @nodoc
@@ -3469,7 +3442,7 @@ class __$$DriverTripEnRouteToPickupImplCopyWithImpl<$Res>
             null == activeTrip
                 ? _value.activeTrip
                 : activeTrip // ignore: cast_nullable_to_non_nullable
-                    as DriverTripConfirmationEntity,
+                    as DriverTripEntity,
         distanceToPickup:
             freezed == distanceToPickup
                 ? _value.distanceToPickup
@@ -3489,7 +3462,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
   });
 
   @override
-  final DriverTripConfirmationEntity activeTrip;
+  final DriverTripEntity activeTrip;
   @override
   final double? distanceToPickup;
 
@@ -3534,7 +3507,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -3598,10 +3571,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -3662,10 +3632,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -3783,11 +3750,11 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
 
 abstract class DriverTripEnRouteToPickup implements DriverTripState {
   const factory DriverTripEnRouteToPickup({
-    required final DriverTripConfirmationEntity activeTrip,
+    required final DriverTripEntity activeTrip,
     final double? distanceToPickup,
   }) = _$DriverTripEnRouteToPickupImpl;
 
-  DriverTripConfirmationEntity get activeTrip;
+  DriverTripEntity get activeTrip;
   double? get distanceToPickup;
 
   /// Create a copy of DriverTripState
@@ -3911,7 +3878,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -3975,10 +3942,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -4039,10 +4003,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -4335,7 +4296,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -4406,10 +4367,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -4477,10 +4435,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -4765,7 +4720,7 @@ class _$DriverTripArrivedAtDestinationImpl
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -4834,10 +4789,7 @@ class _$DriverTripArrivedAtDestinationImpl
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -4903,10 +4855,7 @@ class _$DriverTripArrivedAtDestinationImpl
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -5193,7 +5142,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -5263,10 +5212,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -5333,10 +5279,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -5611,7 +5554,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -5675,10 +5618,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -5739,10 +5679,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -5987,7 +5924,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -6051,10 +5988,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -6115,10 +6049,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,
@@ -6346,7 +6277,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     requestReceived,
     required TResult Function() requestExpired,
     required TResult Function(
-      DriverTripConfirmationEntity activeTrip,
+      DriverTripEntity activeTrip,
       double? distanceToPickup,
     )
     enRouteToPickup,
@@ -6410,10 +6341,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     )?
     requestReceived,
     TResult? Function()? requestExpired,
-    TResult? Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult? Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult? Function(
       DriverTripEntity activeTrip,
@@ -6474,10 +6402,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     )?
     requestReceived,
     TResult Function()? requestExpired,
-    TResult Function(
-      DriverTripConfirmationEntity activeTrip,
-      double? distanceToPickup,
-    )?
+    TResult Function(DriverTripEntity activeTrip, double? distanceToPickup)?
     enRouteToPickup,
     TResult Function(
       DriverTripEntity activeTrip,

@@ -12,7 +12,8 @@ part of 'trip_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Trip {
@@ -43,22 +44,23 @@ abstract class $TripCopyWith<$Res> {
   factory $TripCopyWith(Trip value, $Res Function(Trip) then) =
       _$TripCopyWithImpl<$Res, Trip>;
   @useResult
-  $Res call(
-      {String id,
-      String passengerId,
-      String passengerName,
-      Position pickupLocation,
-      Position dropoffLocation,
-      String pickupAddress,
-      String dropoffAddress,
-      double estimatedDistance,
-      double estimatedFare,
-      DateTime startTime,
-      DateTime? actualPickupTime,
-      DateTime? actualDropoffTime,
-      double? actualDistance,
-      Duration? actualDuration,
-      String? tripStatus});
+  $Res call({
+    String id,
+    String passengerId,
+    String passengerName,
+    Position pickupLocation,
+    Position dropoffLocation,
+    String pickupAddress,
+    String dropoffAddress,
+    double estimatedDistance,
+    double estimatedFare,
+    DateTime startTime,
+    DateTime? actualPickupTime,
+    DateTime? actualDropoffTime,
+    double? actualDistance,
+    Duration? actualDuration,
+    String? tripStatus,
+  });
 }
 
 /// @nodoc
@@ -92,94 +94,114 @@ class _$TripCopyWithImpl<$Res, $Val extends Trip>
     Object? actualDuration = freezed,
     Object? tripStatus = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerId: null == passengerId
-          ? _value.passengerId
-          : passengerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerName: null == passengerName
-          ? _value.passengerName
-          : passengerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      pickupAddress: null == pickupAddress
-          ? _value.pickupAddress
-          : pickupAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      dropoffAddress: null == dropoffAddress
-          ? _value.dropoffAddress
-          : dropoffAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      estimatedDistance: null == estimatedDistance
-          ? _value.estimatedDistance
-          : estimatedDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-      estimatedFare: null == estimatedFare
-          ? _value.estimatedFare
-          : estimatedFare // ignore: cast_nullable_to_non_nullable
-              as double,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      actualPickupTime: freezed == actualPickupTime
-          ? _value.actualPickupTime
-          : actualPickupTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      actualDropoffTime: freezed == actualDropoffTime
-          ? _value.actualDropoffTime
-          : actualDropoffTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      actualDistance: freezed == actualDistance
-          ? _value.actualDistance
-          : actualDistance // ignore: cast_nullable_to_non_nullable
-              as double?,
-      actualDuration: freezed == actualDuration
-          ? _value.actualDuration
-          : actualDuration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
-      tripStatus: freezed == tripStatus
-          ? _value.tripStatus
-          : tripStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            passengerId:
+                null == passengerId
+                    ? _value.passengerId
+                    : passengerId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            passengerName:
+                null == passengerName
+                    ? _value.passengerName
+                    : passengerName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            pickupLocation:
+                null == pickupLocation
+                    ? _value.pickupLocation
+                    : pickupLocation // ignore: cast_nullable_to_non_nullable
+                        as Position,
+            dropoffLocation:
+                null == dropoffLocation
+                    ? _value.dropoffLocation
+                    : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                        as Position,
+            pickupAddress:
+                null == pickupAddress
+                    ? _value.pickupAddress
+                    : pickupAddress // ignore: cast_nullable_to_non_nullable
+                        as String,
+            dropoffAddress:
+                null == dropoffAddress
+                    ? _value.dropoffAddress
+                    : dropoffAddress // ignore: cast_nullable_to_non_nullable
+                        as String,
+            estimatedDistance:
+                null == estimatedDistance
+                    ? _value.estimatedDistance
+                    : estimatedDistance // ignore: cast_nullable_to_non_nullable
+                        as double,
+            estimatedFare:
+                null == estimatedFare
+                    ? _value.estimatedFare
+                    : estimatedFare // ignore: cast_nullable_to_non_nullable
+                        as double,
+            startTime:
+                null == startTime
+                    ? _value.startTime
+                    : startTime // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            actualPickupTime:
+                freezed == actualPickupTime
+                    ? _value.actualPickupTime
+                    : actualPickupTime // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            actualDropoffTime:
+                freezed == actualDropoffTime
+                    ? _value.actualDropoffTime
+                    : actualDropoffTime // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            actualDistance:
+                freezed == actualDistance
+                    ? _value.actualDistance
+                    : actualDistance // ignore: cast_nullable_to_non_nullable
+                        as double?,
+            actualDuration:
+                freezed == actualDuration
+                    ? _value.actualDuration
+                    : actualDuration // ignore: cast_nullable_to_non_nullable
+                        as Duration?,
+            tripStatus:
+                freezed == tripStatus
+                    ? _value.tripStatus
+                    : tripStatus // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TripImplCopyWith<$Res> implements $TripCopyWith<$Res> {
   factory _$$TripImplCopyWith(
-          _$TripImpl value, $Res Function(_$TripImpl) then) =
-      __$$TripImplCopyWithImpl<$Res>;
+    _$TripImpl value,
+    $Res Function(_$TripImpl) then,
+  ) = __$$TripImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String passengerId,
-      String passengerName,
-      Position pickupLocation,
-      Position dropoffLocation,
-      String pickupAddress,
-      String dropoffAddress,
-      double estimatedDistance,
-      double estimatedFare,
-      DateTime startTime,
-      DateTime? actualPickupTime,
-      DateTime? actualDropoffTime,
-      double? actualDistance,
-      Duration? actualDuration,
-      String? tripStatus});
+  $Res call({
+    String id,
+    String passengerId,
+    String passengerName,
+    Position pickupLocation,
+    Position dropoffLocation,
+    String pickupAddress,
+    String dropoffAddress,
+    double estimatedDistance,
+    double estimatedFare,
+    DateTime startTime,
+    DateTime? actualPickupTime,
+    DateTime? actualDropoffTime,
+    double? actualDistance,
+    Duration? actualDuration,
+    String? tripStatus,
+  });
 }
 
 /// @nodoc
@@ -187,7 +209,7 @@ class __$$TripImplCopyWithImpl<$Res>
     extends _$TripCopyWithImpl<$Res, _$TripImpl>
     implements _$$TripImplCopyWith<$Res> {
   __$$TripImplCopyWithImpl(_$TripImpl _value, $Res Function(_$TripImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Trip
   /// with the given fields replaced by the non-null parameter values.
@@ -210,90 +232,108 @@ class __$$TripImplCopyWithImpl<$Res>
     Object? actualDuration = freezed,
     Object? tripStatus = freezed,
   }) {
-    return _then(_$TripImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerId: null == passengerId
-          ? _value.passengerId
-          : passengerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      passengerName: null == passengerName
-          ? _value.passengerName
-          : passengerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      pickupLocation: null == pickupLocation
-          ? _value.pickupLocation
-          : pickupLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      dropoffLocation: null == dropoffLocation
-          ? _value.dropoffLocation
-          : dropoffLocation // ignore: cast_nullable_to_non_nullable
-              as Position,
-      pickupAddress: null == pickupAddress
-          ? _value.pickupAddress
-          : pickupAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      dropoffAddress: null == dropoffAddress
-          ? _value.dropoffAddress
-          : dropoffAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      estimatedDistance: null == estimatedDistance
-          ? _value.estimatedDistance
-          : estimatedDistance // ignore: cast_nullable_to_non_nullable
-              as double,
-      estimatedFare: null == estimatedFare
-          ? _value.estimatedFare
-          : estimatedFare // ignore: cast_nullable_to_non_nullable
-              as double,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      actualPickupTime: freezed == actualPickupTime
-          ? _value.actualPickupTime
-          : actualPickupTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      actualDropoffTime: freezed == actualDropoffTime
-          ? _value.actualDropoffTime
-          : actualDropoffTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      actualDistance: freezed == actualDistance
-          ? _value.actualDistance
-          : actualDistance // ignore: cast_nullable_to_non_nullable
-              as double?,
-      actualDuration: freezed == actualDuration
-          ? _value.actualDuration
-          : actualDuration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
-      tripStatus: freezed == tripStatus
-          ? _value.tripStatus
-          : tripStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$TripImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        passengerId:
+            null == passengerId
+                ? _value.passengerId
+                : passengerId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        passengerName:
+            null == passengerName
+                ? _value.passengerName
+                : passengerName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        pickupLocation:
+            null == pickupLocation
+                ? _value.pickupLocation
+                : pickupLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        dropoffLocation:
+            null == dropoffLocation
+                ? _value.dropoffLocation
+                : dropoffLocation // ignore: cast_nullable_to_non_nullable
+                    as Position,
+        pickupAddress:
+            null == pickupAddress
+                ? _value.pickupAddress
+                : pickupAddress // ignore: cast_nullable_to_non_nullable
+                    as String,
+        dropoffAddress:
+            null == dropoffAddress
+                ? _value.dropoffAddress
+                : dropoffAddress // ignore: cast_nullable_to_non_nullable
+                    as String,
+        estimatedDistance:
+            null == estimatedDistance
+                ? _value.estimatedDistance
+                : estimatedDistance // ignore: cast_nullable_to_non_nullable
+                    as double,
+        estimatedFare:
+            null == estimatedFare
+                ? _value.estimatedFare
+                : estimatedFare // ignore: cast_nullable_to_non_nullable
+                    as double,
+        startTime:
+            null == startTime
+                ? _value.startTime
+                : startTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        actualPickupTime:
+            freezed == actualPickupTime
+                ? _value.actualPickupTime
+                : actualPickupTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        actualDropoffTime:
+            freezed == actualDropoffTime
+                ? _value.actualDropoffTime
+                : actualDropoffTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        actualDistance:
+            freezed == actualDistance
+                ? _value.actualDistance
+                : actualDistance // ignore: cast_nullable_to_non_nullable
+                    as double?,
+        actualDuration:
+            freezed == actualDuration
+                ? _value.actualDuration
+                : actualDuration // ignore: cast_nullable_to_non_nullable
+                    as Duration?,
+        tripStatus:
+            freezed == tripStatus
+                ? _value.tripStatus
+                : tripStatus // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$TripImpl implements _Trip {
-  const _$TripImpl(
-      {required this.id,
-      required this.passengerId,
-      required this.passengerName,
-      required this.pickupLocation,
-      required this.dropoffLocation,
-      required this.pickupAddress,
-      required this.dropoffAddress,
-      required this.estimatedDistance,
-      required this.estimatedFare,
-      required this.startTime,
-      this.actualPickupTime,
-      this.actualDropoffTime,
-      this.actualDistance,
-      this.actualDuration,
-      this.tripStatus});
+  const _$TripImpl({
+    required this.id,
+    required this.passengerId,
+    required this.passengerName,
+    required this.pickupLocation,
+    required this.dropoffLocation,
+    required this.pickupAddress,
+    required this.dropoffAddress,
+    required this.estimatedDistance,
+    required this.estimatedFare,
+    required this.startTime,
+    this.actualPickupTime,
+    this.actualDropoffTime,
+    this.actualDistance,
+    this.actualDuration,
+    this.tripStatus,
+  });
 
   @override
   final String id;
@@ -369,22 +409,23 @@ class _$TripImpl implements _Trip {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      passengerId,
-      passengerName,
-      pickupLocation,
-      dropoffLocation,
-      pickupAddress,
-      dropoffAddress,
-      estimatedDistance,
-      estimatedFare,
-      startTime,
-      actualPickupTime,
-      actualDropoffTime,
-      actualDistance,
-      actualDuration,
-      tripStatus);
+    runtimeType,
+    id,
+    passengerId,
+    passengerName,
+    pickupLocation,
+    dropoffLocation,
+    pickupAddress,
+    dropoffAddress,
+    estimatedDistance,
+    estimatedFare,
+    startTime,
+    actualPickupTime,
+    actualDropoffTime,
+    actualDistance,
+    actualDuration,
+    tripStatus,
+  );
 
   /// Create a copy of Trip
   /// with the given fields replaced by the non-null parameter values.
@@ -396,22 +437,23 @@ class _$TripImpl implements _Trip {
 }
 
 abstract class _Trip implements Trip {
-  const factory _Trip(
-      {required final String id,
-      required final String passengerId,
-      required final String passengerName,
-      required final Position pickupLocation,
-      required final Position dropoffLocation,
-      required final String pickupAddress,
-      required final String dropoffAddress,
-      required final double estimatedDistance,
-      required final double estimatedFare,
-      required final DateTime startTime,
-      final DateTime? actualPickupTime,
-      final DateTime? actualDropoffTime,
-      final double? actualDistance,
-      final Duration? actualDuration,
-      final String? tripStatus}) = _$TripImpl;
+  const factory _Trip({
+    required final String id,
+    required final String passengerId,
+    required final String passengerName,
+    required final Position pickupLocation,
+    required final Position dropoffLocation,
+    required final String pickupAddress,
+    required final String dropoffAddress,
+    required final double estimatedDistance,
+    required final double estimatedFare,
+    required final DateTime startTime,
+    final DateTime? actualPickupTime,
+    final DateTime? actualDropoffTime,
+    final double? actualDistance,
+    final Duration? actualDuration,
+    final String? tripStatus,
+  }) = _$TripImpl;
 
   @override
   String get id;

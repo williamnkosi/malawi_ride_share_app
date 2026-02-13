@@ -12,7 +12,8 @@ part of 'create_user_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 CreateUserDto _$CreateUserDtoFromJson(Map<String, dynamic> json) {
   return _CreateUserDto.fromJson(json);
@@ -41,17 +42,19 @@ mixin _$CreateUserDto {
 /// @nodoc
 abstract class $CreateUserDtoCopyWith<$Res> {
   factory $CreateUserDtoCopyWith(
-          CreateUserDto value, $Res Function(CreateUserDto) then) =
-      _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
+    CreateUserDto value,
+    $Res Function(CreateUserDto) then,
+  ) = _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
   @useResult
-  $Res call(
-      {String firebaseId,
-      String firstName,
-      String lastName,
-      String phoneNumber,
-      String email,
-      String gender,
-      String dateOfBirth});
+  $Res call({
+    String firebaseId,
+    String firstName,
+    String lastName,
+    String phoneNumber,
+    String email,
+    String gender,
+    String dateOfBirth,
+  });
 }
 
 /// @nodoc
@@ -77,36 +80,46 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
     Object? gender = null,
     Object? dateOfBirth = null,
   }) {
-    return _then(_value.copyWith(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String,
-      dateOfBirth: null == dateOfBirth
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            firebaseId:
+                null == firebaseId
+                    ? _value.firebaseId
+                    : firebaseId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            firstName:
+                null == firstName
+                    ? _value.firstName
+                    : firstName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            lastName:
+                null == lastName
+                    ? _value.lastName
+                    : lastName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            phoneNumber:
+                null == phoneNumber
+                    ? _value.phoneNumber
+                    : phoneNumber // ignore: cast_nullable_to_non_nullable
+                        as String,
+            email:
+                null == email
+                    ? _value.email
+                    : email // ignore: cast_nullable_to_non_nullable
+                        as String,
+            gender:
+                null == gender
+                    ? _value.gender
+                    : gender // ignore: cast_nullable_to_non_nullable
+                        as String,
+            dateOfBirth:
+                null == dateOfBirth
+                    ? _value.dateOfBirth
+                    : dateOfBirth // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -114,18 +127,20 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
 abstract class _$$CreateUserDtoImplCopyWith<$Res>
     implements $CreateUserDtoCopyWith<$Res> {
   factory _$$CreateUserDtoImplCopyWith(
-          _$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
-      __$$CreateUserDtoImplCopyWithImpl<$Res>;
+    _$CreateUserDtoImpl value,
+    $Res Function(_$CreateUserDtoImpl) then,
+  ) = __$$CreateUserDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String firebaseId,
-      String firstName,
-      String lastName,
-      String phoneNumber,
-      String email,
-      String gender,
-      String dateOfBirth});
+  $Res call({
+    String firebaseId,
+    String firstName,
+    String lastName,
+    String phoneNumber,
+    String email,
+    String gender,
+    String dateOfBirth,
+  });
 }
 
 /// @nodoc
@@ -133,8 +148,9 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res>
     extends _$CreateUserDtoCopyWithImpl<$Res, _$CreateUserDtoImpl>
     implements _$$CreateUserDtoImplCopyWith<$Res> {
   __$$CreateUserDtoImplCopyWithImpl(
-      _$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then)
-      : super(_value, _then);
+    _$CreateUserDtoImpl _value,
+    $Res Function(_$CreateUserDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CreateUserDto
   /// with the given fields replaced by the non-null parameter values.
@@ -149,50 +165,60 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res>
     Object? gender = null,
     Object? dateOfBirth = null,
   }) {
-    return _then(_$CreateUserDtoImpl(
-      firebaseId: null == firebaseId
-          ? _value.firebaseId
-          : firebaseId // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String,
-      dateOfBirth: null == dateOfBirth
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$CreateUserDtoImpl(
+        firebaseId:
+            null == firebaseId
+                ? _value.firebaseId
+                : firebaseId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        firstName:
+            null == firstName
+                ? _value.firstName
+                : firstName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        lastName:
+            null == lastName
+                ? _value.lastName
+                : lastName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phoneNumber:
+            null == phoneNumber
+                ? _value.phoneNumber
+                : phoneNumber // ignore: cast_nullable_to_non_nullable
+                    as String,
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        gender:
+            null == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                    as String,
+        dateOfBirth:
+            null == dateOfBirth
+                ? _value.dateOfBirth
+                : dateOfBirth // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$CreateUserDtoImpl implements _CreateUserDto {
-  const _$CreateUserDtoImpl(
-      {required this.firebaseId,
-      required this.firstName,
-      required this.lastName,
-      required this.phoneNumber,
-      required this.email,
-      required this.gender,
-      required this.dateOfBirth});
+  const _$CreateUserDtoImpl({
+    required this.firebaseId,
+    required this.firstName,
+    required this.lastName,
+    required this.phoneNumber,
+    required this.email,
+    required this.gender,
+    required this.dateOfBirth,
+  });
 
   factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateUserDtoImplFromJson(json);
@@ -238,8 +264,16 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, firebaseId, firstName, lastName,
-      phoneNumber, email, gender, dateOfBirth);
+  int get hashCode => Object.hash(
+    runtimeType,
+    firebaseId,
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    gender,
+    dateOfBirth,
+  );
 
   /// Create a copy of CreateUserDto
   /// with the given fields replaced by the non-null parameter values.
@@ -251,21 +285,20 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateUserDtoImplToJson(
-      this,
-    );
+    return _$$CreateUserDtoImplToJson(this);
   }
 }
 
 abstract class _CreateUserDto implements CreateUserDto {
-  const factory _CreateUserDto(
-      {required final String firebaseId,
-      required final String firstName,
-      required final String lastName,
-      required final String phoneNumber,
-      required final String email,
-      required final String gender,
-      required final String dateOfBirth}) = _$CreateUserDtoImpl;
+  const factory _CreateUserDto({
+    required final String firebaseId,
+    required final String firstName,
+    required final String lastName,
+    required final String phoneNumber,
+    required final String email,
+    required final String gender,
+    required final String dateOfBirth,
+  }) = _$CreateUserDtoImpl;
 
   factory _CreateUserDto.fromJson(Map<String, dynamic> json) =
       _$CreateUserDtoImpl.fromJson;

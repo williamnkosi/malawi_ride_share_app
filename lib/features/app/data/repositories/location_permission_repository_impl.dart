@@ -1,11 +1,37 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:logging/logging.dart';
-import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_interface.dart';
+import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 
-class LocationPermissionRepositoryImpl implements LocationPermissionInterface {
+class LocationPermissionRepositoryImpl implements LocationPermissionRepository {
   final logger = Logger('LocationPermissionRepositoryImpl');
+
+  @override
+  Future<bool> isLocationServiceEnabled() async {
+    try {
+      logger.info('📡 Checking if location service is enabled...');
+      final isEnabled = await Geolocator.isLocationServiceEnabled();
+      logger.info('📡 Location service enabled: $isEnabled');
+      return isEnabled;
+    } catch (e) {
+      logger.severe('❌ Error checking location service: $e');
+      return false;
+    }
+  }
+
+  @override
+  Future<LocationPermission> getLocationPermissionStatus() async {
+    try {
+      logger.info('🔍 Getting location permission status...');
+      final permission = await Geolocator.checkPermission();
+      logger.info('📱 Location permission status: $permission');
+      return permission;
+    } catch (e) {
+      logger.severe('❌ Error getting permission status: $e');
+      return LocationPermission.denied;
+    }
+  }
 
   @override
   Future<bool> isLocationPermissionGranted() async {

@@ -11,12 +11,6 @@ class AppEvent with _$AppEvent {
   // Location permission events
   const factory AppEvent.requestLocationPermission() =
       AppEventRequestLocationPermission;
-  const factory AppEvent.checkLocationPermission() =
-      AppEventCheckLocationPermission;
-  const factory AppEvent.locationPermissionGranted() =
-      AppEventLocationPermissionGranted;
-  const factory AppEvent.locationPermissionDenied() =
-      AppEventLocationPermissionDenied;
   const factory AppEvent.openLocationSettings() = AppEventOpenLocationSettings;
 
   // Notification permission events

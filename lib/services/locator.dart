@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
@@ -27,6 +28,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
+import 'package:malawi_ride_share_app/features/google_maps/domain/use_cases/get_route_use.case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
@@ -36,6 +38,9 @@ import 'package:malawi_ride_share_app/features/location/domain/repository/locati
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/location/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
+import 'package:malawi_ride_share_app/features/google_maps/data/data_source/google_maps_remote_data_source.dart';
+import 'package:malawi_ride_share_app/features/google_maps/data/repository/google_maps_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/google_maps/domain/repository/google_maps_repository.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -65,6 +70,7 @@ Future<void> setupGetIt() async {
 
   await setupDriverTripDependencies();
   await setupDriverOperationsDependencies();
+  await setupGoogleMapsDependencies();
 }
 
 Future<void> setupSharedDependencies() async {
@@ -217,5 +223,24 @@ Future<void> setupDriverTripDependencies() async {
       declineTripUseCase: getIt<DeclineTripUseCase>(),
       processTripRequestUseCase: getIt<ProcessTripRequestUseCase>(),
     ),
+  );
+}
+
+Future<void> setupGoogleMapsDependencies() async {
+  // Data source
+  getIt.registerLazySingleton<GoogleMapsRemoteDataSource>(
+    () => GoogleMapsRemoteDataSourceImpl(dio: getIt<Dio>()),
+  );
+
+  // Repository
+  getIt.registerLazySingleton<GoogleMapsRepository>(
+    () => GoogleMapsRepositoryImpl(
+      remoteDataSource: getIt<GoogleMapsRemoteDataSource>(),
+    ),
+  );
+
+  // Use cases
+  getIt.registerLazySingleton<GetRouteUseCase>(
+    () => GetRouteUseCase(getIt<GoogleMapsRepository>()),
   );
 }

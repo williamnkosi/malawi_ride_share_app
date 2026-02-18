@@ -1,6 +1,6 @@
-import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:malawi_ride_share_app/features/google_maps/data/models/route_model.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/data/models/route_model.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
+import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 
 abstract class GoogleMapsRemoteDataSource {
   Future<RouteModel> getRoute({
@@ -12,11 +12,10 @@ abstract class GoogleMapsRemoteDataSource {
 }
 
 class GoogleMapsRemoteDataSourceImpl implements GoogleMapsRemoteDataSource {
-  final Dio dio;
-  final String _apiKey = dotenv.env['google_maps_apikey'] ?? '';
+  final ApiService apiService;
   static const String _baseUrl = 'https://maps.googleapis.com/maps/api';
 
-  GoogleMapsRemoteDataSourceImpl({required this.dio});
+  GoogleMapsRemoteDataSourceImpl({required this.apiService});
 
   @override
   Future<RouteModel> getRoute({
@@ -25,22 +24,22 @@ class GoogleMapsRemoteDataSourceImpl implements GoogleMapsRemoteDataSource {
     required double destinationLat,
     required double destinationLng,
   }) async {
-    final response = await dio.get(
+    final response = await apiService.get(
       '$_baseUrl/directions/json',
       queryParameters: {
         'origin': '$originLat,$originLng',
         'destination': '$destinationLat,$destinationLng',
         'mode': 'driving',
-        'key': _apiKey,
+        'key': ApiConstants.googleMapsApiKey,
       },
     );
 
-    if (response.data['status'] != 'OK') {
+    if (response['status'] != 'OK') {
       throw Exception(
-        'Google Maps API error: ${response.data['status']} - ${response.data['error_message'] ?? 'Unknown error'}',
+        'Google Maps API error: ${response['status']} - ${response['error_message'] ?? 'Unknown error'}',
       );
     }
 
-    return RouteModel.fromJson(response.data);
+    return RouteModel.fromJson(response);
   }
 }

@@ -1,4 +1,4 @@
-import 'package:malawi_ride_share_app/features/google_maps/domain/entities/route_entity.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
 
 abstract class GoogleMapsRepository {
   /// Get route directions from origin to destination

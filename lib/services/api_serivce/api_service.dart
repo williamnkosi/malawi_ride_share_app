@@ -25,29 +25,34 @@ class ApiService implements ApiServiceInterface {
         baseUrl = ApiConstants.baseUrl;
       } catch (e) {
         _logger.warning(
-            'Failed to get baseUrl from environment, using fallback: $e');
+          'Failed to get baseUrl from environment, using fallback: $e',
+        );
         baseUrl = 'http://localhost:3000'; // Fallback URL
       }
 
-      _dio = Dio(BaseOptions(
-        baseUrl: baseUrl,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-      ));
+      _dio = Dio(
+        BaseOptions(
+          baseUrl: baseUrl,
+          connectTimeout: const Duration(seconds: 10),
+          receiveTimeout: const Duration(seconds: 10),
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+        ),
+      );
 
       // Add logging interceptor
-      _dio.interceptors.add(PrettyDioLogger(
-        requestHeader: true,
-        requestBody: true,
-        responseBody: true,
-        responseHeader: false,
-        error: true,
-        compact: true,
-      ));
+      _dio.interceptors.add(
+        PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: false,
+          error: true,
+          compact: true,
+        ),
+      );
 
       _dio.interceptors.add(AuthInterceptor());
 
@@ -86,7 +91,8 @@ class ApiService implements ApiServiceInterface {
       } else {
         // If server returns something else, wrap it
         _logger.info(
-            'Server returned ${responseData.runtimeType}, wrapping in map');
+          'Server returned ${responseData.runtimeType}, wrapping in map',
+        );
         return {'result': responseData};
       }
     } on DioException catch (e) {
@@ -96,10 +102,16 @@ class ApiService implements ApiServiceInterface {
   }
 
   @override
-  Future<Map<String, dynamic>> get(String endpoint) async {
+  Future<Map<String, dynamic>> get(
+    String endpoint, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       _logger.fine('GET request to: $endpoint');
-      final response = await _dio.get(endpoint);
+      final response = await _dio.get(
+        endpoint,
+        queryParameters: queryParameters,
+      );
       _logger.fine('GET response: ${response.statusCode}');
 
       // Handle different response data types
@@ -188,7 +200,8 @@ class ApiService implements ApiServiceInterface {
 
         // Log the response data for debugging
         _logger.severe(
-            'Bad response received: $responseData (type: ${responseData.runtimeType})');
+          'Bad response received: $responseData (type: ${responseData.runtimeType})',
+        );
 
         // Handle different types of message responses
         String message = 'Server error';

@@ -42,6 +42,8 @@ import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/data/data_source/google_maps_remote_data_source.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/data/repository/google_maps_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/domain/repository/google_maps_repository.dart';
+// ...existing imports...
+import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -68,10 +70,10 @@ Future<void> setupGetIt() async {
   await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
   await setupLocationFeatureDependencies();
+  await setupGoogleMapsDependencies();
 
   await setupDriverTripDependencies();
   await setupDriverOperationsDependencies();
-  await setupGoogleMapsDependencies();
 }
 
 Future<void> setupSharedDependencies() async {
@@ -149,6 +151,9 @@ Future<void> setupLocationFeatureDependencies() async {
     GetLocationUseCase(getIt<LocationRepository>()),
   );
 
+  getIt.registerSingleton<GetCurrentLocationUseCase>(
+    GetCurrentLocationUseCase(getIt<LocationRepository>()),
+  );
   // Blocs
   getIt.registerLazySingleton<LocationBloc>(
     () => LocationBloc(getLocationUseCase: getIt<GetLocationUseCase>()),
@@ -216,6 +221,14 @@ Future<void> setupDriverTripDependencies() async {
   getIt.registerSingleton<ProcessTripRequestUseCase>(
     ProcessTripRequestUseCase(getIt<DriverTripRepository>()),
   );
+
+  getIt.registerSingleton<DriverGetRouteUseCase>(
+    DriverGetRouteUseCase(
+      getRouteUseCase: getIt<GetRouteUseCase>(),
+      getCurrentLocationUseCase: getIt<GetCurrentLocationUseCase>(),
+    ),
+  );
+
   getIt.registerSingleton<DriverTripBloc>(
     DriverTripBloc(
       listenForEvents: getIt<ListenForTripEvents>(),
@@ -231,7 +244,7 @@ Future<void> setupDriverTripDependencies() async {
 Future<void> setupGoogleMapsDependencies() async {
   // Data source
   getIt.registerLazySingleton<GoogleMapsRemoteDataSource>(
-    () => GoogleMapsRemoteDataSourceImpl(dio: getIt<Dio>()),
+    () => GoogleMapsRemoteDataSourceImpl(apiService: getIt<ApiService>()),
   );
 
   // Repository
@@ -240,6 +253,8 @@ Future<void> setupGoogleMapsDependencies() async {
       remoteDataSource: getIt<GoogleMapsRemoteDataSource>(),
     ),
   );
+
+  //
 
   // Use cases
   getIt.registerLazySingleton<GetRouteUseCase>(

@@ -1,6 +1,6 @@
-import 'package:malawi_ride_share_app/features/google_maps/data/data_source/google_maps_remote_data_source.dart';
-import 'package:malawi_ride_share_app/features/google_maps/domain/entities/route_entity.dart';
-import 'package:malawi_ride_share_app/features/google_maps/domain/repository/google_maps_repository.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/data/data_source/google_maps_remote_data_source.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/repository/google_maps_repository.dart';
 
 class GoogleMapsRepositoryImpl implements GoogleMapsRepository {
   final GoogleMapsRemoteDataSource remoteDataSource;

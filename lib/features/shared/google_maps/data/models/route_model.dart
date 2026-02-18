@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:malawi_ride_share_app/features/google_maps/domain/entities/route_entity.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
 
 part 'route_model.freezed.dart';
 part 'route_model.g.dart';

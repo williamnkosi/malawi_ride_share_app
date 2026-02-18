@@ -1,17 +1,21 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/constants/trip_events.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_confirmation.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_get_route_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/process_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
+import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
 
 part 'driver_trip_event.dart';
 part 'driver_trip_state.dart';
@@ -24,6 +28,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final AcceptTripUseCase acceptTripUseCase;
   final DeclineTripUseCase declineTripUseCase;
   final ProcessTripRequestUseCase processTripRequestUseCase;
+  final DriverGetRouteUseCase driverGetRouteUseCase;
   StreamSubscription? _tripRequestSubscription;
   StreamSubscription? _multiEventSubscription;
   DriverTripBloc({
@@ -32,6 +37,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     required this.acceptTripUseCase,
     required this.declineTripUseCase,
     required this.processTripRequestUseCase,
+    required this.driverGetRouteUseCase,
   }) : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     // on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
@@ -127,7 +133,13 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     logger.info('Trip accepted: ${event.trip.tripId}');
     try {
       await acceptTripUseCase.call(event.trip.tripId);
-      emit(DriverTripState.enRouteToPickup(activeTrip: event.trip));
+      final route = await driverGetRouteUseCase.call(event.trip);
+      emit(
+        DriverTripState.enRouteToPickup(
+          activeTrip: event.trip,
+          routeToPickup: route,
+        ),
+      );
       logger.info('Successfully accepted trip: ${event.trip.tripId}');
     } catch (e, stackTrace) {
       logger.severe(

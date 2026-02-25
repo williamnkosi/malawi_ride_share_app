@@ -2218,15 +2218,7 @@ mixin _$DriverTripState {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2276,15 +2268,7 @@ mixin _$DriverTripState {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2333,15 +2317,7 @@ mixin _$DriverTripState {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2505,15 +2481,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2567,15 +2535,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2628,15 +2588,7 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2865,15 +2817,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2927,15 +2871,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -2988,15 +2924,7 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3177,15 +3105,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3239,15 +3159,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3300,15 +3212,7 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3529,15 +3433,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3591,15 +3487,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3652,15 +3540,7 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3900,15 +3780,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -3962,15 +3834,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4023,15 +3887,7 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4156,14 +4012,7 @@ abstract class _$$DriverTripInProgressImplCopyWith<$Res> {
     $Res Function(_$DriverTripInProgressImpl) then,
   ) = __$$DriverTripInProgressImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    DriverTripEntity activeTrip,
-    LocationEntity currentLocation,
-    DateTime startTime,
-    Duration estimatedArrival,
-    double? distanceRemaining,
-    double? currentFare,
-  });
+  $Res call({DriverTripEntity activeTrip});
 }
 
 /// @nodoc
@@ -4179,14 +4028,7 @@ class __$$DriverTripInProgressImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? activeTrip = null,
-    Object? currentLocation = null,
-    Object? startTime = null,
-    Object? estimatedArrival = null,
-    Object? distanceRemaining = freezed,
-    Object? currentFare = freezed,
-  }) {
+  $Res call({Object? activeTrip = null}) {
     return _then(
       _$DriverTripInProgressImpl(
         activeTrip:
@@ -4194,31 +4036,6 @@ class __$$DriverTripInProgressImplCopyWithImpl<$Res>
                 ? _value.activeTrip
                 : activeTrip // ignore: cast_nullable_to_non_nullable
                     as DriverTripEntity,
-        currentLocation:
-            null == currentLocation
-                ? _value.currentLocation
-                : currentLocation // ignore: cast_nullable_to_non_nullable
-                    as LocationEntity,
-        startTime:
-            null == startTime
-                ? _value.startTime
-                : startTime // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        estimatedArrival:
-            null == estimatedArrival
-                ? _value.estimatedArrival
-                : estimatedArrival // ignore: cast_nullable_to_non_nullable
-                    as Duration,
-        distanceRemaining:
-            freezed == distanceRemaining
-                ? _value.distanceRemaining
-                : distanceRemaining // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        currentFare:
-            freezed == currentFare
-                ? _value.currentFare
-                : currentFare // ignore: cast_nullable_to_non_nullable
-                    as double?,
       ),
     );
   }
@@ -4227,31 +4044,14 @@ class __$$DriverTripInProgressImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DriverTripInProgressImpl implements DriverTripInProgress {
-  const _$DriverTripInProgressImpl({
-    required this.activeTrip,
-    required this.currentLocation,
-    required this.startTime,
-    required this.estimatedArrival,
-    this.distanceRemaining,
-    this.currentFare,
-  });
+  const _$DriverTripInProgressImpl({required this.activeTrip});
 
   @override
   final DriverTripEntity activeTrip;
-  @override
-  final LocationEntity currentLocation;
-  @override
-  final DateTime startTime;
-  @override
-  final Duration estimatedArrival;
-  @override
-  final double? distanceRemaining;
-  @override
-  final double? currentFare;
 
   @override
   String toString() {
-    return 'DriverTripState.inProgress(activeTrip: $activeTrip, currentLocation: $currentLocation, startTime: $startTime, estimatedArrival: $estimatedArrival, distanceRemaining: $distanceRemaining, currentFare: $currentFare)';
+    return 'DriverTripState.inProgress(activeTrip: $activeTrip)';
   }
 
   @override
@@ -4260,29 +4060,11 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
         (other.runtimeType == runtimeType &&
             other is _$DriverTripInProgressImpl &&
             (identical(other.activeTrip, activeTrip) ||
-                other.activeTrip == activeTrip) &&
-            (identical(other.currentLocation, currentLocation) ||
-                other.currentLocation == currentLocation) &&
-            (identical(other.startTime, startTime) ||
-                other.startTime == startTime) &&
-            (identical(other.estimatedArrival, estimatedArrival) ||
-                other.estimatedArrival == estimatedArrival) &&
-            (identical(other.distanceRemaining, distanceRemaining) ||
-                other.distanceRemaining == distanceRemaining) &&
-            (identical(other.currentFare, currentFare) ||
-                other.currentFare == currentFare));
+                other.activeTrip == activeTrip));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    activeTrip,
-    currentLocation,
-    startTime,
-    estimatedArrival,
-    distanceRemaining,
-    currentFare,
-  );
+  int get hashCode => Object.hash(runtimeType, activeTrip);
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -4318,15 +4100,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4358,14 +4132,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     required TResult Function(String operation, DriverTripEntity? activeTrip)
     loading,
   }) {
-    return inProgress(
-      activeTrip,
-      currentLocation,
-      startTime,
-      estimatedArrival,
-      distanceRemaining,
-      currentFare,
-    );
+    return inProgress(activeTrip);
   }
 
   @override
@@ -4387,15 +4154,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4426,14 +4185,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     error,
     TResult? Function(String operation, DriverTripEntity? activeTrip)? loading,
   }) {
-    return inProgress?.call(
-      activeTrip,
-      currentLocation,
-      startTime,
-      estimatedArrival,
-      distanceRemaining,
-      currentFare,
-    );
+    return inProgress?.call(activeTrip);
   }
 
   @override
@@ -4455,15 +4207,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4496,14 +4240,7 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     required TResult orElse(),
   }) {
     if (inProgress != null) {
-      return inProgress(
-        activeTrip,
-        currentLocation,
-        startTime,
-        estimatedArrival,
-        distanceRemaining,
-        currentFare,
-      );
+      return inProgress(activeTrip);
     }
     return orElse();
   }
@@ -4573,19 +4310,9 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
 abstract class DriverTripInProgress implements DriverTripState {
   const factory DriverTripInProgress({
     required final DriverTripEntity activeTrip,
-    required final LocationEntity currentLocation,
-    required final DateTime startTime,
-    required final Duration estimatedArrival,
-    final double? distanceRemaining,
-    final double? currentFare,
   }) = _$DriverTripInProgressImpl;
 
   DriverTripEntity get activeTrip;
-  LocationEntity get currentLocation;
-  DateTime get startTime;
-  Duration get estimatedArrival;
-  double? get distanceRemaining;
-  double? get currentFare;
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -4742,15 +4469,7 @@ class _$DriverTripArrivedAtDestinationImpl
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4809,15 +4528,7 @@ class _$DriverTripArrivedAtDestinationImpl
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -4875,15 +4586,7 @@ class _$DriverTripArrivedAtDestinationImpl
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5164,15 +4867,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5232,15 +4927,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5299,15 +4986,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5576,15 +5255,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5638,15 +5309,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5699,15 +5362,7 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -5946,15 +5601,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -6008,15 +5655,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -6069,15 +5708,7 @@ class _$DriverTripErrorImpl implements DriverTripError {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -6299,15 +5930,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
       DateTime arrivedAt,
     )
     arrivedAtPickup,
-    required TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )
-    inProgress,
+    required TResult Function(DriverTripEntity activeTrip) inProgress,
     required TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -6361,15 +5984,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult? Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult? Function(DriverTripEntity activeTrip)? inProgress,
     TResult? Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,
@@ -6422,15 +6037,7 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
       DateTime arrivedAt,
     )?
     arrivedAtPickup,
-    TResult Function(
-      DriverTripEntity activeTrip,
-      LocationEntity currentLocation,
-      DateTime startTime,
-      Duration estimatedArrival,
-      double? distanceRemaining,
-      double? currentFare,
-    )?
-    inProgress,
+    TResult Function(DriverTripEntity activeTrip)? inProgress,
     TResult Function(
       DriverTripEntity activeTrip,
       LocationEntity currentLocation,

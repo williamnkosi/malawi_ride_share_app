@@ -13,6 +13,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/process_trip_request_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/start_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
@@ -29,6 +30,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final DeclineTripUseCase declineTripUseCase;
   final ProcessTripRequestUseCase processTripRequestUseCase;
   final DriverGetRouteUseCase driverGetRouteUseCase;
+  final StartTripUseCase startTripUseCase;
   StreamSubscription? _tripRequestSubscription;
   StreamSubscription? _multiEventSubscription;
   DriverTripBloc({
@@ -38,6 +40,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     required this.declineTripUseCase,
     required this.processTripRequestUseCase,
     required this.driverGetRouteUseCase,
+    required this.startTripUseCase,
   }) : super(const DriverTripState.idle()) {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     // on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
@@ -45,6 +48,8 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
     on<DriverTripExpired>(_onDriverTripExpired);
+
+    on<DriverTripStart>(_onDriverTripStart);
   }
 
   _onDriverTripInitialize(
@@ -167,6 +172,17 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     logger.info('Trip expired:');
     emit(DriverTripState.requestExpired());
     emit(DriverTripState.idle());
+  }
+
+  _onDriverTripStart(
+    DriverTripStart event,
+    Emitter<DriverTripState> emit,
+  ) async {
+    logger.info('Trip started: ${event.trip.tripId}');
+    await startTripUseCase.call(event.trip.tripId);
+    // Additional logic for starting the trip can be added here
+    // For example, you might want to emit a new state indicating the trip has started
+    emit(DriverTripState.inProgress(activeTrip: event.trip));
   }
 
   @override

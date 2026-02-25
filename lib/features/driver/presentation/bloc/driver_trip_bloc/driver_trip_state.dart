@@ -30,11 +30,6 @@ class DriverTripState with _$DriverTripState {
   // Trip in progress - passenger on board
   const factory DriverTripState.inProgress({
     required DriverTripEntity activeTrip,
-    required LocationEntity currentLocation,
-    required DateTime startTime,
-    required Duration estimatedArrival,
-    double? distanceRemaining,
-    double? currentFare,
   }) = DriverTripInProgress;
 
   // Arrived at destination

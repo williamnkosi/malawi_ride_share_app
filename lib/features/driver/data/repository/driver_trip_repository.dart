@@ -26,9 +26,12 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   }
 
   @override
-  Future<void> completeTrip(String tripId) {
-    // TODO: implement completeTrip
-    throw UnimplementedError();
+  Future<void> completeTrip(String tripId) async {
+    var driverId = firebaseRepository.getFirebaseId();
+    socketRepository.emit(TripEvents.completeTrip, SocketNamespace.trips.path, {
+      "tripId": tripId,
+      "driverId": driverId,
+    });
   }
 
   @override

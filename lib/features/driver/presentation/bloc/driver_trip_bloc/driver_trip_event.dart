@@ -25,10 +25,7 @@ class DriverTripEvent with _$DriverTripEvent {
 
   const factory DriverTripEvent.tripStarted() = DriverTripStarted;
 
-  const factory DriverTripEvent.completeTrip({
-    required DriverTripEntity trip,
-    required double finalFare,
-  }) = DriverTripComplete;
+  const factory DriverTripEvent.completeTrip() = DriverTripComplete;
 
   // Trip modifications
   const factory DriverTripEvent.cancelTrip({

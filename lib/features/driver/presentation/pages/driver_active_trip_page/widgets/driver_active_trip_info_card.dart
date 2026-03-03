@@ -115,9 +115,7 @@ class InProgressCard extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {
-                // TODO: Implement call rider
-              },
+              onPressed: () {},
               icon: const Icon(Icons.phone, size: 20),
               style: IconButton.styleFrom(
                 backgroundColor: Colors.green.shade50,
@@ -190,7 +188,9 @@ class InProgressCard extends StatelessWidget {
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
-              // TODO: Implement dropoff logic
+              context.read<DriverTripBloc>().add(
+                DriverTripEvent.completeTrip(),
+              );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,

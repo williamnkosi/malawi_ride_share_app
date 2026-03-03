@@ -236,6 +236,7 @@ Future<void> setupDriverTripDependencies() async {
 
   getIt.registerSingleton<DriverTripBloc>(
     DriverTripBloc(
+      driverTripRepository: getIt<DriverTripRepository>(),
       listenForEvents: getIt<ListenForTripEvents>(),
       listenForMultiEvents: getIt<ListenForMultiEventsUseCase>(),
       acceptTripUseCase: getIt<AcceptTripUseCase>(),

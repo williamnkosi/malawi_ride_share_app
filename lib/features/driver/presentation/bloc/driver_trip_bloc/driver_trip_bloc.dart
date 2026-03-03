@@ -7,6 +7,7 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/constants/trip_events.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip_confirmation.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_get_route_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
@@ -24,6 +25,7 @@ part 'driver_trip_bloc.freezed.dart';
 
 class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   final logger = Logger('DriverTripBloc');
+  final DriverTripRepository driverTripRepository;
   final ListenForTripEvents listenForEvents;
   final ListenForMultiEventsUseCase listenForMultiEvents;
   final AcceptTripUseCase acceptTripUseCase;
@@ -34,6 +36,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
   StreamSubscription? _tripRequestSubscription;
   StreamSubscription? _multiEventSubscription;
   DriverTripBloc({
+    required this.driverTripRepository,
     required this.listenForEvents,
     required this.listenForMultiEvents,
     required this.acceptTripUseCase,
@@ -51,6 +54,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripStarted>(_onDriverTripStarted);
 
     on<DriverTripStart>(_onDriverTripStart);
+    on<DriverTripComplete>(_onDriverTripComplete);
   }
 
   _onDriverTripInitialize(
@@ -207,6 +211,30 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       logger.warning('Received trip started event but no active trip found');
       emit(DriverTripState.error(message: 'No active trip to start'));
     }
+  }
+
+  _onDriverTripComplete(
+    DriverTripComplete event,
+    Emitter<DriverTripState> emit,
+  ) async {
+    //logger.info('Trip complete: ${event.trip.tripId}');
+    // Additional logic for completing the trip can be added here
+    final currentTrip = state.maybeWhen(
+      inProgress: (activeTrip) => activeTrip,
+      orElse: () => null,
+    );
+    await driverTripRepository.completeTrip(currentTrip!.tripId);
+
+    emit(
+      DriverTripState.completed(
+        completedTrip: currentTrip,
+        finalFare: 0.0, // Placeholder, calculate actual fare
+        completedAt: DateTime.now(),
+        tripDuration: Duration(
+          minutes: 30,
+        ), // Placeholder, calculate actual duration
+      ),
+    );
   }
 
   @override

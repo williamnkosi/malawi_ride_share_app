@@ -26,7 +26,7 @@ mixin _$DriverTripEvent {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -45,7 +45,7 @@ mixin _$DriverTripEvent {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -60,7 +60,7 @@ mixin _$DriverTripEvent {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -186,7 +186,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -209,7 +209,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -228,7 +228,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -385,7 +385,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -408,7 +408,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -427,7 +427,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -602,7 +602,7 @@ class _$DriverTripAcceptedConfirmationImpl
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -625,7 +625,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -644,7 +644,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -815,7 +815,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -838,7 +838,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -857,7 +857,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1025,7 +1025,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -1048,7 +1048,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1067,7 +1067,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1203,7 +1203,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -1226,7 +1226,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1245,7 +1245,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1328,8 +1328,6 @@ abstract class _$$DriverTripStartImplCopyWith<$Res> {
     _$DriverTripStartImpl value,
     $Res Function(_$DriverTripStartImpl) then,
   ) = __$$DriverTripStartImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({DriverTripEntity trip});
 }
 
 /// @nodoc
@@ -1343,55 +1341,26 @@ class __$$DriverTripStartImplCopyWithImpl<$Res>
 
   /// Create a copy of DriverTripEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? trip = null}) {
-    return _then(
-      _$DriverTripStartImpl(
-        trip:
-            null == trip
-                ? _value.trip
-                : trip // ignore: cast_nullable_to_non_nullable
-                    as DriverTripEntity,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$DriverTripStartImpl implements DriverTripStart {
-  const _$DriverTripStartImpl({required this.trip});
-
-  @override
-  final DriverTripEntity trip;
+  const _$DriverTripStartImpl();
 
   @override
   String toString() {
-    return 'DriverTripEvent.startTrip(trip: $trip)';
+    return 'DriverTripEvent.startTrip()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DriverTripStartImpl &&
-            (identical(other.trip, trip) || other.trip == trip));
+        (other.runtimeType == runtimeType && other is _$DriverTripStartImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, trip);
-
-  /// Create a copy of DriverTripEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DriverTripStartImplCopyWith<_$DriverTripStartImpl> get copyWith =>
-      __$$DriverTripStartImplCopyWithImpl<_$DriverTripStartImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -1403,7 +1372,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -1413,7 +1382,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     )
     updateLocation,
   }) {
-    return startTrip(trip);
+    return startTrip();
   }
 
   @override
@@ -1426,13 +1395,13 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
   }) {
-    return startTrip?.call(trip);
+    return startTrip?.call();
   }
 
   @override
@@ -1445,7 +1414,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1453,7 +1422,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     required TResult orElse(),
   }) {
     if (startTrip != null) {
-      return startTrip(trip);
+      return startTrip();
     }
     return orElse();
   }
@@ -1519,16 +1488,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
 }
 
 abstract class DriverTripStart implements DriverTripEvent {
-  const factory DriverTripStart({required final DriverTripEntity trip}) =
-      _$DriverTripStartImpl;
-
-  DriverTripEntity get trip;
-
-  /// Create a copy of DriverTripEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DriverTripStartImplCopyWith<_$DriverTripStartImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory DriverTripStart() = _$DriverTripStartImpl;
 }
 
 /// @nodoc
@@ -1621,7 +1581,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -1644,7 +1604,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1663,7 +1623,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1841,7 +1801,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -1864,7 +1824,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -1883,7 +1843,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -2064,7 +2024,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     required TResult Function(DriverTripEntity trip) acceptTrip,
     required TResult Function(DriverTripEntity trip) declineTrip,
     required TResult Function() tripExpired,
-    required TResult Function(DriverTripEntity trip) startTrip,
+    required TResult Function() startTrip,
     required TResult Function(DriverTripEntity trip, double finalFare)
     completeTrip,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
@@ -2087,7 +2047,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult? Function(DriverTripEntity trip)? acceptTrip,
     TResult? Function(DriverTripEntity trip)? declineTrip,
     TResult? Function()? tripExpired,
-    TResult? Function(DriverTripEntity trip)? startTrip,
+    TResult? Function()? startTrip,
     TResult? Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
@@ -2106,7 +2066,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult Function(DriverTripEntity trip)? acceptTrip,
     TResult Function(DriverTripEntity trip)? declineTrip,
     TResult Function()? tripExpired,
-    TResult Function(DriverTripEntity trip)? startTrip,
+    TResult Function()? startTrip,
     TResult Function(DriverTripEntity trip, double finalFare)? completeTrip,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?

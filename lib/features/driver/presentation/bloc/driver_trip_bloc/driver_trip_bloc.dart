@@ -178,11 +178,17 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     DriverTripStart event,
     Emitter<DriverTripState> emit,
   ) async {
-    logger.info('Trip started: ${event.trip.tripId}');
-    await startTripUseCase.call(event.trip.tripId);
-    // Additional logic for starting the trip can be added here
-    // For example, you might want to emit a new state indicating the trip has started
-    emit(DriverTripState.inProgress(activeTrip: event.trip));
+    final currentTrip = state.maybeWhen(
+      enRouteToPickup: (activeTrip, routeToPickup) => activeTrip,
+      orElse: () => null,
+    );
+    if (currentTrip != null) {
+      await startTripUseCase.call(currentTrip.tripId);
+      emit(DriverTripState.inProgress(activeTrip: currentTrip));
+    } else {
+      logger.warning('Trip not in enRouteToPickup state');
+      emit(DriverTripState.error(message: 'Invalid state for starting trip'));
+    }
   }
 
   @override

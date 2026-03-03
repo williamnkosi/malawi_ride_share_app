@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
+import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 
 class DriverActiveTripInfoCard extends StatelessWidget {
   final DriverTripEntity trip;
@@ -137,6 +139,30 @@ class DriverActiveTripInfoCard extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 12),
+          // Start Trip Button
+          SizedBox(
+            width: double.infinity,
+
+            //TODO: Disable button if the driver isn't near pickup location
+            child: ElevatedButton(
+              onPressed: () {
+                context.read<DriverTripBloc>().add(DriverTripEvent.startTrip());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: const Text(
+                'Start Trip',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
           ),
         ],
       ),

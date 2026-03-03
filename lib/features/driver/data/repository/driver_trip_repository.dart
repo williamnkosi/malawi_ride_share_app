@@ -43,7 +43,7 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   @override
   void startTrip(String tripId) {
     var driverId = firebaseRepository.getFirebaseId();
-    socketRepository.emit(TripEvents.tripStarted, SocketNamespace.trips.path, {
+    socketRepository.emit(TripEvents.startTrip, SocketNamespace.trips.path, {
       "tripId": tripId,
       "driverId": driverId,
     });

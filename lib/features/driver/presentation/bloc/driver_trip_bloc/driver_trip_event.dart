@@ -23,6 +23,8 @@ class DriverTripEvent with _$DriverTripEvent {
   // Trip lifecycle events
   const factory DriverTripEvent.startTrip() = DriverTripStart;
 
+  const factory DriverTripEvent.tripStarted() = DriverTripStarted;
+
   const factory DriverTripEvent.completeTrip({
     required DriverTripEntity trip,
     required double finalFare,

@@ -48,6 +48,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
     on<DriverTripExpired>(_onDriverTripExpired);
+    on<DriverTripStarted>(_onDriverTripStarted);
 
     on<DriverTripStart>(_onDriverTripStart);
   }
@@ -78,6 +79,9 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
               logger.info('Processing trip accepted confirmation event');
               //add(DriverTripAcceptedConfirmation(confirmationTrip: tripEventData));
               return;
+            } else if (tripEventData.eventType == TripEvents.tripStarted) {
+              add(DriverTripStarted());
+              logger.info('Processing trip started event');
             } else if (tripEventData.eventType == TripEvents.tripTimeout) {
               logger.info('Processing trip timeout event');
               add(DriverTripExpired());
@@ -188,6 +192,20 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     } else {
       logger.warning('Trip not in enRouteToPickup state');
       emit(DriverTripState.error(message: 'Invalid state for starting trip'));
+    }
+  }
+
+  _onDriverTripStarted(DriverTripStarted event, Emitter<DriverTripState> emit) {
+    logger.info('Trip started event received');
+    final currentTrip = state.maybeWhen(
+      enRouteToPickup: (activeTrip, routeToPickup) => activeTrip,
+      orElse: () => null,
+    );
+    if (currentTrip != null) {
+      emit(DriverTripState.inProgress(activeTrip: currentTrip));
+    } else {
+      logger.warning('Received trip started event but no active trip found');
+      emit(DriverTripState.error(message: 'No active trip to start'));
     }
   }
 

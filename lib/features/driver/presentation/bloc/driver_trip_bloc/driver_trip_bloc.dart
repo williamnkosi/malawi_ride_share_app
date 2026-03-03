@@ -188,7 +188,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     );
     if (currentTrip != null) {
       await startTripUseCase.call(currentTrip.tripId);
-      emit(DriverTripState.inProgress(activeTrip: currentTrip));
+      //emit(DriverTripState.inProgress(activeTrip: currentTrip));
     } else {
       logger.warning('Trip not in enRouteToPickup state');
       emit(DriverTripState.error(message: 'Invalid state for starting trip'));
@@ -214,5 +214,13 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     _tripRequestSubscription?.cancel();
     _multiEventSubscription?.cancel();
     return super.close();
+  }
+
+  @override
+  void onChange(Change<DriverTripState> change) {
+    logger.info('=== STATE CHANGE ===');
+    logger.info('From: ${change.currentState.runtimeType}');
+    logger.info('To: ${change.nextState.runtimeType}');
+    super.onChange(change);
   }
 }

@@ -26,9 +26,12 @@ class DriverTripRepositoryImp implements DriverTripRepository {
   }
 
   @override
-  Future<void> completeTrip(String tripId) {
-    // TODO: implement completeTrip
-    throw UnimplementedError();
+  Future<void> completeTrip(String tripId) async {
+    var driverId = firebaseRepository.getFirebaseId();
+    socketRepository.emit(TripEvents.completeTrip, SocketNamespace.trips.path, {
+      "tripId": tripId,
+      "driverId": driverId,
+    });
   }
 
   @override
@@ -38,6 +41,15 @@ class DriverTripRepositoryImp implements DriverTripRepository {
       SocketNamespace.trips.path,
       {"tripId": tripId},
     );
+  }
+
+  @override
+  void startTrip(String tripId) {
+    var driverId = firebaseRepository.getFirebaseId();
+    socketRepository.emit(TripEvents.startTrip, SocketNamespace.trips.path, {
+      "tripId": tripId,
+      "driverId": driverId,
+    });
   }
 
   @override
@@ -84,13 +96,22 @@ class DriverTripRepositoryImp implements DriverTripRepository {
         .map(
           (eventName) => socketRepository
               .listen(eventName, SocketNamespace.trips.path)
-              .map(
-                (data) => TripEventData(
+              .map((data) {
+                if (eventName == TripEvents.tripCompleted) {
+                  // For completed events, we might want to handle them differently
+                  // since they may not have the same data structure
+                  return TripEventData(
+                    eventType: eventName,
+                    data: data, // Pass raw data for completed events
+                    timestamp: DateTime.now(),
+                  );
+                }
+                return TripEventData(
                   eventType: eventName,
                   data: processTripData(eventType: eventName, tripData: data),
                   timestamp: DateTime.now(),
-                ),
-              ),
+                );
+              }),
         )
         .toList();
 

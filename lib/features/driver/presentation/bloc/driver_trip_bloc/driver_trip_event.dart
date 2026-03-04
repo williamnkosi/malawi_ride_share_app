@@ -4,6 +4,9 @@ part of 'driver_trip_bloc.dart';
 class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.initialize() = DriverTripInitialize;
   // Trip request events
+  const factory DriverTripEvent.deinitialize() = DriverTripDeinitialize;
+
+  const factory DriverTripEvent.setIdle() = DriverTripSetIdle;
   const factory DriverTripEvent.tripRequestReceived({
     required DriverTripEntity trip,
   }) = DriverTripRequestReceived;
@@ -21,13 +24,13 @@ class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.tripExpired() = DriverTripExpired;
 
   // Trip lifecycle events
-  const factory DriverTripEvent.startTrip({required DriverTripEntity trip}) =
-      DriverTripStart;
+  const factory DriverTripEvent.startTrip() = DriverTripStart;
 
-  const factory DriverTripEvent.completeTrip({
-    required DriverTripEntity trip,
-    required double finalFare,
-  }) = DriverTripComplete;
+  const factory DriverTripEvent.tripStarted() = DriverTripStarted;
+
+  const factory DriverTripEvent.completeTrip() = DriverTripComplete;
+
+  const factory DriverTripEvent.tripCompleted() = DriverTripCompletedEvent;
 
   // Trip modifications
   const factory DriverTripEvent.cancelTrip({

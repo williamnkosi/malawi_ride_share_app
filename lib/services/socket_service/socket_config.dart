@@ -7,7 +7,7 @@ export 'events/location_events.dart';
 class SocketConfig {
   // Base WebSocket URL from environment
   static String get socketUrl =>
-      'http://${dotenv.env['ip_address']}:${dotenv.env['SOCKET_PORT'] ?? dotenv.env['PORT'] ?? '3000'}';
+      'http://${dotenv.env['IP_ADDRESS']}:${dotenv.env['SOCKET_PORT'] ?? dotenv.env['PORT'] ?? '3000'}';
 
   // Connection timeout from environment
   static Duration get connectionTimeout => Duration(

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
@@ -6,11 +7,13 @@ import 'package:malawi_ride_share_app/features/driver/data/repository/driver_loc
 import 'package:malawi_ride_share_app/features/driver/data/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_location_tracking_repository.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_get_route_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/accept_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/decline_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_multi_events_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/listen_for_trips.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/process_trip_request_use_case.dart';
+import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/start_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_offline_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/go_online_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/initialize_use_case.dart';
@@ -27,6 +30,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/use_cases/get_route_use.case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/data/repository/firebase_repository_impl.dart';
@@ -36,6 +40,11 @@ import 'package:malawi_ride_share_app/features/location/domain/repository/locati
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
 import 'package:malawi_ride_share_app/features/location/data/repository/location_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/data/data_source/google_maps_remote_data_source.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/data/repository/google_maps_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/shared/google_maps/domain/repository/google_maps_repository.dart';
+// ...existing imports...
+import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -62,6 +71,7 @@ Future<void> setupGetIt() async {
   await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
   await setupLocationFeatureDependencies();
+  await setupGoogleMapsDependencies();
 
   await setupDriverTripDependencies();
   await setupDriverOperationsDependencies();
@@ -142,8 +152,11 @@ Future<void> setupLocationFeatureDependencies() async {
     GetLocationUseCase(getIt<LocationRepository>()),
   );
 
+  getIt.registerSingleton<GetCurrentLocationUseCase>(
+    GetCurrentLocationUseCase(getIt<LocationRepository>()),
+  );
   // Blocs
-  getIt.registerFactory<LocationBloc>(
+  getIt.registerLazySingleton<LocationBloc>(
     () => LocationBloc(getLocationUseCase: getIt<GetLocationUseCase>()),
   );
 }
@@ -209,13 +222,49 @@ Future<void> setupDriverTripDependencies() async {
   getIt.registerSingleton<ProcessTripRequestUseCase>(
     ProcessTripRequestUseCase(getIt<DriverTripRepository>()),
   );
+
+  getIt.registerSingleton<DriverGetRouteUseCase>(
+    DriverGetRouteUseCase(
+      getRouteUseCase: getIt<GetRouteUseCase>(),
+      getCurrentLocationUseCase: getIt<GetCurrentLocationUseCase>(),
+    ),
+  );
+
+  getIt.registerSingleton<StartTripUseCase>(
+    StartTripUseCase(driverTripRepository: getIt<DriverTripRepository>()),
+  );
+
   getIt.registerSingleton<DriverTripBloc>(
     DriverTripBloc(
+      driverTripRepository: getIt<DriverTripRepository>(),
       listenForEvents: getIt<ListenForTripEvents>(),
       listenForMultiEvents: getIt<ListenForMultiEventsUseCase>(),
       acceptTripUseCase: getIt<AcceptTripUseCase>(),
       declineTripUseCase: getIt<DeclineTripUseCase>(),
       processTripRequestUseCase: getIt<ProcessTripRequestUseCase>(),
+      driverGetRouteUseCase: getIt<DriverGetRouteUseCase>(),
+      startTripUseCase: getIt<StartTripUseCase>(),
     ),
+  );
+}
+
+Future<void> setupGoogleMapsDependencies() async {
+  // Data source
+  getIt.registerLazySingleton<GoogleMapsRemoteDataSource>(
+    () => GoogleMapsRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  // Repository
+  getIt.registerLazySingleton<GoogleMapsRepository>(
+    () => GoogleMapsRepositoryImpl(
+      remoteDataSource: getIt<GoogleMapsRemoteDataSource>(),
+    ),
+  );
+
+  //
+
+  // Use cases
+  getIt.registerLazySingleton<GetRouteUseCase>(
+    () => GetRouteUseCase(getIt<GoogleMapsRepository>()),
   );
 }

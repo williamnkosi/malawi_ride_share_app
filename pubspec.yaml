@@ -64,6 +64,7 @@ dependencies:
   permission_handler: ^11.3.1
   json_annotation: ^4.9.0
   google_polyline_algorithm: ^3.1.0
+  google_maps_apis: ^4.0.0
 
 dev_dependencies:
   flutter_test:

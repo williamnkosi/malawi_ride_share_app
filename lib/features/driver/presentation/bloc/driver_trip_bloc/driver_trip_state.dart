@@ -3,7 +3,7 @@ part of 'driver_trip_bloc.dart';
 @freezed
 class DriverTripState with _$DriverTripState {
   // Initial state - no active trips
-  const factory DriverTripState.idle() = DriverTripIdle;
+  const factory DriverTripState.idle() = Idle;
 
   // Trip request states
   const factory DriverTripState.requestReceived({
@@ -17,6 +17,7 @@ class DriverTripState with _$DriverTripState {
   // Trip accepted - en route to pickup
   const factory DriverTripState.enRouteToPickup({
     required DriverTripEntity activeTrip,
+    required RouteEntity routeToPickup,
   }) = DriverTripEnRouteToPickup;
 
   // Arrived at pickup location
@@ -29,11 +30,6 @@ class DriverTripState with _$DriverTripState {
   // Trip in progress - passenger on board
   const factory DriverTripState.inProgress({
     required DriverTripEntity activeTrip,
-    required LocationEntity currentLocation,
-    required DateTime startTime,
-    required Duration estimatedArrival,
-    double? distanceRemaining,
-    double? currentFare,
   }) = DriverTripInProgress;
 
   // Arrived at destination
@@ -46,7 +42,6 @@ class DriverTripState with _$DriverTripState {
 
   // Trip completed successfully
   const factory DriverTripState.completed({
-    required DriverTripEntity completedTrip,
     required double finalFare,
     required DateTime completedAt,
     required Duration tripDuration,

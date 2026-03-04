@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_polyline_algorithm/google_polyline_algorithm.dart';
+import 'package:malawi_ride_share_app/core/util/google_maps_utils.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
 
@@ -51,47 +51,22 @@ class MapRequestSection extends StatefulWidget {
 class _MapRequestSectionState extends State<MapRequestSection> {
   GoogleMapController? _mapController;
 
-  List<LatLng> _decodePolylineToLatLng(String encoded) {
-    List<List<num>> decoded = decodePolyline(encoded);
-    return decoded
-        .map((point) => LatLng(point[0].toDouble(), point[1].toDouble()))
-        .toList();
-  }
-
-  LatLngBounds _calculateBounds(List<LatLng> points) {
-    double minLat = points.first.latitude;
-    double maxLat = points.first.latitude;
-    double minLng = points.first.longitude;
-    double maxLng = points.first.longitude;
-
-    for (LatLng point in points) {
-      minLat = minLat < point.latitude ? minLat : point.latitude;
-      maxLat = maxLat > point.latitude ? maxLat : point.latitude;
-      minLng = minLng < point.longitude ? minLng : point.longitude;
-      maxLng = maxLng > point.longitude ? maxLng : point.longitude;
-    }
-
-    return LatLngBounds(
-      southwest: LatLng(minLat, minLng),
-      northeast: LatLng(maxLat, maxLng),
-    );
-  }
-
   void _fitBoundsToRoute() async {
     if (_mapController != null) {
-      final points = _decodePolylineToLatLng(widget.trip.route.polyline);
+      final points = GoogleMapsUtils.decodePolylineToLatLng(
+        widget.trip.route.polyline,
+      );
       if (points.isNotEmpty) {
-        final bounds = _calculateBounds(points);
-        await _mapController!.animateCamera(
-          CameraUpdate.newLatLngBounds(bounds, 100.0), // 100.0 is padding
-        );
+        await GoogleMapsUtils.fitBoundsToPoints(_mapController!, points);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final routePoints = _decodePolylineToLatLng(widget.trip.route.polyline);
+    final routePoints = GoogleMapsUtils.decodePolylineToLatLng(
+      widget.trip.route.polyline,
+    );
 
     return Expanded(
       child: SizedBox(

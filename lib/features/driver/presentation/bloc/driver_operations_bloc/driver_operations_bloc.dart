@@ -54,7 +54,8 @@ class DriverOperationsBloc
   ) async {
     try {
       logger.info('Driver went offline');
-      await goOfflineUseCase.call(null);
+      goOfflineUseCase.call(null);
+      driverTripBloc.add(const DriverTripEvent.deinitialize());
       emit(const DriverOperationsState.offline());
     } catch (e) {
       logger.severe('Error going offline: $e');

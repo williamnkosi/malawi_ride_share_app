@@ -50,6 +50,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     // on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
     on<DriverTripInitialize>(_onDriverTripInitialize);
+    on<DriverTripDeinitialize>(_onDriverTripDeinitialize);
     on<DriverTripAcceptTrip>(_onDriverTripAcceptTrip);
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
     on<DriverTripExpired>(_onDriverTripExpired);
@@ -62,6 +63,16 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
 
   _onDriverTripSetIdle(DriverTripSetIdle event, Emitter<DriverTripState> emit) {
     logger.info('Driver is idle, waiting for trip requests');
+    emit(const DriverTripState.idle());
+  }
+
+  _onDriverTripDeinitialize(
+    DriverTripDeinitialize event,
+    Emitter<DriverTripState> emit,
+  ) {
+    logger.info('Deinitializing driver trip bloc');
+    _tripRequestSubscription?.cancel();
+    _multiEventSubscription?.cancel();
     emit(const DriverTripState.idle());
   }
 

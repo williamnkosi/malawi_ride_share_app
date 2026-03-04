@@ -20,6 +20,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -41,6 +42,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -59,6 +61,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -78,6 +81,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -96,6 +100,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -113,6 +118,7 @@ mixin _$DriverTripEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -205,6 +211,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -230,6 +237,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -252,6 +260,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -278,6 +287,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -300,6 +310,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -321,6 +332,7 @@ class _$DriverTripInitializeImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -345,6 +357,208 @@ class _$DriverTripInitializeImpl
 
 abstract class DriverTripInitialize implements DriverTripEvent {
   const factory DriverTripInitialize() = _$DriverTripInitializeImpl;
+}
+
+/// @nodoc
+abstract class _$$DriverTripDeinitializeImplCopyWith<$Res> {
+  factory _$$DriverTripDeinitializeImplCopyWith(
+    _$DriverTripDeinitializeImpl value,
+    $Res Function(_$DriverTripDeinitializeImpl) then,
+  ) = __$$DriverTripDeinitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DriverTripDeinitializeImplCopyWithImpl<$Res>
+    extends _$DriverTripEventCopyWithImpl<$Res, _$DriverTripDeinitializeImpl>
+    implements _$$DriverTripDeinitializeImplCopyWith<$Res> {
+  __$$DriverTripDeinitializeImplCopyWithImpl(
+    _$DriverTripDeinitializeImpl _value,
+    $Res Function(_$DriverTripDeinitializeImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DriverTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DriverTripDeinitializeImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripDeinitialize {
+  const _$DriverTripDeinitializeImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DriverTripEvent.deinitialize()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.deinitialize'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverTripDeinitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() deinitialize,
+    required TResult Function() setIdle,
+    required TResult Function(DriverTripEntity trip) tripRequestReceived,
+    required TResult Function(DriverTripConfirmationEntity confirmationTrip)
+    tripAcceptedConfirmation,
+    required TResult Function(DriverTripEntity trip) acceptTrip,
+    required TResult Function(DriverTripEntity trip) declineTrip,
+    required TResult Function() tripExpired,
+    required TResult Function() startTrip,
+    required TResult Function() tripStarted,
+    required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
+    required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
+    required TResult Function(
+      DriverTripEntity trip,
+      LocationEntity currentLocation,
+    )
+    updateLocation,
+  }) {
+    return deinitialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
+    TResult? Function()? setIdle,
+    TResult? Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
+    tripAcceptedConfirmation,
+    TResult? Function(DriverTripEntity trip)? acceptTrip,
+    TResult? Function(DriverTripEntity trip)? declineTrip,
+    TResult? Function()? tripExpired,
+    TResult? Function()? startTrip,
+    TResult? Function()? tripStarted,
+    TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
+    TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+  }) {
+    return deinitialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? deinitialize,
+    TResult Function()? setIdle,
+    TResult Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult Function(DriverTripConfirmationEntity confirmationTrip)?
+    tripAcceptedConfirmation,
+    TResult Function(DriverTripEntity trip)? acceptTrip,
+    TResult Function(DriverTripEntity trip)? declineTrip,
+    TResult Function()? tripExpired,
+    TResult Function()? startTrip,
+    TResult Function()? tripStarted,
+    TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
+    TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+    required TResult orElse(),
+  }) {
+    if (deinitialize != null) {
+      return deinitialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
+    required TResult Function(DriverTripSetIdle value) setIdle,
+    required TResult Function(DriverTripRequestReceived value)
+    tripRequestReceived,
+    required TResult Function(DriverTripAcceptedConfirmation value)
+    tripAcceptedConfirmation,
+    required TResult Function(DriverTripAcceptTrip value) acceptTrip,
+    required TResult Function(DriverTripDeclineTrip value) declineTrip,
+    required TResult Function(DriverTripExpired value) tripExpired,
+    required TResult Function(DriverTripStart value) startTrip,
+    required TResult Function(DriverTripStarted value) tripStarted,
+    required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
+    required TResult Function(DriverTripCancel value) cancelTrip,
+    required TResult Function(DriverTripUpdateLocation value) updateLocation,
+  }) {
+    return deinitialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
+    TResult? Function(DriverTripSetIdle value)? setIdle,
+    TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult? Function(DriverTripAcceptedConfirmation value)?
+    tripAcceptedConfirmation,
+    TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult? Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult? Function(DriverTripExpired value)? tripExpired,
+    TResult? Function(DriverTripStart value)? startTrip,
+    TResult? Function(DriverTripStarted value)? tripStarted,
+    TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
+    TResult? Function(DriverTripCancel value)? cancelTrip,
+    TResult? Function(DriverTripUpdateLocation value)? updateLocation,
+  }) {
+    return deinitialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
+    TResult Function(DriverTripSetIdle value)? setIdle,
+    TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult Function(DriverTripAcceptedConfirmation value)?
+    tripAcceptedConfirmation,
+    TResult Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult Function(DriverTripExpired value)? tripExpired,
+    TResult Function(DriverTripStart value)? startTrip,
+    TResult Function(DriverTripStarted value)? tripStarted,
+    TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
+    TResult Function(DriverTripCancel value)? cancelTrip,
+    TResult Function(DriverTripUpdateLocation value)? updateLocation,
+    required TResult orElse(),
+  }) {
+    if (deinitialize != null) {
+      return deinitialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DriverTripDeinitialize implements DriverTripEvent {
+  const factory DriverTripDeinitialize() = _$DriverTripDeinitializeImpl;
 }
 
 /// @nodoc
@@ -399,6 +613,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -424,6 +639,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -446,6 +662,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -472,6 +689,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -494,6 +712,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -515,6 +734,7 @@ class _$DriverTripSetIdleImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -625,6 +845,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -650,6 +871,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -672,6 +894,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -698,6 +921,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -720,6 +944,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -741,6 +966,7 @@ class _$DriverTripRequestReceivedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -870,6 +1096,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -895,6 +1122,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -917,6 +1145,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -943,6 +1172,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -965,6 +1195,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -986,6 +1217,7 @@ class _$DriverTripAcceptedConfirmationImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -1110,6 +1342,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -1135,6 +1368,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1157,6 +1391,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1183,6 +1418,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -1205,6 +1441,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -1226,6 +1463,7 @@ class _$DriverTripAcceptTripImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -1347,6 +1585,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -1372,6 +1611,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1394,6 +1634,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1420,6 +1661,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -1442,6 +1684,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -1463,6 +1706,7 @@ class _$DriverTripDeclineTripImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -1550,6 +1794,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -1575,6 +1820,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1597,6 +1843,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1623,6 +1870,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -1645,6 +1893,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -1666,6 +1915,7 @@ class _$DriverTripExpiredImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -1744,6 +1994,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -1769,6 +2020,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1791,6 +2043,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1817,6 +2070,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -1839,6 +2093,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -1860,6 +2115,7 @@ class _$DriverTripStartImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -1938,6 +2194,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -1963,6 +2220,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -1985,6 +2243,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2011,6 +2270,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -2033,6 +2293,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -2054,6 +2315,7 @@ class _$DriverTripStartedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -2133,6 +2395,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -2158,6 +2421,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2180,6 +2444,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2206,6 +2471,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -2228,6 +2494,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -2249,6 +2516,7 @@ class _$DriverTripCompleteImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -2329,6 +2597,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -2354,6 +2623,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2376,6 +2646,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2402,6 +2673,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -2424,6 +2696,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -2445,6 +2718,7 @@ class _$DriverTripCompletedEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -2565,6 +2839,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -2590,6 +2865,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2612,6 +2888,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2638,6 +2915,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -2660,6 +2938,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -2681,6 +2960,7 @@ class _$DriverTripCancelImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?
@@ -2816,6 +3096,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() deinitialize,
     required TResult Function() setIdle,
     required TResult Function(DriverTripEntity trip) tripRequestReceived,
     required TResult Function(DriverTripConfirmationEntity confirmationTrip)
@@ -2841,6 +3122,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? deinitialize,
     TResult? Function()? setIdle,
     TResult? Function(DriverTripEntity trip)? tripRequestReceived,
     TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2863,6 +3145,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? deinitialize,
     TResult Function()? setIdle,
     TResult Function(DriverTripEntity trip)? tripRequestReceived,
     TResult Function(DriverTripConfirmationEntity confirmationTrip)?
@@ -2889,6 +3172,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripDeinitialize value) deinitialize,
     required TResult Function(DriverTripSetIdle value) setIdle,
     required TResult Function(DriverTripRequestReceived value)
     tripRequestReceived,
@@ -2911,6 +3195,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripDeinitialize value)? deinitialize,
     TResult? Function(DriverTripSetIdle value)? setIdle,
     TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult? Function(DriverTripAcceptedConfirmation value)?
@@ -2932,6 +3217,7 @@ class _$DriverTripUpdateLocationImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripDeinitialize value)? deinitialize,
     TResult Function(DriverTripSetIdle value)? setIdle,
     TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
     TResult Function(DriverTripAcceptedConfirmation value)?

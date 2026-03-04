@@ -42,7 +42,6 @@ class DriverTripState with _$DriverTripState {
 
   // Trip completed successfully
   const factory DriverTripState.completed({
-    required DriverTripEntity completedTrip,
     required double finalFare,
     required DateTime completedAt,
     required Duration tripDuration,

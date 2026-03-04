@@ -29,6 +29,7 @@ mixin _$DriverTripEvent {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -48,6 +49,7 @@ mixin _$DriverTripEvent {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -64,6 +66,7 @@ mixin _$DriverTripEvent {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -82,6 +85,7 @@ mixin _$DriverTripEvent {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) => throw _privateConstructorUsedError;
@@ -97,6 +101,7 @@ mixin _$DriverTripEvent {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) => throw _privateConstructorUsedError;
@@ -112,6 +117,7 @@ mixin _$DriverTripEvent {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -163,12 +169,20 @@ class __$$DriverTripInitializeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripInitializeImpl implements DriverTripInitialize {
+class _$DriverTripInitializeImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripInitialize {
   const _$DriverTripInitializeImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.initialize()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'DriverTripEvent.initialize'));
   }
 
   @override
@@ -194,6 +208,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -217,6 +232,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -237,6 +253,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -262,6 +279,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -281,6 +299,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -300,6 +319,7 @@ class _$DriverTripInitializeImpl implements DriverTripInitialize {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -353,15 +373,25 @@ class __$$DriverTripRequestReceivedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
+class _$DriverTripRequestReceivedImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripRequestReceived {
   const _$DriverTripRequestReceivedImpl({required this.trip});
 
   @override
   final DriverTripEntity trip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.tripRequestReceived(trip: $trip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.tripRequestReceived'))
+      ..add(DiagnosticsProperty('trip', trip));
   }
 
   @override
@@ -398,6 +428,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -421,6 +452,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -441,6 +473,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -466,6 +499,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -485,6 +519,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -504,6 +539,7 @@ class _$DriverTripRequestReceivedImpl implements DriverTripRequestReceived {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -572,6 +608,7 @@ class __$$DriverTripAcceptedConfirmationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DriverTripAcceptedConfirmationImpl
+    with DiagnosticableTreeMixin
     implements DriverTripAcceptedConfirmation {
   const _$DriverTripAcceptedConfirmationImpl({required this.confirmationTrip});
 
@@ -579,8 +616,18 @@ class _$DriverTripAcceptedConfirmationImpl
   final DriverTripConfirmationEntity confirmationTrip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.tripAcceptedConfirmation(confirmationTrip: $confirmationTrip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+        DiagnosticsProperty('type', 'DriverTripEvent.tripAcceptedConfirmation'),
+      )
+      ..add(DiagnosticsProperty('confirmationTrip', confirmationTrip));
   }
 
   @override
@@ -620,6 +667,7 @@ class _$DriverTripAcceptedConfirmationImpl
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -643,6 +691,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -663,6 +712,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -688,6 +738,7 @@ class _$DriverTripAcceptedConfirmationImpl
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -707,6 +758,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -726,6 +778,7 @@ class _$DriverTripAcceptedConfirmationImpl
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -791,15 +844,25 @@ class __$$DriverTripAcceptTripImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
+class _$DriverTripAcceptTripImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripAcceptTrip {
   const _$DriverTripAcceptTripImpl({required this.trip});
 
   @override
   final DriverTripEntity trip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.acceptTrip(trip: $trip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.acceptTrip'))
+      ..add(DiagnosticsProperty('trip', trip));
   }
 
   @override
@@ -838,6 +901,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -861,6 +925,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -881,6 +946,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -906,6 +972,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -925,6 +992,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -944,6 +1012,7 @@ class _$DriverTripAcceptTripImpl implements DriverTripAcceptTrip {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1006,15 +1075,25 @@ class __$$DriverTripDeclineTripImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
+class _$DriverTripDeclineTripImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripDeclineTrip {
   const _$DriverTripDeclineTripImpl({required this.trip});
 
   @override
   final DriverTripEntity trip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.declineTrip(trip: $trip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.declineTrip'))
+      ..add(DiagnosticsProperty('trip', trip));
   }
 
   @override
@@ -1053,6 +1132,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1076,6 +1156,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1096,6 +1177,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1121,6 +1203,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -1140,6 +1223,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -1159,6 +1243,7 @@ class _$DriverTripDeclineTripImpl implements DriverTripDeclineTrip {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1206,12 +1291,20 @@ class __$$DriverTripExpiredImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripExpiredImpl implements DriverTripExpired {
+class _$DriverTripExpiredImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripExpired {
   const _$DriverTripExpiredImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.tripExpired()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'DriverTripEvent.tripExpired'));
   }
 
   @override
@@ -1236,6 +1329,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1259,6 +1353,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1279,6 +1374,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1304,6 +1400,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -1323,6 +1420,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -1342,6 +1440,7 @@ class _$DriverTripExpiredImpl implements DriverTripExpired {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1380,12 +1479,20 @@ class __$$DriverTripStartImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripStartImpl implements DriverTripStart {
+class _$DriverTripStartImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripStart {
   const _$DriverTripStartImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.startTrip()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'DriverTripEvent.startTrip'));
   }
 
   @override
@@ -1410,6 +1517,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1433,6 +1541,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1453,6 +1562,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1478,6 +1588,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -1497,6 +1608,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -1516,6 +1628,7 @@ class _$DriverTripStartImpl implements DriverTripStart {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1554,12 +1667,20 @@ class __$$DriverTripStartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripStartedImpl implements DriverTripStarted {
+class _$DriverTripStartedImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripStarted {
   const _$DriverTripStartedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.tripStarted()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'DriverTripEvent.tripStarted'));
   }
 
   @override
@@ -1584,6 +1705,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1607,6 +1729,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1627,6 +1750,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1652,6 +1776,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -1671,6 +1796,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -1690,6 +1816,7 @@ class _$DriverTripStartedImpl implements DriverTripStarted {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1728,12 +1855,21 @@ class __$$DriverTripCompleteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripCompleteImpl implements DriverTripComplete {
+class _$DriverTripCompleteImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripComplete {
   const _$DriverTripCompleteImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.completeTrip()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.completeTrip'));
   }
 
   @override
@@ -1758,6 +1894,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1781,6 +1918,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1801,6 +1939,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -1826,6 +1965,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -1845,6 +1985,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -1864,6 +2005,7 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -1877,6 +2019,196 @@ class _$DriverTripCompleteImpl implements DriverTripComplete {
 
 abstract class DriverTripComplete implements DriverTripEvent {
   const factory DriverTripComplete() = _$DriverTripCompleteImpl;
+}
+
+/// @nodoc
+abstract class _$$DriverTripCompletedEventImplCopyWith<$Res> {
+  factory _$$DriverTripCompletedEventImplCopyWith(
+    _$DriverTripCompletedEventImpl value,
+    $Res Function(_$DriverTripCompletedEventImpl) then,
+  ) = __$$DriverTripCompletedEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DriverTripCompletedEventImplCopyWithImpl<$Res>
+    extends _$DriverTripEventCopyWithImpl<$Res, _$DriverTripCompletedEventImpl>
+    implements _$$DriverTripCompletedEventImplCopyWith<$Res> {
+  __$$DriverTripCompletedEventImplCopyWithImpl(
+    _$DriverTripCompletedEventImpl _value,
+    $Res Function(_$DriverTripCompletedEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DriverTripEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DriverTripCompletedEventImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripCompletedEvent {
+  const _$DriverTripCompletedEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DriverTripEvent.tripCompleted()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.tripCompleted'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverTripCompletedEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(DriverTripEntity trip) tripRequestReceived,
+    required TResult Function(DriverTripConfirmationEntity confirmationTrip)
+    tripAcceptedConfirmation,
+    required TResult Function(DriverTripEntity trip) acceptTrip,
+    required TResult Function(DriverTripEntity trip) declineTrip,
+    required TResult Function() tripExpired,
+    required TResult Function() startTrip,
+    required TResult Function() tripStarted,
+    required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
+    required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
+    required TResult Function(
+      DriverTripEntity trip,
+      LocationEntity currentLocation,
+    )
+    updateLocation,
+  }) {
+    return tripCompleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult? Function(DriverTripConfirmationEntity confirmationTrip)?
+    tripAcceptedConfirmation,
+    TResult? Function(DriverTripEntity trip)? acceptTrip,
+    TResult? Function(DriverTripEntity trip)? declineTrip,
+    TResult? Function()? tripExpired,
+    TResult? Function()? startTrip,
+    TResult? Function()? tripStarted,
+    TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
+    TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+  }) {
+    return tripCompleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(DriverTripEntity trip)? tripRequestReceived,
+    TResult Function(DriverTripConfirmationEntity confirmationTrip)?
+    tripAcceptedConfirmation,
+    TResult Function(DriverTripEntity trip)? acceptTrip,
+    TResult Function(DriverTripEntity trip)? declineTrip,
+    TResult Function()? tripExpired,
+    TResult Function()? startTrip,
+    TResult Function()? tripStarted,
+    TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
+    TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
+    TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
+    updateLocation,
+    required TResult orElse(),
+  }) {
+    if (tripCompleted != null) {
+      return tripCompleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DriverTripInitialize value) initialize,
+    required TResult Function(DriverTripRequestReceived value)
+    tripRequestReceived,
+    required TResult Function(DriverTripAcceptedConfirmation value)
+    tripAcceptedConfirmation,
+    required TResult Function(DriverTripAcceptTrip value) acceptTrip,
+    required TResult Function(DriverTripDeclineTrip value) declineTrip,
+    required TResult Function(DriverTripExpired value) tripExpired,
+    required TResult Function(DriverTripStart value) startTrip,
+    required TResult Function(DriverTripStarted value) tripStarted,
+    required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
+    required TResult Function(DriverTripCancel value) cancelTrip,
+    required TResult Function(DriverTripUpdateLocation value) updateLocation,
+  }) {
+    return tripCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DriverTripInitialize value)? initialize,
+    TResult? Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult? Function(DriverTripAcceptedConfirmation value)?
+    tripAcceptedConfirmation,
+    TResult? Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult? Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult? Function(DriverTripExpired value)? tripExpired,
+    TResult? Function(DriverTripStart value)? startTrip,
+    TResult? Function(DriverTripStarted value)? tripStarted,
+    TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
+    TResult? Function(DriverTripCancel value)? cancelTrip,
+    TResult? Function(DriverTripUpdateLocation value)? updateLocation,
+  }) {
+    return tripCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DriverTripInitialize value)? initialize,
+    TResult Function(DriverTripRequestReceived value)? tripRequestReceived,
+    TResult Function(DriverTripAcceptedConfirmation value)?
+    tripAcceptedConfirmation,
+    TResult Function(DriverTripAcceptTrip value)? acceptTrip,
+    TResult Function(DriverTripDeclineTrip value)? declineTrip,
+    TResult Function(DriverTripExpired value)? tripExpired,
+    TResult Function(DriverTripStart value)? startTrip,
+    TResult Function(DriverTripStarted value)? tripStarted,
+    TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
+    TResult Function(DriverTripCancel value)? cancelTrip,
+    TResult Function(DriverTripUpdateLocation value)? updateLocation,
+    required TResult orElse(),
+  }) {
+    if (tripCompleted != null) {
+      return tripCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DriverTripCompletedEvent implements DriverTripEvent {
+  const factory DriverTripCompletedEvent() = _$DriverTripCompletedEventImpl;
 }
 
 /// @nodoc
@@ -1922,7 +2254,9 @@ class __$$DriverTripCancelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripCancelImpl implements DriverTripCancel {
+class _$DriverTripCancelImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripCancel {
   const _$DriverTripCancelImpl({required this.trip, required this.reason});
 
   @override
@@ -1931,8 +2265,17 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
   final String reason;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.cancelTrip(trip: $trip, reason: $reason)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.cancelTrip'))
+      ..add(DiagnosticsProperty('trip', trip))
+      ..add(DiagnosticsProperty('reason', reason));
   }
 
   @override
@@ -1971,6 +2314,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -1994,6 +2338,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -2014,6 +2359,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -2039,6 +2385,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -2058,6 +2405,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -2077,6 +2425,7 @@ class _$DriverTripCancelImpl implements DriverTripCancel {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -2147,7 +2496,9 @@ class __$$DriverTripUpdateLocationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
+class _$DriverTripUpdateLocationImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripUpdateLocation {
   const _$DriverTripUpdateLocationImpl({
     required this.trip,
     required this.currentLocation,
@@ -2159,8 +2510,17 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
   final LocationEntity currentLocation;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripEvent.updateLocation(trip: $trip, currentLocation: $currentLocation)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripEvent.updateLocation'))
+      ..add(DiagnosticsProperty('trip', trip))
+      ..add(DiagnosticsProperty('currentLocation', currentLocation));
   }
 
   @override
@@ -2199,6 +2559,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     required TResult Function() startTrip,
     required TResult Function() tripStarted,
     required TResult Function() completeTrip,
+    required TResult Function() tripCompleted,
     required TResult Function(DriverTripEntity trip, String reason) cancelTrip,
     required TResult Function(
       DriverTripEntity trip,
@@ -2222,6 +2583,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult? Function()? startTrip,
     TResult? Function()? tripStarted,
     TResult? Function()? completeTrip,
+    TResult? Function()? tripCompleted,
     TResult? Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult? Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -2242,6 +2604,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult Function()? startTrip,
     TResult Function()? tripStarted,
     TResult Function()? completeTrip,
+    TResult Function()? tripCompleted,
     TResult Function(DriverTripEntity trip, String reason)? cancelTrip,
     TResult Function(DriverTripEntity trip, LocationEntity currentLocation)?
     updateLocation,
@@ -2267,6 +2630,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     required TResult Function(DriverTripStart value) startTrip,
     required TResult Function(DriverTripStarted value) tripStarted,
     required TResult Function(DriverTripComplete value) completeTrip,
+    required TResult Function(DriverTripCompletedEvent value) tripCompleted,
     required TResult Function(DriverTripCancel value) cancelTrip,
     required TResult Function(DriverTripUpdateLocation value) updateLocation,
   }) {
@@ -2286,6 +2650,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult? Function(DriverTripStart value)? startTrip,
     TResult? Function(DriverTripStarted value)? tripStarted,
     TResult? Function(DriverTripComplete value)? completeTrip,
+    TResult? Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult? Function(DriverTripCancel value)? cancelTrip,
     TResult? Function(DriverTripUpdateLocation value)? updateLocation,
   }) {
@@ -2305,6 +2670,7 @@ class _$DriverTripUpdateLocationImpl implements DriverTripUpdateLocation {
     TResult Function(DriverTripStart value)? startTrip,
     TResult Function(DriverTripStarted value)? tripStarted,
     TResult Function(DriverTripComplete value)? completeTrip,
+    TResult Function(DriverTripCompletedEvent value)? tripCompleted,
     TResult Function(DriverTripCancel value)? cancelTrip,
     TResult Function(DriverTripUpdateLocation value)? updateLocation,
     required TResult orElse(),
@@ -2364,7 +2730,6 @@ mixin _$DriverTripState {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2414,7 +2779,6 @@ mixin _$DriverTripState {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2463,7 +2827,6 @@ mixin _$DriverTripState {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2579,12 +2942,20 @@ class __$$DriverTripIdleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripIdleImpl implements DriverTripIdle {
+class _$DriverTripIdleImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripIdle {
   const _$DriverTripIdleImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.idle()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'DriverTripState.idle'));
   }
 
   @override
@@ -2627,7 +2998,6 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2681,7 +3051,6 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2734,7 +3103,6 @@ class _$DriverTripIdleImpl implements DriverTripIdle {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -2886,7 +3254,9 @@ class __$$DrivverTripRequestReceivedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
+class _$DrivverTripRequestReceivedImpl
+    with DiagnosticableTreeMixin
+    implements DrivverTripRequestReceived {
   const _$DrivverTripRequestReceivedImpl({
     required this.tripRequest,
     required this.receivedAt,
@@ -2901,8 +3271,18 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
   final int? timeoutSeconds;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.requestReceived(tripRequest: $tripRequest, receivedAt: $receivedAt, timeoutSeconds: $timeoutSeconds)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.requestReceived'))
+      ..add(DiagnosticsProperty('tripRequest', tripRequest))
+      ..add(DiagnosticsProperty('receivedAt', receivedAt))
+      ..add(DiagnosticsProperty('timeoutSeconds', timeoutSeconds));
   }
 
   @override
@@ -2963,7 +3343,6 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3017,7 +3396,6 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3070,7 +3448,6 @@ class _$DrivverTripRequestReceivedImpl implements DrivverTripRequestReceived {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3202,12 +3579,21 @@ class __$$DriverTripRequestExpiredImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
+class _$DriverTripRequestExpiredImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripRequestExpired {
   const _$DriverTripRequestExpiredImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.requestExpired()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.requestExpired'));
   }
 
   @override
@@ -3251,7 +3637,6 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3305,7 +3690,6 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3358,7 +3742,6 @@ class _$DriverTripRequestExpiredImpl implements DriverTripRequestExpired {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3508,7 +3891,9 @@ class __$$DriverTripEnRouteToPickupImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
+class _$DriverTripEnRouteToPickupImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripEnRouteToPickup {
   const _$DriverTripEnRouteToPickupImpl({
     required this.activeTrip,
     required this.routeToPickup,
@@ -3520,8 +3905,17 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
   final RouteEntity routeToPickup;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.enRouteToPickup(activeTrip: $activeTrip, routeToPickup: $routeToPickup)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.enRouteToPickup'))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip))
+      ..add(DiagnosticsProperty('routeToPickup', routeToPickup));
   }
 
   @override
@@ -3579,7 +3973,6 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3633,7 +4026,6 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3686,7 +4078,6 @@ class _$DriverTripEnRouteToPickupImpl implements DriverTripEnRouteToPickup {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3849,7 +4240,9 @@ class __$$DriverTripArrivedAtPickupImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
+class _$DriverTripArrivedAtPickupImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripArrivedAtPickup {
   const _$DriverTripArrivedAtPickupImpl({
     required this.activeTrip,
     required this.currentLocation,
@@ -3864,8 +4257,18 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
   final DateTime arrivedAt;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.arrivedAtPickup(activeTrip: $activeTrip, currentLocation: $currentLocation, arrivedAt: $arrivedAt)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.arrivedAtPickup'))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip))
+      ..add(DiagnosticsProperty('currentLocation', currentLocation))
+      ..add(DiagnosticsProperty('arrivedAt', arrivedAt));
   }
 
   @override
@@ -3926,7 +4329,6 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -3980,7 +4382,6 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4033,7 +4434,6 @@ class _$DriverTripArrivedAtPickupImpl implements DriverTripArrivedAtPickup {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4180,15 +4580,25 @@ class __$$DriverTripInProgressImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripInProgressImpl implements DriverTripInProgress {
+class _$DriverTripInProgressImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripInProgress {
   const _$DriverTripInProgressImpl({required this.activeTrip});
 
   @override
   final DriverTripEntity activeTrip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.inProgress(activeTrip: $activeTrip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.inProgress'))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip));
   }
 
   @override
@@ -4246,7 +4656,6 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4300,7 +4709,6 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4353,7 +4761,6 @@ class _$DriverTripInProgressImpl implements DriverTripInProgress {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4526,6 +4933,7 @@ class __$$DriverTripArrivedAtDestinationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DriverTripArrivedAtDestinationImpl
+    with DiagnosticableTreeMixin
     implements DriverTripArrivedAtDestination {
   const _$DriverTripArrivedAtDestinationImpl({
     required this.activeTrip,
@@ -4544,8 +4952,19 @@ class _$DriverTripArrivedAtDestinationImpl
   final double finalFare;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.arrivedAtDestination(activeTrip: $activeTrip, currentLocation: $currentLocation, arrivedAt: $arrivedAt, finalFare: $finalFare)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.arrivedAtDestination'))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip))
+      ..add(DiagnosticsProperty('currentLocation', currentLocation))
+      ..add(DiagnosticsProperty('arrivedAt', arrivedAt))
+      ..add(DiagnosticsProperty('finalFare', finalFare));
   }
 
   @override
@@ -4615,7 +5034,6 @@ class _$DriverTripArrivedAtDestinationImpl
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4674,7 +5092,6 @@ class _$DriverTripArrivedAtDestinationImpl
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4732,7 +5149,6 @@ class _$DriverTripArrivedAtDestinationImpl
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -4858,7 +5274,6 @@ abstract class _$$DriverTripCompletedImplCopyWith<$Res> {
   ) = __$$DriverTripCompletedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({
-    DriverTripEntity completedTrip,
     double finalFare,
     DateTime completedAt,
     Duration tripDuration,
@@ -4880,7 +5295,6 @@ class __$$DriverTripCompletedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? completedTrip = null,
     Object? finalFare = null,
     Object? completedAt = null,
     Object? tripDuration = null,
@@ -4888,11 +5302,6 @@ class __$$DriverTripCompletedImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$DriverTripCompletedImpl(
-        completedTrip:
-            null == completedTrip
-                ? _value.completedTrip
-                : completedTrip // ignore: cast_nullable_to_non_nullable
-                    as DriverTripEntity,
         finalFare:
             null == finalFare
                 ? _value.finalFare
@@ -4920,17 +5329,16 @@ class __$$DriverTripCompletedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripCompletedImpl implements DriverTripCompleted {
+class _$DriverTripCompletedImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripCompleted {
   const _$DriverTripCompletedImpl({
-    required this.completedTrip,
     required this.finalFare,
     required this.completedAt,
     required this.tripDuration,
     this.rating,
   });
 
-  @override
-  final DriverTripEntity completedTrip;
   @override
   final double finalFare;
   @override
@@ -4941,8 +5349,19 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
   final double? rating;
 
   @override
-  String toString() {
-    return 'DriverTripState.completed(completedTrip: $completedTrip, finalFare: $finalFare, completedAt: $completedAt, tripDuration: $tripDuration, rating: $rating)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DriverTripState.completed(finalFare: $finalFare, completedAt: $completedAt, tripDuration: $tripDuration, rating: $rating)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.completed'))
+      ..add(DiagnosticsProperty('finalFare', finalFare))
+      ..add(DiagnosticsProperty('completedAt', completedAt))
+      ..add(DiagnosticsProperty('tripDuration', tripDuration))
+      ..add(DiagnosticsProperty('rating', rating));
   }
 
   @override
@@ -4950,8 +5369,6 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DriverTripCompletedImpl &&
-            (identical(other.completedTrip, completedTrip) ||
-                other.completedTrip == completedTrip) &&
             (identical(other.finalFare, finalFare) ||
                 other.finalFare == finalFare) &&
             (identical(other.completedAt, completedAt) ||
@@ -4962,14 +5379,8 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    completedTrip,
-    finalFare,
-    completedAt,
-    tripDuration,
-    rating,
-  );
+  int get hashCode =>
+      Object.hash(runtimeType, finalFare, completedAt, tripDuration, rating);
 
   /// Create a copy of DriverTripState
   /// with the given fields replaced by the non-null parameter values.
@@ -5013,7 +5424,6 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5036,13 +5446,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     required TResult Function(String operation, DriverTripEntity? activeTrip)
     loading,
   }) {
-    return completed(
-      completedTrip,
-      finalFare,
-      completedAt,
-      tripDuration,
-      rating,
-    );
+    return completed(finalFare, completedAt, tripDuration, rating);
   }
 
   @override
@@ -5073,7 +5477,6 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5095,13 +5498,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     error,
     TResult? Function(String operation, DriverTripEntity? activeTrip)? loading,
   }) {
-    return completed?.call(
-      completedTrip,
-      finalFare,
-      completedAt,
-      tripDuration,
-      rating,
-    );
+    return completed?.call(finalFare, completedAt, tripDuration, rating);
   }
 
   @override
@@ -5132,7 +5529,6 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5156,13 +5552,7 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
     required TResult orElse(),
   }) {
     if (completed != null) {
-      return completed(
-        completedTrip,
-        finalFare,
-        completedAt,
-        tripDuration,
-        rating,
-      );
+      return completed(finalFare, completedAt, tripDuration, rating);
     }
     return orElse();
   }
@@ -5231,14 +5621,12 @@ class _$DriverTripCompletedImpl implements DriverTripCompleted {
 
 abstract class DriverTripCompleted implements DriverTripState {
   const factory DriverTripCompleted({
-    required final DriverTripEntity completedTrip,
     required final double finalFare,
     required final DateTime completedAt,
     required final Duration tripDuration,
     final double? rating,
   }) = _$DriverTripCompletedImpl;
 
-  DriverTripEntity get completedTrip;
   double get finalFare;
   DateTime get completedAt;
   Duration get tripDuration;
@@ -5314,7 +5702,9 @@ class __$$DriverTripCancelledImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripCancelledImpl implements DriverTripCancelled {
+class _$DriverTripCancelledImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripCancelled {
   const _$DriverTripCancelledImpl({
     required this.cancelledTrip,
     required this.reason,
@@ -5332,8 +5722,19 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
   final String? cancellationFee;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.cancelled(cancelledTrip: $cancelledTrip, reason: $reason, cancelledAt: $cancelledAt, cancellationFee: $cancellationFee)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.cancelled'))
+      ..add(DiagnosticsProperty('cancelledTrip', cancelledTrip))
+      ..add(DiagnosticsProperty('reason', reason))
+      ..add(DiagnosticsProperty('cancelledAt', cancelledAt))
+      ..add(DiagnosticsProperty('cancellationFee', cancellationFee));
   }
 
   @override
@@ -5401,7 +5802,6 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5455,7 +5855,6 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5508,7 +5907,6 @@ class _$DriverTripCancelledImpl implements DriverTripCancelled {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5671,7 +6069,9 @@ class __$$DriverTripErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripErrorImpl implements DriverTripError {
+class _$DriverTripErrorImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripError {
   const _$DriverTripErrorImpl({
     required this.message,
     this.activeTrip,
@@ -5686,8 +6086,18 @@ class _$DriverTripErrorImpl implements DriverTripError {
   final String? errorCode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.error(message: $message, activeTrip: $activeTrip, errorCode: $errorCode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.error'))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip))
+      ..add(DiagnosticsProperty('errorCode', errorCode));
   }
 
   @override
@@ -5747,7 +6157,6 @@ class _$DriverTripErrorImpl implements DriverTripError {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5801,7 +6210,6 @@ class _$DriverTripErrorImpl implements DriverTripError {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -5854,7 +6262,6 @@ class _$DriverTripErrorImpl implements DriverTripError {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -6006,7 +6413,9 @@ class __$$DriverTripLoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DriverTripLoadingImpl implements DriverTripLoading {
+class _$DriverTripLoadingImpl
+    with DiagnosticableTreeMixin
+    implements DriverTripLoading {
   const _$DriverTripLoadingImpl({required this.operation, this.activeTrip});
 
   @override
@@ -6016,8 +6425,17 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
   final DriverTripEntity? activeTrip;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DriverTripState.loading(operation: $operation, activeTrip: $activeTrip)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DriverTripState.loading'))
+      ..add(DiagnosticsProperty('operation', operation))
+      ..add(DiagnosticsProperty('activeTrip', activeTrip));
   }
 
   @override
@@ -6076,7 +6494,6 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     )
     arrivedAtDestination,
     required TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -6130,7 +6547,6 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     )?
     arrivedAtDestination,
     TResult? Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,
@@ -6183,7 +6599,6 @@ class _$DriverTripLoadingImpl implements DriverTripLoading {
     )?
     arrivedAtDestination,
     TResult Function(
-      DriverTripEntity completedTrip,
       double finalFare,
       DateTime completedAt,
       Duration tripDuration,

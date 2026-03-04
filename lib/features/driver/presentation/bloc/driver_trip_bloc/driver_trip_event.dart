@@ -27,6 +27,8 @@ class DriverTripEvent with _$DriverTripEvent {
 
   const factory DriverTripEvent.completeTrip() = DriverTripComplete;
 
+  const factory DriverTripEvent.tripCompleted() = DriverTripCompletedEvent;
+
   // Trip modifications
   const factory DriverTripEvent.cancelTrip({
     required DriverTripEntity trip,

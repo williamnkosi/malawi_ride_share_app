@@ -96,13 +96,22 @@ class DriverTripRepositoryImp implements DriverTripRepository {
         .map(
           (eventName) => socketRepository
               .listen(eventName, SocketNamespace.trips.path)
-              .map(
-                (data) => TripEventData(
+              .map((data) {
+                if (eventName == TripEvents.tripCompleted) {
+                  // For completed events, we might want to handle them differently
+                  // since they may not have the same data structure
+                  return TripEventData(
+                    eventType: eventName,
+                    data: data, // Pass raw data for completed events
+                    timestamp: DateTime.now(),
+                  );
+                }
+                return TripEventData(
                   eventType: eventName,
                   data: processTripData(eventType: eventName, tripData: data),
                   timestamp: DateTime.now(),
-                ),
-              ),
+                );
+              }),
         )
         .toList();
 

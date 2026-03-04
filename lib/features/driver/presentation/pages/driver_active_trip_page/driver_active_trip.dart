@@ -31,9 +31,8 @@ class DriverActiveTrip extends StatelessWidget {
               inProgress: (activeTrip) {
                 return ActiveTripWidget(trip: activeTrip);
               },
-              completed: (trip, distance, pickupTime, duration, rating) =>
+              completed: (distance, pickupTime, duration, rating) =>
                   CompletedTripInfo(
-                    trip: trip,
                     distance: distance,
                     pickupTime: pickupTime,
                     duration: duration,
@@ -51,7 +50,6 @@ class DriverActiveTrip extends StatelessWidget {
 }
 
 class CompletedTripInfo extends StatelessWidget {
-  final DriverTripEntity trip;
   final double distance;
   final DateTime pickupTime;
   final Duration duration;
@@ -59,7 +57,7 @@ class CompletedTripInfo extends StatelessWidget {
 
   const CompletedTripInfo({
     super.key,
-    required this.trip,
+
     required this.distance,
     required this.pickupTime,
     required this.duration,
@@ -113,7 +111,8 @@ class CompletedTripInfo extends StatelessWidget {
                 _buildInfoCard(
                   icon: Icons.person,
                   title: 'Passenger',
-                  value: trip.riderFullName,
+                  value:
+                      'N/A', // Placeholder, update with actual passenger info if available
                   color: Colors.blue,
                 ),
                 const SizedBox(height: 12),

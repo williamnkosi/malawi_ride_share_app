@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -52,6 +53,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     on<DriverTripDeclineTrip>(_onDriverTripDeclineTrip);
     on<DriverTripExpired>(_onDriverTripExpired);
     on<DriverTripStarted>(_onDriverTripStarted);
+    on<DriverTripCompletedEvent>(_onDriverTripCompleted);
 
     on<DriverTripStart>(_onDriverTripStart);
     on<DriverTripComplete>(_onDriverTripComplete);
@@ -71,25 +73,33 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
             logger.info('Trip event received: ${tripEventData.toString()}');
             logger.info('Current bloc state: ${state.runtimeType}');
             logger.info(tripEventData.toString());
-            if (tripEventData.eventType == TripEvents.tripRequest) {
-              logger.info('Processing trip request received event');
-              // final processedTripData = processTripRequestUseCase.call(
-              //   tripEventData,
-              // );
-              add(DriverTripRequestReceived(trip: tripEventData.data));
-              return;
-            } else if (tripEventData.eventType ==
-                TripEvents.tripAcceptedConfirmation) {
-              logger.info('Processing trip accepted confirmation event');
-              //add(DriverTripAcceptedConfirmation(confirmationTrip: tripEventData));
-              return;
-            } else if (tripEventData.eventType == TripEvents.tripStarted) {
-              add(DriverTripStarted());
-              logger.info('Processing trip started event');
-            } else if (tripEventData.eventType == TripEvents.tripTimeout) {
-              logger.info('Processing trip timeout event');
-              add(DriverTripExpired());
-              return;
+
+            switch (tripEventData.eventType) {
+              case TripEvents.tripRequest:
+                logger.info('Processing trip request received event');
+                add(DriverTripRequestReceived(trip: tripEventData.data));
+                break;
+              case TripEvents.tripAcceptedConfirmation:
+                logger.info('Processing trip accepted confirmation event');
+                // add(DriverTripAcceptedConfirmation(confirmationTrip: tripEventData));
+                break;
+              case TripEvents.tripStarted:
+                logger.info('Processing trip started event');
+                add(DriverTripStarted());
+                break;
+              case TripEvents.tripCompleted:
+                logger.info('Processing trip completed event');
+                // add(DriverTripComplete(trip: tripEventData.data));
+                add(DriverTripCompletedEvent());
+                break;
+              case TripEvents.tripTimeout:
+                logger.info('Processing trip timeout event');
+                add(DriverTripExpired());
+                break;
+              default:
+                logger.info(
+                  'Unknown trip event type: ${tripEventData.eventType}',
+                );
             }
 
             // Handle different types of trip events here
@@ -224,17 +234,31 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
       orElse: () => null,
     );
     await driverTripRepository.completeTrip(currentTrip!.tripId);
+  }
 
-    emit(
-      DriverTripState.completed(
-        completedTrip: currentTrip,
-        finalFare: 0.0, // Placeholder, calculate actual fare
-        completedAt: DateTime.now(),
-        tripDuration: Duration(
-          minutes: 30,
-        ), // Placeholder, calculate actual duration
-      ),
+  _onDriverTripCompleted(
+    DriverTripCompletedEvent event,
+    Emitter<DriverTripState> emit,
+  ) {
+    logger.info('Trip completed event received');
+    final currentTrip = state.maybeWhen(
+      inProgress: (activeTrip) => activeTrip,
+      orElse: () => null,
     );
+    if (currentTrip != null) {
+      emit(
+        DriverTripState.completed(
+          finalFare: 0.0, // Placeholder, calculate actual fare
+          completedAt: DateTime.now(),
+          tripDuration: Duration(
+            minutes: 30,
+          ), // Placeholder, calculate actual duration
+        ),
+      );
+    } else {
+      logger.warning('Received trip completed event but no active trip found');
+      emit(DriverTripState.error(message: 'No active trip to complete'));
+    }
   }
 
   @override

@@ -160,6 +160,9 @@ class CompletedTripInfo extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  context.read<DriverTripBloc>().add(
+                    const DriverTripEvent.setIdle(),
+                  );
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(

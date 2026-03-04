@@ -46,6 +46,7 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
     required this.driverGetRouteUseCase,
     required this.startTripUseCase,
   }) : super(const DriverTripState.idle()) {
+    on<DriverTripSetIdle>(_onDriverTripSetIdle);
     on<DriverTripRequestReceived>(_onDriverTripRequestReceived);
     // on<DriverTripAcceptedConfirmation>(_onDriverTripAcceptedConfirmation);
     on<DriverTripInitialize>(_onDriverTripInitialize);
@@ -57,6 +58,11 @@ class DriverTripBloc extends Bloc<DriverTripEvent, DriverTripState> {
 
     on<DriverTripStart>(_onDriverTripStart);
     on<DriverTripComplete>(_onDriverTripComplete);
+  }
+
+  _onDriverTripSetIdle(DriverTripSetIdle event, Emitter<DriverTripState> emit) {
+    logger.info('Driver is idle, waiting for trip requests');
+    emit(const DriverTripState.idle());
   }
 
   _onDriverTripInitialize(

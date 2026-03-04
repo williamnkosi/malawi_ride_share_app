@@ -3,7 +3,7 @@ part of 'driver_trip_bloc.dart';
 @freezed
 class DriverTripState with _$DriverTripState {
   // Initial state - no active trips
-  const factory DriverTripState.idle() = DriverTripIdle;
+  const factory DriverTripState.idle() = Idle;
 
   // Trip request states
   const factory DriverTripState.requestReceived({

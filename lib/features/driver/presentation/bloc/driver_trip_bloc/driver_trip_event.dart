@@ -4,6 +4,8 @@ part of 'driver_trip_bloc.dart';
 class DriverTripEvent with _$DriverTripEvent {
   const factory DriverTripEvent.initialize() = DriverTripInitialize;
   // Trip request events
+
+  const factory DriverTripEvent.setIdle() = DriverTripSetIdle;
   const factory DriverTripEvent.tripRequestReceived({
     required DriverTripEntity trip,
   }) = DriverTripRequestReceived;

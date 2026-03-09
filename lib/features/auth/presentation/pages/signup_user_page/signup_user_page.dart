@@ -1,15 +1,20 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_cubit.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
-import 'package:malawi_ride_share_app/repository/image_repository.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
+import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
+
+enum Gender {
+  male("male"),
+  female("female");
+
+  const Gender(this.value);
+  final String value;
+}
 
 class SignupUserPage extends StatefulWidget {
   const SignupUserPage({super.key});
@@ -20,382 +25,227 @@ class SignupUserPage extends StatefulWidget {
 
 class _SignupUserPageState extends State<SignupUserPage> {
   final formKey = GlobalKey<FormBuilderState>();
-  DateTime? selectedDate;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SignupUserCubit(
-        getIt<ImageRepository>(),
-        getIt<FirebaseAuthRepositoryImp>(),
-        context.read<AuthBloc>(),
-      ),
-      child: BlocConsumer<SignupUserCubit, SignupUserState>(
-        listener: (context, state) {
-          state.maybeWhen(
-            success: (message) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(message)),
-              );
-            },
-            error: (message) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(message)),
-              );
-            },
-            orElse: () {},
-          );
-        },
-        builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Signup User'),
-            ),
-            body: Stack(
-              children: [
-                FormBuilder(
-                  key: formKey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // Profile Image Picker
-                          const ProfileImage(),
-                          const SizedBox(height: 16),
-                          _buildFormFields(context),
-                          const SizedBox(height: 16),
-                          _buildDatePicker(context, state),
-                          const SizedBox(height: 16),
-                          _buildGenderSelection(context, state),
-                          const SizedBox(height: 16),
-                          _buildPasswordFields(context),
-                          const SizedBox(height: 32),
-                          SizedBox(
-                              width: double.infinity,
-                              child: AppOutlineButton(
-                                  buttonText: 'Continue',
-                                  onPressed: context
-                                      .read<SignupUserCubit>()
-                                      .submitSignup)),
-                        ],
+    return Scaffold(
+      appBar: AppBar(title: const Text('Driver Signup')),
+      body: Stack(
+        children: [
+          FormBuilder(
+            key: formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 16),
+                    FormBuilderTextField(
+                      name: 'firstName',
+                      decoration: const InputDecoration(
+                        labelText: 'First Name',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.person),
                       ),
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                      ]),
                     ),
-                  ),
-                ),
-                // Loading overlay with circular progress indicator
-                if (state.maybeWhen(
-                  loading: () => true,
-                  orElse: () => false,
-                ))
-                  Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: Colors.black.withOpacity(0.5),
-                    child: const Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CircularProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
-                            strokeWidth: 3.0,
-                          ),
-                          SizedBox(height: 16),
-                          Text(
-                            'Creating your account...',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                    const SizedBox(height: 16),
+                    FormBuilderTextField(
+                      name: 'lastName',
+                      decoration: const InputDecoration(
+                        labelText: 'Last Name',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.person_outline),
+                      ),
+                      validator: FormBuilderValidators.required(),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderTextField(
+                      name: 'email',
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.email),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.email(),
+                      ]),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderTextField(
+                      name: 'phoneNumber',
+                      decoration: const InputDecoration(
+                        labelText: 'Phone Number',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.phone),
+                      ),
+                      validator: FormBuilderValidators.required(),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderTextField(
+                      name: 'password',
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.lock),
+                      ),
+                      obscureText: true,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.minLength(6),
+                      ]),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderDropdown<Gender>(
+                      name: 'gender',
+                      decoration: const InputDecoration(
+                        labelText: 'Gender',
+                        border: OutlineInputBorder(),
+                      ),
+                      items: Gender.values
+                          .map(
+                            (g) => DropdownMenuItem(
+                              value: g,
+                              child: Text(g.name.toUpperCase()),
                             ),
-                          ),
-                        ],
+                          )
+                          .toList(),
+                      validator: FormBuilderValidators.required(),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderDateTimePicker(
+                      name: 'dateOfBirth',
+                      decoration: const InputDecoration(
+                        labelText: 'Date of Birth',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.calendar_today),
+                      ),
+                      inputType: InputType.date,
+                      validator: FormBuilderValidators.required(),
+                    ),
+                    const SizedBox(height: 16),
+                    FormBuilderDropdown<UserType>(
+                      name: 'userType',
+                      decoration: const InputDecoration(
+                        labelText: 'Account Type',
+                        border: OutlineInputBorder(),
+                      ),
+                      initialValue: UserType.driver,
+                      items: UserType.values
+                          .map(
+                            (type) => DropdownMenuItem(
+                              value: type,
+                              child: Text(type.name.toUpperCase()),
+                            ),
+                          )
+                          .toList(),
+                      validator: FormBuilderValidators.required(),
+                    ),
+                    const SizedBox(height: 32),
+                    SizedBox(
+                      width: double.infinity,
+                      child: AppOutlineButton(
+                        buttonText: 'Sign Up',
+                        onPressed: _isLoading ? null : _handleSignup,
                       ),
                     ),
-                  ),
-              ],
+                  ],
+                ),
+              ),
             ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<SignupUserCubit, SignupUserState>(
-      builder: (context, state) {
-        // ✅ Extract profileImage from state
-        File? profileImage = state.maybeWhen(
-          formUpdate: (_, __, ___, ____, _____, ______, _______, ________,
-                  image, _________) =>
-              image,
-          orElse: () => null,
-        );
-
-        return Center(
-          child: Column(
-            children: [
-              GestureDetector(
-                onTap: () =>
-                    context.read<SignupUserCubit>().pickProfileImage(context),
-                child: Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey[200],
-                    border: Border.all(
-                      color: Colors.grey[400]!,
-                      width: 2,
-                    ),
-                  ),
-                  child: profileImage != null // ✅ Use state value
-                      ? ClipOval(
-                          child: Image.file(
-                            profileImage, // ✅ Use extracted value
-                            fit: BoxFit.cover,
-                            width: 120, height: 120,
-                          ),
-                        )
-                      : Icon(
-                          Icons.camera_alt,
-                          size: 40,
-                          color: Colors.grey[600],
-                        ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                profileImage != null
-                    ? 'Tap to change photo'
-                    : 'Tap to add profile photo',
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 14,
-                ),
-              ),
-            ],
           ),
-        );
-      },
+          if (_isLoading)
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.black.withOpacity(0.5),
+              child: const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      strokeWidth: 3.0,
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Creating your account...',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
-}
 
-Widget _buildFormFields(BuildContext context) {
-  return Column(
-    children: [
-      // ✅ First Name Field
-      FormBuilderTextField(
-        name: 'firstName',
-        decoration: const InputDecoration(
-          labelText: 'First Name',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.person),
+  Future<void> _handleSignup() async {
+    if (!(formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+
+    formKey.currentState?.save();
+    final formData = formKey.currentState?.value ?? {};
+
+    setState(() => _isLoading = true);
+
+    try {
+      final authRepository = getIt<FirebaseAuthRepositoryImp>();
+      final authBloc = context.read<AuthBloc>();
+
+      // Create Firebase user
+      final userCredential = await authRepository.signUpUserEmailAndPassword(
+        email: formData['email'],
+        password: formData['password'],
+      );
+
+      // Create user profile in database
+      await authRepository.createUserInDatabase(
+        createUserDto: CreateUserDto(
+          firebaseId: userCredential.user!.uid,
+          firstName: formData['firstName'],
+          lastName: formData['lastName'],
+          phoneNumber: formData['phoneNumber'],
+          email: formData['email'],
+          gender: (formData['gender'] as Gender).value,
+          dateOfBirth: (formData['dateOfBirth'] as DateTime)
+              .toIso8601String()
+              .split('T')[0],
         ),
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength(2),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(firstName: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
+      );
 
-      // ✅ Last Name Field
-      FormBuilderTextField(
-        name: 'lastName',
-        decoration: const InputDecoration(
-          labelText: 'Last Name',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.person_outline),
+      // Update auth state
+      authBloc.add(
+        AuthEvent.authEventSetAuthenticated(
+          userCredential: userCredential,
+          userType: formData['userType'] as UserType,
         ),
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength(2),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(lastName: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
+      );
 
-      // ✅ Email Field
-      FormBuilderTextField(
-        name: 'email',
-        decoration: const InputDecoration(
-          labelText: 'Email',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.email),
-        ),
-        keyboardType: TextInputType.emailAddress,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          FormBuilderValidators.email(),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(email: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
-
-      // ✅ Phone Number Field
-      FormBuilderTextField(
-        name: 'phoneNumber',
-        decoration: const InputDecoration(
-          labelText: 'Phone Number',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.phone),
-        ),
-        keyboardType: TextInputType.phone,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength(10),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(phoneNumber: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
-
-      // ✅ Password Field
-    ],
-  );
-}
-
-Widget _buildGenderSelection(BuildContext context, SignupUserState state) {
-  Gender? selectedGender = state.maybeWhen(
-    formUpdate: (_, __, ___, ____, _____, gender, _______, ______, ________,
-            __________) =>
-        gender,
-    orElse: () => null,
-  );
-
-  return Column(
-    children: [
-      RadioListTile<Gender>(
-        title: const Text('Male'),
-        value: Gender.male,
-        groupValue: selectedGender,
-        onChanged: (value) =>
-            context.read<SignupUserCubit>().updateFormData(gender: value),
-      ),
-      RadioListTile<Gender>(
-        title: const Text('Female'),
-        value: Gender.female,
-        groupValue: selectedGender,
-        onChanged: (value) =>
-            context.read<SignupUserCubit>().updateFormData(gender: value),
-      ),
-    ],
-  );
-}
-
-Widget _buildDatePicker(BuildContext context, SignupUserState state) {
-  DateTime? selectedDate = state.maybeWhen(
-    formUpdate: (_, __, ___, ____, dateOfBirth, ______, _______, ________,
-            _________, __________) =>
-        dateOfBirth,
-    orElse: () => null,
-  );
-
-  return Row(
-    children: [
-      Expanded(
-        child: Text(
-          selectedDate != null
-              ? 'Selected Date: ${selectedDate.day}/${selectedDate.month}/${selectedDate.year}'
-              : 'No date selected',
-        ),
-      ),
-      const SizedBox(width: 16),
-      ElevatedButton(
-        onPressed: () =>
-            context.read<SignupUserCubit>().selectDateOfBirth(context),
-        child: const Text('Select Date'),
-      ),
-    ],
-  );
-}
-
-Widget _buildPasswordFields(BuildContext context) {
-  return Column(
-    children: [
-      // ✅ Password Field with FormBuilder
-      FormBuilderTextField(
-        name: 'password',
-        decoration: const InputDecoration(
-          labelText: 'Password',
-          hintText: 'Enter your password',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.lock),
-        ),
-        obscureText: true,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(errorText: 'Password is required'),
-          FormBuilderValidators.minLength(6,
-              errorText: 'Password must be at least 6 characters'),
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context.read<SignupUserCubit>().updateFormData(password: value);
-          }
-        },
-      ),
-      const SizedBox(height: 16),
-
-      // ✅ Confirm Password Field with FormBuilder
-      FormBuilderTextField(
-        name: 'confirmPassword',
-        decoration: const InputDecoration(
-          labelText: 'Confirm Password',
-          hintText: 'Confirm your password',
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.lock_outline),
-        ),
-        obscureText: true,
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(
-              errorText: 'Please confirm your password'),
-          (value) {
-            // ✅ Cross-field validation with FormBuilder
-            final formData = FormBuilder.of(context)?.value;
-            if (value != formData?['password']) {
-              return 'Passwords do not match';
-            }
-            return null;
-          },
-        ]),
-        onChanged: (value) {
-          if (value != null) {
-            context
-                .read<SignupUserCubit>()
-                .updateFormData(confirmPassword: value);
-          }
-        },
-      ),
-    ],
-  );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Account created successfully!')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Signup failed: $e')));
+      }
+      setState(() => _isLoading = false);
+    }
+  }
 }

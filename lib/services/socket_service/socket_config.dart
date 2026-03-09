@@ -6,8 +6,15 @@ export 'events/location_events.dart';
 /// Socket.IO connection configuration
 class SocketConfig {
   // Base WebSocket URL from environment
-  static String get socketUrl =>
-      'http://${dotenv.env['IP_ADDRESS']}:${dotenv.env['SOCKET_PORT'] ?? dotenv.env['PORT'] ?? '3000'}';
+  static String get socketUrl {
+    final socketUrlEnv = dotenv.env['SOCKET_URL'];
+    if (socketUrlEnv == null || socketUrlEnv.isEmpty) {
+      throw Exception(
+        'SOCKET_URL environment variable is not set. Please configure SOCKET_URL in your .env file.',
+      );
+    }
+    return socketUrlEnv;
+  }
 
   // Connection timeout from environment
   static Duration get connectionTimeout => Duration(

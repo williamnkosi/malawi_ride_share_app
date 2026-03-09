@@ -4,10 +4,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class ApiConstants {
   // Base URL from environment
   static String get baseUrl {
-    final ip = dotenv.env['IP_ADDRESS'];
-    final port = dotenv.env['PORT'];
-    print('DEBUG: IP_ADDRESS=$ip, PORT=$port');
-    return 'http://${ip ?? 'localhost'}:${port ?? '3000'}';
+    final baseUrlEnv = dotenv.env['BASE_URL'];
+    if (baseUrlEnv == null || baseUrlEnv.isEmpty) {
+      throw Exception(
+        'BASE_URL environment variable is not set. Please configure BASE_URL in your .env file.',
+      );
+    }
+    return baseUrlEnv;
   }
 
   // Google Maps API Key

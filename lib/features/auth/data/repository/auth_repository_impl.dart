@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/repositories/auth_repository.dart';
@@ -12,16 +13,20 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
 
   FirebaseAuthRepositoryImp({required this.apiService});
   @override
-  Future<UserCredential> loginInUserWithEmailAndPassword(
-      {required email, required password}) async {
+  Future<UserCredential> loginInUserWithEmailAndPassword({
+    required email,
+    required password,
+  }) async {
     UserCredential user = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password);
     return user;
   }
 
   @override
-  Future<UserCredential> signUpUserEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<UserCredential> signUpUserEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
       logger.info('Attempting to create user with email: $email');
 
@@ -46,7 +51,8 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
           throw CustomException('Email/password accounts are not enabled');
         case 'admin-restricted-operation':
           throw CustomException(
-              'This operation is restricted by the administrator');
+            'This operation is restricted by the administrator',
+          );
         default:
           throw CustomException('Sign up failed: ${e.message}');
       }
@@ -58,11 +64,43 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future<Map<String, dynamic>> createUserInDatabase(
-      {required CreateUserDto createUserDto}) async {
-    var response = await apiService.post(ApiConstants.createUser,
-        body: createUserDto.toJson());
+  Future<Map<String, dynamic>> createUserInDatabase({
+    required CreateUserDto createUserDto,
+  }) async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        throw CustomException('User not authenticated');
+      }
 
-    return response;
+      final token = await currentUser.getIdToken();
+      final dio = Dio();
+
+      logger.info(
+        'Creating user in database with firebaseId: ${createUserDto.firebaseId}',
+      );
+
+      final response = await dio.post(
+        '${ApiConstants.baseUrl}${ApiConstants.createUser}',
+        data: createUserDto.toJson(),
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+        ),
+      );
+
+      logger.info('User created in database successfully');
+      return response.data as Map<String, dynamic>;
+    } on DioException catch (e) {
+      logger.severe('Dio error creating user: ${e.response?.data}');
+      final errorMessage =
+          e.response?.data['message'] ?? e.message ?? 'Failed to create user';
+      throw CustomException(errorMessage.toString());
+    } catch (e) {
+      logger.severe('Error creating user in database: $e');
+      throw CustomException('Failed to create user: $e');
+    }
   }
 }

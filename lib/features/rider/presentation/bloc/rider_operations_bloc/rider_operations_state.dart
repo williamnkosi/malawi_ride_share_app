@@ -55,12 +55,10 @@ class RiderOperationsState with _$RiderOperationsState {
   }) = RatingPendingState;
 
   /// Trip cancelled
-  const factory RiderOperationsState.tripCancelled({
-    required String reason,
-  }) = TripCancelledState;
+  const factory RiderOperationsState.tripCancelled({required String reason}) =
+      TripCancelledState;
 
   /// Error state
-  const factory RiderOperationsState.error({
-    required String message,
-  }) = RiderOperationsError;
+  const factory RiderOperationsState.error({required String message}) =
+      RiderOperationsError;
 }

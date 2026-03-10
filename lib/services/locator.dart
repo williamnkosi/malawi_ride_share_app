@@ -45,6 +45,7 @@ import 'package:malawi_ride_share_app/features/shared/google_maps/data/repositor
 import 'package:malawi_ride_share_app/features/shared/google_maps/domain/repository/google_maps_repository.dart';
 // ...existing imports...
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
+import 'package:malawi_ride_share_app/repository/image_repository.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -121,6 +122,9 @@ Future<void> setupAppFeatureDependencies() async {
 }
 
 Future<void> setupAuthFeatureDependencies() async {
+  // Repositories
+  getIt.registerSingleton<ImageRepository>(ImageRepository());
+
   // Use cases
   getIt.registerSingleton<SignInUserUseCase>(
     SignInUserUseCase(getIt<FirebaseAuthRepositoryImp>()),

@@ -14,7 +14,9 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           authenticated: (userCredential, userType) =>
-              userType == UserType.driver ? DriverHomePage() : RiderHomePage(),
+              userType == UserType.driver
+              ? DriverHomePage()
+              : RiderHomePage(title: 'testing'),
           orElse: () {
             return Container();
           },

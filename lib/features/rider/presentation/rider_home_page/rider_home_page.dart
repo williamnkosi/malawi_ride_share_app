@@ -1,126 +1,130 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_places_autocomplete_text_field/google_places_autocomplete_text_field.dart';
+import 'package:logging/logging.dart';
 
 class RiderHomePage extends StatefulWidget {
-  const RiderHomePage({super.key});
+  const RiderHomePage({super.key, required this.title});
+
+  final String title;
 
   @override
   State<RiderHomePage> createState() => _RiderHomePageState();
 }
 
 class _RiderHomePageState extends State<RiderHomePage> {
+  final logger = Logger('RiderHomePage');
+
+  final _config = GoogleApiConfig(
+    apiKey: dotenv.env['GOOGLE_PLACES_API_KEY']!,
+    // Malawi coordinates center
+    // locationRestriction: LocationConfig.circle(
+    //   circleCenter: const Coordinates(latitude: -13.2543, longitude: 34.3015),
+    //   circleRadiusInKilometers: 500,
+    // ),
+    // only needed if you build for the web
+    // proxyURL: 'https://your-proxy.com/',
+  );
+
   final _pickupController = TextEditingController();
-  final _destinationController = TextEditingController();
-  bool _isLoading = false;
-
-  @override
-  void dispose() {
-    _pickupController.dispose();
-    _destinationController.dispose();
-    super.dispose();
-  }
-
-  void _handleRequestTrip() {
-    if (_pickupController.text.isEmpty || _destinationController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter both pickup and destination'),
-        ),
-      );
-      return;
-    }
-
-    setState(() => _isLoading = true);
-
-    // TODO: Emit RequestTripEvent to RiderOperationsBloc
-    // TODO: Handle the trip request and navigate to tracking page
-
-    // Simulate delay
-    Future.delayed(const Duration(seconds: 2), () {
-      if (mounted) {
-        setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Searching for drivers...')),
-        );
-      }
-    });
-  }
+  final _dropOffController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Request a Ride'), elevation: 0),
-      body: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 24),
-                // Pickup Location
-                const Text(
-                  'Pickup Location',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+      appBar: AppBar(title: Text(widget.title)),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Form(
+          key: _formKey,
+          autovalidateMode: _autovalidateMode,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GooglePlacesAutoCompleteTextFormField(
+                config: _config,
+                textEditingController: _pickupController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter your pickup location',
+                  labelText: 'Your pickup Location ',
+                  labelStyle: TextStyle(color: Colors.purple),
+                  border: OutlineInputBorder(),
                 ),
-                const SizedBox(height: 8),
-                TextField(
-                  controller: _pickupController,
-                  enabled: !_isLoading,
-                  decoration: InputDecoration(
-                    hintText: 'Enter pickup location',
-                    prefixIcon: const Icon(Icons.location_on),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+                // proxyURL: _yourProxyURL,
+                maxLines: 1,
+                overlayContainerBuilder: (child) => Material(
+                  elevation: 1.0,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  child: child,
                 ),
-                const SizedBox(height: 24),
-                // Destination Location
-                const Text(
-                  'Destination',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                onPredictionWithCoordinatesReceived: (prediction) {
+                  // Do something with the place details with coordinates
+                  logger.info(
+                    'Selected place: ${prediction.description}, '
+                    'Lat: ${prediction.lat}, Lng: ${prediction.lng}',
+                  );
+                },
+                onSuggestionClicked: (Prediction prediction) =>
+                    _pickupController.text = prediction.description!,
+                minInputLength: 3,
+              ),
+              const SizedBox(height: 24),
+              GooglePlacesAutoCompleteTextFormField(
+                config: _config,
+                textEditingController: _dropOffController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter your drop-off location',
+                  labelText: 'Your drop-off Location ',
+                  labelStyle: TextStyle(color: Colors.purple),
+                  border: OutlineInputBorder(),
                 ),
-                const SizedBox(height: 8),
-                TextField(
-                  controller: _destinationController,
-                  enabled: !_isLoading,
-                  decoration: InputDecoration(
-                    hintText: 'Enter destination',
-                    prefixIcon: const Icon(Icons.flag),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+                // proxyURL: _yourProxyURL,
+                maxLines: 1,
+                overlayContainerBuilder: (child) => Material(
+                  elevation: 1.0,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  child: child,
                 ),
-                const SizedBox(height: 32),
-                // Request Button
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _isLoading ? null : _handleRequestTrip,
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: _isLoading
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          )
-                        : const Text(
-                            'Request a Ride',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                  ),
-                ),
-              ],
-            ),
+                onPredictionWithCoordinatesReceived: (prediction) {
+                  // Do something with the place details with coordinates
+                  logger.info(
+                    'Selected place: ${prediction.description}, '
+                    'Lat: ${prediction.lat}, Lng: ${prediction.lng}',
+                  );
+                },
+                onSuggestionClicked: (Prediction prediction) =>
+                    _dropOffController.text = prediction.description!,
+                minInputLength: 3,
+              ),
+              const SizedBox(height: 24),
+              TextButton(onPressed: _onSubmit, child: const Text('Submit')),
+            ],
           ),
-        ],
+        ),
       ),
     );
+  }
+
+  Future<void> _onSubmit() async {
+    if (!_formKey.currentState!.validate()) {
+      setState(() => _autovalidateMode = AutovalidateMode.always);
+      return;
+    }
   }
 }

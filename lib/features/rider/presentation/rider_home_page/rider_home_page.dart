@@ -9,23 +9,6 @@ class RiderHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Rider Home Page')),
       body: const View(),
-      floatingActionButton: Row(
-        children: [
-          FloatingActionButton(
-            onPressed: () {},
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
-          SizedBox(width: 10),
-          FloatingActionButton(
-            onPressed: () {
-              searchRiderBottomSheet(context: context);
-            },
-            tooltip: 'Increment',
-            child: Icon(Icons.remove_done),
-          ),
-        ],
-      ),
     );
   }
 }

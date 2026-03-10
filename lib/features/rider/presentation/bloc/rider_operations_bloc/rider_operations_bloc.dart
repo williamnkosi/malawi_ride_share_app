@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/rider/domain/rider_trip_repository.dart';
 
 part 'rider_operations_event.dart';
 part 'rider_operations_state.dart';
@@ -7,7 +9,10 @@ part 'rider_operations_bloc.freezed.dart';
 
 class RiderOperationsBloc
     extends Bloc<RiderOperationsEvent, RiderOperationsState> {
-  RiderOperationsBloc() : super(const RiderOperationsState.initial()) {
+  final logger = Logger('RiderOperationsBloc');
+  final RiderTripRepository riderTripRepository;
+  RiderOperationsBloc({required this.riderTripRepository})
+    : super(const RiderOperationsState.initial()) {
     on<RequestTripEvent>(_onRequestTrip);
     on<CancelTripEvent>(_onCancelTrip);
     on<RateTripEvent>(_onRateTrip);

@@ -8,8 +8,7 @@ import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.
 import 'package:malawi_ride_share_app/features/driver/domain/repository/driver_trip_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/firebase_repository.dart';
 import 'package:malawi_ride_share_app/features/shared/domain/repositories/socket_repository.dart';
-import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart'
-    hide TripEvents;
+import 'package:malawi_ride_share_app/services/socket_service/socket_config.dart';
 
 class DriverTripRepositoryImp implements DriverTripRepository {
   final SocketRepository socketRepository;

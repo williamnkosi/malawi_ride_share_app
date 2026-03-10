@@ -621,6 +621,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.10"
+  google_places_autocomplete_text_field:
+    dependency: "direct main"
+    description:
+      name: google_places_autocomplete_text_field
+      sha256: "94979e9d04f7c1ea51b2ed2c108a6ab0d4015f284adfd65d009ada546e03f2df"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   google_polyline_algorithm:
     dependency: "direct main"
     description:
@@ -989,6 +997,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.9.2"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.28.0"
   sanitize_html:
     dependency: transitive
     description:

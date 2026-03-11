@@ -33,8 +33,9 @@ class RiderTripRepositoryImpl implements RiderTripRepository {
   }
 
   @override
-  Stream<Map<String, dynamic>> streamTripUpdates({required String tripId}) {
-    // TODO: implement streamTripUpdates
+  @override
+  Stream<Map<String, dynamic>> connectToStream() {
+    // TODO: implement connectToStream
     throw UnimplementedError();
   }
 }

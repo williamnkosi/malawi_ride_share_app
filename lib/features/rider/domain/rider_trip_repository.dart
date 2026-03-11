@@ -1,6 +1,8 @@
 abstract class RiderTripRepository {
+  Future<void> connectToWebSocket();
+
   /// Request a new trip with pickup and destination details
-  Future<Map<String, dynamic>> requestTrip({
+  Future<void> requestTrip({
     required String pickupAddress,
     required String destinationAddress,
     required double pickupLat,

@@ -17,10 +17,10 @@ class RiderTripEvents {
   static const String driverRejected = 'trip:driver_rejected';
 
   // Outgoing events to server (rider sends these)
-  static const String requestTrip = 'trip:request';
-  static const String acceptDriver = 'trip:accept_driver';
-  static const String cancelTrip = 'trip:cancel';
-  static const String rateDriver = 'trip:rate_driver';
+  static const String requestTrip = 'trip:rider_request';
+  static const String acceptDriver = 'trip:rider_accept_driver';
+  static const String cancelTrip = 'trip:rider_cancel';
+  static const String rateDriver = 'trip:rider_rate_driver';
 
   /// All incoming events that riders should listen to
   static const List<String> allIncomingEvents = [

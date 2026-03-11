@@ -32,15 +32,20 @@ class RiderOperationsBloc
     Emitter<RiderOperationsState> emit,
   ) async {
     try {
+      await riderTripRepository.requestTrip(
+        pickupAddress: event.pickupAddress,
+        destinationAddress: event.destinationAddress,
+        pickupLat: event.pickupLat,
+        pickupLng: event.pickupLng,
+        destinationLat: event.destinationLat,
+        destinationLng: event.destinationLng,
+      );
       emit(
         RiderOperationsState.searching(
           pickupAddress: event.pickupAddress,
           destinationAddress: event.destinationAddress,
         ),
       );
-
-      // TODO: Call use case to request trip from backend
-      // TODO: Listen for socket events for driver matching
     } catch (e) {
       emit(RiderOperationsState.error(message: 'Failed to request trip: $e'));
     }

@@ -13,9 +13,18 @@ class RiderOperationsBloc
   final RiderTripRepository riderTripRepository;
   RiderOperationsBloc({required this.riderTripRepository})
     : super(const RiderOperationsState.initial()) {
+    _initializeBloc();
     on<RequestTripEvent>(_onRequestTrip);
     on<CancelTripEvent>(_onCancelTrip);
     on<RateTripEvent>(_onRateTrip);
+  }
+
+  void _initializeBloc() {
+    try {
+      //riderTripRepository
+    } catch (e) {
+      logger.severe('Failed to initialize RiderOperationsBloc: $e');
+    }
   }
 
   Future<void> _onRequestTrip(

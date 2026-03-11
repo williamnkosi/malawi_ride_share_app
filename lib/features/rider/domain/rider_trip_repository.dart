@@ -13,5 +13,5 @@ abstract class RiderTripRepository {
   Future<void> cancelTrip({required String tripId, String? reason});
 
   /// Stream real-time trip updates (driver location, status changes, etc.)
-  Stream<Map<String, dynamic>> streamTripUpdates({required String tripId});
+  Stream<Map<String, dynamic>> connectToStream();
 }

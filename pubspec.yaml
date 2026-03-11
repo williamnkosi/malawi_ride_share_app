@@ -66,6 +66,7 @@ dependencies:
   google_polyline_algorithm: ^3.1.0
   google_maps_apis: ^4.0.0
   google_places_autocomplete_text_field: ^3.0.0
+  async: ^2.13.0
 
 dev_dependencies:
   flutter_test:

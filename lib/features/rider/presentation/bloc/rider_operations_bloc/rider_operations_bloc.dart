@@ -13,15 +13,21 @@ class RiderOperationsBloc
   final RiderTripRepository riderTripRepository;
   RiderOperationsBloc({required this.riderTripRepository})
     : super(const RiderOperationsState.initial()) {
-    _initializeBloc();
+    on<RiderOperationsInitialize>(_onInitialize);
     on<RequestTripEvent>(_onRequestTrip);
     on<CancelTripEvent>(_onCancelTrip);
     on<RateTripEvent>(_onRateTrip);
   }
 
-  void _initializeBloc() {
+  Future<void> _onInitialize(
+    RiderOperationsInitialize event,
+    Emitter<RiderOperationsState> emit,
+  ) async {
     try {
-      //riderTripRepository
+      await riderTripRepository.connectToWebSocket();
+      logger.info(
+        'RiderOperationsBloc initialized and connected to WebSocket.',
+      );
     } catch (e) {
       logger.severe('Failed to initialize RiderOperationsBloc: $e');
     }

@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RiderOperationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -34,6 +35,7 @@ mixin _$RiderOperationsEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(
       String pickupAddress,
       String destinationAddress,
@@ -48,6 +50,7 @@ mixin _$RiderOperationsEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -63,18 +66,21 @@ mixin _$RiderOperationsEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(RiderOperationsInitialize value) initialize,
     required TResult Function(RequestTripEvent value) requestTrip,
     required TResult Function(CancelTripEvent value) cancelTrip,
     required TResult Function(RateTripEvent value) rateTrip,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RiderOperationsInitialize value)? initialize,
     TResult? Function(RequestTripEvent value)? requestTrip,
     TResult? Function(CancelTripEvent value)? cancelTrip,
     TResult? Function(RateTripEvent value)? rateTrip,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(RiderOperationsInitialize value)? initialize,
     TResult Function(RequestTripEvent value)? requestTrip,
     TResult Function(CancelTripEvent value)? cancelTrip,
     TResult Function(RateTripEvent value)? rateTrip,
@@ -105,6 +111,155 @@ class _$RiderOperationsEventCopyWithImpl<
 
   /// Create a copy of RiderOperationsEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$RiderOperationsInitializeImplCopyWith<$Res> {
+  factory _$$RiderOperationsInitializeImplCopyWith(
+    _$RiderOperationsInitializeImpl value,
+    $Res Function(_$RiderOperationsInitializeImpl) then,
+  ) = __$$RiderOperationsInitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RiderOperationsInitializeImplCopyWithImpl<$Res>
+    extends
+        _$RiderOperationsEventCopyWithImpl<
+          $Res,
+          _$RiderOperationsInitializeImpl
+        >
+    implements _$$RiderOperationsInitializeImplCopyWith<$Res> {
+  __$$RiderOperationsInitializeImplCopyWithImpl(
+    _$RiderOperationsInitializeImpl _value,
+    $Res Function(_$RiderOperationsInitializeImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of RiderOperationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RiderOperationsInitializeImpl implements RiderOperationsInitialize {
+  const _$RiderOperationsInitializeImpl();
+
+  @override
+  String toString() {
+    return 'RiderOperationsEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RiderOperationsInitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(
+      String pickupAddress,
+      String destinationAddress,
+      double pickupLat,
+      double pickupLng,
+      double destinationLat,
+      double destinationLng,
+    )
+    requestTrip,
+    required TResult Function(String tripId, String? reason) cancelTrip,
+    required TResult Function(String tripId, int rating, String? feedback)
+    rateTrip,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(
+      String pickupAddress,
+      String destinationAddress,
+      double pickupLat,
+      double pickupLng,
+      double destinationLat,
+      double destinationLng,
+    )?
+    requestTrip,
+    TResult? Function(String tripId, String? reason)? cancelTrip,
+    TResult? Function(String tripId, int rating, String? feedback)? rateTrip,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(
+      String pickupAddress,
+      String destinationAddress,
+      double pickupLat,
+      double pickupLng,
+      double destinationLat,
+      double destinationLng,
+    )?
+    requestTrip,
+    TResult Function(String tripId, String? reason)? cancelTrip,
+    TResult Function(String tripId, int rating, String? feedback)? rateTrip,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RiderOperationsInitialize value) initialize,
+    required TResult Function(RequestTripEvent value) requestTrip,
+    required TResult Function(CancelTripEvent value) cancelTrip,
+    required TResult Function(RateTripEvent value) rateTrip,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RiderOperationsInitialize value)? initialize,
+    TResult? Function(RequestTripEvent value)? requestTrip,
+    TResult? Function(CancelTripEvent value)? cancelTrip,
+    TResult? Function(RateTripEvent value)? rateTrip,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RiderOperationsInitialize value)? initialize,
+    TResult Function(RequestTripEvent value)? requestTrip,
+    TResult Function(CancelTripEvent value)? cancelTrip,
+    TResult Function(RateTripEvent value)? rateTrip,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RiderOperationsInitialize implements RiderOperationsEvent {
+  const factory RiderOperationsInitialize() = _$RiderOperationsInitializeImpl;
 }
 
 /// @nodoc
@@ -256,6 +411,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -282,6 +438,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(
       String pickupAddress,
       String destinationAddress,
@@ -307,6 +464,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -336,6 +494,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(RiderOperationsInitialize value) initialize,
     required TResult Function(RequestTripEvent value) requestTrip,
     required TResult Function(CancelTripEvent value) cancelTrip,
     required TResult Function(RateTripEvent value) rateTrip,
@@ -346,6 +505,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RiderOperationsInitialize value)? initialize,
     TResult? Function(RequestTripEvent value)? requestTrip,
     TResult? Function(CancelTripEvent value)? cancelTrip,
     TResult? Function(RateTripEvent value)? rateTrip,
@@ -356,6 +516,7 @@ class _$RequestTripEventImpl implements RequestTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(RiderOperationsInitialize value)? initialize,
     TResult Function(RequestTripEvent value)? requestTrip,
     TResult Function(CancelTripEvent value)? cancelTrip,
     TResult Function(RateTripEvent value)? rateTrip,
@@ -474,6 +635,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -493,6 +655,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(
       String pickupAddress,
       String destinationAddress,
@@ -511,6 +674,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -533,6 +697,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(RiderOperationsInitialize value) initialize,
     required TResult Function(RequestTripEvent value) requestTrip,
     required TResult Function(CancelTripEvent value) cancelTrip,
     required TResult Function(RateTripEvent value) rateTrip,
@@ -543,6 +708,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RiderOperationsInitialize value)? initialize,
     TResult? Function(RequestTripEvent value)? requestTrip,
     TResult? Function(CancelTripEvent value)? cancelTrip,
     TResult? Function(RateTripEvent value)? rateTrip,
@@ -553,6 +719,7 @@ class _$CancelTripEventImpl implements CancelTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(RiderOperationsInitialize value)? initialize,
     TResult Function(RequestTripEvent value)? requestTrip,
     TResult Function(CancelTripEvent value)? cancelTrip,
     TResult Function(RateTripEvent value)? rateTrip,
@@ -677,6 +844,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -696,6 +864,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(
       String pickupAddress,
       String destinationAddress,
@@ -714,6 +883,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(
       String pickupAddress,
       String destinationAddress,
@@ -736,6 +906,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(RiderOperationsInitialize value) initialize,
     required TResult Function(RequestTripEvent value) requestTrip,
     required TResult Function(CancelTripEvent value) cancelTrip,
     required TResult Function(RateTripEvent value) rateTrip,
@@ -746,6 +917,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RiderOperationsInitialize value)? initialize,
     TResult? Function(RequestTripEvent value)? requestTrip,
     TResult? Function(CancelTripEvent value)? cancelTrip,
     TResult? Function(RateTripEvent value)? rateTrip,
@@ -756,6 +928,7 @@ class _$RateTripEventImpl implements RateTripEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(RiderOperationsInitialize value)? initialize,
     TResult Function(RequestTripEvent value)? requestTrip,
     TResult Function(CancelTripEvent value)? cancelTrip,
     TResult Function(RateTripEvent value)? rateTrip,

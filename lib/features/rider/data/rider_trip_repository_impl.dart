@@ -29,7 +29,7 @@ class RiderTripRepositoryImpl implements RiderTripRepository {
     if (token == null) {
       throw Exception('User not authenticated');
     }
-    var auth = SocketAuth(token: token, userType: UserType.driver);
+    var auth = SocketAuth(token: token, userType: UserType.rider);
     var isConnected = await socketRepository.connect(
       namespaces: [SocketNamespace.trips],
       auth: auth,
@@ -110,5 +110,16 @@ class RiderTripRepositoryImpl implements RiderTripRepository {
     } catch (e) {
       throw Exception('Failed to parse $eventName: $e');
     }
+  }
+
+  _parseDriverAccepted(Map<String, dynamic> data) {
+    return DriverAcceptedEvent(
+      // tripId: data['tripId'] as String,
+      driverId: data['driverId'] as String,
+      driverName: data['driverName'] as String,
+      vehicleDetails: '',
+      driverLat: 23,
+      driverLng: 23,
+    );
   }
 }

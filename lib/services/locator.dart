@@ -215,9 +215,8 @@ Future<void> setuRiderTripDependencies() async {
     ),
   );
   // Register use cases and blocs related to rider trips here
-  getIt.registerLazySingleton<RiderOperationsBloc>(
-    () =>
-        RiderOperationsBloc(riderTripRepository: getIt<RiderTripRepository>()),
+  getIt.registerSingleton<RiderOperationsBloc>(
+    RiderOperationsBloc(riderTripRepository: getIt<RiderTripRepository>()),
   );
 }
 

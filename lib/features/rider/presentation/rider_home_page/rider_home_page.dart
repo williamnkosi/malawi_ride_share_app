@@ -40,7 +40,10 @@ class _RiderHomePageState extends State<RiderHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<RiderOperationsBloc>(),
+      lazy: false,
+      create: (context) =>
+          getIt<RiderOperationsBloc>()
+            ..add(const RiderOperationsEvent.initialize()),
       child: Scaffold(
         appBar: AppBar(title: Text(widget.title)),
         body: Padding(

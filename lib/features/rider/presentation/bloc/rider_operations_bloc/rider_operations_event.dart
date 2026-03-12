@@ -2,6 +2,8 @@ part of 'rider_operations_bloc.dart';
 
 @freezed
 class RiderOperationsEvent with _$RiderOperationsEvent {
+  const factory RiderOperationsEvent.initialize() = RiderOperationsInitialize;
+
   /// Request a trip with pickup and destination details
   const factory RiderOperationsEvent.requestTrip({
     required String pickupAddress,

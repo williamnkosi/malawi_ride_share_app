@@ -20,6 +20,7 @@ class _RiderHomePageState extends State<RiderHomePage> {
 
   final _config = GoogleApiConfig(
     apiKey: dotenv.env['GOOGLE_PLACES_API_KEY']!,
+    fetchPlaceDetailsWithCoordinates: true,
     // Malawi coordinates center
     // locationRestriction: LocationConfig.circle(
     //   circleCenter: const Coordinates(latitude: -13.2543, longitude: 34.3015),
@@ -32,13 +33,13 @@ class _RiderHomePageState extends State<RiderHomePage> {
   final _pickupController = TextEditingController();
   final _dropOffController = TextEditingController();
 
-  late Prediction _pickUpPrediction;
-  late Prediction _dropOffPrediction;
+  Prediction? _pickUpPrediction;
+  Prediction? _dropOffPrediction;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext _) {
     return BlocProvider(
       lazy: false,
       create: (context) =>
@@ -77,6 +78,7 @@ class _RiderHomePageState extends State<RiderHomePage> {
                     borderRadius: BorderRadius.circular(12),
                     child: child,
                   ),
+
                   onPredictionWithCoordinatesReceived: (prediction) {
                     _pickUpPrediction = prediction;
                     logger.info(
@@ -84,8 +86,13 @@ class _RiderHomePageState extends State<RiderHomePage> {
                       'Lat: ${prediction.lat}, Lng: ${prediction.lng}',
                     );
                   },
-                  onSuggestionClicked: (Prediction prediction) =>
-                      _pickupController.text = prediction.description!,
+                  onSuggestionClicked: (Prediction prediction) {
+                    _pickupController.text = prediction.description ?? '';
+                    _pickUpPrediction = prediction;
+                    logger.info(
+                      'Pickup prediction set: ${prediction.description}',
+                    );
+                  },
                   minInputLength: 3,
                 ),
                 const SizedBox(height: 24),
@@ -113,40 +120,76 @@ class _RiderHomePageState extends State<RiderHomePage> {
                     child: child,
                   ),
                   onPredictionWithCoordinatesReceived: (prediction) {
-                    _dropOffPrediction = prediction;
+                    _pickUpPrediction = prediction;
                     logger.info(
                       'Selected place: ${prediction.description}, '
                       'Lat: ${prediction.lat}, Lng: ${prediction.lng}',
                     );
                   },
-                  onSuggestionClicked: (Prediction prediction) =>
-                      _dropOffController.text = prediction.description!,
+                  onSuggestionClicked: (Prediction prediction) {
+                    _dropOffController.text = prediction.description ?? '';
+                    _dropOffPrediction = prediction;
+                    logger.info(
+                      'Dropoff prediction set: ${prediction.description}',
+                    );
+                  },
                   minInputLength: 3,
                 ),
                 const SizedBox(height: 24),
-                TextButton(onPressed: _onSubmit, child: const Text('Submit')),
+                BlocBuilder<RiderOperationsBloc, RiderOperationsState>(
+                  builder: (context, state) {
+                    return TextButton(
+                      onPressed: () {
+                        logger.info('Submit button pressed');
+                        logger.info('Pickup prediction: $_pickUpPrediction');
+                        logger.info('Dropoff prediction: $_dropOffPrediction');
+
+                        // Check if predictions are set
+                        if (_pickUpPrediction == null ||
+                            _dropOffPrediction == null) {
+                          logger.warning(
+                            'Please select both pickup and drop-off locations',
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Please select both pickup and drop-off locations',
+                              ),
+                            ),
+                          );
+                          return;
+                        }
+
+                        if (_formKey.currentState!.validate()) {
+                          logger.info(
+                            'Form is valid, adding request trip event',
+                          );
+                          context.read<RiderOperationsBloc>().add(
+                            RequestTripEvent(
+                              pickupLat: double.parse(_pickUpPrediction!.lat!),
+                              pickupLng: double.parse(_pickUpPrediction!.lng!),
+                              pickupAddress: _pickUpPrediction!.description!,
+                              destinationLat: double.parse(
+                                _dropOffPrediction!.lat!,
+                              ),
+                              destinationLng: double.parse(
+                                _dropOffPrediction!.lng!,
+                              ),
+                              destinationAddress:
+                                  _dropOffPrediction!.description!,
+                            ),
+                          );
+                        }
+                      },
+                      child: const Text('Submit'),
+                    );
+                  },
+                ),
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  Future<void> _onSubmit() async {
-    if (!_formKey.currentState!.validate()) {
-      setState(() => _autovalidateMode = AutovalidateMode.always);
-      context.read<RiderOperationsBloc>().add(
-        RequestTripEvent(
-          pickupLat: _pickUpPrediction.lat! as double,
-          pickupLng: _pickUpPrediction.lng! as double,
-          pickupAddress: _pickUpPrediction.description!,
-          destinationLat: _dropOffPrediction.lat! as double,
-          destinationLng: _dropOffPrediction.lng! as double,
-          destinationAddress: _dropOffPrediction.description!,
-        ),
-      );
-      return;
-    }
   }
 }

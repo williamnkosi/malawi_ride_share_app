@@ -6,10 +6,7 @@ class RiderOperationsState with _$RiderOperationsState {
   const factory RiderOperationsState.initial() = RiderOperationsInitial;
 
   /// Searching for available drivers
-  const factory RiderOperationsState.searching({
-    required String pickupAddress,
-    required String destinationAddress,
-  }) = RiderOperationsSearching;
+  const factory RiderOperationsState.searching() = RiderOperationsSearching;
 
   /// Driver found - ride offer presented to rider
   const factory RiderOperationsState.rideOffered({

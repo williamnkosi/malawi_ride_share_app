@@ -46,12 +46,7 @@ class RiderOperationsBloc
         destinationLat: event.destinationLat,
         destinationLng: event.destinationLng,
       );
-      emit(
-        RiderOperationsState.searching(
-          pickupAddress: event.pickupAddress,
-          destinationAddress: event.destinationAddress,
-        ),
-      );
+      emit(RiderOperationsState.searching());
     } catch (e) {
       emit(RiderOperationsState.error(message: 'Failed to request trip: $e'));
     }

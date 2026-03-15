@@ -964,8 +964,7 @@ mixin _$RiderOperationsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -1006,8 +1005,7 @@ mixin _$RiderOperationsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -1048,8 +1046,7 @@ mixin _$RiderOperationsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -1198,8 +1195,7 @@ class _$RiderOperationsInitialImpl implements RiderOperationsInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -1244,8 +1240,7 @@ class _$RiderOperationsInitialImpl implements RiderOperationsInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -1290,8 +1285,7 @@ class _$RiderOperationsInitialImpl implements RiderOperationsInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -1399,8 +1393,6 @@ abstract class _$$RiderOperationsSearchingImplCopyWith<$Res> {
     _$RiderOperationsSearchingImpl value,
     $Res Function(_$RiderOperationsSearchingImpl) then,
   ) = __$$RiderOperationsSearchingImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String pickupAddress, String destinationAddress});
 }
 
 /// @nodoc
@@ -1415,75 +1407,33 @@ class __$$RiderOperationsSearchingImplCopyWithImpl<$Res>
 
   /// Create a copy of RiderOperationsState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? pickupAddress = null, Object? destinationAddress = null}) {
-    return _then(
-      _$RiderOperationsSearchingImpl(
-        pickupAddress:
-            null == pickupAddress
-                ? _value.pickupAddress
-                : pickupAddress // ignore: cast_nullable_to_non_nullable
-                    as String,
-        destinationAddress:
-            null == destinationAddress
-                ? _value.destinationAddress
-                : destinationAddress // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$RiderOperationsSearchingImpl implements RiderOperationsSearching {
-  const _$RiderOperationsSearchingImpl({
-    required this.pickupAddress,
-    required this.destinationAddress,
-  });
-
-  @override
-  final String pickupAddress;
-  @override
-  final String destinationAddress;
+  const _$RiderOperationsSearchingImpl();
 
   @override
   String toString() {
-    return 'RiderOperationsState.searching(pickupAddress: $pickupAddress, destinationAddress: $destinationAddress)';
+    return 'RiderOperationsState.searching()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RiderOperationsSearchingImpl &&
-            (identical(other.pickupAddress, pickupAddress) ||
-                other.pickupAddress == pickupAddress) &&
-            (identical(other.destinationAddress, destinationAddress) ||
-                other.destinationAddress == destinationAddress));
+            other is _$RiderOperationsSearchingImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, pickupAddress, destinationAddress);
-
-  /// Create a copy of RiderOperationsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RiderOperationsSearchingImplCopyWith<_$RiderOperationsSearchingImpl>
-  get copyWith => __$$RiderOperationsSearchingImplCopyWithImpl<
-    _$RiderOperationsSearchingImpl
-  >(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -1521,15 +1471,14 @@ class _$RiderOperationsSearchingImpl implements RiderOperationsSearching {
     required TResult Function(String reason) tripCancelled,
     required TResult Function(String message) error,
   }) {
-    return searching(pickupAddress, destinationAddress);
+    return searching();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -1567,15 +1516,14 @@ class _$RiderOperationsSearchingImpl implements RiderOperationsSearching {
     TResult? Function(String reason)? tripCancelled,
     TResult? Function(String message)? error,
   }) {
-    return searching?.call(pickupAddress, destinationAddress);
+    return searching?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -1615,7 +1563,7 @@ class _$RiderOperationsSearchingImpl implements RiderOperationsSearching {
     required TResult orElse(),
   }) {
     if (searching != null) {
-      return searching(pickupAddress, destinationAddress);
+      return searching();
     }
     return orElse();
   }
@@ -1674,19 +1622,7 @@ class _$RiderOperationsSearchingImpl implements RiderOperationsSearching {
 }
 
 abstract class RiderOperationsSearching implements RiderOperationsState {
-  const factory RiderOperationsSearching({
-    required final String pickupAddress,
-    required final String destinationAddress,
-  }) = _$RiderOperationsSearchingImpl;
-
-  String get pickupAddress;
-  String get destinationAddress;
-
-  /// Create a copy of RiderOperationsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RiderOperationsSearchingImplCopyWith<_$RiderOperationsSearchingImpl>
-  get copyWith => throw _privateConstructorUsedError;
+  const factory RiderOperationsSearching() = _$RiderOperationsSearchingImpl;
 }
 
 /// @nodoc
@@ -1838,8 +1774,7 @@ class _$RideOfferedStateImpl implements RideOfferedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -1891,8 +1826,7 @@ class _$RideOfferedStateImpl implements RideOfferedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -1944,8 +1878,7 @@ class _$RideOfferedStateImpl implements RideOfferedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -2212,8 +2145,7 @@ class _$WaitingForPickupStateImpl implements WaitingForPickupState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -2264,8 +2196,7 @@ class _$WaitingForPickupStateImpl implements WaitingForPickupState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -2316,8 +2247,7 @@ class _$WaitingForPickupStateImpl implements WaitingForPickupState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -2592,8 +2522,7 @@ class _$RideInProgressStateImpl implements RideInProgressState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -2645,8 +2574,7 @@ class _$RideInProgressStateImpl implements RideInProgressState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -2698,8 +2626,7 @@ class _$RideInProgressStateImpl implements RideInProgressState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -2951,8 +2878,7 @@ class _$RideCompletedStateImpl implements RideCompletedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -2997,8 +2923,7 @@ class _$RideCompletedStateImpl implements RideCompletedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -3048,8 +2973,7 @@ class _$RideCompletedStateImpl implements RideCompletedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -3254,8 +3178,7 @@ class _$RatingPendingStateImpl implements RatingPendingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -3300,8 +3223,7 @@ class _$RatingPendingStateImpl implements RatingPendingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -3346,8 +3268,7 @@ class _$RatingPendingStateImpl implements RatingPendingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -3536,8 +3457,7 @@ class _$TripCancelledStateImpl implements TripCancelledState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -3582,8 +3502,7 @@ class _$TripCancelledStateImpl implements TripCancelledState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -3628,8 +3547,7 @@ class _$TripCancelledStateImpl implements TripCancelledState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,
@@ -3816,8 +3734,7 @@ class _$RiderOperationsErrorImpl implements RiderOperationsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String pickupAddress, String destinationAddress)
-    searching,
+    required TResult Function() searching,
     required TResult Function(
       String tripId,
       String driverName,
@@ -3862,8 +3779,7 @@ class _$RiderOperationsErrorImpl implements RiderOperationsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult? Function()? searching,
     TResult? Function(
       String tripId,
       String driverName,
@@ -3908,8 +3824,7 @@ class _$RiderOperationsErrorImpl implements RiderOperationsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String pickupAddress, String destinationAddress)?
-    searching,
+    TResult Function()? searching,
     TResult Function(
       String tripId,
       String driverName,

@@ -22,6 +22,7 @@ class AppRouter extends StatelessWidget {
   final List<String> publicRoutes = [
     AppRoutes.loginPage,
     AppRoutes.authSignUpPage,
+    AppRoutes.authUserCredsPage,
   ];
 
   @override

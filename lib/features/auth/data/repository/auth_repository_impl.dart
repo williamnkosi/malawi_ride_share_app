@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/auth/data/models/auth_create_user_data_dto.dart';
+import 'package:malawi_ride_share_app/features/auth/data/models/auth_user_data.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_constants.dart';
 import 'package:malawi_ride_share_app/services/api_serivce/api_service.dart';
@@ -64,8 +66,9 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future<Map<String, dynamic>> createUserInDatabase({
-    required CreateUserDto createUserDto,
+  @override
+  Future<AuthUserDataEntity> createUserInDatabase({
+    required AuthCreateUserDataDto createUserDto,
   }) async {
     try {
       final currentUser = FirebaseAuth.instance.currentUser;
@@ -73,26 +76,20 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
         throw CustomException('User not authenticated');
       }
 
-      final token = await currentUser.getIdToken();
       final dio = Dio();
 
       logger.info(
         'Creating user in database with firebaseId: ${createUserDto.firebaseId}',
       );
+      logger.info('link: ${ApiConstants.baseUrl}${ApiConstants.createUser}');
 
       final response = await dio.post(
         '${ApiConstants.baseUrl}${ApiConstants.createUser}',
         data: createUserDto.toJson(),
-        options: Options(
-          headers: {
-            'Authorization': 'Bearer $token',
-            'Content-Type': 'application/json',
-          },
-        ),
       );
 
       logger.info('User created in database successfully');
-      return response.data as Map<String, dynamic>;
+      return AuthUserDataEntity.fromJson(response.data);
     } on DioException catch (e) {
       logger.severe('Dio error creating user: ${e.response?.data}');
       final errorMessage =
@@ -102,5 +99,17 @@ class FirebaseAuthRepositoryImp implements AuthRepositoryInterfaces {
       logger.severe('Error creating user in database: $e');
       throw CustomException('Failed to create user: $e');
     }
+  }
+
+  @override
+  Future<void> createUserData(createUserDto) {
+    // TODO: implement createUserData
+    throw UnimplementedError();
+  }
+
+  @override
+  getUserData(String firebaseUserId) {
+    // TODO: implement getUserData
+    throw UnimplementedError();
   }
 }

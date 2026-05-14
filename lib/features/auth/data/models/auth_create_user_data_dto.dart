@@ -13,9 +13,11 @@ class AuthCreateUserDataDto with _$AuthCreateUserDataDto {
     required String phoneNumber,
     required String gender,
     required String dateOfBirth,
-    required String userType,
   }) = _AuthCreateUserDataDto;
 
   factory AuthCreateUserDataDto.fromJson(Map<String, dynamic> json) =>
       _$AuthCreateUserDataDtoFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson();
 }

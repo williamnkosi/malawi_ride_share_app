@@ -30,7 +30,6 @@ mixin _$AuthCreateUserDataDto {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get dateOfBirth => throw _privateConstructorUsedError;
-  String get userType => throw _privateConstructorUsedError;
 
   /// Serializes this AuthCreateUserDataDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +56,6 @@ abstract class $AuthCreateUserDataDtoCopyWith<$Res> {
     String phoneNumber,
     String gender,
     String dateOfBirth,
-    String userType,
   });
 }
 
@@ -86,7 +84,6 @@ class _$AuthCreateUserDataDtoCopyWithImpl<
     Object? phoneNumber = null,
     Object? gender = null,
     Object? dateOfBirth = null,
-    Object? userType = null,
   }) {
     return _then(
       _value.copyWith(
@@ -125,11 +122,6 @@ class _$AuthCreateUserDataDtoCopyWithImpl<
                     ? _value.dateOfBirth
                     : dateOfBirth // ignore: cast_nullable_to_non_nullable
                         as String,
-            userType:
-                null == userType
-                    ? _value.userType
-                    : userType // ignore: cast_nullable_to_non_nullable
-                        as String,
           )
           as $Val,
     );
@@ -153,7 +145,6 @@ abstract class _$$AuthCreateUserDataDtoImplCopyWith<$Res>
     String phoneNumber,
     String gender,
     String dateOfBirth,
-    String userType,
   });
 }
 
@@ -179,7 +170,6 @@ class __$$AuthCreateUserDataDtoImplCopyWithImpl<$Res>
     Object? phoneNumber = null,
     Object? gender = null,
     Object? dateOfBirth = null,
-    Object? userType = null,
   }) {
     return _then(
       _$AuthCreateUserDataDtoImpl(
@@ -218,11 +208,6 @@ class __$$AuthCreateUserDataDtoImplCopyWithImpl<$Res>
                 ? _value.dateOfBirth
                 : dateOfBirth // ignore: cast_nullable_to_non_nullable
                     as String,
-        userType:
-            null == userType
-                ? _value.userType
-                : userType // ignore: cast_nullable_to_non_nullable
-                    as String,
       ),
     );
   }
@@ -239,7 +224,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
     required this.phoneNumber,
     required this.gender,
     required this.dateOfBirth,
-    required this.userType,
   });
 
   factory _$AuthCreateUserDataDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -259,12 +243,10 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
   final String gender;
   @override
   final String dateOfBirth;
-  @override
-  final String userType;
 
   @override
   String toString() {
-    return 'AuthCreateUserDataDto(firebaseId: $firebaseId, email: $email, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, gender: $gender, dateOfBirth: $dateOfBirth, userType: $userType)';
+    return 'AuthCreateUserDataDto(firebaseId: $firebaseId, email: $email, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, gender: $gender, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -283,9 +265,7 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
-                other.dateOfBirth == dateOfBirth) &&
-            (identical(other.userType, userType) ||
-                other.userType == userType));
+                other.dateOfBirth == dateOfBirth));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -299,7 +279,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
     phoneNumber,
     gender,
     dateOfBirth,
-    userType,
   );
 
   /// Create a copy of AuthCreateUserDataDto
@@ -329,7 +308,6 @@ abstract class _AuthCreateUserDataDto implements AuthCreateUserDataDto {
     required final String phoneNumber,
     required final String gender,
     required final String dateOfBirth,
-    required final String userType,
   }) = _$AuthCreateUserDataDtoImpl;
 
   factory _AuthCreateUserDataDto.fromJson(Map<String, dynamic> json) =
@@ -349,8 +327,6 @@ abstract class _AuthCreateUserDataDto implements AuthCreateUserDataDto {
   String get gender;
   @override
   String get dateOfBirth;
-  @override
-  String get userType;
 
   /// Create a copy of AuthCreateUserDataDto
   /// with the given fields replaced by the non-null parameter values.

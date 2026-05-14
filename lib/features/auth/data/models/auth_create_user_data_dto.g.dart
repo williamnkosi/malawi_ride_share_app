@@ -16,7 +16,6 @@ _$AuthCreateUserDataDtoImpl _$$AuthCreateUserDataDtoImplFromJson(
   phoneNumber: json['phoneNumber'] as String,
   gender: json['gender'] as String,
   dateOfBirth: json['dateOfBirth'] as String,
-  userType: json['userType'] as String,
 );
 
 Map<String, dynamic> _$$AuthCreateUserDataDtoImplToJson(
@@ -29,5 +28,4 @@ Map<String, dynamic> _$$AuthCreateUserDataDtoImplToJson(
   'phoneNumber': instance.phoneNumber,
   'gender': instance.gender,
   'dateOfBirth': instance.dateOfBirth,
-  'userType': instance.userType,
 };

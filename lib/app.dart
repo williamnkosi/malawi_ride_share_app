@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
@@ -6,7 +5,6 @@ import 'package:bloc/bloc.dart';
 import 'package:malawi_ride_share_app/config/flavor.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/firebase_options.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/bloc_observer/bloc_logging_config.dart';
 import 'package:malawi_ride_share_app/config/routes/app_router.dart';
@@ -19,7 +17,6 @@ class App extends StatelessWidget {
   }
 
   void setup() {
-    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     setupGetIt();
     Future.delayed(const Duration(milliseconds: 200));
 

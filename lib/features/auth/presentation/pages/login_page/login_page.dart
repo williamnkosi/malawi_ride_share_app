@@ -41,55 +41,63 @@ class LoginPage extends StatelessWidget {
                   FormBuilderValidators.minLength(4),
                 ]),
               ),
+              SizedBox(height: 32),
               SizedBox(
-                height: 32,
+                width: double.infinity,
+                child: AppOutlineButton(
+                  buttonText: 'Rider Login',
+                  onPressed: () {
+                    // Validate the form
+                    if (_formKey.currentState?.validate() ?? false) {
+                      // If valid, save the form state and access the values
+                      _formKey.currentState?.save();
+                      final formData = _formKey.currentState?.value;
+                      context.read<AuthBloc>().add(
+                        AuthRiderEventLogin(
+                          email: formData!['Email'],
+                          password: formData['password'],
+                        ),
+                      );
+                      //context.push(AppRoutes.homePage);
+                    } else {}
+                  },
+                ),
               ),
-              SizedBox(
-                  width: double.infinity,
-                  child: AppOutlineButton(
-                      buttonText: 'Rider Login',
-                      onPressed: () {
-                        // Validate the form
-                        if (_formKey.currentState?.validate() ?? false) {
-                          // If valid, save the form state and access the values
-                          _formKey.currentState?.save();
-                          final formData = _formKey.currentState?.value;
-                          context.read<AuthBloc>().add(AuthRiderEventLogin(
-                                email: formData!['Email'],
-                                password: formData['password'],
-                              ));
-                          //context.push(AppRoutes.homePage);
-                        } else {}
-                      })),
               const SizedBox(height: 8),
               SizedBox(
-                  width: double.infinity,
-                  child: AppOutlineButton(
-                      buttonText: 'Driver Login',
-                      onPressed: () {
-                        // Validate the form
-                        if (_formKey.currentState?.validate() ?? false) {
-                          // If valid, save the form state and access the values
-                          _formKey.currentState?.save();
-                          final formData = _formKey.currentState?.value;
-                          context.read<AuthBloc>().add(AuthDriverEventLogin(
-                                email: formData!['Email'],
-                                password: formData['password'],
-                              ));
-                          // context.push(AppRoutes.homePage);
-                        } else {}
-                      })),
+                width: double.infinity,
+                child: AppOutlineButton(
+                  buttonText: 'Driver Login',
+                  onPressed: () {
+                    // Validate the form
+                    if (_formKey.currentState?.validate() ?? false) {
+                      // If valid, save the form state and access the values
+                      _formKey.currentState?.save();
+                      final formData = _formKey.currentState?.value;
+                      context.read<AuthBloc>().add(
+                        AuthDriverEventLogin(
+                          email: formData!['Email'],
+                          password: formData['password'],
+                        ),
+                      );
+                      // context.push(AppRoutes.homePage);
+                    } else {}
+                  },
+                ),
+              ),
               const SizedBox(height: 8),
               SizedBox(
-                  width: double.infinity,
-                  child: AppOutlineButton(
-                      buttonText: 'Sign Up',
-                      onPressed: () {
-                        context
-                            .read<AuthBloc>()
-                            .add(AuthEvent.authEventSetToUnauthenticated());
-                        context.push(AppRoutes.authSignUpPage);
-                      })),
+                width: double.infinity,
+                child: AppOutlineButton(
+                  buttonText: 'Sign Up',
+                  onPressed: () {
+                    context.read<AuthBloc>().add(
+                      AuthEvent.authEventSetToUnauthenticated(),
+                    );
+                    context.push(AppRoutes.authUserCredsPage);
+                  },
+                ),
+              ),
             ],
           ),
         ),

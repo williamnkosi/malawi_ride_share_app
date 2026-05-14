@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:malawi_ride_share_app/features/auth/data/models/auth_create_user_data_dto.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/services/locator.dart';
-import 'package:malawi_ride_share_app/shared/dtos/create_user_dto/create_user_dto.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 enum Gender {
@@ -174,12 +174,13 @@ class _SignupUserPageState extends State<SignupUserPage> {
     setState(() => _isLoading = true);
 
     try {
-      final authRepository = getIt<FirebaseAuthRepositoryImp>();
+      final authRepository = getIt<AuthRepositoryImp>();
       final authBloc = context.read<AuthBloc>();
       final authState = authBloc.state;
 
       final userCredential = authState.maybeMap(
-        authenticated: (authenticatedState) => authenticatedState.userCredential,
+        authenticated: (authenticatedState) =>
+            authenticatedState.userCredential,
         orElse: () => null,
       );
 
@@ -187,12 +188,14 @@ class _SignupUserPageState extends State<SignupUserPage> {
       final firebaseId = userCredential?.user?.uid;
 
       if (userCredential == null || userEmail == null || firebaseId == null) {
-        throw Exception('Please create credentials first before completing profile signup.');
+        throw Exception(
+          'Please create credentials first before completing profile signup.',
+        );
       }
 
       // Create user profile in database
       await authRepository.createUserInDatabase(
-        createUserDto: CreateUserDto(
+        createUserDto: AuthCreateUserDataDto(
           firebaseId: firebaseId,
           firstName: formData['firstName'],
           lastName: formData['lastName'],

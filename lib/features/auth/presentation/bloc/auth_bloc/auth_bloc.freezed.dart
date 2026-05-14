@@ -29,6 +29,8 @@ mixin _$AuthEvent {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -40,6 +42,8 @@ mixin _$AuthEvent {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -51,6 +55,8 @@ mixin _$AuthEvent {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +70,9 @@ mixin _$AuthEvent {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -76,6 +85,8 @@ mixin _$AuthEvent {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -88,6 +99,8 @@ mixin _$AuthEvent {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -165,6 +178,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventInitial();
   }
@@ -180,6 +195,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventInitial?.call();
   }
@@ -195,6 +212,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -215,6 +234,9 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventInitial(this);
   }
@@ -231,6 +253,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventInitial?.call(this);
   }
@@ -247,6 +271,8 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -356,6 +382,8 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authRiderEventlogin(email, password);
   }
@@ -371,6 +399,8 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authRiderEventlogin?.call(email, password);
   }
@@ -386,6 +416,8 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -406,6 +438,9 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authRiderEventlogin(this);
   }
@@ -422,6 +457,8 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authRiderEventlogin?.call(this);
   }
@@ -438,6 +475,8 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -560,6 +599,8 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventDriverlogin(email, password);
   }
@@ -575,6 +616,8 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventDriverlogin?.call(email, password);
   }
@@ -590,6 +633,8 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -610,6 +655,9 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventDriverlogin(this);
   }
@@ -626,6 +674,8 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventDriverlogin?.call(this);
   }
@@ -642,6 +692,8 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -760,6 +812,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventsignUp(email, password);
   }
@@ -775,6 +829,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventsignUp?.call(email, password);
   }
@@ -790,6 +846,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -810,6 +868,9 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventsignUp(this);
   }
@@ -826,6 +887,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventsignUp?.call(this);
   }
@@ -842,6 +905,8 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -920,6 +985,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventsignOut();
   }
@@ -935,6 +1002,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventsignOut?.call();
   }
@@ -950,6 +1019,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -970,6 +1041,9 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventsignOut(this);
   }
@@ -986,6 +1060,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventsignOut?.call(this);
   }
@@ -1002,6 +1078,8 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -1070,6 +1148,8 @@ class _$AuthEventSetToUnauthenticatedImpl
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventSetToUnauthenticated();
   }
@@ -1085,6 +1165,8 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventSetToUnauthenticated?.call();
   }
@@ -1100,6 +1182,8 @@ class _$AuthEventSetToUnauthenticatedImpl
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1120,6 +1204,9 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventSetToUnauthenticated(this);
   }
@@ -1136,6 +1223,8 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventSetToUnauthenticated?.call(this);
   }
@@ -1152,6 +1241,8 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1262,6 +1353,8 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     required TResult Function() authEventSetToUnauthenticated,
     required TResult Function(UserCredential userCredential, UserType userType)
     authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
   }) {
     return authEventSetAuthenticated(userCredential, userType);
   }
@@ -1277,6 +1370,8 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult? Function()? authEventSetToUnauthenticated,
     TResult? Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authEventSetAuthenticated?.call(userCredential, userType);
   }
@@ -1292,6 +1387,8 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     TResult Function()? authEventSetToUnauthenticated,
     TResult Function(UserCredential userCredential, UserType userType)?
     authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1312,6 +1409,9 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetToUnauthenticated,
     required TResult Function(AuthEventSetAuthenticated value)
     authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
   }) {
     return authEventSetAuthenticated(this);
   }
@@ -1328,6 +1428,8 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetToUnauthenticated,
     TResult? Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authEventSetAuthenticated?.call(this);
   }
@@ -1344,6 +1446,8 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetToUnauthenticated,
     TResult Function(AuthEventSetAuthenticated value)?
     authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1370,12 +1474,341 @@ abstract class AuthEventSetAuthenticated implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$AuthEventGetUserDataImplCopyWith<$Res> {
+  factory _$$AuthEventGetUserDataImplCopyWith(
+    _$AuthEventGetUserDataImpl value,
+    $Res Function(_$AuthEventGetUserDataImpl) then,
+  ) = __$$AuthEventGetUserDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthEventGetUserDataImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventGetUserDataImpl>
+    implements _$$AuthEventGetUserDataImplCopyWith<$Res> {
+  __$$AuthEventGetUserDataImplCopyWithImpl(
+    _$AuthEventGetUserDataImpl _value,
+    $Res Function(_$AuthEventGetUserDataImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
+  const _$AuthEventGetUserDataImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.authGetUserData()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventGetUserDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+    authRiderEventlogin,
+    required TResult Function(String email, String password)
+    authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
+  }) {
+    return authGetUserData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
+  }) {
+    return authGetUserData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (authGetUserData != null) {
+      return authGetUserData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+    authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+    authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
+  }) {
+    return authGetUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+  }) {
+    return authGetUserData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (authGetUserData != null) {
+      return authGetUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthEventGetUserData implements AuthEvent {
+  const factory AuthEventGetUserData() = _$AuthEventGetUserDataImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthEventShowUserDetailPageImplCopyWith<$Res> {
+  factory _$$AuthEventShowUserDetailPageImplCopyWith(
+    _$AuthEventShowUserDetailPageImpl value,
+    $Res Function(_$AuthEventShowUserDetailPageImpl) then,
+  ) = __$$AuthEventShowUserDetailPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthEventShowUserDetailPageImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventShowUserDetailPageImpl>
+    implements _$$AuthEventShowUserDetailPageImplCopyWith<$Res> {
+  __$$AuthEventShowUserDetailPageImplCopyWithImpl(
+    _$AuthEventShowUserDetailPageImpl _value,
+    $Res Function(_$AuthEventShowUserDetailPageImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
+  const _$AuthEventShowUserDetailPageImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.showUserDetailPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventShowUserDetailPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+    authRiderEventlogin,
+    required TResult Function(String email, String password)
+    authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
+  }) {
+    return showUserDetailPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
+  }) {
+    return showUserDetailPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (showUserDetailPage != null) {
+      return showUserDetailPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+    authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+    authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
+  }) {
+    return showUserDetailPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+  }) {
+    return showUserDetailPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (showUserDetailPage != null) {
+      return showUserDetailPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthEventShowUserDetailPage implements AuthEvent {
+  const factory AuthEventShowUserDetailPage() =
+      _$AuthEventShowUserDetailPageImpl;
+}
+
+/// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
@@ -1384,7 +1817,11 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
@@ -1393,7 +1830,11 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
@@ -1491,7 +1932,11 @@ class _$StartImpl implements _Start {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
@@ -1504,7 +1949,11 @@ class _$StartImpl implements _Start {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
@@ -1517,7 +1966,11 @@ class _$StartImpl implements _Start {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
@@ -1619,7 +2072,11 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
@@ -1632,7 +2089,11 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
@@ -1645,7 +2106,11 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
@@ -1709,7 +2174,13 @@ abstract class _$$AuthenticatedImplCopyWith<$Res> {
     $Res Function(_$AuthenticatedImpl) then,
   ) = __$$AuthenticatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserCredential userCredential, UserType userType});
+  $Res call({
+    UserCredential userCredential,
+    UserType userType,
+    AuthUserDataEntity? authUserData,
+  });
+
+  $AuthUserDataEntityCopyWith<$Res>? get authUserData;
 }
 
 /// @nodoc
@@ -1725,7 +2196,11 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? userCredential = null, Object? userType = null}) {
+  $Res call({
+    Object? userCredential = null,
+    Object? userType = null,
+    Object? authUserData = freezed,
+  }) {
     return _then(
       _$AuthenticatedImpl(
         null == userCredential
@@ -1736,24 +2211,48 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
             ? _value.userType
             : userType // ignore: cast_nullable_to_non_nullable
                 as UserType,
+        freezed == authUserData
+            ? _value.authUserData
+            : authUserData // ignore: cast_nullable_to_non_nullable
+                as AuthUserDataEntity?,
       ),
     );
+  }
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthUserDataEntityCopyWith<$Res>? get authUserData {
+    if (_value.authUserData == null) {
+      return null;
+    }
+
+    return $AuthUserDataEntityCopyWith<$Res>(_value.authUserData!, (value) {
+      return _then(_value.copyWith(authUserData: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl(this.userCredential, this.userType);
+  const _$AuthenticatedImpl(
+    this.userCredential,
+    this.userType,
+    this.authUserData,
+  );
 
   @override
   final UserCredential userCredential;
   @override
   final UserType userType;
+  @override
+  final AuthUserDataEntity? authUserData;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(userCredential: $userCredential, userType: $userType)';
+    return 'AuthState.authenticated(userCredential: $userCredential, userType: $userType, authUserData: $authUserData)';
   }
 
   @override
@@ -1764,11 +2263,14 @@ class _$AuthenticatedImpl implements _Authenticated {
             (identical(other.userCredential, userCredential) ||
                 other.userCredential == userCredential) &&
             (identical(other.userType, userType) ||
-                other.userType == userType));
+                other.userType == userType) &&
+            (identical(other.authUserData, authUserData) ||
+                other.authUserData == authUserData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userCredential, userType);
+  int get hashCode =>
+      Object.hash(runtimeType, userCredential, userType, authUserData);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1783,12 +2285,16 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
-    return authenticated(userCredential, userType);
+    return authenticated(userCredential, userType, authUserData);
   }
 
   @override
@@ -1796,12 +2302,16 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
-    return authenticated?.call(userCredential, userType);
+    return authenticated?.call(userCredential, userType, authUserData);
   }
 
   @override
@@ -1809,14 +2319,18 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(userCredential, userType);
+      return authenticated(userCredential, userType, authUserData);
     }
     return orElse();
   }
@@ -1866,10 +2380,12 @@ abstract class _Authenticated implements AuthState {
   const factory _Authenticated(
     final UserCredential userCredential,
     final UserType userType,
+    final AuthUserDataEntity? authUserData,
   ) = _$AuthenticatedImpl;
 
   UserCredential get userCredential;
   UserType get userType;
+  AuthUserDataEntity? get authUserData;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -1923,7 +2439,11 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
@@ -1936,7 +2456,11 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
@@ -1949,7 +2473,11 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
@@ -2078,7 +2606,11 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() start,
     required TResult Function() loading,
-    required TResult Function(UserCredential userCredential, UserType userType)
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
@@ -2091,7 +2623,11 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
     TResult? Function()? loading,
-    TResult? Function(UserCredential userCredential, UserType userType)?
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
@@ -2104,7 +2640,11 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
     TResult Function()? loading,
-    TResult Function(UserCredential userCredential, UserType userType)?
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,

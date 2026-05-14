@@ -101,14 +101,30 @@ class AuthRepositoryImp implements AuthRepositoryInterfaces {
   }
 
   @override
-  Future<void> createUserData(createUserDto) {
-    // TODO: implement createUserData
-    throw UnimplementedError();
-  }
+  Future<AuthUserDataEntity> getUserData(String firebaseUserId) async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        throw CustomException('User not authenticated');
+      }
 
-  @override
-  getUserData(String firebaseUserId) {
-    // TODO: implement getUserData
-    throw UnimplementedError();
+      final token = await currentUser.getIdToken(true);
+      final dio = Dio();
+
+      final response = await dio.get(
+        '${ApiConstants.baseUrl}${ApiConstants.createUser}/$firebaseUserId',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+
+      return AuthUserDataEntity.fromJson(response.data as Map<String, dynamic>);
+    } on DioException catch (e) {
+      logger.severe('Dio error fetching user: ${e.response?.data}');
+      final errorMessage =
+          e.response?.data['message'] ?? e.message ?? 'Failed to get user';
+      throw CustomException(errorMessage.toString());
+    } catch (e) {
+      logger.severe('Error getting user data: $e');
+      throw CustomException('Failed to get user: $e');
+    }
   }
 }

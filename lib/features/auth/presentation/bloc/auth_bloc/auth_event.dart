@@ -11,8 +11,10 @@ class AuthEvent with _$AuthEvent {
     required String email,
     required String password,
   }) = AuthDriverEventLogin;
-  const factory AuthEvent.authEventsignUp(
-      {required String email, required String password}) = AuthEventSignUp;
+  const factory AuthEvent.authEventsignUp({
+    required String email,
+    required String password,
+  }) = AuthEventSignUp;
   const factory AuthEvent.authEventsignOut() = AuthEventSignOut;
   const factory AuthEvent.authEventSetToUnauthenticated() =
       AuthEventSetToUnauthenticated;
@@ -20,4 +22,6 @@ class AuthEvent with _$AuthEvent {
     required UserCredential userCredential,
     required UserType userType,
   }) = AuthEventSetAuthenticated;
+  const factory AuthEvent.authGetUserData() = AuthEventGetUserData;
+  const factory AuthEvent.showUserDetailPage() = AuthEventShowUserDetailPage;
 }

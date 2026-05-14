@@ -5,7 +5,7 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_passwo
 
 class SignUpUserUseCase
     implements UseCase<UserCredential, EmailPasswordParams> {
-  final FirebaseAuthRepositoryImp authRepository;
+  final AuthRepositoryImp authRepository;
 
   SignUpUserUseCase(this.authRepository);
   @override

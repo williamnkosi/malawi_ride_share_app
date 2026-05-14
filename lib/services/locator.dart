@@ -68,8 +68,8 @@ Future<void> setupGetIt() async {
 
   logger.info('=====================================');
 
-  getIt.registerSingleton<FirebaseAuthRepositoryImp>(
-    FirebaseAuthRepositoryImp(apiService: getIt<ApiService>()),
+  getIt.registerSingleton<AuthRepositoryImp>(
+    AuthRepositoryImp(apiService: getIt<ApiService>()),
   );
   await setupSharedDependencies();
   await setupAppFeatureDependencies();
@@ -132,15 +132,15 @@ Future<void> setupAuthFeatureDependencies() async {
 
   // Use cases
   getIt.registerSingleton<SignInUserUseCase>(
-    SignInUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignInUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerSingleton<SignUpUserUseCase>(
-    SignUpUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignUpUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerSingleton<SignOutUserUseCase>(
-    SignOutUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignOutUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerFactory<AuthBloc>(
@@ -148,6 +148,7 @@ Future<void> setupAuthFeatureDependencies() async {
       signInUserUseCase: getIt<SignInUserUseCase>(),
       signUpUserUseCase: getIt<SignUpUserUseCase>(),
       signOutUserUseCase: getIt<SignOutUserUseCase>(),
+      authRepositoryImp: getIt<AuthRepositoryImp>(),
     ),
   );
 }

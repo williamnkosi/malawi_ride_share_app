@@ -65,20 +65,6 @@ class _SignupUserPageState extends State<SignupUserPage> {
                     ),
                     const SizedBox(height: 16),
                     FormBuilderTextField(
-                      name: 'email',
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.email),
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                      validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.required(),
-                        FormBuilderValidators.email(),
-                      ]),
-                    ),
-                    const SizedBox(height: 16),
-                    FormBuilderTextField(
                       name: 'phoneNumber',
                       decoration: const InputDecoration(
                         labelText: 'Phone Number',
@@ -86,20 +72,6 @@ class _SignupUserPageState extends State<SignupUserPage> {
                         prefixIcon: Icon(Icons.phone),
                       ),
                       validator: FormBuilderValidators.required(),
-                    ),
-                    const SizedBox(height: 16),
-                    FormBuilderTextField(
-                      name: 'password',
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.lock),
-                      ),
-                      obscureText: true,
-                      validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.required(),
-                        FormBuilderValidators.minLength(6),
-                      ]),
                     ),
                     const SizedBox(height: 16),
                     FormBuilderDropdown<Gender>(
@@ -204,21 +176,28 @@ class _SignupUserPageState extends State<SignupUserPage> {
     try {
       final authRepository = getIt<FirebaseAuthRepositoryImp>();
       final authBloc = context.read<AuthBloc>();
+      final authState = authBloc.state;
 
-      // Create Firebase user
-      final userCredential = await authRepository.signUpUserEmailAndPassword(
-        email: formData['email'],
-        password: formData['password'],
+      final userCredential = authState.maybeMap(
+        authenticated: (authenticatedState) => authenticatedState.userCredential,
+        orElse: () => null,
       );
+
+      final userEmail = userCredential?.user?.email;
+      final firebaseId = userCredential?.user?.uid;
+
+      if (userCredential == null || userEmail == null || firebaseId == null) {
+        throw Exception('Please create credentials first before completing profile signup.');
+      }
 
       // Create user profile in database
       await authRepository.createUserInDatabase(
         createUserDto: CreateUserDto(
-          firebaseId: userCredential.user!.uid,
+          firebaseId: firebaseId,
           firstName: formData['firstName'],
           lastName: formData['lastName'],
           phoneNumber: formData['phoneNumber'],
-          email: formData['email'],
+          email: userEmail,
           gender: (formData['gender'] as Gender).value,
           dateOfBirth: (formData['dateOfBirth'] as DateTime)
               .toIso8601String()

@@ -1812,6 +1812,7 @@ mixin _$AuthState {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -1825,6 +1826,7 @@ mixin _$AuthState {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -1838,6 +1840,7 @@ mixin _$AuthState {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1847,6 +1850,7 @@ mixin _$AuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -1855,6 +1859,7 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -1863,6 +1868,7 @@ mixin _$AuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -1940,6 +1946,7 @@ class _$StartImpl implements _Start {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) {
     return start();
   }
@@ -1957,6 +1964,7 @@ class _$StartImpl implements _Start {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) {
     return start?.call();
   }
@@ -1974,6 +1982,7 @@ class _$StartImpl implements _Start {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -1990,6 +1999,7 @@ class _$StartImpl implements _Start {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) {
     return start(this);
   }
@@ -2002,6 +2012,7 @@ class _$StartImpl implements _Start {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) {
     return start?.call(this);
   }
@@ -2014,6 +2025,7 @@ class _$StartImpl implements _Start {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -2080,6 +2092,7 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) {
     return loading();
   }
@@ -2097,6 +2110,7 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) {
     return loading?.call();
   }
@@ -2114,6 +2128,7 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2130,6 +2145,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) {
     return loading(this);
   }
@@ -2142,6 +2158,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) {
     return loading?.call(this);
   }
@@ -2154,6 +2171,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2293,6 +2311,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) {
     return authenticated(userCredential, userType, authUserData);
   }
@@ -2310,6 +2329,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) {
     return authenticated?.call(userCredential, userType, authUserData);
   }
@@ -2327,6 +2347,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -2343,6 +2364,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) {
     return authenticated(this);
   }
@@ -2355,6 +2377,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) {
     return authenticated?.call(this);
   }
@@ -2367,6 +2390,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -2447,6 +2471,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) {
     return unauthenticated();
   }
@@ -2464,6 +2489,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) {
     return unauthenticated?.call();
   }
@@ -2481,6 +2507,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -2497,6 +2524,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) {
     return unauthenticated(this);
   }
@@ -2509,6 +2537,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) {
     return unauthenticated?.call(this);
   }
@@ -2521,6 +2550,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -2614,6 +2644,7 @@ class _$ErrorImpl implements _Error {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
   }) {
     return error(message);
   }
@@ -2631,6 +2662,7 @@ class _$ErrorImpl implements _Error {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
   }) {
     return error?.call(message);
   }
@@ -2648,6 +2680,7 @@ class _$ErrorImpl implements _Error {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2664,6 +2697,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
   }) {
     return error(this);
   }
@@ -2676,6 +2710,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
   }) {
     return error?.call(this);
   }
@@ -2688,6 +2723,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2707,4 +2743,150 @@ abstract class _Error implements AuthState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShowUserDetailPageImplCopyWith<$Res> {
+  factory _$$ShowUserDetailPageImplCopyWith(
+    _$ShowUserDetailPageImpl value,
+    $Res Function(_$ShowUserDetailPageImpl) then,
+  ) = __$$ShowUserDetailPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ShowUserDetailPageImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$ShowUserDetailPageImpl>
+    implements _$$ShowUserDetailPageImplCopyWith<$Res> {
+  __$$ShowUserDetailPageImplCopyWithImpl(
+    _$ShowUserDetailPageImpl _value,
+    $Res Function(_$ShowUserDetailPageImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
+  const _$ShowUserDetailPageImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.showUserDetailPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ShowUserDetailPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function() loading,
+    required TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )
+    authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function(String message) error,
+    required TResult Function() showUserDetailPage,
+  }) {
+    return showUserDetailPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? start,
+    TResult? Function()? loading,
+    TResult? Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
+    authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function(String message)? error,
+    TResult? Function()? showUserDetailPage,
+  }) {
+    return showUserDetailPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function()? loading,
+    TResult Function(
+      UserCredential userCredential,
+      UserType userType,
+      AuthUserDataEntity? authUserData,
+    )?
+    authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function(String message)? error,
+    TResult Function()? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (showUserDetailPage != null) {
+      return showUserDetailPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ShowUserDetailPage value) showUserDetailPage,
+  }) {
+    return showUserDetailPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Start value)? start,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_Unauthenticated value)? unauthenticated,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ShowUserDetailPage value)? showUserDetailPage,
+  }) {
+    return showUserDetailPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Error value)? error,
+    TResult Function(_ShowUserDetailPage value)? showUserDetailPage,
+    required TResult orElse(),
+  }) {
+    if (showUserDetailPage != null) {
+      return showUserDetailPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowUserDetailPage implements AuthState {
+  const factory _ShowUserDetailPage() = _$ShowUserDetailPageImpl;
 }

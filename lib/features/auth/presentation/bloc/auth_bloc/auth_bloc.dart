@@ -51,8 +51,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signInUserUseCase(params);
-      emit(AuthState.authenticated(userCredential, UserType.rider, null));
       var userData = await _getUserDataFromBackend();
+      if (userData == null) {
+        emit(const AuthState.showUserDetailPage());
+        return;
+      }
+
       emit(AuthState.authenticated(userCredential, UserType.rider, userData));
     } catch (e) {
       emit(AuthState.error(e.toString()));
@@ -66,8 +70,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signInUserUseCase(params);
-      emit(AuthState.authenticated(userCredential, UserType.driver, null));
       var userData = await _getUserDataFromBackend();
+      if (userData == null) {
+        emit(const AuthState.showUserDetailPage());
+        return;
+      }
+
       emit(AuthState.authenticated(userCredential, UserType.driver, userData));
     } catch (e) {
       emit(AuthState.error(e.toString()));
@@ -77,7 +85,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<AuthUserDataEntity?> _getUserDataFromBackend() async {
     try {
       _logger.info('Fetching authenticated user data from backend');
-      final currentState = state;
 
       final currentUser = FirebaseAuth.instance.currentUser;
       if (currentUser == null) {
@@ -92,7 +99,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       return userData;
     } catch (e) {
       _logger.severe('Error fetching user data from backend: $e');
-      throw e;
+      return null;
     }
   }
 
@@ -148,7 +155,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         throw Exception('No current Firebase user found');
       }
 
-      final userData = await authRepositoryImp.getUserData(currentUser.uid);
+      final userData = await _getUserDataFromBackend();
+      if (userData == null) {
+        emit(const AuthState.showUserDetailPage());
+        return;
+      }
 
       _logger.info('Backend user data fetched successfully');
 

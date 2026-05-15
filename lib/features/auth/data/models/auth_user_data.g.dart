@@ -9,21 +9,21 @@ part of 'auth_user_data.dart';
 _$AuthUserDataEntityImpl _$$AuthUserDataEntityImplFromJson(
   Map<String, dynamic> json,
 ) => _$AuthUserDataEntityImpl(
-  firebaseUserId: json['firebaseUserId'] as String,
+  firebaseId: json['firebaseId'] as String,
   email: json['email'] as String,
   firstName: json['firstName'] as String,
   lastName: json['lastName'] as String,
   phoneNumber: json['phoneNumber'] as String,
-  dob: DateTime.parse(json['dob'] as String),
+  dateOfBirth: DateTime.parse(json['dateOfBirth'] as String),
 );
 
 Map<String, dynamic> _$$AuthUserDataEntityImplToJson(
   _$AuthUserDataEntityImpl instance,
 ) => <String, dynamic>{
-  'firebaseUserId': instance.firebaseUserId,
+  'firebaseId': instance.firebaseId,
   'email': instance.email,
   'firstName': instance.firstName,
   'lastName': instance.lastName,
   'phoneNumber': instance.phoneNumber,
-  'dob': instance.dob.toIso8601String(),
+  'dateOfBirth': instance.dateOfBirth.toIso8601String(),
 };

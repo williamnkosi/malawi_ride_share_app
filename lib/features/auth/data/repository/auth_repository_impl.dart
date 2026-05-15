@@ -112,7 +112,7 @@ class AuthRepositoryImp implements AuthRepositoryInterfaces {
       final dio = Dio();
 
       final response = await dio.get(
-        '${ApiConstants.baseUrl}${ApiConstants.createUser}/$firebaseUserId',
+        '${ApiConstants.baseUrl}${ApiConstants.createUser}',
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
 

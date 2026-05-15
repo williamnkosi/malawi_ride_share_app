@@ -5,12 +5,12 @@ part 'auth_user_data.g.dart';
 @freezed
 class AuthUserDataEntity with _$AuthUserDataEntity {
   const factory AuthUserDataEntity({
-    required String firebaseUserId,
+    required String firebaseId,
     required String email,
     required String firstName,
     required String lastName,
     required String phoneNumber,
-    required DateTime dob,
+    required DateTime dateOfBirth,
   }) = _AuthUserDataEntity;
 
   factory AuthUserDataEntity.fromJson(Map<String, dynamic> json) =>

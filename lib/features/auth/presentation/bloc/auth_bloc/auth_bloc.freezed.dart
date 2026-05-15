@@ -31,6 +31,15 @@ mixin _$AuthEvent {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -44,6 +53,15 @@ mixin _$AuthEvent {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -57,6 +75,15 @@ mixin _$AuthEvent {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +100,7 @@ mixin _$AuthEvent {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -87,6 +115,7 @@ mixin _$AuthEvent {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -101,6 +130,7 @@ mixin _$AuthEvent {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -180,6 +210,15 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventInitial();
   }
@@ -197,6 +236,15 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventInitial?.call();
   }
@@ -214,6 +262,15 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -237,6 +294,7 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventInitial(this);
   }
@@ -255,6 +313,7 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventInitial?.call(this);
   }
@@ -273,6 +332,7 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventInitial != null) {
@@ -384,6 +444,15 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authRiderEventlogin(email, password);
   }
@@ -401,6 +470,15 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authRiderEventlogin?.call(email, password);
   }
@@ -418,6 +496,15 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -441,6 +528,7 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authRiderEventlogin(this);
   }
@@ -459,6 +547,7 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authRiderEventlogin?.call(this);
   }
@@ -477,6 +566,7 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authRiderEventlogin != null) {
@@ -601,6 +691,15 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventDriverlogin(email, password);
   }
@@ -618,6 +717,15 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventDriverlogin?.call(email, password);
   }
@@ -635,6 +743,15 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -658,6 +775,7 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventDriverlogin(this);
   }
@@ -676,6 +794,7 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventDriverlogin?.call(this);
   }
@@ -694,6 +813,7 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventDriverlogin != null) {
@@ -814,6 +934,15 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventsignUp(email, password);
   }
@@ -831,6 +960,15 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventsignUp?.call(email, password);
   }
@@ -848,6 +986,15 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -871,6 +1018,7 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventsignUp(this);
   }
@@ -889,6 +1037,7 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventsignUp?.call(this);
   }
@@ -907,6 +1056,7 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventsignUp != null) {
@@ -987,6 +1137,15 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventsignOut();
   }
@@ -1004,6 +1163,15 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventsignOut?.call();
   }
@@ -1021,6 +1189,15 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -1044,6 +1221,7 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventsignOut(this);
   }
@@ -1062,6 +1240,7 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventsignOut?.call(this);
   }
@@ -1080,6 +1259,7 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventsignOut != null) {
@@ -1150,6 +1330,15 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventSetToUnauthenticated();
   }
@@ -1167,6 +1356,15 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventSetToUnauthenticated?.call();
   }
@@ -1184,6 +1382,15 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1207,6 +1414,7 @@ class _$AuthEventSetToUnauthenticatedImpl
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventSetToUnauthenticated(this);
   }
@@ -1225,6 +1433,7 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventSetToUnauthenticated?.call(this);
   }
@@ -1243,6 +1452,7 @@ class _$AuthEventSetToUnauthenticatedImpl
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventSetToUnauthenticated != null) {
@@ -1355,6 +1565,15 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authEventSetAuthenticated(userCredential, userType);
   }
@@ -1372,6 +1591,15 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authEventSetAuthenticated?.call(userCredential, userType);
   }
@@ -1389,6 +1617,15 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1412,6 +1649,7 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authEventSetAuthenticated(this);
   }
@@ -1430,6 +1668,7 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authEventSetAuthenticated?.call(this);
   }
@@ -1448,6 +1687,7 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authEventSetAuthenticated != null) {
@@ -1529,6 +1769,15 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return authGetUserData();
   }
@@ -1546,6 +1795,15 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return authGetUserData?.call();
   }
@@ -1563,6 +1821,15 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authGetUserData != null) {
@@ -1586,6 +1853,7 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return authGetUserData(this);
   }
@@ -1604,6 +1872,7 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return authGetUserData?.call(this);
   }
@@ -1622,6 +1891,7 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (authGetUserData != null) {
@@ -1691,6 +1961,15 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     authEventSetAuthenticated,
     required TResult Function() authGetUserData,
     required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
   }) {
     return showUserDetailPage();
   }
@@ -1708,6 +1987,15 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     authEventSetAuthenticated,
     TResult? Function()? authGetUserData,
     TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
   }) {
     return showUserDetailPage?.call();
   }
@@ -1725,6 +2013,15 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     authEventSetAuthenticated,
     TResult Function()? authGetUserData,
     TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
     required TResult orElse(),
   }) {
     if (showUserDetailPage != null) {
@@ -1748,6 +2045,7 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     required TResult Function(AuthEventGetUserData value) authGetUserData,
     required TResult Function(AuthEventShowUserDetailPage value)
     showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
   }) {
     return showUserDetailPage(this);
   }
@@ -1766,6 +2064,7 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     authEventSetAuthenticated,
     TResult? Function(AuthEventGetUserData value)? authGetUserData,
     TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
   }) {
     return showUserDetailPage?.call(this);
   }
@@ -1784,6 +2083,7 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
     authEventSetAuthenticated,
     TResult Function(AuthEventGetUserData value)? authGetUserData,
     TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
     required TResult orElse(),
   }) {
     if (showUserDetailPage != null) {
@@ -1796,6 +2096,341 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
 abstract class AuthEventShowUserDetailPage implements AuthEvent {
   const factory AuthEventShowUserDetailPage() =
       _$AuthEventShowUserDetailPageImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthEventUpdateUserDataImplCopyWith<$Res> {
+  factory _$$AuthEventUpdateUserDataImplCopyWith(
+    _$AuthEventUpdateUserDataImpl value,
+    $Res Function(_$AuthEventUpdateUserDataImpl) then,
+  ) = __$$AuthEventUpdateUserDataImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({
+    String firstName,
+    String lastName,
+    String phoneNumber,
+    String email,
+    Gender gender,
+    DateTime dateOfBirth,
+  });
+}
+
+/// @nodoc
+class __$$AuthEventUpdateUserDataImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventUpdateUserDataImpl>
+    implements _$$AuthEventUpdateUserDataImplCopyWith<$Res> {
+  __$$AuthEventUpdateUserDataImplCopyWithImpl(
+    _$AuthEventUpdateUserDataImpl _value,
+    $Res Function(_$AuthEventUpdateUserDataImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? phoneNumber = null,
+    Object? email = null,
+    Object? gender = null,
+    Object? dateOfBirth = null,
+  }) {
+    return _then(
+      _$AuthEventUpdateUserDataImpl(
+        firstName:
+            null == firstName
+                ? _value.firstName
+                : firstName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        lastName:
+            null == lastName
+                ? _value.lastName
+                : lastName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phoneNumber:
+            null == phoneNumber
+                ? _value.phoneNumber
+                : phoneNumber // ignore: cast_nullable_to_non_nullable
+                    as String,
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        gender:
+            null == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                    as Gender,
+        dateOfBirth:
+            null == dateOfBirth
+                ? _value.dateOfBirth
+                : dateOfBirth // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
+  const _$AuthEventUpdateUserDataImpl({
+    required this.firstName,
+    required this.lastName,
+    required this.phoneNumber,
+    required this.email,
+    required this.gender,
+    required this.dateOfBirth,
+  });
+
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
+  final String phoneNumber;
+  @override
+  final String email;
+  @override
+  final Gender gender;
+  @override
+  final DateTime dateOfBirth;
+
+  @override
+  String toString() {
+    return 'AuthEvent.authUpdateUserData(firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, email: $email, gender: $gender, dateOfBirth: $dateOfBirth)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventUpdateUserDataImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.dateOfBirth, dateOfBirth) ||
+                other.dateOfBirth == dateOfBirth));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    gender,
+    dateOfBirth,
+  );
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventUpdateUserDataImplCopyWith<_$AuthEventUpdateUserDataImpl>
+  get copyWith => __$$AuthEventUpdateUserDataImplCopyWithImpl<
+    _$AuthEventUpdateUserDataImpl
+  >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authEventInitial,
+    required TResult Function(String email, String password)
+    authRiderEventlogin,
+    required TResult Function(String email, String password)
+    authEventDriverlogin,
+    required TResult Function(String email, String password) authEventsignUp,
+    required TResult Function() authEventsignOut,
+    required TResult Function() authEventSetToUnauthenticated,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    authEventSetAuthenticated,
+    required TResult Function() authGetUserData,
+    required TResult Function() showUserDetailPage,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )
+    authUpdateUserData,
+  }) {
+    return authUpdateUserData(
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      gender,
+      dateOfBirth,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authEventInitial,
+    TResult? Function(String email, String password)? authRiderEventlogin,
+    TResult? Function(String email, String password)? authEventDriverlogin,
+    TResult? Function(String email, String password)? authEventsignUp,
+    TResult? Function()? authEventsignOut,
+    TResult? Function()? authEventSetToUnauthenticated,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult? Function()? authGetUserData,
+    TResult? Function()? showUserDetailPage,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
+  }) {
+    return authUpdateUserData?.call(
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      gender,
+      dateOfBirth,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authEventInitial,
+    TResult Function(String email, String password)? authRiderEventlogin,
+    TResult Function(String email, String password)? authEventDriverlogin,
+    TResult Function(String email, String password)? authEventsignUp,
+    TResult Function()? authEventsignOut,
+    TResult Function()? authEventSetToUnauthenticated,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    authEventSetAuthenticated,
+    TResult Function()? authGetUserData,
+    TResult Function()? showUserDetailPage,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String email,
+      Gender gender,
+      DateTime dateOfBirth,
+    )?
+    authUpdateUserData,
+    required TResult orElse(),
+  }) {
+    if (authUpdateUserData != null) {
+      return authUpdateUserData(
+        firstName,
+        lastName,
+        phoneNumber,
+        email,
+        gender,
+        dateOfBirth,
+      );
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthEventInitial value) authEventInitial,
+    required TResult Function(AuthRiderEventLogin value) authRiderEventlogin,
+    required TResult Function(AuthDriverEventLogin value) authEventDriverlogin,
+    required TResult Function(AuthEventSignUp value) authEventsignUp,
+    required TResult Function(AuthEventSignOut value) authEventsignOut,
+    required TResult Function(AuthEventSetToUnauthenticated value)
+    authEventSetToUnauthenticated,
+    required TResult Function(AuthEventSetAuthenticated value)
+    authEventSetAuthenticated,
+    required TResult Function(AuthEventGetUserData value) authGetUserData,
+    required TResult Function(AuthEventShowUserDetailPage value)
+    showUserDetailPage,
+    required TResult Function(AuthEventUpdateUserData value) authUpdateUserData,
+  }) {
+    return authUpdateUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthEventInitial value)? authEventInitial,
+    TResult? Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult? Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult? Function(AuthEventSignUp value)? authEventsignUp,
+    TResult? Function(AuthEventSignOut value)? authEventsignOut,
+    TResult? Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult? Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult? Function(AuthEventGetUserData value)? authGetUserData,
+    TResult? Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult? Function(AuthEventUpdateUserData value)? authUpdateUserData,
+  }) {
+    return authUpdateUserData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthEventInitial value)? authEventInitial,
+    TResult Function(AuthRiderEventLogin value)? authRiderEventlogin,
+    TResult Function(AuthDriverEventLogin value)? authEventDriverlogin,
+    TResult Function(AuthEventSignUp value)? authEventsignUp,
+    TResult Function(AuthEventSignOut value)? authEventsignOut,
+    TResult Function(AuthEventSetToUnauthenticated value)?
+    authEventSetToUnauthenticated,
+    TResult Function(AuthEventSetAuthenticated value)?
+    authEventSetAuthenticated,
+    TResult Function(AuthEventGetUserData value)? authGetUserData,
+    TResult Function(AuthEventShowUserDetailPage value)? showUserDetailPage,
+    TResult Function(AuthEventUpdateUserData value)? authUpdateUserData,
+    required TResult orElse(),
+  }) {
+    if (authUpdateUserData != null) {
+      return authUpdateUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthEventUpdateUserData implements AuthEvent {
+  const factory AuthEventUpdateUserData({
+    required final String firstName,
+    required final String lastName,
+    required final String phoneNumber,
+    required final String email,
+    required final Gender gender,
+    required final DateTime dateOfBirth,
+  }) = _$AuthEventUpdateUserDataImpl;
+
+  String get firstName;
+  String get lastName;
+  String get phoneNumber;
+  String get email;
+  Gender get gender;
+  DateTime get dateOfBirth;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthEventUpdateUserDataImplCopyWith<_$AuthEventUpdateUserDataImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

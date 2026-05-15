@@ -21,12 +21,12 @@ AuthUserDataEntity _$AuthUserDataEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthUserDataEntity {
-  String get firebaseUserId => throw _privateConstructorUsedError;
+  String get firebaseId => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
-  DateTime get dob => throw _privateConstructorUsedError;
+  DateTime get dateOfBirth => throw _privateConstructorUsedError;
 
   /// Serializes this AuthUserDataEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,12 +46,12 @@ abstract class $AuthUserDataEntityCopyWith<$Res> {
   ) = _$AuthUserDataEntityCopyWithImpl<$Res, AuthUserDataEntity>;
   @useResult
   $Res call({
-    String firebaseUserId,
+    String firebaseId,
     String email,
     String firstName,
     String lastName,
     String phoneNumber,
-    DateTime dob,
+    DateTime dateOfBirth,
   });
 }
 
@@ -70,19 +70,19 @@ class _$AuthUserDataEntityCopyWithImpl<$Res, $Val extends AuthUserDataEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firebaseUserId = null,
+    Object? firebaseId = null,
     Object? email = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
-    Object? dob = null,
+    Object? dateOfBirth = null,
   }) {
     return _then(
       _value.copyWith(
-            firebaseUserId:
-                null == firebaseUserId
-                    ? _value.firebaseUserId
-                    : firebaseUserId // ignore: cast_nullable_to_non_nullable
+            firebaseId:
+                null == firebaseId
+                    ? _value.firebaseId
+                    : firebaseId // ignore: cast_nullable_to_non_nullable
                         as String,
             email:
                 null == email
@@ -104,10 +104,10 @@ class _$AuthUserDataEntityCopyWithImpl<$Res, $Val extends AuthUserDataEntity>
                     ? _value.phoneNumber
                     : phoneNumber // ignore: cast_nullable_to_non_nullable
                         as String,
-            dob:
-                null == dob
-                    ? _value.dob
-                    : dob // ignore: cast_nullable_to_non_nullable
+            dateOfBirth:
+                null == dateOfBirth
+                    ? _value.dateOfBirth
+                    : dateOfBirth // ignore: cast_nullable_to_non_nullable
                         as DateTime,
           )
           as $Val,
@@ -125,12 +125,12 @@ abstract class _$$AuthUserDataEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String firebaseUserId,
+    String firebaseId,
     String email,
     String firstName,
     String lastName,
     String phoneNumber,
-    DateTime dob,
+    DateTime dateOfBirth,
   });
 }
 
@@ -148,19 +148,19 @@ class __$$AuthUserDataEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firebaseUserId = null,
+    Object? firebaseId = null,
     Object? email = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
-    Object? dob = null,
+    Object? dateOfBirth = null,
   }) {
     return _then(
       _$AuthUserDataEntityImpl(
-        firebaseUserId:
-            null == firebaseUserId
-                ? _value.firebaseUserId
-                : firebaseUserId // ignore: cast_nullable_to_non_nullable
+        firebaseId:
+            null == firebaseId
+                ? _value.firebaseId
+                : firebaseId // ignore: cast_nullable_to_non_nullable
                     as String,
         email:
             null == email
@@ -182,10 +182,10 @@ class __$$AuthUserDataEntityImplCopyWithImpl<$Res>
                 ? _value.phoneNumber
                 : phoneNumber // ignore: cast_nullable_to_non_nullable
                     as String,
-        dob:
-            null == dob
-                ? _value.dob
-                : dob // ignore: cast_nullable_to_non_nullable
+        dateOfBirth:
+            null == dateOfBirth
+                ? _value.dateOfBirth
+                : dateOfBirth // ignore: cast_nullable_to_non_nullable
                     as DateTime,
       ),
     );
@@ -196,19 +196,19 @@ class __$$AuthUserDataEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AuthUserDataEntityImpl implements _AuthUserDataEntity {
   const _$AuthUserDataEntityImpl({
-    required this.firebaseUserId,
+    required this.firebaseId,
     required this.email,
     required this.firstName,
     required this.lastName,
     required this.phoneNumber,
-    required this.dob,
+    required this.dateOfBirth,
   });
 
   factory _$AuthUserDataEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthUserDataEntityImplFromJson(json);
 
   @override
-  final String firebaseUserId;
+  final String firebaseId;
   @override
   final String email;
   @override
@@ -218,11 +218,11 @@ class _$AuthUserDataEntityImpl implements _AuthUserDataEntity {
   @override
   final String phoneNumber;
   @override
-  final DateTime dob;
+  final DateTime dateOfBirth;
 
   @override
   String toString() {
-    return 'AuthUserDataEntity(firebaseUserId: $firebaseUserId, email: $email, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, dob: $dob)';
+    return 'AuthUserDataEntity(firebaseId: $firebaseId, email: $email, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -230,8 +230,8 @@ class _$AuthUserDataEntityImpl implements _AuthUserDataEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthUserDataEntityImpl &&
-            (identical(other.firebaseUserId, firebaseUserId) ||
-                other.firebaseUserId == firebaseUserId) &&
+            (identical(other.firebaseId, firebaseId) ||
+                other.firebaseId == firebaseId) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
@@ -239,19 +239,20 @@ class _$AuthUserDataEntityImpl implements _AuthUserDataEntity {
                 other.lastName == lastName) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.dob, dob) || other.dob == dob));
+            (identical(other.dateOfBirth, dateOfBirth) ||
+                other.dateOfBirth == dateOfBirth));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    firebaseUserId,
+    firebaseId,
     email,
     firstName,
     lastName,
     phoneNumber,
-    dob,
+    dateOfBirth,
   );
 
   /// Create a copy of AuthUserDataEntity
@@ -273,19 +274,19 @@ class _$AuthUserDataEntityImpl implements _AuthUserDataEntity {
 
 abstract class _AuthUserDataEntity implements AuthUserDataEntity {
   const factory _AuthUserDataEntity({
-    required final String firebaseUserId,
+    required final String firebaseId,
     required final String email,
     required final String firstName,
     required final String lastName,
     required final String phoneNumber,
-    required final DateTime dob,
+    required final DateTime dateOfBirth,
   }) = _$AuthUserDataEntityImpl;
 
   factory _AuthUserDataEntity.fromJson(Map<String, dynamic> json) =
       _$AuthUserDataEntityImpl.fromJson;
 
   @override
-  String get firebaseUserId;
+  String get firebaseId;
   @override
   String get email;
   @override
@@ -295,7 +296,7 @@ abstract class _AuthUserDataEntity implements AuthUserDataEntity {
   @override
   String get phoneNumber;
   @override
-  DateTime get dob;
+  DateTime get dateOfBirth;
 
   /// Create a copy of AuthUserDataEntity
   /// with the given fields replaced by the non-null parameter values.

@@ -2,12 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
+import 'package:malawi_ride_share_app/features/auth/data/models/auth_create_user_data_dto.dart';
 import 'package:malawi_ride_share_app/features/auth/data/models/auth_user_data.dart';
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_password_params.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signout_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -34,6 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEventSetToUnauthenticated>(_onSetToUnauthenticated);
     on<AuthEventSetAuthenticated>(_onSetAuthenticated);
     on<AuthEventGetUserData>(_onGetUserData);
+    on<AuthEventUpdateUserData>(_onUpdateUserData);
   }
 
   _onIntial(event, emit) async {
@@ -170,6 +173,45 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           userData,
         ),
       );
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
+
+  _onUpdateUserData(AuthEventUpdateUserData event, emit) async {
+    try {
+      final currentState = state;
+      final authData = currentState.maybeMap(
+        authenticated: (authenticatedState) => authenticatedState,
+        orElse: () => null,
+      );
+
+      emit(const AuthState.loading());
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        throw Exception('No current Firebase user found');
+      }
+
+      if (authData?.userType != null) {
+        final createUserDto = AuthCreateUserDataDto(
+          firebaseId: currentUser.uid,
+          firstName: event.firstName,
+          lastName: event.lastName,
+          phoneNumber: event.phoneNumber,
+          gender: event.gender.toString(),
+          dateOfBirth: event.dateOfBirth.toString(),
+        );
+        await authRepositoryImp.createUserInDatabase(
+          createUserDto: createUserDto,
+        );
+        emit(
+          AuthState.authenticated(
+            authData!.userCredential,
+            authData.userType,
+            await _getUserDataFromBackend(),
+          ),
+        );
+      }
     } catch (e) {
       emit(AuthState.error(e.toString()));
     }

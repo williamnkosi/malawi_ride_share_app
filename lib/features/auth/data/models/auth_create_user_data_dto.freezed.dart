@@ -24,7 +24,6 @@ AuthCreateUserDataDto _$AuthCreateUserDataDtoFromJson(
 /// @nodoc
 mixin _$AuthCreateUserDataDto {
   String get firebaseId => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -50,7 +49,6 @@ abstract class $AuthCreateUserDataDtoCopyWith<$Res> {
   @useResult
   $Res call({
     String firebaseId,
-    String email,
     String firstName,
     String lastName,
     String phoneNumber,
@@ -78,7 +76,6 @@ class _$AuthCreateUserDataDtoCopyWithImpl<
   @override
   $Res call({
     Object? firebaseId = null,
-    Object? email = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -91,11 +88,6 @@ class _$AuthCreateUserDataDtoCopyWithImpl<
                 null == firebaseId
                     ? _value.firebaseId
                     : firebaseId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
                         as String,
             firstName:
                 null == firstName
@@ -139,7 +131,6 @@ abstract class _$$AuthCreateUserDataDtoImplCopyWith<$Res>
   @useResult
   $Res call({
     String firebaseId,
-    String email,
     String firstName,
     String lastName,
     String phoneNumber,
@@ -164,7 +155,6 @@ class __$$AuthCreateUserDataDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? firebaseId = null,
-    Object? email = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -177,11 +167,6 @@ class __$$AuthCreateUserDataDtoImplCopyWithImpl<$Res>
             null == firebaseId
                 ? _value.firebaseId
                 : firebaseId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
                     as String,
         firstName:
             null == firstName
@@ -218,7 +203,6 @@ class __$$AuthCreateUserDataDtoImplCopyWithImpl<$Res>
 class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
   const _$AuthCreateUserDataDtoImpl({
     required this.firebaseId,
-    required this.email,
     required this.firstName,
     required this.lastName,
     required this.phoneNumber,
@@ -232,8 +216,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
   @override
   final String firebaseId;
   @override
-  final String email;
-  @override
   final String firstName;
   @override
   final String lastName;
@@ -246,7 +228,7 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
 
   @override
   String toString() {
-    return 'AuthCreateUserDataDto(firebaseId: $firebaseId, email: $email, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, gender: $gender, dateOfBirth: $dateOfBirth)';
+    return 'AuthCreateUserDataDto(firebaseId: $firebaseId, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, gender: $gender, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -256,7 +238,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
             other is _$AuthCreateUserDataDtoImpl &&
             (identical(other.firebaseId, firebaseId) ||
                 other.firebaseId == firebaseId) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -273,7 +254,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
   int get hashCode => Object.hash(
     runtimeType,
     firebaseId,
-    email,
     firstName,
     lastName,
     phoneNumber,
@@ -302,7 +282,6 @@ class _$AuthCreateUserDataDtoImpl implements _AuthCreateUserDataDto {
 abstract class _AuthCreateUserDataDto implements AuthCreateUserDataDto {
   const factory _AuthCreateUserDataDto({
     required final String firebaseId,
-    required final String email,
     required final String firstName,
     required final String lastName,
     required final String phoneNumber,
@@ -315,8 +294,6 @@ abstract class _AuthCreateUserDataDto implements AuthCreateUserDataDto {
 
   @override
   String get firebaseId;
-  @override
-  String get email;
   @override
   String get firstName;
   @override

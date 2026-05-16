@@ -28,7 +28,6 @@ class AuthEvent with _$AuthEvent {
     required String firstName,
     required String lastName,
     required String phoneNumber,
-    required String email,
     required Gender gender,
     required DateTime dateOfBirth,
   }) = AuthEventUpdateUserData;

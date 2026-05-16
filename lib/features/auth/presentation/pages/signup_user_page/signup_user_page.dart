@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -181,7 +180,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
           firstName: formData['firstName'] as String,
           lastName: formData['lastName'] as String,
           phoneNumber: formData['phoneNumber'] as String,
-          email: FirebaseAuth.instance.currentUser?.email ?? '',
+
           gender: formData['gender'] as Gender,
           dateOfBirth: formData['dateOfBirth'] as DateTime,
         ),

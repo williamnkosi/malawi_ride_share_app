@@ -35,7 +35,6 @@ mixin _$AuthEvent {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -57,7 +56,6 @@ mixin _$AuthEvent {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -79,7 +77,6 @@ mixin _$AuthEvent {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -214,7 +211,6 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -240,7 +236,6 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -266,7 +261,6 @@ class _$AuthEventInitialImpl implements AuthEventInitial {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -448,7 +442,6 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -474,7 +467,6 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -500,7 +492,6 @@ class _$AuthRiderEventLoginImpl implements AuthRiderEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -695,7 +686,6 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -721,7 +711,6 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -747,7 +736,6 @@ class _$AuthDriverEventLoginImpl implements AuthDriverEventLogin {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -938,7 +926,6 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -964,7 +951,6 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -990,7 +976,6 @@ class _$AuthEventSignUpImpl implements AuthEventSignUp {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1141,7 +1126,6 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -1167,7 +1151,6 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1193,7 +1176,6 @@ class _$AuthEventSignOutImpl implements AuthEventSignOut {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1334,7 +1316,6 @@ class _$AuthEventSetToUnauthenticatedImpl
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -1360,7 +1341,6 @@ class _$AuthEventSetToUnauthenticatedImpl
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1386,7 +1366,6 @@ class _$AuthEventSetToUnauthenticatedImpl
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1569,7 +1548,6 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -1595,7 +1573,6 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1621,7 +1598,6 @@ class _$AuthEventSetAuthenticatedImpl implements AuthEventSetAuthenticated {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1773,7 +1749,6 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -1799,7 +1774,6 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1825,7 +1799,6 @@ class _$AuthEventGetUserDataImpl implements AuthEventGetUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -1965,7 +1938,6 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -1991,7 +1963,6 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -2017,7 +1988,6 @@ class _$AuthEventShowUserDetailPageImpl implements AuthEventShowUserDetailPage {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -2109,7 +2079,6 @@ abstract class _$$AuthEventUpdateUserDataImplCopyWith<$Res> {
     String firstName,
     String lastName,
     String phoneNumber,
-    String email,
     Gender gender,
     DateTime dateOfBirth,
   });
@@ -2132,7 +2101,6 @@ class __$$AuthEventUpdateUserDataImplCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
-    Object? email = null,
     Object? gender = null,
     Object? dateOfBirth = null,
   }) {
@@ -2152,11 +2120,6 @@ class __$$AuthEventUpdateUserDataImplCopyWithImpl<$Res>
             null == phoneNumber
                 ? _value.phoneNumber
                 : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
                     as String,
         gender:
             null == gender
@@ -2180,7 +2143,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
     required this.firstName,
     required this.lastName,
     required this.phoneNumber,
-    required this.email,
     required this.gender,
     required this.dateOfBirth,
   });
@@ -2192,15 +2154,13 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
   @override
   final String phoneNumber;
   @override
-  final String email;
-  @override
   final Gender gender;
   @override
   final DateTime dateOfBirth;
 
   @override
   String toString() {
-    return 'AuthEvent.authUpdateUserData(firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, email: $email, gender: $gender, dateOfBirth: $dateOfBirth)';
+    return 'AuthEvent.authUpdateUserData(firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, gender: $gender, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -2214,7 +2174,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
                 other.lastName == lastName) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
                 other.dateOfBirth == dateOfBirth));
@@ -2226,7 +2185,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
     firstName,
     lastName,
     phoneNumber,
-    email,
     gender,
     dateOfBirth,
   );
@@ -2260,7 +2218,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )
@@ -2270,7 +2227,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
       firstName,
       lastName,
       phoneNumber,
-      email,
       gender,
       dateOfBirth,
     );
@@ -2293,7 +2249,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -2303,7 +2258,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
       firstName,
       lastName,
       phoneNumber,
-      email,
       gender,
       dateOfBirth,
     );
@@ -2326,7 +2280,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
       String firstName,
       String lastName,
       String phoneNumber,
-      String email,
       Gender gender,
       DateTime dateOfBirth,
     )?
@@ -2338,7 +2291,6 @@ class _$AuthEventUpdateUserDataImpl implements AuthEventUpdateUserData {
         firstName,
         lastName,
         phoneNumber,
-        email,
         gender,
         dateOfBirth,
       );
@@ -2414,7 +2366,6 @@ abstract class AuthEventUpdateUserData implements AuthEvent {
     required final String firstName,
     required final String lastName,
     required final String phoneNumber,
-    required final String email,
     required final Gender gender,
     required final DateTime dateOfBirth,
   }) = _$AuthEventUpdateUserDataImpl;
@@ -2422,7 +2373,6 @@ abstract class AuthEventUpdateUserData implements AuthEvent {
   String get firstName;
   String get lastName;
   String get phoneNumber;
-  String get email;
   Gender get gender;
   DateTime get dateOfBirth;
 

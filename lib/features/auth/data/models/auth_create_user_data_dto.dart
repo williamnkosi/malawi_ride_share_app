@@ -7,7 +7,6 @@ part 'auth_create_user_data_dto.g.dart';
 class AuthCreateUserDataDto with _$AuthCreateUserDataDto {
   const factory AuthCreateUserDataDto({
     required String firebaseId,
-    required String email,
     required String firstName,
     required String lastName,
     required String phoneNumber,

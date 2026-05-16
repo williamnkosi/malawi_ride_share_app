@@ -10,7 +10,6 @@ _$AuthCreateUserDataDtoImpl _$$AuthCreateUserDataDtoImplFromJson(
   Map<String, dynamic> json,
 ) => _$AuthCreateUserDataDtoImpl(
   firebaseId: json['firebaseId'] as String,
-  email: json['email'] as String,
   firstName: json['firstName'] as String,
   lastName: json['lastName'] as String,
   phoneNumber: json['phoneNumber'] as String,
@@ -22,7 +21,6 @@ Map<String, dynamic> _$$AuthCreateUserDataDtoImplToJson(
   _$AuthCreateUserDataDtoImpl instance,
 ) => <String, dynamic>{
   'firebaseId': instance.firebaseId,
-  'email': instance.email,
   'firstName': instance.firstName,
   'lastName': instance.lastName,
   'phoneNumber': instance.phoneNumber,

@@ -50,6 +50,12 @@ class AppRouter extends StatelessWidget {
                 }
                 return AppRoutes.loginPage;
               },
+              showUserDetailPage: (_) {
+                if (routerState.matchedLocation == AppRoutes.authSignUpPage) {
+                  return null;
+                }
+                return AppRoutes.authSignUpPage;
+              },
               error: (_) {
                 return null;
               }, // Navigate to the login page

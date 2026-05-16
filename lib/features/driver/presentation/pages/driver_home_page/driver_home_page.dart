@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/config/routes/router.dart';
 import 'package:malawi_ride_share_app/features/app/presentation/app_bloc/app_bloc.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_operations_bloc/driver_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
@@ -21,6 +22,9 @@ class DriverHomePage extends StatefulWidget {
 
 class _DriverHomePageState extends State<DriverHomePage> {
   final Logger logger = Logger('DriverHomePage');
+  final LocationBloc _locationBloc = getIt<LocationBloc>();
+  final DriverTripBloc _driverTripBloc = getIt<DriverTripBloc>();
+
   @override
   void initState() {
     super.initState();
@@ -37,8 +41,8 @@ class _DriverHomePageState extends State<DriverHomePage> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => getIt<LocationBloc>()),
-        BlocProvider(create: (context) => getIt<DriverTripBloc>()),
+        BlocProvider.value(value: _locationBloc),
+        BlocProvider.value(value: _driverTripBloc),
         BlocProvider(
           create: (context) =>
               getIt<DriverOperationsBloc>()
@@ -49,6 +53,18 @@ class _DriverHomePageState extends State<DriverHomePage> {
         appBar: AppBar(title: const Text('Driver Home Page')),
         body: MultiBlocListener(
           listeners: [
+            BlocListener<AuthBloc, AuthState>(
+              listenWhen: (previous, current) => previous != current,
+              listener: (context, state) {
+                state.maybeWhen(
+                  showUserDetailPage: () {
+                    // Navigate to login page using go_router
+                    context.push(AppRoutes.authSignUpPage);
+                  },
+                  orElse: () {},
+                );
+              },
+            ),
             BlocListener<AppBloc, AppState>(
               listenWhen: (previous, current) =>
                   previous.isLocationPremissionEnabled !=

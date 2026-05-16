@@ -24,7 +24,7 @@ class AuthEvent with _$AuthEvent {
   }) = AuthEventSetAuthenticated;
   const factory AuthEvent.authGetUserData() = AuthEventGetUserData;
   const factory AuthEvent.showUserDetailPage() = AuthEventShowUserDetailPage;
-  const factory AuthEvent.updateUserData({
+  const factory AuthEvent.authUpdateUserData({
     required String firstName,
     required String lastName,
     required String phoneNumber,

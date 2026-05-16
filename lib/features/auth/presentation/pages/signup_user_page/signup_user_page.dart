@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -174,45 +175,15 @@ class _SignupUserPageState extends State<SignupUserPage> {
     setState(() => _isLoading = true);
 
     try {
-      final authRepository = getIt<AuthRepositoryImp>();
       final authBloc = context.read<AuthBloc>();
-      final authState = authBloc.state;
-
-      final userCredential = authState.maybeMap(
-        authenticated: (authenticatedState) =>
-            authenticatedState.userCredential,
-        orElse: () => null,
-      );
-
-      final userEmail = userCredential?.user?.email;
-      final firebaseId = userCredential?.user?.uid;
-
-      if (userCredential == null || userEmail == null || firebaseId == null) {
-        throw Exception(
-          'Please create credentials first before completing profile signup.',
-        );
-      }
-
-      // Create user profile in database
-      await authRepository.createUserInDatabase(
-        createUserDto: AuthCreateUserDataDto(
-          firebaseId: firebaseId,
-          firstName: formData['firstName'],
-          lastName: formData['lastName'],
-          phoneNumber: formData['phoneNumber'],
-          email: userEmail,
-          gender: (formData['gender'] as Gender).value,
-          dateOfBirth: (formData['dateOfBirth'] as DateTime)
-              .toIso8601String()
-              .split('T')[0],
-        ),
-      );
-
-      // Update auth state
       authBloc.add(
-        AuthEvent.authEventSetAuthenticated(
-          userCredential: userCredential,
-          userType: formData['userType'] as UserType,
+        AuthEvent.authUpdateUserData(
+          firstName: formData['firstName'] as String,
+          lastName: formData['lastName'] as String,
+          phoneNumber: formData['phoneNumber'] as String,
+          email: FirebaseAuth.instance.currentUser?.email ?? '',
+          gender: formData['gender'] as Gender,
+          dateOfBirth: formData['dateOfBirth'] as DateTime,
         ),
       );
 

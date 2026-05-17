@@ -14,6 +14,8 @@ class AuthState with _$AuthState {
   const factory AuthState.unauthenticated() =
       _Unauthenticated; // Unauthenticated state
   const factory AuthState.error(String message) = _Error; // Error state
-  const factory AuthState.showUserDetailPage() =
-      _ShowUserDetailPage; // Show user detail page state
+  const factory AuthState.showUserDetailPage(
+    UserCredential userCredential,
+    UserType userType,
+  ) = _ShowUserDetailPage; // Show user detail page state
 }

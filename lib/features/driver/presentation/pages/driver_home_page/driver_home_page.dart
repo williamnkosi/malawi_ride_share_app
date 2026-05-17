@@ -57,7 +57,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
               listenWhen: (previous, current) => previous != current,
               listener: (context, state) {
                 state.maybeWhen(
-                  showUserDetailPage: () {
+                  showUserDetailPage: (_, _) {
                     // Navigate to login page using go_router
                     context.push(AppRoutes.authSignUpPage);
                   },

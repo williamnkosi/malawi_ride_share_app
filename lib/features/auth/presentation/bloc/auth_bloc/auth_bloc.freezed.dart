@@ -2397,7 +2397,8 @@ mixin _$AuthState {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -2411,7 +2412,8 @@ mixin _$AuthState {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -2425,7 +2427,8 @@ mixin _$AuthState {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2531,7 +2534,8 @@ class _$StartImpl implements _Start {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
     return start();
   }
@@ -2549,7 +2553,8 @@ class _$StartImpl implements _Start {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
     return start?.call();
   }
@@ -2567,7 +2572,8 @@ class _$StartImpl implements _Start {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -2677,7 +2683,8 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
     return loading();
   }
@@ -2695,7 +2702,8 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
     return loading?.call();
   }
@@ -2713,7 +2721,8 @@ class _$LoadingImpl implements _Loading {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2896,7 +2905,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
     return authenticated(userCredential, userType, authUserData);
   }
@@ -2914,7 +2924,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
     return authenticated?.call(userCredential, userType, authUserData);
   }
@@ -2932,7 +2943,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -3056,7 +3068,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
     return unauthenticated();
   }
@@ -3074,7 +3087,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
     return unauthenticated?.call();
   }
@@ -3092,7 +3106,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -3229,7 +3244,8 @@ class _$ErrorImpl implements _Error {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
     return error(message);
   }
@@ -3247,7 +3263,8 @@ class _$ErrorImpl implements _Error {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
     return error?.call(message);
   }
@@ -3265,7 +3282,8 @@ class _$ErrorImpl implements _Error {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -3336,6 +3354,8 @@ abstract class _$$ShowUserDetailPageImplCopyWith<$Res> {
     _$ShowUserDetailPageImpl value,
     $Res Function(_$ShowUserDetailPageImpl) then,
   ) = __$$ShowUserDetailPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserCredential userCredential, UserType userType});
 }
 
 /// @nodoc
@@ -3349,26 +3369,63 @@ class __$$ShowUserDetailPageImplCopyWithImpl<$Res>
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? userCredential = null, Object? userType = null}) {
+    return _then(
+      _$ShowUserDetailPageImpl(
+        null == userCredential
+            ? _value.userCredential
+            : userCredential // ignore: cast_nullable_to_non_nullable
+                as UserCredential,
+        null == userType
+            ? _value.userType
+            : userType // ignore: cast_nullable_to_non_nullable
+                as UserType,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
 class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
-  const _$ShowUserDetailPageImpl();
+  const _$ShowUserDetailPageImpl(this.userCredential, this.userType);
+
+  @override
+  final UserCredential userCredential;
+  @override
+  final UserType userType;
 
   @override
   String toString() {
-    return 'AuthState.showUserDetailPage()';
+    return 'AuthState.showUserDetailPage(userCredential: $userCredential, userType: $userType)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowUserDetailPageImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ShowUserDetailPageImpl &&
+            (identical(other.userCredential, userCredential) ||
+                other.userCredential == userCredential) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userCredential, userType);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShowUserDetailPageImplCopyWith<_$ShowUserDetailPageImpl> get copyWith =>
+      __$$ShowUserDetailPageImplCopyWithImpl<_$ShowUserDetailPageImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -3383,9 +3440,10 @@ class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
     authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
-    required TResult Function() showUserDetailPage,
+    required TResult Function(UserCredential userCredential, UserType userType)
+    showUserDetailPage,
   }) {
-    return showUserDetailPage();
+    return showUserDetailPage(userCredential, userType);
   }
 
   @override
@@ -3401,9 +3459,10 @@ class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
     authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
-    TResult? Function()? showUserDetailPage,
+    TResult? Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
   }) {
-    return showUserDetailPage?.call();
+    return showUserDetailPage?.call(userCredential, userType);
   }
 
   @override
@@ -3419,11 +3478,12 @@ class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
     authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
-    TResult Function()? showUserDetailPage,
+    TResult Function(UserCredential userCredential, UserType userType)?
+    showUserDetailPage,
     required TResult orElse(),
   }) {
     if (showUserDetailPage != null) {
-      return showUserDetailPage();
+      return showUserDetailPage(userCredential, userType);
     }
     return orElse();
   }
@@ -3473,5 +3533,17 @@ class _$ShowUserDetailPageImpl implements _ShowUserDetailPage {
 }
 
 abstract class _ShowUserDetailPage implements AuthState {
-  const factory _ShowUserDetailPage() = _$ShowUserDetailPageImpl;
+  const factory _ShowUserDetailPage(
+    final UserCredential userCredential,
+    final UserType userType,
+  ) = _$ShowUserDetailPageImpl;
+
+  UserCredential get userCredential;
+  UserType get userType;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ShowUserDetailPageImplCopyWith<_$ShowUserDetailPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

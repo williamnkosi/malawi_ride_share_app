@@ -9,6 +9,7 @@ class AuthCreateUserDataDto with _$AuthCreateUserDataDto {
     required String firebaseId,
     required String firstName,
     required String lastName,
+    required String email,
     required String phoneNumber,
     required String gender,
     required String dateOfBirth,

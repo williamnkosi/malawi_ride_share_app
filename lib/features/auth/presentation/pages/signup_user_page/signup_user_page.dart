@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:malawi_ride_share_app/features/auth/data/models/auth_create_user_data_dto.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
-import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
-import 'package:malawi_ride_share_app/services/locator.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
 
 enum Gender {
@@ -84,7 +81,7 @@ class _SignupUserPageState extends State<SignupUserPage> {
                           .map(
                             (g) => DropdownMenuItem(
                               value: g,
-                              child: Text(g.name.toUpperCase()),
+                              child: Text(g.name.toLowerCase()),
                             ),
                           )
                           .toList(),

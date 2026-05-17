@@ -56,7 +56,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       var userCredential = await signInUserUseCase(params);
       var userData = await _getUserDataFromBackend();
       if (userData == null) {
-        emit(const AuthState.showUserDetailPage());
+        emit(AuthState.showUserDetailPage(userCredential, UserType.rider));
         return;
       }
 
@@ -75,7 +75,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       var userCredential = await signInUserUseCase(params);
       var userData = await _getUserDataFromBackend();
       if (userData == null) {
-        emit(const AuthState.showUserDetailPage());
+        emit(AuthState.showUserDetailPage(userCredential, UserType.driver));
         return;
       }
 
@@ -160,7 +160,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       final userData = await _getUserDataFromBackend();
       if (userData == null) {
-        emit(const AuthState.showUserDetailPage());
+        // emit(AuthState.showUserDetailPage(currentUser, UserType.rider));
         return;
       }
 
@@ -182,7 +182,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       final currentState = state;
       final authData = currentState.maybeMap(
-        authenticated: (authenticatedState) => authenticatedState,
+        // authenticated: (authenticatedState) => authenticatedState,
+        showUserDetailPage: (showUserDetailPageState) =>
+            showUserDetailPageState,
         orElse: () => null,
       );
 
@@ -197,8 +199,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           firebaseId: currentUser.uid,
           firstName: event.firstName,
           lastName: event.lastName,
+          email: currentUser.email ?? '',
           phoneNumber: event.phoneNumber,
-          gender: event.gender.toString(),
+          gender: event.gender.name.toLowerCase(),
           dateOfBirth: event.dateOfBirth.toString(),
         );
         await authRepositoryImp.createUserInDatabase(

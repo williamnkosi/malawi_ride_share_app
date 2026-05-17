@@ -168,6 +168,5 @@ class _RiderHomeRequestFormState extends State<RiderHomeRequestForm> {
         ],
       ),
     );
-    ;
   }
 }

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
@@ -17,7 +16,6 @@ import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/process_trip_request_use_case.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/usecase/driver_trip_use_cases/start_trip_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/entities/location.dart';
-import 'package:malawi_ride_share_app/features/location/domain/use_case/get_current_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/domain/entities/route_entity.dart';
 
 part 'driver_trip_event.dart';

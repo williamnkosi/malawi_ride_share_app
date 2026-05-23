@@ -8,8 +8,10 @@ import 'package:malawi_ride_share_app/features/auth/presentation/pages/login_pag
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 import 'package:malawi_ride_share_app/config/routes/router.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/sigup_user_creds.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/cubit/sign_up_cubit.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_active_trip_page/driver_active_trip.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
 
 class AppRouter extends StatelessWidget {
   AppRouter({super.key});
@@ -74,13 +76,17 @@ class AppRouter extends StatelessWidget {
             ),
             GoRoute(
               path: AppRoutes.authSignUpPage,
-              builder: (context, state) =>
-                  SignupUserPage(), // Unauthenticated experience
+              builder: (context, state) => const SignupUserPage(),
             ),
             GoRoute(
               path: AppRoutes.authUserCredsPage,
-              builder: (context, state) =>
-                  SignUpUserCreds(), // Unauthenticated experience
+              builder: (context, state) => BlocProvider(
+                create: (context) => SignUpCubit(
+                  signUpUserUseCase: getIt(),
+                  authRepositoryImp: getIt(),
+                ),
+                child: const SignUpUserCreds(),
+              ),
             ),
             GoRoute(
               path: AppRoutes.driverActiveTripPage,

@@ -7,6 +7,7 @@ import 'package:malawi_ride_share_app/features/auth/data/models/auth_user_data.d
 import 'package:malawi_ride_share_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_password_params.dart';
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 
 part 'sign_up_state.dart';

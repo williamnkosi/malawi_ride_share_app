@@ -23,7 +23,6 @@ class AppRouter extends StatelessWidget {
 
   final List<String> publicRoutes = [
     AppRoutes.loginPage,
-    AppRoutes.authSignUpPage,
     AppRoutes.authUserCredsPage,
   ];
 
@@ -40,24 +39,32 @@ class AppRouter extends StatelessWidget {
                   AppRoutes.loginPage, // Redirect logic for the initial state
               loading: (_) => null, // Do nothing, remain on the same screen
               authenticated: (_) {
-                if (privateRoutes.contains(routerState.matchedLocation)) {
+                final location = routerState.matchedLocation;
+                if (privateRoutes.contains(location)) {
                   return null; // Stay on the current route
+                }
+                // Allow public routes (signup flow)
+                final isPublic =
+                    publicRoutes.contains(location) ||
+                    publicRoutes.any((route) => location.startsWith(route));
+                if (isPublic) {
+                  return null;
                 }
                 return AppRoutes.homePage; // Navigate to the home page
               },
 
               unauthenticated: (_) {
-                if (publicRoutes.contains(routerState.matchedLocation)) {
+                final location = routerState.matchedLocation;
+                // Check if current route is public or starts with a public route
+                final isPublic =
+                    publicRoutes.contains(location) ||
+                    publicRoutes.any((route) => location.startsWith(route));
+                if (isPublic) {
                   return null;
                 }
                 return AppRoutes.loginPage;
               },
-              showUserDetailPage: (_) {
-                if (routerState.matchedLocation == AppRoutes.authSignUpPage) {
-                  return null;
-                }
-                return AppRoutes.authSignUpPage;
-              },
+
               error: (_) {
                 return null;
               }, // Navigate to the login page

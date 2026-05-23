@@ -91,9 +91,6 @@ class LoginPage extends StatelessWidget {
                 child: AppOutlineButton(
                   buttonText: 'Sign Up',
                   onPressed: () {
-                    context.read<AuthBloc>().add(
-                      AuthEvent.authEventSetToUnauthenticated(),
-                    );
                     context.push(AppRoutes.authUserCredsPage);
                   },
                 ),

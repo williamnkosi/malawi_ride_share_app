@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:go_router/go_router.dart';
+import 'package:malawi_ride_share_app/features/auth/data/models/auth_user_data.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/cubit/sign_up_cubit.dart';
 import 'package:malawi_ride_share_app/shared/widgets/app_button.dart';
@@ -24,13 +26,27 @@ class SignupUserPage extends StatefulWidget {
 
 class _SignupUserPageState extends State<SignupUserPage> {
   final formKey = GlobalKey<FormBuilderState>();
-  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state.status == SignUpStatus.userDataUpdated) {
+          // Sync global auth state after signup completes
+          context.read<AuthBloc>().add(
+            AuthEvent.authSuccess(
+              userCredential: state.userCredential!,
+              userType: state.userType!,
+              authUserData: state.authUserData,
+            ),
+          );
+          // Navigate to home
+          context.go('/home');
+        } else if (state.status == SignUpStatus.error) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Error: ${state.error}')));
+        }
       },
       child: Scaffold(
         appBar: AppBar(title: const Text('Driver Signup')),
@@ -123,58 +139,70 @@ class _SignupUserPageState extends State<SignupUserPage> {
                         validator: FormBuilderValidators.required(),
                       ),
                       const SizedBox(height: 32),
-                      SizedBox(
-                        width: double.infinity,
-                        child: AppOutlineButton(
-                          buttonText: 'Sign Up',
-                          onPressed: _isLoading
-                              ? null
-                              : () => _handleSignup(
-                                  userCredential: context
-                                      .read<SignUpCubit>()
-                                      .state
-                                      .userCredential!,
-                                ),
-                        ),
+                      BlocBuilder<SignUpCubit, SignUpState>(
+                        builder: (context, state) {
+                          return SizedBox(
+                            width: double.infinity,
+                            child: AppOutlineButton(
+                              buttonText: 'Sign Up',
+                              onPressed: state.status == SignUpStatus.loading
+                                  ? null
+                                  : () => _handleSignup(
+                                      userCredential: context
+                                          .read<SignUpCubit>()
+                                          .state
+                                          .userCredential!,
+                                    ),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-            if (_isLoading)
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                color: Colors.black.withOpacity(0.5),
-                child: const Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        strokeWidth: 3.0,
+            BlocBuilder<SignUpCubit, SignUpState>(
+              builder: (context, state) {
+                if (state.status == SignUpStatus.loading) {
+                  return Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: Colors.black.withOpacity(0.5),
+                    child: const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.white,
+                            ),
+                            strokeWidth: 3.0,
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'Creating your account...',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 16),
-                      Text(
-                        'Creating your account...',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+            ),
           ],
         ),
       ),
     );
   }
 
-  Future<void> _handleSignup({required UserCredential userCredential}) async {
+  void _handleSignup({required UserCredential userCredential}) {
     if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
@@ -182,25 +210,14 @@ class _SignupUserPageState extends State<SignupUserPage> {
     formKey.currentState?.save();
     final formData = formKey.currentState?.value ?? {};
 
-    setState(() => _isLoading = true);
-
-    try {
-      context.read<SignUpCubit>().updateUserData(
-        firstName: formData['firstName'] as String,
-        lastName: formData['lastName'] as String,
-        phoneNumber: formData['phoneNumber'] as String,
-        gender: formData['gender'] as Gender,
-        dateOfBirth: formData['dateOfBirth'] as DateTime,
-        userCredential: userCredential,
-        userType: formData['userType'] as UserType,
-      );
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Signup failed: $e')));
-      }
-      setState(() => _isLoading = false);
-    }
+    context.read<SignUpCubit>().updateUserData(
+      firstName: formData['firstName'] as String,
+      lastName: formData['lastName'] as String,
+      phoneNumber: formData['phoneNumber'] as String,
+      gender: formData['gender'] as Gender,
+      dateOfBirth: formData['dateOfBirth'] as DateTime,
+      userCredential: userCredential,
+      userType: formData['userType'] as UserType,
+    );
   }
 }

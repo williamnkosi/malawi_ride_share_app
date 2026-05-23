@@ -43,7 +43,7 @@ class _SignUpUserCredsState extends State<SignUpUserCreds> {
     return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state.status == SignUpStatus.success) {
-          context.push('profile');
+          context.push('/AuthUserCredsPage/profile');
         } else if (state.status == SignUpStatus.error) {
           ScaffoldMessenger.of(
             context,

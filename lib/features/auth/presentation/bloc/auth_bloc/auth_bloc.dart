@@ -27,8 +27,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required this.signUpUserUseCase,
     required this.signOutUserUseCase,
     required this.authRepositoryImp,
-  }) : super(const AuthState.start()) {
-    on<AuthEventInitial>(_onIntial);
+  }) : super(const AuthState.unauthenticated()) {
+    on<AuthEventInitial>(_onInitial);
     on<AuthRiderEventLogin>(_onRiderLogin);
     on<AuthDriverEventLogin>(_onDriverLogin);
     on<AuthEventSignUp>(_onsignUp);
@@ -36,10 +36,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEventSetToUnauthenticated>(_onSetToUnauthenticated);
     on<AuthEventSetAuthenticated>(_onSetAuthenticated);
     on<AuthEventGetUserData>(_onGetUserData);
-    on<AuthEventUpdateUserData>(_onUpdateUserData);
+    on<AuthEventAuthSuccess>(_onAuthSuccess);
   }
 
-  _onIntial(event, emit) async {
+  _onInitial(event, emit) async {
     try {
       emit(const AuthState.unauthenticated());
     } catch (e) {
@@ -55,10 +55,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signInUserUseCase(params);
       var userData = await _getUserDataFromBackend();
-      if (userData == null) {
-        emit(AuthState.showUserDetailPage(userCredential, UserType.rider));
-        return;
-      }
 
       emit(AuthState.authenticated(userCredential, UserType.rider, userData));
     } catch (e) {
@@ -74,10 +70,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signInUserUseCase(params);
       var userData = await _getUserDataFromBackend();
-      if (userData == null) {
-        emit(AuthState.showUserDetailPage(userCredential, UserType.driver));
-        return;
-      }
 
       emit(AuthState.authenticated(userCredential, UserType.driver, userData));
     } catch (e) {
@@ -113,7 +105,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signUpUserUseCase(params);
-      emit(AuthState.authenticated(userCredential, UserType.driver, null));
+      // emit(AuthState.authenticated(userCredential, event.userType, null));
     } catch (e) {
       emit(AuthState.error(e.toString()));
     }
@@ -178,45 +170,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  _onUpdateUserData(AuthEventUpdateUserData event, emit) async {
-    try {
-      final currentState = state;
-      final authData = currentState.maybeMap(
-        // authenticated: (authenticatedState) => authenticatedState,
-        showUserDetailPage: (showUserDetailPageState) =>
-            showUserDetailPageState,
-        orElse: () => null,
-      );
-
-      emit(const AuthState.loading());
-      final currentUser = FirebaseAuth.instance.currentUser;
-      if (currentUser == null) {
-        throw Exception('No current Firebase user found');
-      }
-
-      if (authData?.userType != null) {
-        final createUserDto = AuthCreateUserDataDto(
-          firebaseId: currentUser.uid,
-          firstName: event.firstName,
-          lastName: event.lastName,
-          email: currentUser.email ?? '',
-          phoneNumber: event.phoneNumber,
-          gender: event.gender.name.toLowerCase(),
-          dateOfBirth: event.dateOfBirth.toString(),
-        );
-        await authRepositoryImp.createUserInDatabase(
-          createUserDto: createUserDto,
-        );
-        emit(
-          AuthState.authenticated(
-            authData!.userCredential,
-            authData.userType,
-            await _getUserDataFromBackend(),
-          ),
-        );
-      }
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+  _onAuthSuccess(AuthEventAuthSuccess event, emit) {
+    emit(
+      AuthState.authenticated(
+        event.userCredential,
+        event.userType,
+        event.authUserData,
+      ),
+    );
   }
 }

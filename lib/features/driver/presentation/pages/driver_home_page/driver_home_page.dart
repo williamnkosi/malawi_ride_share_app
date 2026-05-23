@@ -56,13 +56,7 @@ class _DriverHomePageState extends State<DriverHomePage> {
             BlocListener<AuthBloc, AuthState>(
               listenWhen: (previous, current) => previous != current,
               listener: (context, state) {
-                state.maybeWhen(
-                  showUserDetailPage: (_, _) {
-                    // Navigate to login page using go_router
-                    context.push(AppRoutes.authSignUpPage);
-                  },
-                  orElse: () {},
-                );
+                state.maybeWhen(orElse: () {});
               },
             ),
             BlocListener<AppBloc, AppState>(

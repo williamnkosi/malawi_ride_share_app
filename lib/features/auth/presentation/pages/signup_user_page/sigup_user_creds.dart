@@ -42,17 +42,13 @@ class _SignUpUserCredsState extends State<SignUpUserCreds> {
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        state.maybeWhen(
-          success: (userCredential, userType) {
-            context.go(AppRoutes.authSignUpPage);
-          },
-          error: (error) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text('Error: $error')));
-          },
-          orElse: () {},
-        );
+        if (state.status == SignUpStatus.success) {
+          context.push('profile');
+        } else if (state.status == SignUpStatus.error) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Error: ${state.error}')));
+        }
       },
       child: Scaffold(
         appBar: AppBar(title: const Text('Sign Up')),

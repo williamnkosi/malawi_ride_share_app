@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/auth/data/models/auth_create_user_data_dto.dart';
 import 'package:malawi_ride_share_app/features/auth/data/models/auth_user_data.dart';
@@ -9,9 +8,9 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/email_passwo
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
+import 'package:equatable/equatable.dart';
 
 part 'sign_up_state.dart';
-part 'sign_up_cubit.freezed.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
   final Logger _logger = Logger('SignUpCubit');
@@ -21,7 +20,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit({
     required this.signUpUserUseCase,
     required this.authRepositoryImp,
-  }) : super(const SignUpState.initial());
+  }) : super(const SignUpState());
 
   Future<void> signUp({
     required String email,
@@ -29,12 +28,18 @@ class SignUpCubit extends Cubit<SignUpState> {
     required UserType userType,
   }) async {
     try {
-      emit(const SignUpState.loading());
+      emit(state.copyWith(status: SignUpStatus.loading));
       var params = EmailPasswordParams(email: email, password: password);
       var userCredential = await signUpUserUseCase(params);
-      emit(SignUpState.success(userCredential, userType));
+      emit(
+        state.copyWith(
+          status: SignUpStatus.success,
+          userCredential: userCredential,
+          userType: userType,
+        ),
+      );
     } catch (e) {
-      emit(SignUpState.error(e.toString()));
+      emit(state.copyWith(status: SignUpStatus.error, error: e.toString()));
     }
   }
 
@@ -48,7 +53,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     required UserType userType,
   }) async {
     try {
-      emit(const SignUpState.loading());
+      emit(state.copyWith(status: SignUpStatus.loading));
       final currentUser = FirebaseAuth.instance.currentUser;
       if (currentUser == null) {
         throw Exception('No current Firebase user found');
@@ -69,10 +74,12 @@ class SignUpCubit extends Cubit<SignUpState> {
       );
 
       final userData = await _getUserDataFromBackend();
-      emit(SignUpState.userDataUpdated(userCredential, userType, userData));
+      emit(
+        state.copyWith(status: SignUpStatus.success, authUserData: userData),
+      );
     } catch (e) {
       _logger.severe('Error updating user data: $e');
-      emit(SignUpState.error(e.toString()));
+      emit(state.copyWith(status: SignUpStatus.error, error: e.toString()));
     }
   }
 

@@ -75,10 +75,6 @@ class AppRouter extends StatelessWidget {
                   LoginPage(), // Authenticated experience
             ),
             GoRoute(
-              path: AppRoutes.authSignUpPage,
-              builder: (context, state) => const SignupUserPage(),
-            ),
-            GoRoute(
               path: AppRoutes.authUserCredsPage,
               builder: (context, state) => BlocProvider(
                 create: (context) => SignUpCubit(
@@ -87,6 +83,12 @@ class AppRouter extends StatelessWidget {
                 ),
                 child: const SignUpUserCreds(),
               ),
+              routes: [
+                GoRoute(
+                  path: 'profile',
+                  builder: (context, state) => const SignupUserPage(),
+                ),
+              ],
             ),
             GoRoute(
               path: AppRoutes.driverActiveTripPage,

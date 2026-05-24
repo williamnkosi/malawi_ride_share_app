@@ -75,7 +75,10 @@ class SignUpCubit extends Cubit<SignUpState> {
 
       final userData = await _getUserDataFromBackend();
       emit(
-        state.copyWith(status: SignUpStatus.success, authUserData: userData),
+        state.copyWith(
+          status: SignUpStatus.userDataUpdated,
+          authUserData: userData,
+        ),
       );
     } catch (e) {
       _logger.severe('Error updating user data: $e');

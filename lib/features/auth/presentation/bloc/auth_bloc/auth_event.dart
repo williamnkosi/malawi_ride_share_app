@@ -14,6 +14,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.authEventsignUp({
     required String email,
     required String password,
+    required UserType userType,
   }) = AuthEventSignUp;
   const factory AuthEvent.authEventsignOut() = AuthEventSignOut;
   const factory AuthEvent.authEventSetToUnauthenticated() =
@@ -23,7 +24,6 @@ class AuthEvent with _$AuthEvent {
     required UserType userType,
   }) = AuthEventSetAuthenticated;
   const factory AuthEvent.authGetUserData() = AuthEventGetUserData;
-  const factory AuthEvent.showUserDetailPage() = AuthEventShowUserDetailPage;
   const factory AuthEvent.authUpdateUserData({
     required String firstName,
     required String lastName,
@@ -31,4 +31,10 @@ class AuthEvent with _$AuthEvent {
     required Gender gender,
     required DateTime dateOfBirth,
   }) = AuthEventUpdateUserData;
+
+  const factory AuthEvent.authSuccess({
+    required UserCredential userCredential,
+    required UserType userType,
+    AuthUserDataEntity? authUserData,
+  }) = AuthEventAuthSuccess;
 }

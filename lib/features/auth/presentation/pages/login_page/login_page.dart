@@ -91,7 +91,7 @@ class LoginPage extends StatelessWidget {
                 child: AppOutlineButton(
                   buttonText: 'Sign Up',
                   onPressed: () {
-                    context.push(AppRoutes.authUserCredsPage);
+                    context.push(AppRoutes.authSignUpPage);
                   },
                 ),
               ),

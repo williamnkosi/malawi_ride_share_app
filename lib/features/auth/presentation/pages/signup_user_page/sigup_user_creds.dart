@@ -22,7 +22,7 @@ class _SignUpUserCredsState extends State<SignUpUserCreds> {
   bool _hideConfirmPassword = true;
   UserType _selectedUserType = UserType.rider;
 
-  void _submitForm() {
+  void _submitForm(BuildContext context) {
     final isValid = _formKey.currentState?.validate() ?? false;
     if (!isValid) {
       return;
@@ -40,128 +40,127 @@ class _SignUpUserCredsState extends State<SignUpUserCreds> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
-      listener: (context, state) {
-        if (state.status == SignUpStatus.success) {
-          context.push('/AuthUserCredsPage/profile');
-        } else if (state.status == SignUpStatus.error) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text('Error: ${state.error}')));
-        }
-      },
-      child: Scaffold(
-        appBar: AppBar(title: const Text('Sign Up')),
-        body: FormBuilder(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FormBuilderTextField(
-                  name: 'email',
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Sign Up')),
+          body: FormBuilder(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FormBuilderTextField(
+                    name: 'email',
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.email(),
+                    ]),
                   ),
-                  keyboardType: TextInputType.emailAddress,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.email(),
-                  ]),
-                ),
-                const SizedBox(height: 16),
-                FormBuilderTextField(
-                  name: 'password',
-                  obscureText: _hidePassword,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() => _hidePassword = !_hidePassword);
-                      },
-                      icon: Icon(
-                        _hidePassword ? Icons.visibility : Icons.visibility_off,
+                  const SizedBox(height: 16),
+                  FormBuilderTextField(
+                    name: 'password',
+                    obscureText: _hidePassword,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() => _hidePassword = !_hidePassword);
+                        },
+                        icon: Icon(
+                          _hidePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
                       ),
                     ),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minLength(6),
+                    ]),
                   ),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.minLength(6),
-                  ]),
-                ),
-                const SizedBox(height: 16),
-                FormBuilderTextField(
-                  name: 'confirmPassword',
-                  obscureText: _hideConfirmPassword,
-                  decoration: InputDecoration(
-                    labelText: 'Confirm Password',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          _hideConfirmPassword = !_hideConfirmPassword;
-                        });
-                      },
-                      icon: Icon(
-                        _hideConfirmPassword
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                  const SizedBox(height: 16),
+                  FormBuilderTextField(
+                    name: 'confirmPassword',
+                    obscureText: _hideConfirmPassword,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _hideConfirmPassword = !_hideConfirmPassword;
+                          });
+                        },
+                        icon: Icon(
+                          _hideConfirmPassword
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
                       ),
                     ),
+                    validator: (valueCandidate) {
+                      final value = valueCandidate?.trim() ?? '';
+                      final passwordValue =
+                          _formKey.currentState?.fields['password']?.value
+                              as String?;
+
+                      if (value.isEmpty) {
+                        return 'Please confirm your password';
+                      }
+
+                      if (value != (passwordValue ?? '')) {
+                        return 'Passwords do not match';
+                      }
+
+                      return null;
+                    },
                   ),
-                  validator: (valueCandidate) {
-                    final value = valueCandidate?.trim() ?? '';
-                    final passwordValue =
-                        _formKey.currentState?.fields['password']?.value
-                            as String?;
-
-                    if (value.isEmpty) {
-                      return 'Please confirm your password';
-                    }
-
-                    if (value != (passwordValue ?? '')) {
-                      return 'Passwords do not match';
-                    }
-
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  children: [
-                    const Text('I am a:'),
-                    const SizedBox(width: 16),
-                    ChoiceChip(
-                      label: const Text('Rider'),
-                      selected: _selectedUserType == UserType.rider,
-                      onSelected: (_) =>
-                          setState(() => _selectedUserType = UserType.rider),
-                    ),
-                    const SizedBox(width: 8),
-                    ChoiceChip(
-                      label: const Text('Driver'),
-                      selected: _selectedUserType == UserType.driver,
-                      onSelected: (_) =>
-                          setState(() => _selectedUserType = UserType.driver),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                SizedBox(
-                  width: double.infinity,
-                  child: AppOutlineButton(
-                    buttonText: 'Create Account',
-                    onPressed: _submitForm,
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      const Text('I am a:'),
+                      const SizedBox(width: 16),
+                      ChoiceChip(
+                        label: const Text('Rider'),
+                        selected: _selectedUserType == UserType.rider,
+                        onSelected: (_) =>
+                            setState(() => _selectedUserType = UserType.rider),
+                      ),
+                      const SizedBox(width: 8),
+                      ChoiceChip(
+                        label: const Text('Driver'),
+                        selected: _selectedUserType == UserType.driver,
+                        onSelected: (_) =>
+                            setState(() => _selectedUserType = UserType.driver),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 24),
+                  Builder(
+                    builder: (builderContext) {
+                      return SizedBox(
+                        width: double.infinity,
+                        child: AppOutlineButton(
+                          buttonText: 'Create Account',
+                          onPressed: () => _submitForm(builderContext),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

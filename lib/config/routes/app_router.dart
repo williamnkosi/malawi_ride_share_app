@@ -8,6 +8,7 @@ import 'package:malawi_ride_share_app/features/auth/presentation/pages/login_pag
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 import 'package:malawi_ride_share_app/config/routes/router.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/sigup_user_creds.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/sign_up_container.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/cubit/sign_up_cubit.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_active_trip_page/driver_active_trip.dart';
@@ -23,7 +24,7 @@ class AppRouter extends StatelessWidget {
 
   final List<String> publicRoutes = [
     AppRoutes.loginPage,
-    AppRoutes.authUserCredsPage,
+    AppRoutes.authSignUpPage,
   ];
 
   @override
@@ -41,16 +42,10 @@ class AppRouter extends StatelessWidget {
               authenticated: (_) {
                 final location = routerState.matchedLocation;
                 if (privateRoutes.contains(location)) {
-                  return null; // Stay on the current route
+                  return null; // Stay on private routes
                 }
-                // Allow public routes (signup flow)
-                final isPublic =
-                    publicRoutes.contains(location) ||
-                    publicRoutes.any((route) => location.startsWith(route));
-                if (isPublic) {
-                  return null;
-                }
-                return AppRoutes.homePage; // Navigate to the home page
+                // Authenticated users should not be on public routes
+                return AppRoutes.homePage;
               },
 
               unauthenticated: (_) {
@@ -82,20 +77,8 @@ class AppRouter extends StatelessWidget {
                   LoginPage(), // Authenticated experience
             ),
             GoRoute(
-              path: AppRoutes.authUserCredsPage,
-              builder: (context, state) => BlocProvider(
-                create: (context) => SignUpCubit(
-                  signUpUserUseCase: getIt(),
-                  authRepositoryImp: getIt(),
-                ),
-                child: const SignUpUserCreds(),
-              ),
-              routes: [
-                GoRoute(
-                  path: 'profile',
-                  builder: (context, state) => const SignupUserPage(),
-                ),
-              ],
+              path: AppRoutes.authSignUpPage,
+              builder: (context, state) => const SignUpContainer(),
             ),
             GoRoute(
               path: AppRoutes.driverActiveTripPage,

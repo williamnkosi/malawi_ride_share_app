@@ -1,6 +1,6 @@
 part of 'sign_up_cubit.dart';
 
-enum SignUpStatus { initial, loading, success, error }
+enum SignUpStatus { initial, loading, success, userDataUpdated, error }
 
 class SignUpState extends Equatable {
   final SignUpStatus status;

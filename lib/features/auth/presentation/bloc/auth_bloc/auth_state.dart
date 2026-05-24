@@ -4,7 +4,6 @@ enum UserType { driver, rider }
 
 @freezed
 class AuthState with _$AuthState {
-  const factory AuthState.start() = _Start; // Initial state
   const factory AuthState.loading() = _Loading; // Loading state
   const factory AuthState.authenticated(
     UserCredential userCredential,
@@ -14,8 +13,4 @@ class AuthState with _$AuthState {
   const factory AuthState.unauthenticated() =
       _Unauthenticated; // Unauthenticated state
   const factory AuthState.error(String message) = _Error; // Error state
-  const factory AuthState.showUserDetailPage(
-    UserCredential userCredential,
-    UserType userType,
-  ) = _ShowUserDetailPage; // Show user detail page state
 }

@@ -50,3 +50,4 @@ local.properties
 google-services.json
 GoogleService-Info.plist
 GoogleService-Info-prod.plist
+firebase_options.dart

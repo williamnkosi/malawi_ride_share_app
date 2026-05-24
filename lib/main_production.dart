@@ -7,6 +7,8 @@ import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/app.dart';
 import 'package:malawi_ride_share_app/config/flavor.dart';
 import 'package:malawi_ride_share_app/firebase_options.dart';
+import 'package:malawi_ride_share_app/firebase_options.dart';
+import 'package:malawi_ride_share_app/firebase_options.dart';
 
 final Logger logger = Logger("Malawi Ride Share App");
 
@@ -36,7 +38,7 @@ void main() async {
   try {
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
+        options: DefaultFirebaseOptions.getByFlavor('production'),
       );
     } else {
       Firebase.app();

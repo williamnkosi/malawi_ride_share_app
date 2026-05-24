@@ -1,0 +1,31 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'auth_create_user_data_dto.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$AuthCreateUserDataDtoImpl _$$AuthCreateUserDataDtoImplFromJson(
+  Map<String, dynamic> json,
+) => _$AuthCreateUserDataDtoImpl(
+  firebaseId: json['firebaseId'] as String,
+  firstName: json['firstName'] as String,
+  lastName: json['lastName'] as String,
+  email: json['email'] as String,
+  phoneNumber: json['phoneNumber'] as String,
+  gender: json['gender'] as String,
+  dateOfBirth: json['dateOfBirth'] as String,
+);
+
+Map<String, dynamic> _$$AuthCreateUserDataDtoImplToJson(
+  _$AuthCreateUserDataDtoImpl instance,
+) => <String, dynamic>{
+  'firebaseId': instance.firebaseId,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'email': instance.email,
+  'phoneNumber': instance.phoneNumber,
+  'gender': instance.gender,
+  'dateOfBirth': instance.dateOfBirth,
+};

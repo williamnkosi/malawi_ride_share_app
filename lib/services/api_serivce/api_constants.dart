@@ -24,5 +24,7 @@ class ApiConstants {
 
   static const String createUser = "/users";
 
+  static const String getUser = "/users/me";
+
   static const String registerDevice = "/notifications/register-device";
 }

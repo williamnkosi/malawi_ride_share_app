@@ -39,7 +39,13 @@ class DriverOperationsBloc
     try {
       emit(const DriverOperationsState.loading());
       await initializeUseCase.call(null);
-      driverTripBloc.add(const DriverTripEvent.initialize());
+      if (!driverTripBloc.isClosed) {
+        driverTripBloc.add(const DriverTripEvent.initialize());
+      } else {
+        logger.warning(
+          'DriverTripBloc is closed, skipping trip initialization event',
+        );
+      }
       logger.info('DriverOperationsBloc initialized successfully.');
       emit(DriverOperationsState.offline());
     } catch (e) {
@@ -55,7 +61,13 @@ class DriverOperationsBloc
     try {
       logger.info('Driver went offline');
       goOfflineUseCase.call(null);
-      driverTripBloc.add(const DriverTripEvent.deinitialize());
+      if (!driverTripBloc.isClosed) {
+        driverTripBloc.add(const DriverTripEvent.deinitialize());
+      } else {
+        logger.warning(
+          'DriverTripBloc is closed, skipping trip deinitialization event',
+        );
+      }
       emit(const DriverOperationsState.offline());
     } catch (e) {
       logger.severe('Error going offline: $e');

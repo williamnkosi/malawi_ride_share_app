@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:malawi_ride_share_app/features/app/domain/repositories/location_permission_repository.dart';
@@ -30,6 +29,9 @@ import 'package:malawi_ride_share_app/features/auth/domain/usecases/signup_user.
 import 'package:malawi_ride_share_app/features/auth/domain/usecases/singin_user.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/bloc/driver_trip_bloc/driver_trip_bloc.dart';
+import 'package:malawi_ride_share_app/features/rider/data/rider_trip_repository_impl.dart';
+import 'package:malawi_ride_share_app/features/rider/domain/rider_trip_repository.dart';
+import 'package:malawi_ride_share_app/features/rider/presentation/bloc/rider_operations_bloc/rider_operations_bloc.dart';
 import 'package:malawi_ride_share_app/features/shared/google_maps/domain/use_cases/get_route_use.case.dart';
 import 'package:malawi_ride_share_app/features/location/domain/use_case/get_location_use_case.dart';
 import 'package:malawi_ride_share_app/features/location/presentation/location_bloc/location_bloc.dart';
@@ -65,14 +67,16 @@ Future<void> setupGetIt() async {
 
   logger.info('=====================================');
 
-  getIt.registerSingleton<FirebaseAuthRepositoryImp>(
-    FirebaseAuthRepositoryImp(apiService: getIt<ApiService>()),
+  getIt.registerSingleton<AuthRepositoryImp>(
+    AuthRepositoryImp(apiService: getIt<ApiService>()),
   );
   await setupSharedDependencies();
   await setupAppFeatureDependencies();
   await setupAuthFeatureDependencies();
   await setupLocationFeatureDependencies();
   await setupGoogleMapsDependencies();
+
+  await setuRiderTripDependencies();
 
   await setupDriverTripDependencies();
   await setupDriverOperationsDependencies();
@@ -127,15 +131,15 @@ Future<void> setupAuthFeatureDependencies() async {
 
   // Use cases
   getIt.registerSingleton<SignInUserUseCase>(
-    SignInUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignInUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerSingleton<SignUpUserUseCase>(
-    SignUpUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignUpUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerSingleton<SignOutUserUseCase>(
-    SignOutUserUseCase(getIt<FirebaseAuthRepositoryImp>()),
+    SignOutUserUseCase(getIt<AuthRepositoryImp>()),
   );
 
   getIt.registerFactory<AuthBloc>(
@@ -143,6 +147,7 @@ Future<void> setupAuthFeatureDependencies() async {
       signInUserUseCase: getIt<SignInUserUseCase>(),
       signUpUserUseCase: getIt<SignUpUserUseCase>(),
       signOutUserUseCase: getIt<SignOutUserUseCase>(),
+      authRepositoryImp: getIt<AuthRepositoryImp>(),
     ),
   );
 }
@@ -198,6 +203,20 @@ Future<void> setupDriverOperationsDependencies() async {
       goOfflineUseCase: getIt<GoOfflineUseCase>(),
       goOnLineUseCase: getIt<GoOnLineUseCase>(),
     ),
+  );
+}
+
+Future<void> setuRiderTripDependencies() async {
+  getIt.registerSingleton<RiderTripRepository>(
+    RiderTripRepositoryImpl(
+      socketRepository: getIt<SocketRepository>(),
+      apiService: getIt<ApiService>(),
+      firebaseRepository: getIt<FirebaseRepository>(),
+    ),
+  );
+  // Register use cases and blocs related to rider trips here
+  getIt.registerSingleton<RiderOperationsBloc>(
+    RiderOperationsBloc(riderTripRepository: getIt<RiderTripRepository>()),
   );
 }
 

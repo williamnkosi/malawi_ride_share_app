@@ -7,8 +7,12 @@ import 'package:malawi_ride_share_app/config/theme/app_theme.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/login_page/login_page.dart';
 import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/signup_user_page.dart';
 import 'package:malawi_ride_share_app/config/routes/router.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/sigup_user_creds.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/pages/signup_user_page/sign_up_container.dart';
+import 'package:malawi_ride_share_app/features/auth/presentation/bloc/cubit/sign_up_cubit.dart';
 import 'package:malawi_ride_share_app/features/driver/domain/entity/driver_trip.dart';
 import 'package:malawi_ride_share_app/features/driver/presentation/pages/driver_active_trip_page/driver_active_trip.dart';
+import 'package:malawi_ride_share_app/services/locator.dart';
 
 class AppRouter extends StatelessWidget {
   AppRouter({super.key});
@@ -32,18 +36,23 @@ class AppRouter extends StatelessWidget {
           initialLocation: AppRoutes.loginPage,
           redirect: (context, routerState) {
             return state.map(
-              start: (_) =>
-                  AppRoutes.loginPage, // Redirect logic for the initial state
               loading: (_) => null, // Do nothing, remain on the same screen
               authenticated: (_) {
-                if (privateRoutes.contains(routerState.matchedLocation)) {
-                  return null; // Stay on the current route
+                final location = routerState.matchedLocation;
+                if (privateRoutes.contains(location)) {
+                  return null; // Stay on private routes
                 }
-                return AppRoutes.homePage; // Navigate to the home page
+                // Authenticated users should not be on public routes
+                return AppRoutes.homePage;
               },
 
               unauthenticated: (_) {
-                if (publicRoutes.contains(routerState.matchedLocation)) {
+                final location = routerState.matchedLocation;
+                // Check if current route is public or starts with a public route
+                final isPublic =
+                    publicRoutes.contains(location) ||
+                    publicRoutes.any((route) => location.startsWith(route));
+                if (isPublic) {
                   return null;
                 }
                 return AppRoutes.loginPage;
@@ -66,8 +75,7 @@ class AppRouter extends StatelessWidget {
             ),
             GoRoute(
               path: AppRoutes.authSignUpPage,
-              builder: (context, state) =>
-                  SignupUserPage(), // Unauthenticated experience
+              builder: (context, state) => const SignUpContainer(),
             ),
             GoRoute(
               path: AppRoutes.driverActiveTripPage,

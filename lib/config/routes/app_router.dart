@@ -36,8 +36,6 @@ class AppRouter extends StatelessWidget {
           initialLocation: AppRoutes.loginPage,
           redirect: (context, routerState) {
             return state.map(
-              start: (_) =>
-                  AppRoutes.loginPage, // Redirect logic for the initial state
               loading: (_) => null, // Do nothing, remain on the same screen
               authenticated: (_) {
                 final location = routerState.matchedLocation;

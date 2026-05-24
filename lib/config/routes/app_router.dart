@@ -59,7 +59,6 @@ class AppRouter extends StatelessWidget {
                 }
                 return AppRoutes.loginPage;
               },
-
               error: (_) {
                 return null;
               }, // Navigate to the login page

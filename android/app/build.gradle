@@ -3,7 +3,6 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
-    id 'com.google.gms.google-services'
 }
 
 dependencies {
@@ -91,27 +90,7 @@ android {
         }
     }
 
-    flavorDimensions "default"
-    productFlavors{
-        production{
-            dimension "default"
-            resValue "string", "app_name", "MW_Ride_Share"
-            applicationIdSuffix ""
-            manifestPlaceholders = [apiKey: apiKey]
-        }
-        staging{
-            dimension "default"
-            resValue "string", "app_name",  "MW_Ride_Share"
-            applicationIdSuffix ".staging"
-            manifestPlaceholders = [apiKey: apiKey]
-        }
-        development{
-            dimension "default"
-            resValue "string", "app_name",  "MW_Ride_Share"
-            applicationIdSuffix ".dev"
-            manifestPlaceholders = [apiKey: apiKey]
-        }
-    }
+
 }
 
 flutter {
